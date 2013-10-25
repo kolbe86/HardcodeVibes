@@ -4,5 +4,10 @@
 		"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
 		"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-	<definition name="test"></definition>
+	<definition name="singlebaselayout" template="SingleBaseLayout.jsp">
+		<put-attribute name="header" value=""></put-attribute>
+		<put-attribute name="menu" value=""></put-attribute>
+		<put-attribute name="dunning" value=""></put-attribute>
+		<put-attribute name="main" value=""></put-attribute>
+	</definition>
 </tiles-definitions>
