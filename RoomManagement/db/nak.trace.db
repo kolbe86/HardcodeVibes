@@ -1,0 +1,172 @@
+04-21 21:04:27 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Unbekannter Datentyp: RENAMT
+Unknown data type: RENAMT; SQL statement:
+alter table ROOM alter column room_key renamt to id [50004-111]
+	at org.h2.message.Message.getSQLException(Message.java:107)
+	at org.h2.message.Message.getSQLException(Message.java:118)
+	at org.h2.message.Message.getSQLException(Message.java:77)
+	at org.h2.command.Parser.parseColumn(Parser.java:3332)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3200)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:4395)
+	at org.h2.command.Parser.parseAlter(Parser.java:3844)
+	at org.h2.command.Parser.parsePrepared(Parser.java:305)
+	at org.h2.command.Parser.parse(Parser.java:288)
+	at org.h2.command.Parser.parse(Parser.java:260)
+	at org.h2.command.Parser.prepareCommand(Parser.java:232)
+	at org.h2.engine.Session.prepareLocal(Session.java:409)
+	at org.h2.engine.Session.prepareCommand(Session.java:370)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1042)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebThread.getResult(WebThread.java:1723)
+	at org.h2.server.web.WebThread.query(WebThread.java:1286)
+	at org.h2.server.web.WebThread.process(WebThread.java:444)
+	at org.h2.server.web.WebThread.processRequest(WebThread.java:186)
+	at org.h2.server.web.WebThread.process(WebThread.java:241)
+	at org.h2.server.web.WebThread.run(WebThread.java:196)
+04-29 21:42:53 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Datenumwandlungsfehler beim Umwandeln von 
+Data conversion error converting ; SQL statement:
+INSERT INTO "PUBLIC"."ROOM"("ID","BUILDING","ROOM_NUMBER","SEATS","BEAMER")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [90021-111]
+	at org.h2.message.Message.getSQLException(Message.java:107)
+	at org.h2.value.Value.convertTo(Value.java:785)
+	at org.h2.command.dml.Insert.update(Insert.java:88)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:71)
+	at org.h2.command.Command.executeUpdate(Command.java:207)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:139)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:128)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:283)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:2805)
+	at org.h2.server.web.WebThread.editResult(WebThread.java:1390)
+	at org.h2.server.web.WebThread.process(WebThread.java:448)
+	at org.h2.server.web.WebThread.processRequest(WebThread.java:186)
+	at org.h2.server.web.WebThread.process(WebThread.java:241)
+	at org.h2.server.web.WebThread.run(WebThread.java:196)
+Caused by: java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at java.lang.Long.valueOf(Unknown Source)
+	at java.lang.Long.decode(Unknown Source)
+	at org.h2.util.MathUtils.decodeLong(MathUtils.java:160)
+	at org.h2.value.Value.convertTo(Value.java:744)
+	... 12 more
+04-29 21:42:53 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Datenumwandlungsfehler beim Umwandeln von 
+Data conversion error converting ; SQL statement:
+INSERT INTO "PUBLIC"."ROOM"("ID","BUILDING","ROOM_NUMBER","SEATS","BEAMER")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [90021-111]
+	at org.h2.message.Message.getSQLException(Message.java:107)
+	at org.h2.value.Value.convertTo(Value.java:785)
+	at org.h2.command.dml.Insert.update(Insert.java:88)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:71)
+	at org.h2.command.Command.executeUpdate(Command.java:207)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:139)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:128)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:283)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:2805)
+	at org.h2.server.web.WebThread.editResult(WebThread.java:1390)
+	at org.h2.server.web.WebThread.process(WebThread.java:448)
+	at org.h2.server.web.WebThread.processRequest(WebThread.java:186)
+	at org.h2.server.web.WebThread.process(WebThread.java:241)
+	at org.h2.server.web.WebThread.run(WebThread.java:196)
+Caused by: java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at java.lang.Long.valueOf(Unknown Source)
+	at java.lang.Long.decode(Unknown Source)
+	at org.h2.util.MathUtils.decodeLong(MathUtils.java:160)
+	at org.h2.value.Value.convertTo(Value.java:744)
+	... 12 more
+05-03 13:29:58 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Datenumwandlungsfehler beim Umwandeln von 
+Data conversion error converting ; SQL statement:
+INSERT INTO "PUBLIC"."ROOM"("ID","BUILDING","ROOM_NUMBER","SEATS","BEAMER")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [90021-111]
+	at org.h2.message.Message.getSQLException(Message.java:107)
+	at org.h2.value.Value.convertTo(Value.java:785)
+	at org.h2.command.dml.Insert.update(Insert.java:88)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:71)
+	at org.h2.command.Command.executeUpdate(Command.java:207)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:139)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:128)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:283)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:2805)
+	at org.h2.server.web.WebThread.editResult(WebThread.java:1390)
+	at org.h2.server.web.WebThread.process(WebThread.java:448)
+	at org.h2.server.web.WebThread.processRequest(WebThread.java:186)
+	at org.h2.server.web.WebThread.process(WebThread.java:241)
+	at org.h2.server.web.WebThread.run(WebThread.java:196)
+Caused by: java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at java.lang.Long.valueOf(Unknown Source)
+	at java.lang.Long.decode(Unknown Source)
+	at org.h2.util.MathUtils.decodeLong(MathUtils.java:160)
+	at org.h2.value.Value.convertTo(Value.java:744)
+	... 12 more
+05-03 13:29:58 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Datenumwandlungsfehler beim Umwandeln von 
+Data conversion error converting ; SQL statement:
+INSERT INTO "PUBLIC"."ROOM"("ID","BUILDING","ROOM_NUMBER","SEATS","BEAMER")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [90021-111]
+	at org.h2.message.Message.getSQLException(Message.java:107)
+	at org.h2.value.Value.convertTo(Value.java:785)
+	at org.h2.command.dml.Insert.update(Insert.java:88)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:71)
+	at org.h2.command.Command.executeUpdate(Command.java:207)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:139)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:128)
+	at org.h2.result.UpdatableRow.insertRow(UpdatableRow.java:283)
+	at org.h2.jdbc.JdbcResultSet.insertRow(JdbcResultSet.java:2805)
+	at org.h2.server.web.WebThread.editResult(WebThread.java:1390)
+	at org.h2.server.web.WebThread.process(WebThread.java:448)
+	at org.h2.server.web.WebThread.processRequest(WebThread.java:186)
+	at org.h2.server.web.WebThread.process(WebThread.java:241)
+	at org.h2.server.web.WebThread.run(WebThread.java:196)
+Caused by: java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at java.lang.Long.valueOf(Unknown Source)
+	at java.lang.Long.decode(Unknown Source)
+	at org.h2.util.MathUtils.decodeLong(MathUtils.java:160)
+	at org.h2.value.Value.convertTo(Value.java:744)
+	... 12 more
+05-03 16:18:16 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Kann Zeitstempel 02.05.2009 09:15 nicht umwandeln, Grund: format yyyy-mm-dd
+Cannot parse timestamp constant 02.05.2009 09:15, cause: format yyyy-mm-dd; SQL statement:
+UPDATE "PUBLIC"."LECTURE" SET "ID"=? ,"DATE"=? ,"COURSE_ID"=? ,"ROOM_ID"=? ,"BEGIN"=? ,"END"=?  WHERE "ID"=? [90011-111]
+	at org.h2.message.Message.getSQLException(Message.java:107)
+	at org.h2.message.Message.getSQLException(Message.java:118)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:254)
+	at org.h2.value.ValueTimestamp.parseTimestamp(ValueTimestamp.java:73)
+	at org.h2.value.Value.convertTo(Value.java:752)
+	at org.h2.command.dml.Update.update(Update.java:110)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:71)
+	at org.h2.command.Command.executeUpdate(Command.java:207)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:139)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:128)
+	at org.h2.result.UpdatableRow.updateRow(UpdatableRow.java:248)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2832)
+	at org.h2.server.web.WebThread.editResult(WebThread.java:1392)
+	at org.h2.server.web.WebThread.process(WebThread.java:448)
+	at org.h2.server.web.WebThread.processRequest(WebThread.java:186)
+	at org.h2.server.web.WebThread.process(WebThread.java:241)
+	at org.h2.server.web.WebThread.run(WebThread.java:196)
+05-03 16:18:16 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Kann Zeitstempel 02.05.2009 09:15 nicht umwandeln, Grund: format yyyy-mm-dd
+Cannot parse timestamp constant 02.05.2009 09:15, cause: format yyyy-mm-dd; SQL statement:
+UPDATE "PUBLIC"."LECTURE" SET "ID"=? ,"DATE"=? ,"COURSE_ID"=? ,"ROOM_ID"=? ,"BEGIN"=? ,"END"=?  WHERE "ID"=? [90011-111]
+	at org.h2.message.Message.getSQLException(Message.java:107)
+	at org.h2.message.Message.getSQLException(Message.java:118)
+	at org.h2.util.DateTimeUtils.parseDateTime(DateTimeUtils.java:254)
+	at org.h2.value.ValueTimestamp.parseTimestamp(ValueTimestamp.java:73)
+	at org.h2.value.Value.convertTo(Value.java:752)
+	at org.h2.command.dml.Update.update(Update.java:110)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:71)
+	at org.h2.command.Command.executeUpdate(Command.java:207)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:139)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:128)
+	at org.h2.result.UpdatableRow.updateRow(UpdatableRow.java:248)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:2832)
+	at org.h2.server.web.WebThread.editResult(WebThread.java:1392)
+	at org.h2.server.web.WebThread.process(WebThread.java:448)
+	at org.h2.server.web.WebThread.processRequest(WebThread.java:186)
+	at org.h2.server.web.WebThread.process(WebThread.java:241)
+	at org.h2.server.web.WebThread.run(WebThread.java:196)
+09-05 18:37:50 database: log=0
