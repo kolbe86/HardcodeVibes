@@ -15,6 +15,11 @@
       	<put-attribute name="header"  value="Publikation Anlegen"/>
       	<put-attribute name="main"   value="/publicationCreation.jsp"/>      
   	</definition>
+  	
+  	<definition name="successfullPublicationCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation erfolgreich angelegt"/>
+      	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
+  	</definition>
   
     <definition name="publicationManagement" extends="baseLayout">
     	<put-attribute name="header"  value="Publikation verwalten"/>

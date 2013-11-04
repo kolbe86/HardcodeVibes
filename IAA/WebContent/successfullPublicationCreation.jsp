@@ -6,20 +6,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Register</title>
+<title>Creation Successful</title>
 </head>
 <body>
-<h3>Lege eine neue Publikation an</h3>
+<h3>Publikation wurde erfolgreich angelegt.</h3>
 
-<s:form action="publicationCreationAction">
+<p>Der Titel der Publikation ist: <s:property value="publicationBean.titel" /> </p>
 
- 	  <s:textfield name="publicationBean.titel" label="Titel" />
- 	  <s:textfield  name="publicationBean.author" label="Author" />
- 	  <s:textfield name="publicationBean.dateOfPublication"  label ="Veroeffentlichkeitsdatum"/>  
- 	  
-   	  <s:submit/>
-   	  
-</s:form>	
- 
+<p><a href="<s:url action='baseLayoutLink' />" >Return to home page</a>.</p>
+
 </body>
 </html>

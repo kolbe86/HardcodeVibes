@@ -18,5 +18,9 @@
 			<result name="basicDataType" type="tiles">basicDataType</result>
 			<result name="basicDataWord" type="tiles">basicDataWord</result>
 		</action>
+		
+		<action name="publicationCreationAction" class="de.nak.actions.PublicationCreationAction" method="execute">
+  			<result name="success" type="tiles">successfullPublicationCreation</result>
+		</action>
 	</package>
 </struts>
