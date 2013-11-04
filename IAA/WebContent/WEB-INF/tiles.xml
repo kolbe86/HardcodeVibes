@@ -4,10 +4,41 @@
 		"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
 		"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-	<definition name="singlebaselayout" template="singleBaseLayout.jsp">
-		<put-attribute name="header" value=""></put-attribute>
-		<put-attribute name="menu" value=""></put-attribute>
-		<put-attribute name="dunning" value=""></put-attribute>
-		<put-attribute name="main" value=""></put-attribute>
+	<definition name="baseLayout" template="/baseLayout.jsp">
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/menu.jsp"></put-attribute>
+		<put-attribute name="dunning" value="/dunning.jsp"></put-attribute>
+		<put-attribute name="main" value="/main.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="publicationCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation Anlegen"/>
+      	<put-attribute name="main"   value="/publicationCreation.jsp"/>      
+  	</definition>
+  
+    <definition name="publicationManagement" extends="baseLayout">
+    	<put-attribute name="header"  value="Publikation verwalten"/>
+      	<put-attribute name="main"   value="/publicationManagement.jsp"/>      
+  	</definition>
+  
+  	<definition name="lendingProcessManagement" extends="baseLayout">
+      	<put-attribute name="header"  value="Ausleihvorgang verwalten"/>
+      	<put-attribute name="main"   value="/lendingProcessManagement.jsp"/>      
+  	</definition>
+  
+  	<definition name="basicDataLender" extends="baseLayout">
+      	<put-attribute name="header"  value="Stammdaten Ausleiher"/>
+      	<put-attribute name="main"   value="/basicDataLender.jsp"/>      
+  	</definition>
+  	
+  	 <definition name="basicDataType" extends="baseLayout">
+      	<put-attribute name="header"  value="Stammdaten Typ"/>
+      	<put-attribute name="main"   value="/basicDataType.jsp"/>      
+  	</definition>
+  	
+  	 <definition name="basicDataWord" extends="baseLayout">
+      	<put-attribute name="header"  value="Stammdaten Schlagwoerter"/>
+      	<put-attribute name="main"   value="/basicDataWord.jsp"/>      
+  	</definition>
+  	
 </tiles-definitions>

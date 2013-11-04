@@ -6,18 +6,39 @@ public class LinkAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	public String welcome()
+	public String baseLayout()
 	{
-		return "welcome";		
+		return "baseLayout";		
 	}
 	
-	public String struts()
+	public String publicationCreation()
 	{
-		return "struts";		
+		return "publicationCreation";		
 	}
 	
-	public String hibernate()
+	public String publicationManagement()
 	{
-		return "hibernate";		
+		return "publicationManagement";		
 	}
+	
+	public String lendingProcessManagement()
+	{
+		return "lendingProcessManagement";		
+	}
+	
+	public String basicDataLender()
+	{
+		return "basicDataLender";		
+	}
+	
+	public String basicDataType()
+	{
+		return "basicDataType";		
+	}
+	
+	public String basicDataWord()
+	{
+		return "basicDataWord";		
+	}
+	
 }

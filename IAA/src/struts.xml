@@ -5,7 +5,18 @@
         "http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
-    <package name="default" extends="tiles-default">
-    
-    </package>
+	<package name="default" extends="struts-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<action name="*Link" method="{1}" class="com.tutorials4u.actions.LinkAction">
+			<result name="baseLayout" type="tiles">baseLayout</result>
+			<result name="publicationCreation" type="tiles">publicationCreation</result>
+			<result name="publicationManagement" type="tiles">publicationManagement</result>
+			<result name="lendingProcessManagement" type="tiles">lendingProcessManagement</result>
+			<result name="basicDataLender" type="tiles">basicDataLender</result>
+			<result name="basicDataType" type="tiles">basicDataType</result>
+			<result name="basicDataWord" type="tiles">basicDataWord</result>
+		</action>
+	</package>
 </struts>

@@ -17,5 +17,4 @@ Stammdaten
 	<li><a href="<s:url action="basicDataWordLink" />" >Schlagwort</a></li>	
 	<li><a href="<s:url action="basicDataLenderLink" />" >Ausleiher</a></li>	
 </ul>
-<a href="<s:url action="strutsLink"/>" >Struts Tutorial</a><br>
-<a href="<s:url action="hibernateLink"/>" >Hibernate Tutorial</a><br>
+
