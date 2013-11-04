@@ -1,42 +1,50 @@
-/**
- * 
- */
 package de.nak.librarymgmt.model;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
+ * The room entity.
  * 
  * @author Kowk Bond Chu
  */
-public abstract class Publication {
+/**
+ * @author mariokolbe
+ * 
+ */
+@Entity
+@Table(name = "Publication")
+public abstract class Publication implements Serializable {
 
+	/** Serial version uid. */
+	private static final long serialVersionUID = 1L;
 	/** The identifier. */
 	private Long id;
-	/** The titel of the publication. */
-	private String titel;
+	/** The title of the publication. */
+	private String title;
 	/** The author of the publication. */
 	private String author;
 	/** The date of publication. */
 	private Date dateOfPublication;
+
 	/** The list of keywords for the publication. */
-	private List<String> keywords;
+	// private List<String> keywords;
+
 	/**
 	 * private enum condition;
 	 * 
 	 */
 	/** The associated lending process. */
-	private LendingProcess lendingProcess;
+	// private LendingProcess lendingProcess;
 
-	public List<String> getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(List<String> keywords) {
-		this.keywords = keywords;
-	}
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -45,12 +53,12 @@ public abstract class Publication {
 		this.id = id;
 	}
 
-	public String getTitel() {
-		return titel;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTitel(String titel) {
-		this.titel = titel;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getAuthor() {
@@ -69,11 +77,24 @@ public abstract class Publication {
 		this.dateOfPublication = dateOfPublication;
 	}
 
-	public LendingProcess getLendingProcess() {
-		return lendingProcess;
+	// public List<String> getKeywords() {
+	// return keywords;
+	// }
+	//
+	// public void setKeywords(List<String> keywords) {
+	// this.keywords = keywords;
+	// }
+
+	// public LendingProcess getLendingProcess() {
+	// return lendingProcess;
+	// }
+	//
+	// public void setLendingProcess(LendingProcess lendingProcess) {
+	// this.lendingProcess = lendingProcess;
+	// }
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public void setLendingProcess(LendingProcess lendingProcess) {
-		this.lendingProcess = lendingProcess;
-	}
 }
