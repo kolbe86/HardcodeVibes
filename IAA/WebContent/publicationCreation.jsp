@@ -13,9 +13,9 @@
 
 <s:form action="publicationCreationAction">
 
- 	  <s:textfield name="publicationBean.titel" label="Titel" />
- 	  <s:textfield  name="publicationBean.author" label="Author" />
- 	  <s:textfield name="publicationBean.dateOfPublication"  label ="Veroeffentlichkeitsdatum"/>  
+ 	  <s:textfield name="probeBuchBean.titel" label="Titel" />
+ 	  <s:textfield  name="probeBuchBean.author" label="Author" />
+ 	  <s:textfield name="probeBuchBean.datum"  label ="Veroeffentlichkeitsdatum"/>  
  	  
    	  <s:submit/>
    	  

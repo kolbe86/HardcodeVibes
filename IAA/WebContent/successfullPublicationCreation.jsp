@@ -11,7 +11,7 @@
 <body>
 <h3>Publikation wurde erfolgreich angelegt.</h3>
 
-<p>Der Titel der Publikation ist: <s:property value="publicationBean.titel" /> </p>
+<p>Der Titel der Publikation ist: <s:property value="probeBuchBean" /> </p>
 
 <p><a href="<s:url action='baseLayoutLink' />" >Return to home page</a>.</p>
 
