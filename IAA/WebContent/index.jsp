@@ -1,1 +1,1 @@
-<META HTTP-EQUIV="Refresh" CONTENT="0;URL=welcomeLink.action">
+<META HTTP-EQUIV="Refresh" CONTENT="0;URL=baseLayoutLink.action">
