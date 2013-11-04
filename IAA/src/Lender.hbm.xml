@@ -5,15 +5,15 @@
 <hibernate-mapping>
 	<class name="de.nak.librarymgmt.Lender" table="TABLE">
 		<id name="id" column="ID" type="long">
-			<generator class="native"/>
+			<generator class="native" />
 		</id>
-		<natural-id mutable="true">
-			<property name="firstName" column="FIRSTNAME" not-null="true" type="string"/>
-			<property name="lastName" column="LASTNAME" not-null="true" type="string"/>
-		</natural-id>
+		<property name="firstName" column="FIRSTNAME" not-null="true"
+			type="string" />
+		<property name="lastName" column="LASTNAME" not-null="true"
+			type="string" />
 		<set name="lendingProcesses" inverse="true" cascade="all-delete-orphan">
-			<key column="PROCESS_ID"/>
-			<one-to-many class="de.nak.librarymgmt.LendingProcess"/>
+			<key column="PROCESS_ID" />
+			<one-to-many class="de.nak.librarymgmt.LendingProcess" />
 		</set>
 	</class>
 </hibernate-mapping>
