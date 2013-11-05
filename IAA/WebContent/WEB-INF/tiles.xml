@@ -46,4 +46,9 @@
       	<put-attribute name="main"   value="/basicDataWord.jsp"/>      
   	</definition>
   	
+  	 <definition name="marioTest" extends="baseLayout">
+      	<put-attribute name="header"  value="Marios Testseite"/>
+      	<put-attribute name="main"   value="/marioTest.jsp"/>      
+  	</definition>
+  	
 </tiles-definitions>

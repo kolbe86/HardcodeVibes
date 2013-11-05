@@ -12,7 +12,7 @@
 <div style="width:15%;height:85%;background-color:pink;float:left">
 
 	<div style="width:100%;height:50%;background-color:yellow;float:left"><tiles:insertAttribute name="menu" /></div>
-	<div style="width:100%;height:50%;background-color:blue;float:left"><tiles:insertAttribute name="dunning" /></div>
+	<div style="width:100%;height:50%;background-color:pink;float:left"><tiles:insertAttribute name="dunning" /></div>
 </div>
 <div style="width:85%;height:85%;background-color:red;float:left"><tiles:insertAttribute name="main" /></div>
 

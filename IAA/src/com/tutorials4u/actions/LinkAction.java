@@ -41,4 +41,9 @@ public class LinkAction extends ActionSupport {
 		return "basicDataWord";		
 	}
 	
+	public String marioTest()
+	{
+		return "marioTest";
+	}
+	
 }
