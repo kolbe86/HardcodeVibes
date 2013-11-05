@@ -1,13 +1,14 @@
 package de.nak.librarymgmt.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class ProbeBuch {
 	
 	private String titel;
 	private String author;
 	private Date datum;
-	private String[] schlagwort = {"Informatik", "Ingenieurwesen", "BWL"};
+	private List<String> schlagwort;
 	private String art;
 	private String isbn;
 	private String verlag;
@@ -61,11 +62,12 @@ public class ProbeBuch {
         return "Titel: " + getTitel() + " Author:  " + getAuthor() + 
         " Datum:      " + getDatum() ;
     }
-	public String[] getSchlagwort() {
+	public List<String> getSchlagwort() {
 		return schlagwort;
 	}
-	public void setSchlagwort(String[] schlagwort) {
+	public void setSchlagwort(List<String> schlagwort) {
 		this.schlagwort = schlagwort;
 	}
+
 
 }
