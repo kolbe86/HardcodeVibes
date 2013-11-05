@@ -4,10 +4,9 @@
 <html>
   <head><title>Simple jsp page</title></head>
   <body>
-  <s:form action="marioTestLink">
+  <s:form action="CreateTable">
   		<s:submit label="Test-Knopf"/>
   </s:form>
-  
   
   <p><a href="<s:url action="marioTestLink" />" >TEST TEST TEST</a></p></body>
 </html>

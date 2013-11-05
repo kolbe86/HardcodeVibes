@@ -23,8 +23,13 @@
 		<action name="publicationCreationLink" class="de.nak.actions.PublicationCreationStartup" method="execute">
 			<result name="publicationCreation" type="tiles">publicationCreation</result>
 		</action>
+		
 		<action name="publicationCreationAction" class="de.nak.actions.PublicationCreationAction" method="execute">
   			<result name="success" type="tiles">successfullPublicationCreation</result>
+		</action>
+		
+		<action name="CreateTable" class="de.nak.actions.CreateTableAction" method="execute">
+			<result name="marioTest" type="tiles">marioTest</result>
 		</action>
 	</package>
 </struts>
