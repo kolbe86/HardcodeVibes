@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="de.nak.librarymgmt.model.Borrower" table="Borrower">
+		<id name="id" column="BorrowerID" type="long">
+			<generator class="native" />
+		</id>
+		<property name="firstName" column="FirstName" not-null="true"
+			type="string" />
+		<property name="lastName" column="LastName" not-null="true"
+			type="string" />
+		<set name="lendingProcesses" inverse="true" cascade="all-delete-orphan">
+			<key column="LendingProcessID" />
+			<one-to-many class="de.nak.librarymgmt.model.LendingProcess" />
+		</set>
+	</class>
+</hibernate-mapping>
