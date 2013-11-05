@@ -15,10 +15,9 @@ public class BorrowerServiceImpl implements BorrowerService {
 
 		try {
 			System.out.println("Try borrowerDAO.save");
-			borrowerDAO = new BorrowerDAO();
 			borrowerDAO.save(borrower);
 		} catch (Exception e) {
-			e.printStackTrace();
+			// TODO
 		}
 
 	}
