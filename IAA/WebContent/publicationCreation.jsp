@@ -11,11 +11,19 @@
 <body>
 <h3>Lege eine neue Publikation an</h3>
 
+<%-- <jsp:useBean id="ub" class="de.nak.librarymgmt.model.ProbeBuch"/> --%>
 <s:form action="publicationCreationAction">
 
  	  <s:textfield name="probeBuchBean.titel" label="Titel" />
  	  <s:textfield  name="probeBuchBean.author" label="Author" />
- 	  <s:textfield name="probeBuchBean.datum"  label ="Veroeffentlichkeitsdatum"/>  
+ 	  <s:textfield name="probeBuchBean.datum"  label ="Veroeffentlichkeitsdatum" value="dd.mm.yyyy"/>
+ 	  <s:select name="probeBuchBean.schlagwort" list="probeBuchBean.schlagwort" size="2" multiple="True"/>
+<%--  	  <s:textfield name="probeBuchBean.schlagwort"  label ="Schlagwort"/> --%>
+ 	  <s:textfield name="probeBuchBean.art"  label ="Art der Publikation"/>
+ 	  <s:textfield name="probeBuchBean.isbn"  label ="ISBN Nummer"/>
+ 	  <s:textfield name="probeBuchBean.verlag"  label ="Verlag"/>
+ 	  <s:textfield name="probeBuchBean.anzahl"  label ="Anzahl"/>
+ 	   
  	  
    	  <s:submit/>
    	  

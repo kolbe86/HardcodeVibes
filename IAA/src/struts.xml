@@ -11,7 +11,7 @@
 		</result-types>
 		<action name="*Link" method="{1}" class="com.tutorials4u.actions.LinkAction">
 			<result name="baseLayout" type="tiles">baseLayout</result>
-			<result name="publicationCreation" type="tiles">publicationCreation</result>
+<!-- 			<result name="publicationCreation" type="tiles">publicationCreation</result> -->
 			<result name="publicationManagement" type="tiles">publicationManagement</result>
 			<result name="lendingProcessManagement" type="tiles">lendingProcessManagement</result>
 			<result name="basicDataLender" type="tiles">basicDataLender</result>
@@ -19,6 +19,9 @@
 			<result name="basicDataWord" type="tiles">basicDataWord</result>
 		</action>
 		
+		<action name="publicationCreationLink" class="de.nak.actions.PublicationCreationStartup" method="execute">
+			<result name="publicationCreation" type="tiles">publicationCreation</result>
+		</action>
 		<action name="publicationCreationAction" class="de.nak.actions.PublicationCreationAction" method="execute">
   			<result name="success" type="tiles">successfullPublicationCreation</result>
 		</action>

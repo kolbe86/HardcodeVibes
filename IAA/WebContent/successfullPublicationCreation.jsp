@@ -11,9 +11,20 @@
 <body>
 <h3>Publikation wurde erfolgreich angelegt.</h3>
 
-<p>Der Titel der Publikation ist: <s:property value="probeBuchBean" /> </p>
+<p>
+Der Titel der Publikation ist: <s:property value="probeBuchBean.titel" />
+ Author: <s:property value="probeBuchBean.author" />
+ Datum: <s:property value="probeBuchBean.datum" />
+ Schlagwort: <s:property value="probeBuchBean.schlagwort" />
+ Typ der Publikation: <s:property value="probeBuchBean.typ" />
+ ISBN: <s:property value="probeBuchBean.isbn" />
+ Verlag: <s:property value="probeBuchBean.verlag" />
+ Anzahl: <s:property value="probeBuchBean.anzahl" />
+ 
+ </p>
 
-<p><a href="<s:url action='baseLayoutLink' />" >Return to home page</a>.</p>
+<p><a href="<s:url action='publicationCreationLink' />" >Weitere Publikation anlegen</a>.</p>
+<p><a href="<s:url action='baseLayoutLink' />" >Zueruck zur Startseite</a>.</p>
 
 </body>
 </html>
