@@ -21,6 +21,7 @@ public class CreateTableAction implements Action {
 
 		System.out.println("execute");
 		borrowerService.createBorrower("Hans", "Meier");
+		System.out.println("execute success");
 		return "marioTest";
 	}
 }

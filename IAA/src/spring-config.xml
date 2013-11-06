@@ -8,7 +8,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.h2.Driver"/>
         <property name="url"
-                  value="jdbc:h2:/Users/mariokolbe/Privat/V2B_JavaEE6/bib"/>
+                  value="jdbc:h2:~/bib"/>
         <property name="username" value="sa"/>
         <property name="password" value=""/>
     </bean>
@@ -60,7 +60,7 @@
 	<!-- Services -->
 
 		<!-- The publication Service -->
-    <bean id="BorrowerService" class="de.nak.librarymgmt.service.BorrowerServiceImpl">
+    <bean id="borrowerService" class="de.nak.librarymgmt.service.BorrowerServiceImpl">
         <property name="borrowerDAO" ref="borrowerDAO"/>
     </bean>
     
