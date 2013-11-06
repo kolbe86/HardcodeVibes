@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="de.nak.librarymgmt.model.LendingProcess" table="LENDINGPROCESS">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<property name="outgoingDate" column="OUTGOINGDATE" type="timestamp" />
+		<property name="returnDate" column="RETURNDATE" type="timestamp" />
+		<property name="dunningLevel" not-null="true" />
+		<property name="extensionLevel" not-null="true" />
+		<many-to-one name="lender" column="LENDER" class="Lender"
+			not-null="true" />
+		<many-to-one name="publication" column="PUBLICATION"
+			unique="true" class="Publication" not-null="true" />
+	</class>
+</hibernate-mapping>
