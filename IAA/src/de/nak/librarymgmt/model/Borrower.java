@@ -2,13 +2,6 @@ package de.nak.librarymgmt.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import org.hibernate.annotations.NaturalId;
-
 public class Borrower implements Serializable {
 	/**
 	 * 
@@ -18,8 +11,6 @@ public class Borrower implements Serializable {
 	private String firstName;
 	private String lastName;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long getId() {
 		return id;
 	}
@@ -28,8 +19,6 @@ public class Borrower implements Serializable {
 		this.id = id;
 	}
 
-	@NaturalId
-	@Column(name = "FIRSTNAME", nullable = false)
 	public String getFirstName() {
 		return firstName;
 	}
@@ -38,8 +27,6 @@ public class Borrower implements Serializable {
 		this.firstName = firstName;
 	}
 
-	@NaturalId
-	@Column(name = "LASTNAME", nullable = false)
 	public String getLastName() {
 		return lastName;
 	}
