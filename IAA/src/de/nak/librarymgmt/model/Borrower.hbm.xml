@@ -11,9 +11,9 @@
 			type="string" />
 		<property name="lastName" column="LastName" not-null="true"
 			type="string" />
-		<set name="lendingProcesses" inverse="true" cascade="all-delete-orphan">
-			<key column="LendingProcessID" />
-			<one-to-many class="de.nak.librarymgmt.model.LendingProcess" />
-		</set>
+<!-- 		<set name="lendingProcesses" inverse="true" cascade="all-delete-orphan"> -->
+<!-- 			<key column="LendingProcessID" /> -->
+<!-- 			<one-to-many class="de.nak.librarymgmt.model.LendingProcess" /> -->
+<!-- 		</set> -->
 	</class>
 </hibernate-mapping>

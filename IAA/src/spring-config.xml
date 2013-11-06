@@ -25,6 +25,11 @@
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
+        <property name="mappingResources">
+            <list>
+                <value>de/nak/librarymgmt/model/Borrower.hbm.xml</value>
+            </list>
+        </property>
     </bean>
 
     <!-- The transaction manager -->
@@ -54,7 +59,7 @@
 
 	<!-- Services -->
 
-		<!-- The publication DAO -->
+		<!-- The publication Service -->
     <bean id="BorrowerService" class="de.nak.librarymgmt.service.BorrowerServiceImpl">
         <property name="borrowerDAO" ref="borrowerDAO"/>
     </bean>

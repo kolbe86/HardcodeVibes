@@ -19,7 +19,7 @@ public class CreateTableAction implements Action {
 	@Override
 	public String execute() throws Exception {
 
-		System.out.println("Test");
+		System.out.println("execute");
 		borrowerService.createBorrower("Hans", "Meier");
 		return "marioTest";
 	}
