@@ -1,4 +1,4 @@
-package de.nak.actions;
+package de.nak.librarymgmt.actions;
 
 import de.nak.librarymgmt.model.ProbeBuch;
 
@@ -15,6 +15,8 @@ public class PublicationCreationAction extends ActionSupport {
 	public String execute() throws Exception {
 		
 		//call Service class to store personBean's state in database
+		
+		
 		
 		return SUCCESS;
 		

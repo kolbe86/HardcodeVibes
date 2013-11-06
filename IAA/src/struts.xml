@@ -9,7 +9,7 @@
 		<result-types>
 			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
-		<action name="*Link" method="{1}" class="com.tutorials4u.actions.LinkAction">
+		<action name="*Link" method="{1}" class="de.nak.librarymgmt.actions.LinkAction">
 			<result name="baseLayout" type="tiles">baseLayout</result>
 <!-- 			<result name="publicationCreation" type="tiles">publicationCreation</result> -->
 			<result name="publicationManagement" type="tiles">publicationManagement</result>
@@ -18,14 +18,25 @@
 			<result name="basicDataType" type="tiles">basicDataType</result>
 			<result name="basicDataWord" type="tiles">basicDataWord</result>
 			<result name="marioTest" type="tiles">marioTest</result>
+			<result name="jonasTest" type="tiles">successfullPublicationManagementLayout</result>
 		</action>
 		
-		<action name="publicationCreationLink" class="de.nak.actions.PublicationCreationStartup" method="execute">
-			<result name="publicationCreation" type="tiles">publicationCreation</result>
+		<action name="publicationCreationLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
+			<result name="publicationSuccess" type="tiles">publicationCreation</result>
 		</action>
-		
-		<action name="publicationCreationAction" class="de.nak.actions.PublicationCreationAction" method="execute">
+		<action name="publicationCreationAction" class="de.nak.librarymgmt.actions.PublicationCreationAction" method="execute">
   			<result name="success" type="tiles">successfullPublicationCreation</result>
+		</action>
+		
+		<action name="publicationManagementLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
+			<result name="publicationSuccess" type="tiles">publicationManagement</result>
+		</action>
+		<action name="publicationManagementAction" class="de.nak.librarymgmt.actions.PublicationManagementAction" method="execute">
+  			<result name="success" type="tiles">successfullPublicationManagement</result>
+		</action>
+		
+		<action name="basicDataTypeLink" class="de.nak.librarymgmt.actions.PBasicDataTypeStartupAction" method="execute">
+  			<result name="success" type="tiles">basicDataType</result>
 		</action>
 		
 		<action name="CreateTable" class="de.nak.actions.CreateTableAction" method="execute">

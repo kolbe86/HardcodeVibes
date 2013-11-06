@@ -13,7 +13,8 @@ Ausleihvorgang
 </ul>
 Stammdaten
 <ul>
-	<li><a href="<s:url action="basicDataTypeLink" />" >Art</a></li>
+	<li>Art</li>
+<%-- 	<li><a href="<s:url action="basicDataTypeLink" />" >Art</a></li> --%>
 	<li><a href="<s:url action="basicDataWordLink" />" >Schlagwort</a></li>	
 	<li><a href="<s:url action="basicDataLenderLink" />" >Ausleiher</a></li>	
 </ul>

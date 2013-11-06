@@ -6,24 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Basic Data Type</title>
+<title>Creation Successful</title>
 </head>
 <body>
-<table>
-	<tr>
-		<th>Eins</th>
-		<th>Zwei</th>
-		<th>Drei</th>
-		<th>Vier</th>
-	</tr>
-		<s:iterator value="basicDataKeeper.tempPublicationType">
-			<tr>
-				<td><s:property value="tempPublicationType"/></td>
-				<td><s:property value="tempPublicationType"/></td>
-				<td><s:property value="tempPublicationType"/></td>
-				<td><s:property value="tempPublicationType"/></td>
-			</tr>
-		</s:iterator>
-</table>
+
+
+<p><a href="<s:url action='publicationCreationLink' />" >Weitere Publikation anlegen</a>.</p>
+<p><a href="<s:url action='baseLayoutLink' />" >Zueruck zur Startseite</a>.</p>
+
 </body>
 </html>

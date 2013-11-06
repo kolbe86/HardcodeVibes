@@ -1,16 +1,14 @@
-package de.nak.actions;
+package de.nak.librarymgmt.actions;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
+
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.librarymgmt.model.ProbeBuch;
 
-public class PublicationCreationStartup extends ActionSupport {
+public class PublicationStartup extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
@@ -27,7 +25,7 @@ public class PublicationCreationStartup extends ActionSupport {
 		this.probeBuchBean.setSchlagwort(tempSchlagwort);
 		
 
-		return "publicationCreation";
+		return "publicationSuccess";
 	}
 
 	public ProbeBuch getProbeBuchBean() {

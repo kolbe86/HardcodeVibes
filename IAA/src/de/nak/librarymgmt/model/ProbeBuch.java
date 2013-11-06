@@ -14,6 +14,17 @@ public class ProbeBuch {
 	private String verlag;
 	private Integer anzahl;
 	
+	public ProbeBuch(String titel, String author, String isbn,
+			String verlag) {
+		
+			setTitel(titel);
+			setAuthor(author);
+			setIsbn(isbn);
+			setVerlag(verlag);
+	}
+	public ProbeBuch() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getTitel() {
 		return titel;
 	}

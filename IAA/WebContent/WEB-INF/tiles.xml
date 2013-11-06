@@ -25,6 +25,16 @@
     	<put-attribute name="header"  value="Publikation verwalten"/>
       	<put-attribute name="main"   value="/publicationManagement.jsp"/>      
   	</definition>
+  	
+  	<definition name="successfullPublicationManagement" extends="baseLayout">
+    	<put-attribute name="header"  value="Publikation erfolgreich verwalten"/>
+      	<put-attribute name="main"   value="/successfullPublicationManagementLayout.jsp"/>     
+  	</definition>
+  	
+  	<definition name="successfullPublicationManagementLayout" template="/successfullPublicationManagementLayout.jsp">
+		<put-attribute name="toppart" value="/publicationTopPart.jsp" />
+		<put-attribute name="bottompart" value="/publicationBottomPart.jsp" />
+	</definition>
   
   	<definition name="lendingProcessManagement" extends="baseLayout">
       	<put-attribute name="header"  value="Ausleihvorgang verwalten"/>

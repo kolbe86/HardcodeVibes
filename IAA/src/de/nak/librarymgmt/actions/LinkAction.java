@@ -1,4 +1,4 @@
-package com.tutorials4u.actions;
+package de.nak.librarymgmt.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -44,6 +44,10 @@ public class LinkAction extends ActionSupport {
 	public String marioTest()
 	{
 		return "marioTest";
+	}
+	public String jonasTest()
+	{
+		return "jonasTest";
 	}
 	
 }
