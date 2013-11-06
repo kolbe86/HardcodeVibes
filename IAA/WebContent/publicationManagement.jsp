@@ -15,7 +15,7 @@
 
  	  <s:textfield name="probeBuchBean.titel" label="Titel" />
  	  <s:textfield  name="probeBuchBean.author" label="Author" />
- 	  <s:textfield name="probeBuchBean.datum"  label ="Veroeffentlichkeitsdatum" value="dd.mm.yyyy"/>
+ 	  <s:textfield name="probeBuchBean.datum"  label ="Veroeffentlichkeitsdatum" />
  	  <s:select name="probeBuchBean.schlagwort" list="probeBuchBean.schlagwort" size="1" multiple="True" label="Schlagwort"/>
  	  <s:textfield name="probeBuchBean.art"  label ="Art der Publikation"/>
  	  <s:textfield name="probeBuchBean.isbn"  label ="ISBN Nummer"/>

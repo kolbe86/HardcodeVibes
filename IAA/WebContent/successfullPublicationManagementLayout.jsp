@@ -26,6 +26,28 @@
 				<td><s:property value="verlag"/></td>
 			</tr>
 		</s:iterator>
+			<tr style="border:solid,background-color:red">
+				<td>
+				<s:form action="sortColumnTitel">
+					<s:submit property="sortieren" />
+				</s:form>  
+				</td>
+				<td>
+				<s:form action="sortColumnAuthor">
+					<s:submit property="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnIsbn">
+					<s:submit property="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit property="sortieren" />
+				</s:form> 
+				</td>
+			</tr>
 </table>
 
 
