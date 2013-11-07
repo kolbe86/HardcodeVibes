@@ -29,9 +29,10 @@
 		<property name="mappingResources">
 			<list>
 				<value>de/nak/librarymgmt/model/Borrower.hbm.xml</value>
-				<value>de/nak/librarymgmt/model/Book.hbm.xml</value>
-				<value>de/nak/librarymgmt/model/Magazine.hbm.xml</value>
-				<value>de/nak/librarymgmt/model/Dissertation.hbm.xml</value>
+<!-- 				<value>de/nak/librarymgmt/model/Book.hbm.xml</value> -->
+<!-- 				<value>de/nak/librarymgmt/model/Magazine.hbm.xml</value> -->
+<!-- 				<value>de/nak/librarymgmt/model/Dissertation.hbm.xml</value> -->
+				<value>de/nak/librarymgmt/model/Publication.hbm.xml</value>
  				<value>de/nak/librarymgmt/model/LendingProcess.hbm.xml</value>
 			</list>
 		</property>
