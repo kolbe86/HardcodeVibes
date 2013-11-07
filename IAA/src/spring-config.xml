@@ -30,6 +30,7 @@
 			<list>
 				<value>de/nak/librarymgmt/model/Borrower.hbm.xml</value>
 				<value>de/nak/librarymgmt/model/Book.hbm.xml</value>
+				<value>de/nak/librarymgmt/model/Magazine.hbm.xml</value>
  				<value>de/nak/librarymgmt/model/LendingProcess.hbm.xml</value>
 			</list>
 		</property>
@@ -65,6 +66,10 @@
 	<bean id="bookDAO" class="de.nak.librarymgmt.dao.BookDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>	
+	
+	<bean id="magazineDAO" class="de.nak.librarymgmt.dao.MagazineDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>	
 
 	<!-- The lending process DAO -->
 	<bean id="lendingProcessDAO" class="de.nak.librarymgmt.dao.LendingProcessDAO">
@@ -80,6 +85,10 @@
 	
 	<bean id="bookService" class="de.nak.librarymgmt.service.BookServiceImpl">
 		<property name="bookDAO" ref="bookDAO" />
+	</bean>	
+	
+	<bean id="magazineService" class="de.nak.librarymgmt.service.MagazineServiceImpl">
+		<property name="magazineDAO" ref="magazineDAO" />
 	</bean>	
 	
 	<!-- The lending process DAO Service -->

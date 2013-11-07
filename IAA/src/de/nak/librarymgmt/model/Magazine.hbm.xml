@@ -3,24 +3,24 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="de.nak.librarymgmt.model.Book" table="BOOK">
-		<id name="id" column="BOOK_ID" type="long">
-			<generator class="sequence" />
+	<class name="de.nak.librarymgmt.model.Magazine" table="MAGAZINE">
+		<id name="id" column="MAGAZINE_ID" type="long">
+			<generator class="sequence"/>
 		</id>
 		<property name="title" column="TITLE" type="string" not-null="true" />
-		<set name="authors" table="AUTHORS">
-		<key column="BOOK_ID"/>
-		<element type="string" column="BOOK_AUTHOR"/>
+		<set name="authors" table="MAGAZINE_AUTHORS">
+			<key column="MAGAZINE_ID"/>
+			<element type="string" column="AUTHOR"/>
 		</set>
 		<property name="publicationDate" column="PUBLICATIONDATE"
 			type="timestamp" />
-		<set name="keywords" table="BOOK_KEYWORDS">
-		<key column="BOOK_ID"/>
-		<element type="string" column="KEYWORD"/>
+		<set name="keywords" table="MAGAZINE_KEYWORDS">
+			<key column="MAGAZINE_ID"/>
+			<element type="string" column="KEYWORD"/>
 		</set>
-		<property name="condition" not-null="true" type="string" />
+		<property name="condition" column="CONDITION" not-null="true" type="string" />
 		<property name="isbn" column="ISBN" type="string" not-null="true"></property>
 		<property name="publisher" column="PUBLISHER" type="string" not-null="true"></property>
-		<property name="edition" column="EDITION"  type="string" not-null="true"></property>
+		<property name="issue" column="ISSUE"  type="string" not-null="true"></property>
 	</class>
 </hibernate-mapping>
