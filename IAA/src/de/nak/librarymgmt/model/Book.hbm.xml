@@ -8,9 +8,9 @@
 			<generator class="sequence" />
 		</id>
 		<property name="title" column="TITLE" type="string" not-null="true" />
-		<set name="authors" table="AUTHORS">
-		<key column="BOOK_ID"/>
-		<element type="string" column="BOOK_AUTHOR"/>
+		<set name="authors" table="BOOK_AUTHORS">
+			<key column="BOOK_ID"/>
+			<element type="string" column="AUTHOR"/>
 		</set>
 		<property name="publicationDate" column="PUBLICATIONDATE"
 			type="timestamp" />

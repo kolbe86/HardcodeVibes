@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.Action;
 
 import de.nak.librarymgmt.service.BookService;
 import de.nak.librarymgmt.service.BorrowerService;
+import de.nak.librarymgmt.service.DissertationService;
 import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.MagazineService;
 
@@ -17,6 +18,7 @@ public class CreateTableAction implements Action {
 	private LendingProcessService lendingProcessService;
 	private BookService bookService;
 	private MagazineService magazineService;
+	private DissertationService dissertationService;
 
 	@SuppressWarnings("deprecation")
 	private Date issueDate = new Date(13, 11, 06);
@@ -61,8 +63,20 @@ public class CreateTableAction implements Action {
 				keywords2, "Alt", "234234-324-234234-234", "Axel Springer",
 				"122");
 
+		dissertationService.createDissertation(
+				"Die Erforschung der heiligen Vagina", authors, new Date(),
+				keywords2, "Mittelverbraucht");
+
 		System.out.println("execute success");
 		return "marioTest";
+	}
+
+	public DissertationService getDissertationService() {
+		return dissertationService;
+	}
+
+	public void setDissertationService(DissertationService dissertationService) {
+		this.dissertationService = dissertationService;
 	}
 
 	public BookService getBookService() {
