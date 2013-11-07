@@ -4,16 +4,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="de.nak.librarymgmt.model.LendingProcess" table="LENDINGPROCESS">
-		<id name="id" column="ID" type="long">
+		<id name="lendingProcessID" column="LENDING_PROCESS_ID" type="long">
 			<generator class="native" />
 		</id>
-		<property name="outgoingDate" column="OUTGOINGDATE" type="timestamp" />
-		<property name="returnDate" column="RETURNDATE" type="timestamp" />
-		<property name="dunningLevel" not-null="true" />
-		<property name="extensionLevel" not-null="true" />
-		<many-to-one name="lender" column="LENDER" class="Lender"
-			not-null="true" />
-		<many-to-one name="publication" column="PUBLICATION"
-			unique="true" class="Publication" not-null="true" />
+		<property name="issueDate" column="ISSUE_DATE" type="date" />
+		<property name="returnDate" column="RETURN_DATE" type="date" />
+		<property name="extensionOfTimeLevel" column="EXTENSION_OF_TIME_LEVEL"
+			not-null="true" type="integer" />
+<!--		<many-to-one name = "borrower " not-null="true" column="BORROWER_ID" /> -->
 	</class>
 </hibernate-mapping>

@@ -1,5 +1,7 @@
 package de.nak.librarymgmt.dao;
 
+import java.util.List;
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Borrower;
@@ -15,16 +17,21 @@ public class BorrowerDAO extends HibernateDaoSupport {
 		System.out.println("saved!");
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Borrower> findAll(){
+		return getHibernateTemplate().find("from Borrower");
+	}
+	
 	/**
-	 * Finds a room with the given id.
+	 * Finds a Borrower with the given id.
 	 * 
 	 * @param borrowerId
 	 *            The id.
 	 * @return a borrower object or <code>null</code>.
 	 */
-	public Borrower findById(Long borrowerId) {
+	public Borrower findById(Long borrowerID) {
 		return (Borrower) getHibernateTemplate()
-				.get(Borrower.class, borrowerId);
+				.get(Borrower.class, borrowerID);
 	}
 
 	/**
@@ -36,5 +43,4 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	public void delete(Borrower borrower) {
 		getHibernateTemplate().delete(borrower);
 	}
-
 }

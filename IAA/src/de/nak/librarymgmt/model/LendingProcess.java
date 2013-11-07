@@ -1,5 +1,6 @@
 package de.nak.librarymgmt.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,42 +9,24 @@ import java.util.Date;
  * @author Kowk Bond Chu
  */
 
-public class LendingProcess {
+public class LendingProcess implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private long lendingProcessID;
-	private long borrowerID;
-	private long publicationID;
+	/*
+	 * private Borrower borrower;
+	 * private long publicationID;
+	 */
 	private Date issueDate;
 	private Date returnDate;
-	private int ExtensionOfTimeLevel;
+	private int extensionOfTimeLevel;
 
-	/**
-	 * private Enum<DunningLevel> dunningLevel; private Enum<Status> status;
-	 */
-	
-	
 	public long getLendingProcessID() {
 		return lendingProcessID;
 	}
 
 	public void setLendingProcessID(long lendingProcessID) {
 		this.lendingProcessID = lendingProcessID;
-	}
-
-	public long getBorrowerID() {
-		return borrowerID;
-	}
-
-	public void setBorrowerID(long borrowerID) {
-		this.borrowerID = borrowerID;
-	}
-
-	public long getPublicationID() {
-		return publicationID;
-	}
-
-	public void setPublicationID(long publicationID) {
-		this.publicationID = publicationID;
 	}
 
 	public Date getIssueDate() {
@@ -63,11 +46,27 @@ public class LendingProcess {
 	}
 
 	public int getExtensionOfTimeLevel() {
-		return ExtensionOfTimeLevel;
+		return extensionOfTimeLevel;
 	}
 
 	public void setExtensionOfTimeLevel(int extensionOfTimeLevel) {
-		ExtensionOfTimeLevel = extensionOfTimeLevel;
+		this.extensionOfTimeLevel = extensionOfTimeLevel;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+/*	public Borrower getBorrower() {
+		return borrower;
+	}
+
+	public void setBorrower(Borrower borrower) {
+		this.borrower = borrower;
+	}
+*/
+	/**
+	 * private Enum<DunningLevel> dunningLevel; private Enum<Status> status;
+	 */
 
 }

@@ -1,8 +1,10 @@
 package de.nak.librarymgmt.service;
 
+import java.util.List;
 
 import de.nak.librarymgmt.dao.BorrowerDAO;
 import de.nak.librarymgmt.model.Borrower;
+import de.nak.librarymgmt.model.LendingProcess;
 
 public class BorrowerServiceImpl implements BorrowerService {
 
@@ -20,7 +22,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 		}
 
 	}
-
+	
 	public void deleteBorrower(Long id) {
 		Borrower borrower = borrowerDAO.findById(id);
 		try {
@@ -31,7 +33,21 @@ public class BorrowerServiceImpl implements BorrowerService {
 		}
 
 	}
-
+	
+	public void updateBorrower(Long id, String firstName, String lastName) {
+		Borrower borrower = borrowerDAO.findById(id);
+		try {
+		borrower.setFirstName(firstName);;
+		borrower.setLastName(lastName);
+		} catch (Exception e) {
+			// TODO
+		}
+	}
+	
+	public List<Borrower> listBorrowers() {
+		return borrowerDAO.findAll();
+	}
+	
 	public BorrowerDAO getBorrowerDAO() {
 		return borrowerDAO;
 	}
@@ -40,4 +56,16 @@ public class BorrowerServiceImpl implements BorrowerService {
 		this.borrowerDAO = borrowerDAO;
 	}
 
+/*	public void addLendingProcess(LendingProcess lendingProcess,
+			Borrower borrower) {
+		borrower.getLendingProcesses().add(lendingProcess);
+		try {
+			System.out.println("Try borrowerDAO.addLendingProcess");
+			borrowerDAO.save(borrower);
+		} catch (Exception e) {
+			// TODO
+		}
+
+	}
+*/
 }
