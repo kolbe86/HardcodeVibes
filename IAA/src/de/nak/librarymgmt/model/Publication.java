@@ -16,6 +16,8 @@ public abstract class Publication implements Serializable {
 	private Date publicationDate;
 	private Set<String> keywords;
 	private String condition;
+	private boolean distributed;
+	private boolean reserved;
 
 	public long getId() {
 		return id;
@@ -67,6 +69,22 @@ public abstract class Publication implements Serializable {
 
 	public void setKeywords(Set<String> keywords) {
 		this.keywords = keywords;
+	}
+
+	public boolean isDistributed() {
+		return distributed;
+	}
+
+	public void setDistributed(boolean distributed) {
+		this.distributed = distributed;
+	}
+
+	public boolean isReserved() {
+		return reserved;
+	}
+
+	public void setReserved(boolean reserved) {
+		this.reserved = reserved;
 	}
 
 }

@@ -13,7 +13,8 @@ public class MagazineServiceImpl implements MagazineService {
 	@Override
 	public void createMagazine(String title, Set<String> authors,
 			Date publicationDate, Set<String> keywords, String condition,
-			String isbn, String publisher, String issue) {
+			String isbn, String publisher, String issue, boolean distributed,
+			boolean reserved) {
 
 		Magazine magazine = new Magazine();
 		magazine.setTitle(title);
@@ -24,6 +25,8 @@ public class MagazineServiceImpl implements MagazineService {
 		magazine.setIsbn(isbn);
 		magazine.setPublisher(publisher);
 		magazine.setIssue(issue);
+		magazine.setDistributed(distributed);
+		magazine.setReserved(reserved);
 
 		try {
 			magazineDAO.save(magazine);

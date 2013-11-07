@@ -12,7 +12,8 @@ public class DissertationServiceImpl implements DissertationService {
 
 	@Override
 	public void createDissertation(String title, Set<String> authors,
-			Date publicationDate, Set<String> keywords, String condition) {
+			Date publicationDate, Set<String> keywords, String condition,
+			boolean distributed, boolean reserved) {
 
 		Dissertation dissertation = new Dissertation();
 		dissertation.setTitle(title);
@@ -20,6 +21,8 @@ public class DissertationServiceImpl implements DissertationService {
 		dissertation.setPublicationDate(publicationDate);
 		dissertation.setKeywords(keywords);
 		dissertation.setCondition(condition);
+		dissertation.setDistributed(distributed);
+		dissertation.setReserved(reserved);
 
 		try {
 			dissertationDAO.save(dissertation);

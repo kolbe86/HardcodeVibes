@@ -21,7 +21,8 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void createBook(String title, Set<String> authors,
 			Date publicationDate, Set<String> keywords, String condition,
-			String isbn, String publisher, String edition) {
+			String isbn, String publisher, String edition, boolean distributed,
+			boolean reserved) {
 
 		Book book = new Book();
 		book.setTitle(title);
@@ -32,6 +33,8 @@ public class BookServiceImpl implements BookService {
 		book.setIsbn(isbn);
 		book.setPublisher(publisher);
 		book.setEdition(edition);
+		book.setDistributed(distributed);
+		book.setReserved(reserved);
 
 		try {
 			bookDAO.save(book);
@@ -46,7 +49,7 @@ public class BookServiceImpl implements BookService {
 	public Book findBook(long id) {
 		Book book = bookDAO.findBookByID(id);
 		try {
-		return book;
+			return book;
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;

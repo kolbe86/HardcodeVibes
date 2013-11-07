@@ -48,7 +48,8 @@ public class CreateTableAction implements Action {
 		keywords.add("Keyord 3");
 
 		bookService.createBook("Der Schuh des Manitu", authors, new Date(),
-				keywords, "Neu", "1231-1231-123", "Grim", "3. Auflage");
+				keywords, "Neu", "1231-1231-123", "Grim", "3. Auflage", true,
+				true);
 
 		Set<String> authors2 = new HashSet<>();
 		authors2.add("GŸnther Grass");
@@ -61,11 +62,11 @@ public class CreateTableAction implements Action {
 		keywords2.add("Keyord 3");
 		magazineService.createMagazine("Manager Magazin", authors2, new Date(),
 				keywords2, "Alt", "234234-324-234234-234", "Axel Springer",
-				"122");
+				"122", true, true);
 
 		dissertationService.createDissertation(
 				"Die Erforschung der heiligen Vagina", authors, new Date(),
-				keywords2, "Mittelverbraucht");
+				keywords2, "Mittelverbraucht", true, true);
 
 		System.out.println("execute success");
 		return "marioTest";

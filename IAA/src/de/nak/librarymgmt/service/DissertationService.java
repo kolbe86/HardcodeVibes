@@ -6,6 +6,7 @@ import java.util.Set;
 public interface DissertationService {
 
 	void createDissertation(String title, Set<String> authors,
-			Date publicationDate, Set<String> keywords, String condition);
+			Date publicationDate, Set<String> keywords, String condition,
+			boolean distributed, boolean reserved);
 
 }
