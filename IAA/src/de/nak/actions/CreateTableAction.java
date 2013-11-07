@@ -6,8 +6,6 @@ import java.util.Set;
 
 import com.opensymphony.xwork2.Action;
 
-import de.nak.librarymgmt.model.Book;
-import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.service.BookService;
 import de.nak.librarymgmt.service.BorrowerService;
 import de.nak.librarymgmt.service.DissertationService;
@@ -35,7 +33,6 @@ public class CreateTableAction implements Action {
 		borrowerService.createBorrower("Bong", "Bong");
 		borrowerService.createBorrower("Ding", "Dong");
 		borrowerService.deleteBorrower(3L);
-		Borrower borrower = borrowerService.showBorrower(1L);
 		borrowerService.listBorrowers();
 		borrowerService.updateBorrower(2L, "Bing", "Bong");
 		lendingProcessService.createLendingProcess(issueDate, returnDate, 1);
@@ -52,9 +49,6 @@ public class CreateTableAction implements Action {
 
 		bookService.createBook("Der Schuh des Manitu", authors, new Date(),
 				keywords, "Neu", "1231-1231-123", "Grim", "3. Auflage");
-		
-		Book book = bookService.findBook(1L);
-		System.out.println(book.getAuthors().toString());
 
 		Set<String> authors2 = new HashSet<>();
 		authors2.add("GŸnther Grass");
