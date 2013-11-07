@@ -34,6 +34,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 
 	}
 	
+	
 	public void updateBorrower(Long id, String firstName, String lastName) {
 		Borrower borrower = borrowerDAO.findById(id);
 		try {
@@ -54,6 +55,15 @@ public class BorrowerServiceImpl implements BorrowerService {
 
 	public void setBorrowerDAO(BorrowerDAO borrowerDAO) {
 		this.borrowerDAO = borrowerDAO;
+	}
+
+	public Borrower showBorrower(Long id) {
+		Borrower borrower = borrowerDAO.findById(id);
+		try {
+			return borrower;
+		} catch (Exception e) {
+			return null; // TODO
+		}
 	}
 
 /*	public void addLendingProcess(LendingProcess lendingProcess,

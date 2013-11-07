@@ -10,4 +10,8 @@ public class BookDAO extends HibernateDaoSupport {
 		getHibernateTemplate().save(book);
 		System.out.println("Book saved");
 	}
+	
+	public Book findBookByID(long id){
+		return (Book) getHibernateTemplate().get(Book.class, id);
+	}
 }

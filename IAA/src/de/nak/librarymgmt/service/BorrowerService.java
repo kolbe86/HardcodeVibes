@@ -12,6 +12,8 @@ public interface BorrowerService {
 	void deleteBorrower(Long id);
 
 	void updateBorrower(Long id, String firstName, String lastName);
+	
+	Borrower showBorrower(Long id);
 
 	List<Borrower> listBorrowers();
 	/*
