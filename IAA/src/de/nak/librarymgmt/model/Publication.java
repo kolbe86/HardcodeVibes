@@ -1,0 +1,72 @@
+package de.nak.librarymgmt.model;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
+
+public abstract class Publication implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private long id;
+	private String title;
+	private Set<String> authors;
+	private Date publicationDate;
+	private Set<String> keywords;
+	private String condition;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Date getPublicationDate() {
+		return publicationDate;
+	}
+
+	public void setPublicationDate(Date publicationDate) {
+		this.publicationDate = publicationDate;
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Set<String> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Set<String> authors) {
+		this.authors = authors;
+	}
+
+	public Set<String> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(Set<String> keywords) {
+		this.keywords = keywords;
+	}
+
+}

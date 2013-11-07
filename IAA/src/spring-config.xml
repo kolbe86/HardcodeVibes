@@ -29,6 +29,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>de/nak/librarymgmt/model/Borrower.hbm.xml</value>
+				<value>de/nak/librarymgmt/model/Book.hbm.xml</value>
  				<value>de/nak/librarymgmt/model/LendingProcess.hbm.xml</value>
 			</list>
 		</property>
@@ -60,6 +61,10 @@
 	<bean id="borrowerDAO" class="de.nak.librarymgmt.dao.BorrowerDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="bookDAO" class="de.nak.librarymgmt.dao.BookDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>	
 
 	<!-- The lending process DAO -->
 	<bean id="lendingProcessDAO" class="de.nak.librarymgmt.dao.LendingProcessDAO">
@@ -72,6 +77,10 @@
 	<bean id="borrowerService" class="de.nak.librarymgmt.service.BorrowerServiceImpl">
 		<property name="borrowerDAO" ref="borrowerDAO" />
 	</bean>
+	
+	<bean id="bookService" class="de.nak.librarymgmt.service.BookServiceImpl">
+		<property name="bookDAO" ref="bookDAO" />
+	</bean>	
 	
 	<!-- The lending process DAO Service -->
 	<bean id="lendingProcessService" class="de.nak.librarymgmt.service.LendingProcessServiceImpl">
