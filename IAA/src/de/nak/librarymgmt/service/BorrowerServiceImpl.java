@@ -38,7 +38,6 @@ public class BorrowerServiceImpl implements BorrowerService {
 		Borrower borrower = borrowerDAO.findById(borrowerID);
 		try {
 			borrower.setFirstName(firstName);
-			;
 			borrower.setLastName(lastName);
 		} catch (Exception e) {
 			// TODO
