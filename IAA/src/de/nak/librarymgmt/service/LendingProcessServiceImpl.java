@@ -93,7 +93,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 	}
 
 	@Override
-	public LendingProcess findLendingProcess(long lendingProcessID) {
+	public LendingProcess findLendingProcessById(long lendingProcessID) {
 		LendingProcess lendingProcess = lendingProcessDAO
 				.findById(lendingProcessID);
 		try {

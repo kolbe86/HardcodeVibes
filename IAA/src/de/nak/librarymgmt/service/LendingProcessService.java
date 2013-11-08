@@ -24,7 +24,7 @@ public interface LendingProcessService {
 	void updateLendingProcess(long lendingProcessID, Borrower borrower, Publication publication,Date issueDate, Date returnDate, int extensionOfTimeLevel,
 			String state);
 	
-	LendingProcess findLendingProcess(long lendingProcessID);
+	LendingProcess findLendingProcessById(long lendingProcessID);
 	
 	List<LendingProcess> listLendingProcess();
 }
