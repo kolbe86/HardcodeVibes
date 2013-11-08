@@ -57,7 +57,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 		this.borrowerDAO = borrowerDAO;
 	}
 
-	public Borrower showBorrower(long borrowerID) {
+	public Borrower findBorrower(long borrowerID) {
 		Borrower borrower = borrowerDAO.findById(borrowerID);
 		try {
 			return borrower;

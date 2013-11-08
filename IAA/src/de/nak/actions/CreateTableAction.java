@@ -66,7 +66,7 @@ public class CreateTableAction implements Action {
 				keywords2, "Mittelverbraucht", true, true);
 
 		lendingProcessService.createLendingProcess(
-				borrowerService.showBorrower(1L),
+				borrowerService.findBorrower(1L),
 				publicationService.findPublication(1L), new Date(), new Date(),
 				2, "Open");
 
