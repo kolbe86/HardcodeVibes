@@ -13,13 +13,12 @@ public class LendingProcess implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private long lendingProcessID;
-	/*
-	 * private Borrower borrower;
-	 * private long publicationID;
-	 */
+	private Borrower borrower;
+	private Publication publication;
 	private Date issueDate;
 	private Date returnDate;
 	private int extensionOfTimeLevel;
+	private String state;
 
 	public long getLendingProcessID() {
 		return lendingProcessID;
@@ -57,16 +56,28 @@ public class LendingProcess implements Serializable {
 		return serialVersionUID;
 	}
 
-/*	public Borrower getBorrower() {
+	public Borrower getBorrower() {
 		return borrower;
 	}
 
 	public void setBorrower(Borrower borrower) {
 		this.borrower = borrower;
 	}
-*/
-	/**
-	 * private Enum<DunningLevel> dunningLevel; private Enum<Status> status;
-	 */
+
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
 
 }

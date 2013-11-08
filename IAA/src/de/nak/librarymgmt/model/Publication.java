@@ -10,7 +10,7 @@ public abstract class Publication implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private long id;
+	private long publicationID;
 	private String title;
 	private Set<String> authors;
 	private Date publicationDate;
@@ -18,13 +18,14 @@ public abstract class Publication implements Serializable {
 	private String condition;
 	private boolean distributed;
 	private boolean reserved;
+	private LendingProcess lendingProcess;
 
-	public long getId() {
-		return id;
+	public long getPublicationID() {
+		return publicationID;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setPublicationID(long publicationID) {
+		this.publicationID = publicationID;
 	}
 
 	public String getTitle() {
@@ -85,6 +86,14 @@ public abstract class Publication implements Serializable {
 
 	public void setReserved(boolean reserved) {
 		this.reserved = reserved;
+	}
+
+	public LendingProcess getLendingProcess() {
+		return lendingProcess;
+	}
+
+	public void setLendingProcess(LendingProcess lendingProcess) {
+		this.lendingProcess = lendingProcess;
 	}
 
 }

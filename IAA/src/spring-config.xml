@@ -65,6 +65,10 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="publicationDAO" class="de.nak.librarymgmt.dao.PublicationDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>	
+	
 	<bean id="bookDAO" class="de.nak.librarymgmt.dao.BookDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>	
@@ -88,6 +92,10 @@
 	<bean id="borrowerService" class="de.nak.librarymgmt.service.BorrowerServiceImpl">
 		<property name="borrowerDAO" ref="borrowerDAO" />
 	</bean>
+
+	<bean id="publicationService" class="de.nak.librarymgmt.service.PublicationServiceImpl">
+		<property name="publicationDAO" ref="publicationDAO" />
+	</bean>	
 	
 	<bean id="bookService" class="de.nak.librarymgmt.service.BookServiceImpl">
 		<property name="bookDAO" ref="bookDAO" />

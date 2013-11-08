@@ -45,14 +45,14 @@ public class BookServiceImpl implements BookService {
 
 	}
 
-	@Override
-	public Book findBook(long id) {
-		Book book = bookDAO.findBookByID(id);
-		try {
-			return book;
-		} catch (Exception e) {
-			// TODO: handle exception
-			return null;
-		}
-	}
+	// @Override
+	// public Book findBookByID(long id) {
+	// Book book = bookDAO.findBookByID(id);
+	// try {
+	// return book;
+	// } catch (Exception e) {
+	// // TODO: handle exception
+	// return null;
+	// }
+	// }
 }

@@ -6,11 +6,13 @@ import java.util.Set;
 
 import com.opensymphony.xwork2.Action;
 
+import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BookService;
 import de.nak.librarymgmt.service.BorrowerService;
 import de.nak.librarymgmt.service.DissertationService;
 import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.MagazineService;
+import de.nak.librarymgmt.service.PublicationService;
 
 public class CreateTableAction implements Action {
 
@@ -19,11 +21,7 @@ public class CreateTableAction implements Action {
 	private BookService bookService;
 	private MagazineService magazineService;
 	private DissertationService dissertationService;
-
-	@SuppressWarnings("deprecation")
-	private Date issueDate = new Date(13, 11, 06);
-	@SuppressWarnings("deprecation")
-	private Date returnDate = new Date(13, 12, 06);
+	private PublicationService publicationService;
 
 	@Override
 	public String execute() throws Exception {
@@ -33,9 +31,7 @@ public class CreateTableAction implements Action {
 		borrowerService.createBorrower("Bong", "Bong");
 		borrowerService.createBorrower("Ding", "Dong");
 		borrowerService.deleteBorrower(3L);
-		borrowerService.listBorrowers();
 		borrowerService.updateBorrower(2L, "Bing", "Bong");
-		lendingProcessService.createLendingProcess(issueDate, returnDate, 1);
 
 		Set<String> authors = new HashSet<>();
 		authors.add("GŸnther Grass");
@@ -50,6 +46,7 @@ public class CreateTableAction implements Action {
 		bookService.createBook("Der Schuh des Manitu", authors, new Date(),
 				keywords, "Neu", "1231-1231-123", "Grim", "3. Auflage", true,
 				true);
+		Publication publication = publicationService.findPublication(1L);
 
 		Set<String> authors2 = new HashSet<>();
 		authors2.add("GŸnther Grass");
@@ -67,6 +64,13 @@ public class CreateTableAction implements Action {
 		dissertationService.createDissertation(
 				"Die Erforschung der heiligen Vagina", authors, new Date(),
 				keywords2, "Mittelverbraucht", true, true);
+
+		lendingProcessService.createLendingProcess(
+				borrowerService.showBorrower(1L),
+				publicationService.findPublication(1L), new Date(), new Date(),
+				2, "Open");
+
+		Publication publication2 = publicationService.findPublication(1L);
 
 		System.out.println("execute success");
 		return "marioTest";
@@ -112,4 +116,13 @@ public class CreateTableAction implements Action {
 	public void setMagazineService(MagazineService magazineService) {
 		this.magazineService = magazineService;
 	}
+
+	public PublicationService getPublicationService() {
+		return publicationService;
+	}
+
+	public void setPublicationService(PublicationService publicationService) {
+		this.publicationService = publicationService;
+	}
+
 }
