@@ -20,20 +20,20 @@ public class Book extends Publication implements Serializable {
 		this.isbn = isbn;
 	}
 
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
 	public String getEdition() {
 		return edition;
 	}
 
 	public void setEdition(String edition) {
 		this.edition = edition;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
 	}
 
 }

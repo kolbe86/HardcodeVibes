@@ -1,5 +1,7 @@
 package de.nak.librarymgmt.dao;
 
+import java.util.List;
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Book;
@@ -10,8 +12,18 @@ public class BookDAO extends HibernateDaoSupport {
 		getHibernateTemplate().save(book);
 		System.out.println("Book saved");
 	}
-	
-	public Book findBookByID(long id){
-		return (Book) getHibernateTemplate().get(Book.class, id);
+
+	public void delete(Book book) {
+		getHibernateTemplate().delete(book);
+		System.out.println("Book deleted");
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Book> findAll() {
+		return getHibernateTemplate().find("from Book");
+	}
+
+	public Book findById(Long publicationID) {
+		return (Book) getHibernateTemplate().get(Book.class, publicationID);
 	}
 }
