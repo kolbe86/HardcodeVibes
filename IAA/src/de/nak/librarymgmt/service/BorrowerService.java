@@ -3,6 +3,7 @@ package de.nak.librarymgmt.service;
 import java.util.List;
 
 import de.nak.librarymgmt.model.Borrower;
+import de.nak.librarymgmt.model.LendingProcess;
 
 /**
  * The Borrower service interface.
@@ -40,6 +41,9 @@ public interface BorrowerService {
 	 */
 	void updateBorrower(long borrowerID, String firstName, String lastName);
 
+	void addLendingProcessToBorrower(long borrowerID, LendingProcess lendingProcess);
+	
+	void deleteLendingProcessFromBorrower(long borrowerID, LendingProcess lendingProcess);
 	/**
 	 * Returns the Borrower identified by the given id.
 	 * 
@@ -47,7 +51,7 @@ public interface BorrowerService {
 	 *            , ID of the borrower that should be found.
 	 * @return the found borrower entity.
 	 */
-	Borrower findBorrower(long borrowerID);
+	Borrower findBorrowerById(long borrowerID);
 
 	/**
 	 * Lists all borrowers currently stored in the database.
