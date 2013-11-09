@@ -2,10 +2,12 @@ package de.nak.actions;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.opensymphony.xwork2.Action;
 
+import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BookService;
 import de.nak.librarymgmt.service.BorrowerService;
@@ -33,6 +35,9 @@ public class CreateTableAction implements Action {
 		borrowerService.deleteBorrower(3L);
 		borrowerService.updateBorrower(2L, "Bing", "Bong");
 
+		// F†R BOND
+		List<Borrower> borrowers = borrowerService.listBorrowers();
+
 		Set<String> authors = new HashSet<>();
 		authors.add("GŸnther Grass");
 		authors.add("Max Frisch");
@@ -44,9 +49,8 @@ public class CreateTableAction implements Action {
 		keywords.add("Keyord 3");
 
 		bookService.createBook("Der Schuh des Manitu", authors, new Date(),
-				keywords, "Neu", "1231-1231-123", "Grim", "3. Auflage", true,
-				true);
-		Publication publication = publicationService.findPublication(1L);
+				keywords, "Neu", "1231-1231-123", "Grim", "3. Auflage");
+		Publication publication = publicationService.findPublicationById(1L);
 
 		Set<String> authors2 = new HashSet<>();
 		authors2.add("GŸnther Grass");
@@ -63,14 +67,16 @@ public class CreateTableAction implements Action {
 
 		dissertationService.createDissertation(
 				"Die Erforschung der heiligen Vagina", authors, new Date(),
-				keywords2, "Mittelverbraucht", true, true);
+				keywords2, "Mittelverbraucht");
 
 		lendingProcessService.createLendingProcess(
-				borrowerService.findBorrower(1L),
-				publicationService.findPublication(1L), new Date(), new Date(),
-				2, "Open");
+				borrowerService.findBorrowerById(1L),
+				publicationService.findPublicationById(1L), new Date(),
+				new Date(), 2, "Open");
 
-		Publication publication2 = publicationService.findPublication(1L);
+		// F†R BOND
+		// List<Dissertation> dissertations = dissertationService
+		// .listDissertations();
 
 		System.out.println("execute success");
 		return "marioTest";
