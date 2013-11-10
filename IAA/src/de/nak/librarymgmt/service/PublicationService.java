@@ -7,5 +7,6 @@ import de.nak.librarymgmt.model.Publication;
 public interface PublicationService {
 
 	Publication findPublicationById(long publicationID);
+
 	List<Publication> listPublications();
 }

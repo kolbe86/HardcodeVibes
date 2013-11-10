@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -9,7 +9,7 @@
 <title>Publikation verwalten</title>
 </head>
 <body>
-<h3>Suchen Sie eine Publikation, die Sie verwalten möchten</h3>
+<h3>Suchen Sie eine Publikation, die Sie verwalten mÃ¶chten</h3>
 
 <s:form action="publicationManagementAction">
 
