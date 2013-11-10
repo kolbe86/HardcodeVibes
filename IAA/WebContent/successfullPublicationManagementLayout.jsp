@@ -20,10 +20,13 @@
 	</tr>
 		<s:iterator value="publications">
 			<tr>
-				<td><s:property value="titel"/></td>
-				<td><s:property value="author"/></td>
-				<td><s:property value="isbn"/></td>
-				<td><s:property value="verlag"/></td>
+				<td><s:property value="title"/></td>
+				<td><s:property value="authors"/></td>
+				<td><s:property value="publicationDate"/></td>
+				<td><s:property value="keywords"/></td>
+				<td><s:property value="condition"/></td>
+				<td><s:property value="distributed"/></td>
+				<td><s:property value="reserved"/></td>
 			</tr>
 		</s:iterator>
 			<tr style="border:solid,background-color:red">

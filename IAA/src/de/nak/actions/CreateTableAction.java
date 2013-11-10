@@ -8,7 +8,6 @@ import java.util.Set;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.librarymgmt.model.Borrower;
-import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BookService;
 import de.nak.librarymgmt.service.BorrowerService;
@@ -74,13 +73,6 @@ public class CreateTableAction implements Action {
 				borrowerService.findBorrowerById(1L),
 				publicationService.findPublicationById(1L), new Date(),
 				new Date(), 2, "Open");
-
-		List<LendingProcess> lendingProcesses = lendingProcessService
-				.listLendingProcess();
-
-		// F†R BOND
-		// List<Dissertation> dissertations = dissertationService
-		// .listDissertations();
 
 		System.out.println("execute success");
 		return "marioTest";

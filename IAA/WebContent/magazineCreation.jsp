@@ -13,14 +13,14 @@
 
 <s:form action="magazineCreationAction">
 
- 	  <s:textfield name="magazineBean.title" label="Titel" />
- 	  <s:textfield  name="magazineBean.authors" label="Autoren" />
- 	  <s:textfield name="magazineBean.publicationDate"  label ="Veroeffentlichungsdatum" />
- 	  <s:textfield name="magazineBean.keywords"  label ="Schlagwörter"/>
- 	  <s:textfield name="magazineBean.condition"  label ="Zustand"/>
- 	  <s:textfield name="magazineBean.isbn"  label ="ISBN Nummer"/>
- 	  <s:textfield name="magazineBean.publisher"  label ="Verlag"/>
- 	  <s:textfield name="magazineBean.issue"  label ="Ausgabe"/>
+ 	  <s:textfield name="magazineBean.title" label="Titel" value="Sport Bild"/>
+ 	  <s:textfield  name="magazineBean.authors" label="Autoren" value="Lothar Matthäus"/>
+ 	  <s:textfield name="magazineBean.publicationDate"  label ="Veroeffentlichungsdatum" value="23.06.1999"/>
+ 	  <s:textfield name="magazineBean.keywords"  label ="Schlagwörter" value="Tor des Montas"/>
+ 	  <s:textfield name="magazineBean.condition"  label ="Zustand" value="Alt"/>
+ 	  <s:textfield name="magazineBean.isbn"  label ="385-2-39275-193-6"/>
+ 	  <s:textfield name="magazineBean.publisher"  label ="Verlag" value="Axel Springer"/>
+ 	  <s:textfield name="magazineBean.issue"  label ="Ausgabe" value="Heft Nr. 23"/>
  	   
  	  
    	  <s:submit/>

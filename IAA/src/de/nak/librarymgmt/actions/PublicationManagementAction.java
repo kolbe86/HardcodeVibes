@@ -19,7 +19,7 @@ public class PublicationManagementAction extends ActionSupport {
 
 		// call Service class to store personBean's state in database
 
-		List<Publication> publications = publicationService.listPublications();
+		setPublications(publicationService.listPublications());
 
 		// publications.add(new ProbeBuch("Harry Potter", "JK Rowling",
 		// "123-456-789", "Super Verlag"));
@@ -49,4 +49,5 @@ public class PublicationManagementAction extends ActionSupport {
 	public void setPublications(List<Publication> publications) {
 		this.publications = publications;
 	}
+
 }
