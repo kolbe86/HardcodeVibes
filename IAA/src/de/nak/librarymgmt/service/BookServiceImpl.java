@@ -31,10 +31,12 @@ public class BookServiceImpl implements BookService {
 		book.setKeywords(keywords);
 		book.setCondition(condition);
 		book.setIsbn(isbn);
-		book.setPublisher(publisher);;
+		book.setPublisher(publisher);
+		;
 		book.setEdition(edition);
 		book.setDistributed(false);
 		book.setReserved(false);
+		// TODO Notwendig oder weg lassen?
 		book.setLendingProcess(null);
 
 		try {
@@ -47,9 +49,10 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public void updateBook(Long publicationID, String title, Date publicationDate,
-			String condition, String isbn, String publisher, String edition,
-			boolean distributed, boolean reserved) {
+	public void updateBook(Long publicationID, String title,
+			Date publicationDate, String condition, String isbn,
+			String publisher, String edition, boolean distributed,
+			boolean reserved) {
 		Book book = bookDAO.findById(publicationID);
 		try {
 			book.setPublicationDate(publicationDate);

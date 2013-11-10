@@ -15,12 +15,41 @@
       	<put-attribute name="header"  value="Publikation Anlegen"/>
       	<put-attribute name="main"   value="/publicationCreation.jsp"/>      
   	</definition>
-  	
   	<definition name="successfullPublicationCreation" extends="baseLayout">
       	<put-attribute name="header"  value="Publikation erfolgreich angelegt"/>
       	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
   	</definition>
+  	
+<!--   	Mario -->
+  	<definition name="bookCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Buch Anlegen"/>
+      	<put-attribute name="main"   value="/bookCreation.jsp"/>      
+  	</definition>
+  	<definition name="successfullBookCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Buch erfolgreich angelegt"/>
+      	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
+  	</definition>
   
+  <!--   	Mario -->
+  	<definition name="magazineCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Magazin Anlegen"/>
+      	<put-attribute name="main"   value="/magazineCreation.jsp"/>      
+  	</definition>
+  	<definition name="successfullMagazineCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Magazin erfolgreich angelegt"/>
+      	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
+  	</definition>
+  	
+  	<!--   	Mario -->
+  	<definition name="dissertationCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Dissertation Anlegen"/>
+      	<put-attribute name="main"   value="/dissertationCreation.jsp"/>      
+  	</definition>
+  	<definition name="successfullDissertationCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Dissertation erfolgreich angelegt"/>
+      	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
+  	</definition>
+  	
     <definition name="publicationManagement" extends="baseLayout">
     	<put-attribute name="header"  value="Publikation verwalten"/>
       	<put-attribute name="main"   value="/publicationManagement.jsp"/>      

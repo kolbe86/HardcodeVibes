@@ -6,48 +6,55 @@ public class LinkAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	public String baseLayout()
-	{
-		return "baseLayout";		
+	public String baseLayout() {
+		return "baseLayout";
 	}
-	
-	public String publicationCreation()
-	{
-		return "publicationCreation";		
+
+	public String publicationCreation() {
+		return "publicationCreation";
 	}
-	
-	public String publicationManagement()
-	{
-		return "publicationManagement";		
+
+	// Mario
+	public String bookCreation() {
+		return "bookCreation";
 	}
-	
-	public String lendingProcessManagement()
-	{
-		return "lendingProcessManagement";		
+
+	// Mario
+	public String magazineCreation() {
+		return "magazineCreation";
 	}
-	
-	public String basicDataLender()
-	{
-		return "basicDataLender";		
+
+	// Mario
+	public String dissertationCreation() {
+		return "dissertationCreation";
 	}
-	
-	public String basicDataType()
-	{
-		return "basicDataType";		
+
+	public String publicationManagement() {
+		return "publicationManagement";
 	}
-	
-	public String basicDataWord()
-	{
-		return "basicDataWord";		
+
+	public String lendingProcessManagement() {
+		return "lendingProcessManagement";
 	}
-	
-	public String marioTest()
-	{
+
+	public String basicDataLender() {
+		return "basicDataLender";
+	}
+
+	public String basicDataType() {
+		return "basicDataType";
+	}
+
+	public String basicDataWord() {
+		return "basicDataWord";
+	}
+
+	public String marioTest() {
 		return "marioTest";
 	}
-	public String jonasTest()
-	{
+
+	public String jonasTest() {
 		return "jonasTest";
 	}
-	
+
 }

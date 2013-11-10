@@ -8,6 +8,7 @@ import java.util.Set;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.librarymgmt.model.Borrower;
+import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BookService;
 import de.nak.librarymgmt.service.BorrowerService;
@@ -63,7 +64,7 @@ public class CreateTableAction implements Action {
 		keywords2.add("Keyord 3");
 		magazineService.createMagazine("Manager Magazin", authors2, new Date(),
 				keywords2, "Alt", "234234-324-234234-234", "Axel Springer",
-				"122", true, true);
+				"122");
 
 		dissertationService.createDissertation(
 				"Die Erforschung der heiligen Vagina", authors, new Date(),
@@ -73,6 +74,9 @@ public class CreateTableAction implements Action {
 				borrowerService.findBorrowerById(1L),
 				publicationService.findPublicationById(1L), new Date(),
 				new Date(), 2, "Open");
+
+		List<LendingProcess> lendingProcesses = lendingProcessService
+				.listLendingProcess();
 
 		// F†R BOND
 		// List<Dissertation> dissertations = dissertationService
