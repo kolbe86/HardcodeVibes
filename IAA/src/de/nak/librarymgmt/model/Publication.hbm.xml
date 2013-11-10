@@ -21,7 +21,7 @@
 		<property name="condition" not-null="true" type="string" />
 		<property name="distributed" not-null="true" type="boolean" />
 		<property name="reserved" not-null="true" type="boolean" />
-		<one-to-one name="lendingProcess" property-ref="lendingProcessID"></one-to-one>
+<!-- 		<one-to-one name="lendingProcess" property-ref="lendingProcessID"></one-to-one> -->
 		<union-subclass name="de.nak.librarymgmt.model.Book">
 			<property name="isbn" column="ISBN" type="string" not-null="true"></property>
 			<property name="publisher" column="PUBLISHER" type="string" not-null="true"></property>

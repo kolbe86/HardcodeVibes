@@ -9,7 +9,7 @@
 <title>Creation Successful</title>
 </head>
 <body>
-<h3>Publikation wurde erfolgreich angelegt.</h3>
+<h3>Magazin wurde erfolgreich angelegt.</h3>
 
 <p>
 Der Titel der Publikation ist: <s:property value="magazineBean.title" />

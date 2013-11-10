@@ -8,7 +8,7 @@
 			<generator class="sequence" />
 		</id>
 		<many-to-one name="borrower" column="borrowerID" unique="true" not-null="true"></many-to-one>
-		<many-to-one name="publication" column="PUBLICATION_ID" unique="true" not-null="true"></many-to-one>
+<!-- 		<many-to-one name="publication" column="PUBLICATION_ID" unique="true" not-null="true"></many-to-one> -->
 		<property name="issueDate" column="ISSUE_DATE"
 			type="timestamp" />
 		<property name="returnDate" column="RETURN_DATE"

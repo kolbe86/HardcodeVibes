@@ -27,7 +27,7 @@
   	</definition>
   	<definition name="successfullBookCreation" extends="baseLayout">
       	<put-attribute name="header"  value="Buch erfolgreich angelegt"/>
-      	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
+      	<put-attribute name="main"   value="/successfullBookCreation.jsp"/>      
   	</definition>
   
   <!--   	Mario -->
@@ -37,7 +37,7 @@
   	</definition>
   	<definition name="successfullMagazineCreation" extends="baseLayout">
       	<put-attribute name="header"  value="Magazin erfolgreich angelegt"/>
-      	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
+      	<put-attribute name="main"   value="/successfullMagazineCreation.jsp"/>      
   	</definition>
   	
   	<!--   	Mario -->
@@ -47,7 +47,7 @@
   	</definition>
   	<definition name="successfullDissertationCreation" extends="baseLayout">
       	<put-attribute name="header"  value="Dissertation erfolgreich angelegt"/>
-      	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
+      	<put-attribute name="main"   value="/successfullDissertationCreation.jsp"/>      
   	</definition>
   	
     <definition name="publicationManagement" extends="baseLayout">
