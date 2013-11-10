@@ -14,9 +14,12 @@
 <table style="border:solid;background-color:pink">
 	<tr>
 		<th>Titel</th>
-		<th>Author</th>
-		<th>ISBN</th>
-		<th>Verlag</th>
+		<th>Autoren</th>
+		<th>Veröffentlichungsdatum</th>
+		<th>Schlagwörter</th>
+		<th>Zustand</th>
+		<th>Verliehen</th>
+		<th>Reserviert</th>
 	</tr>
 		<s:iterator value="publications">
 			<tr>
