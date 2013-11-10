@@ -13,10 +13,10 @@
 
 <s:form action="dissertationCreationAction">
 
- 	  <s:textfield name="dissertationBean.title" label="Titel" value="Studie über Vaginas"/>
+ 	  <s:textfield name="dissertationBean.title" label="Titel" value="Studie über Vögel"/>
  	  <s:textfield  name="dissertationBean.authors" label="Autoren" value="Hugh Heffner"/>
  	  <s:textfield name="dissertationBean.publicationDate"  label ="Veroeffentlichungsdatum" value="21.03.2013" />
- 	  <s:textfield name="dissertationBean.keywords"  label ="Schlagwörter" value="Vagina"/>
+ 	  <s:textfield name="dissertationBean.keywords"  label ="Schlagwörter" value="Vogel"/>
  	  <s:textfield name="dissertationBean.condition"  label ="Zustand" value="Alt"/>
  	   
  	  
