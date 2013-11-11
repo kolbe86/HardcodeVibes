@@ -9,4 +9,6 @@ public interface PublicationService {
 	Publication findPublicationById(long publicationID);
 
 	List<Publication> listPublications();
+
+	List<Publication> findPublicationsByCriteria(String title, String condition);
 }

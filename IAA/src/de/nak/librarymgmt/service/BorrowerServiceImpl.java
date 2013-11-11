@@ -2,7 +2,6 @@ package de.nak.librarymgmt.service;
 
 import java.util.List;
 
-
 import de.nak.librarymgmt.dao.BorrowerDAO;
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.LendingProcess;
@@ -89,6 +88,19 @@ public class BorrowerServiceImpl implements BorrowerService {
 			// TODO
 		}
 
+	}
+
+	@Override
+	public List<Borrower> findBorrowersByCriteria(String firstName,
+			String lastName) {
+		List<Borrower> borrowers = borrowerDAO.findByCriteria(firstName,
+				lastName);
+		try {
+			return borrowers;
+		} catch (Exception e) {
+			return null; // TODO
+
+		}
 	}
 
 	/*

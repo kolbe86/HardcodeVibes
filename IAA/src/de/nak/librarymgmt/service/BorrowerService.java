@@ -33,17 +33,22 @@ public interface BorrowerService {
 
 	/**
 	 * Updates a borrower entity and stores the changes into the database.
-	 *
+	 * 
 	 * @param borrowerID
 	 *            , ID of the borrower that should be updated.
-	 * @param firstName, the first name of the borrower.
-	 * @param lastName, the last name of the borrower.
+	 * @param firstName
+	 *            , the first name of the borrower.
+	 * @param lastName
+	 *            , the last name of the borrower.
 	 */
 	void updateBorrower(long borrowerID, String firstName, String lastName);
 
-	void addLendingProcessToBorrower(long borrowerID, LendingProcess lendingProcess);
-	
-	void deleteLendingProcessFromBorrower(long borrowerID, LendingProcess lendingProcess);
+	void addLendingProcessToBorrower(long borrowerID,
+			LendingProcess lendingProcess);
+
+	void deleteLendingProcessFromBorrower(long borrowerID,
+			LendingProcess lendingProcess);
+
 	/**
 	 * Returns the Borrower identified by the given id.
 	 * 
@@ -59,6 +64,8 @@ public interface BorrowerService {
 	 * @return a list of borrowers.
 	 */
 	List<Borrower> listBorrowers();
+
+	List<Borrower> findBorrowersByCriteria(String firstName, String lastName);
 
 	/*
 	 * void addLendingProcess(LendingProcess lendingProcess, Borrower borrower);

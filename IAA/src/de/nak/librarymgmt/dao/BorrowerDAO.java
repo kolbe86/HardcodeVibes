@@ -2,6 +2,8 @@ package de.nak.librarymgmt.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Borrower;
@@ -11,6 +13,7 @@ import de.nak.librarymgmt.model.Borrower;
  * 
  * @author Kowk Bond Chu
  */
+
 public class BorrowerDAO extends HibernateDaoSupport {
 
 	/**
@@ -44,6 +47,17 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	public Borrower findById(Long borrowerID) {
 		return (Borrower) getHibernateTemplate()
 				.get(Borrower.class, borrowerID);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Borrower> findByCriteria(String firstName, String lastName) {
+		Criteria criteria = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createCriteria(Borrower.class);
+		criteria.add(Restrictions.like("firstName", "%" + firstName + "%")
+				.ignoreCase());
+		criteria.add(Restrictions.like("lastName", "%" + lastName + "%")
+				.ignoreCase());
+		return ((List<Borrower>) criteria.list());
 	}
 
 	/**

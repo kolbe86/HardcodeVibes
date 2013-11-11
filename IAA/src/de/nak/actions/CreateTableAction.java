@@ -74,6 +74,12 @@ public class CreateTableAction implements Action {
 				publicationService.findPublicationById(1L), new Date(),
 				new Date(), 2, "Open");
 
+		List<Borrower> borrowers1 = borrowerService.findBorrowersByCriteria(
+				"ans", "eier");
+
+		List<Publication> publications = publicationService
+				.findPublicationsByCriteria("a", "");
+
 		System.out.println("execute success");
 		return "marioTest";
 	}

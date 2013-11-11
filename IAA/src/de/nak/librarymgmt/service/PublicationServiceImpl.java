@@ -33,4 +33,17 @@ public class PublicationServiceImpl implements PublicationService {
 	public List<Publication> listPublications() {
 		return publicationDAO.findAll();
 	}
+
+	@Override
+	public List<Publication> findPublicationsByCriteria(String title,
+			String condition) {
+		List<Publication> publications = publicationDAO.findByCriteria(title,
+				condition);
+		try {
+			return publications;
+		} catch (Exception e) {
+			return null; // TODO
+
+		}
+	}
 }
