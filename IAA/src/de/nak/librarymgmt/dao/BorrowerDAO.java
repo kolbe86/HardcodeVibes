@@ -3,6 +3,7 @@ package de.nak.librarymgmt.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -57,6 +58,7 @@ public class BorrowerDAO extends HibernateDaoSupport {
 				.ignoreCase());
 		criteria.add(Restrictions.like("lastName", "%" + lastName + "%")
 				.ignoreCase());
+		criteria.addOrder(Order.asc("lastName"));
 		return ((List<Borrower>) criteria.list());
 	}
 

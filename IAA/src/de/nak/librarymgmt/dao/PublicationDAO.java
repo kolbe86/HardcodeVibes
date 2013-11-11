@@ -3,6 +3,7 @@ package de.nak.librarymgmt.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -27,6 +28,7 @@ public class PublicationDAO extends HibernateDaoSupport {
 		criteria.add(Restrictions.like("title", "%" + title + "%").ignoreCase());
 		criteria.add(Restrictions.like("condition", "%" + condition + "%")
 				.ignoreCase());
+		criteria.addOrder(Order.asc("title"));
 		return ((List<Publication>) criteria.list());
 	}
 }
