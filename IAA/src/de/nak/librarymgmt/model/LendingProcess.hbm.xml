@@ -5,16 +5,29 @@
 <hibernate-mapping>
 	<class name="de.nak.librarymgmt.model.LendingProcess" table="LENDINGPROCESS">
 		<id name="lendingProcessID" column="LENDINGPROCESS_ID" type="long">
-			<generator class="sequence" />
+			<generator class="native" />
 		</id>
-		<many-to-one name="borrower" column="borrowerID" unique="true" not-null="true"></many-to-one>
-<!-- 		<many-to-one name="publication" column="PUBLICATION_ID" unique="true" ></many-to-one> -->
-		<many-to-one name="publication" column="publicationID" unique="true" not-null="true"></many-to-one>
-		<property name="issueDate" column="ISSUE_DATE"
-			type="timestamp" />
-		<property name="returnDate" column="RETURN_DATE"
-			type="timestamp" />
-		<property name="extensionOfTimeLevel" column="EXTENSION_OF_TIME_LEVEL" not-null="true"></property>
-		<property name="state" column="STATE" not-null="true"></property>
+		<many-to-one name="borrower" column="borrowerID" unique="true"
+			not-null="true"></many-to-one>
+		<!-- <many-to-one name="publication" column="PUBLICATION_ID" unique="true" 
+			></many-to-one> -->
+		<many-to-one name="publication" column="publicationID"
+			unique="true" not-null="true"></many-to-one>
+		<property name="issueDate" column="ISSUE_DATE" type="timestamp" />
+		<property name="returnDate" column="RETURN_DATE" type="timestamp" />
+		<property name="extensionOfTimeLevel" column="EXTENSION_OF_TIME_LEVEL"
+			not-null="true"></property>
+		<property name="status" length="10" column="STATUS">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">de.nak.librarymgmt.util.StatusE</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		<property name="dunningLevel" length="10" column="DUNNING_LEVEL">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">de.nak.librarymgmt.util.DunningLevelE</param>
+				<param name="type">12</param>
+			</type>
+		</property>
 	</class>
 </hibernate-mapping>

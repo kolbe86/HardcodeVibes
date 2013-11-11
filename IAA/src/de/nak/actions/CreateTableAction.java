@@ -8,6 +8,7 @@ import java.util.Set;
 import com.opensymphony.xwork2.Action;
 
 import de.nak.librarymgmt.model.Borrower;
+import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BookService;
 import de.nak.librarymgmt.service.BorrowerService;
@@ -15,6 +16,7 @@ import de.nak.librarymgmt.service.DissertationService;
 import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.MagazineService;
 import de.nak.librarymgmt.service.PublicationService;
+import de.nak.librarymgmt.util.DunningLevelE;
 
 public class CreateTableAction implements Action {
 
@@ -30,11 +32,14 @@ public class CreateTableAction implements Action {
 
 		System.out.println("execute");
 		borrowerService.createBorrower("Hans", "Meier");
+		borrowerService.createBorrower("Hans", "Deng");
+		borrowerService.createBorrower("Hans", "Peng");
 		borrowerService.createBorrower("Bong", "Bong");
 		borrowerService.createBorrower("Ding", "Dong");
-		borrowerService.deleteBorrower(3L);
-		borrowerService.updateBorrower(2L, "Bing", "Bong");
-
+		/*
+		 * borrowerService.deleteBorrower(3L);
+		 * borrowerService.updateBorrower(2L, "Bing", "Bong");
+		 */
 		// F†R BOND
 		List<Borrower> borrowers = borrowerService.listBorrowers();
 
@@ -71,11 +76,31 @@ public class CreateTableAction implements Action {
 
 		lendingProcessService.createLendingProcess(
 				borrowerService.findBorrowerById(1L),
-				publicationService.findPublicationById(1L), new Date(),
-				new Date(), 2, "Open");
+				publicationService.findPublicationById(1L), new Date());
+
+		lendingProcessService.createLendingProcess(
+				borrowerService.findBorrowerById(2L),
+				publicationService.findPublicationById(2L), new Date());
+
+		lendingProcessService.createLendingProcess(
+				borrowerService.findBorrowerById(3L),
+				publicationService.findPublicationById(3L), new Date());
+
+		lendingProcessService.setDunningLevel(2L, DunningLevelE.FIRST);
+		lendingProcessService.setDunningLevel(3L, DunningLevelE.SECOND);
+
+		List<LendingProcess> lendingProcesses = lendingProcessService
+				.findActiveLendingProcesses();
+		List<LendingProcess> lendingProcesses1 = lendingProcessService
+				.findDunnedLendingProcesses();
+
+		lendingProcessService.extendLendingProcess(2L);
+
+		List<LendingProcess> lendingProcesses2 = lendingProcessService
+				.findDunnedLendingProcesses();
 
 		List<Borrower> borrowers1 = borrowerService.findBorrowersByCriteria(
-				"ans", "eier");
+				"Hans", "");
 
 		List<Publication> publications = publicationService
 				.findPublicationsByCriteria("a", "");

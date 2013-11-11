@@ -3,6 +3,9 @@ package de.nak.librarymgmt.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import de.nak.librarymgmt.util.DunningLevelE;
+import de.nak.librarymgmt.util.StatusE;
+
 /**
  * The Lending Process POJO
  * 
@@ -18,7 +21,8 @@ public class LendingProcess implements Serializable {
 	private Date issueDate;
 	private Date returnDate;
 	private int extensionOfTimeLevel;
-	private String state;
+	private StatusE status;
+	private DunningLevelE dunningLevel;
 
 	public long getLendingProcessID() {
 		return lendingProcessID;
@@ -72,12 +76,20 @@ public class LendingProcess implements Serializable {
 		this.publication = publication;
 	}
 
-	public String getState() {
-		return state;
+	public DunningLevelE getDunningLevel() {
+		return dunningLevel;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setDunningLevel(DunningLevelE dunningLevel) {
+		this.dunningLevel = dunningLevel;
+	}
+
+	public StatusE getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusE status) {
+		this.status = status;
 	}
 
 }
