@@ -11,15 +11,26 @@ import de.nak.librarymgmt.model.Publication;
 
 public class PublicationDAO extends HibernateDaoSupport {
 
-	public Publication findPublicationByID(long publicationID) {
-		return (Publication) getHibernateTemplate().get(Publication.class,
-				publicationID);
+	public void save(Publication publication) {
+		getHibernateTemplate().save(publication);
+		System.out.println("saved!");
+	}
+
+	public void delete(Publication publication) {
+		getHibernateTemplate().delete(publication);
+		System.out.println("saved!");
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Publication> findAll() {
 		return getHibernateTemplate().find("from Publication");
 	}
+
+	public Publication findById(Long publicationID) {
+		return (Publication) getHibernateTemplate().get(Publication.class,
+				publicationID);
+	}
+	
 
 	@SuppressWarnings("unchecked")
 	public List<Publication> findByCriteria(String title, String condition) {

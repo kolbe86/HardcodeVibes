@@ -36,7 +36,5 @@
 			<key column="publicationID" />
 			<many-to-many column="keywordID" class="de.nak.librarymgmt.model.Keyword" />
 		</set>
-		
-
 	</class>
 </hibernate-mapping>

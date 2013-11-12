@@ -22,96 +22,123 @@ public class Publication implements Serializable {
 	private PublicationType publicationType;
 	private Set<Keyword> keywords;
 	private LendingProcess lendingProcess;
-	
-//	nullable..
-	private String isbn;
-	private String publisher;
-	private String issue;
-	private String edition;
+
+	// nullable..
+	private String isbn = "keine";
+	private String publisher = "keiner";
+	private String issue = "keine";
+	private String edition = "keine";
+
 	public long getPublicationID() {
 		return publicationID;
 	}
+
 	public void setPublicationID(long publicationID) {
 		this.publicationID = publicationID;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public Set<String> getAuthors() {
 		return authors;
 	}
+
 	public void setAuthors(Set<String> authors) {
 		this.authors = authors;
 	}
+
 	public Date getPublicationDate() {
 		return publicationDate;
 	}
+
 	public void setPublicationDate(Date publicationDate) {
 		this.publicationDate = publicationDate;
 	}
+
 	public ConditionE getCondition() {
 		return condition;
 	}
+
 	public void setCondition(ConditionE condition) {
 		this.condition = condition;
 	}
+
 	public boolean isDistributed() {
 		return distributed;
 	}
+
 	public void setDistributed(boolean distributed) {
 		this.distributed = distributed;
 	}
+
 	public boolean isReserved() {
 		return reserved;
 	}
+
 	public void setReserved(boolean reserved) {
 		this.reserved = reserved;
 	}
+
 	public PublicationType getPublicationType() {
 		return publicationType;
 	}
+
 	public void setPublicationType(PublicationType publicationType) {
 		this.publicationType = publicationType;
 	}
+
 	public Set<Keyword> getKeywords() {
 		return keywords;
 	}
+
 	public void setKeywords(Set<Keyword> keywords) {
 		this.keywords = keywords;
 	}
+
 	public LendingProcess getLendingProcess() {
 		return lendingProcess;
 	}
+
 	public void setLendingProcess(LendingProcess lendingProcess) {
 		this.lendingProcess = lendingProcess;
 	}
+
 	public String getIsbn() {
 		return isbn;
 	}
+
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+
 	public String getPublisher() {
 		return publisher;
 	}
+
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
+
 	public String getIssue() {
 		return issue;
 	}
+
 	public void setIssue(String issue) {
 		this.issue = issue;
 	}
+
 	public String getEdition() {
 		return edition;
 	}
+
 	public void setEdition(String edition) {
 		this.edition = edition;
 	}
-
 
 }
