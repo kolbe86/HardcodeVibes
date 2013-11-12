@@ -13,16 +13,16 @@
 
 <s:form action="publicationCreationAction">
 
- 	  <s:textfield name="publication.title" label="Titel" value="Buchtitel"/>
- 	  <s:textfield  name="publication.authors" label="Autoren" value="Autor"/>
+ 	  <s:textfield name="publicationBean.title" label="Titel" value="Buchtitel"/>
+ 	  <s:textfield  name="publicationBean.authors" label="Autoren" value="Autor"/>
  	  <s:submit action="addAuthorAction"/>
- 	  <s:property value="publication.authors"/>
- 	  <s:textfield name="publication.publicationDate"  label ="Veroeffentlichungsdatum" value="01.01.2000"/>
- 	  <s:textfield name="publication.keywords"  label ="Schlagwörter" value="Keyword"/>
- 	  <s:textfield name="publication.condition"  label ="Zustand" value="Neu"/>
- 	  <s:textfield name="publication.isbn"  label ="ISBN Nummer" value="978-3-86680-192-9"/>
- 	  <s:textfield name="publication.publisher"  label ="Verlag" value="Grim"/>
- 	  <s:textfield name="publication.edition"  label ="Auflage" value="3. Auflage"/>
+ 	  <s:property value="publicationBean.authors"/>
+ 	  <s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum" value="01.01.2000"/>
+ 	  <s:textfield name="publicationBean.keywords"  label ="Schlagwörter" value="Keyword"/>
+ 	  <s:textfield name="publicationBean.condition"  label ="Zustand" value="Neu"/>
+ 	  <s:textfield name="publicationBean.isbn"  label ="ISBN Nummer" value="978-3-86680-192-9"/>
+ 	  <s:textfield name="publicationBean.publisher"  label ="Verlag" value="Grim"/>
+ 	  <s:textfield name="publicationBean.edition"  label ="Auflage" value="3. Auflage"/>
 
    	  <s:submit/>
    	  
