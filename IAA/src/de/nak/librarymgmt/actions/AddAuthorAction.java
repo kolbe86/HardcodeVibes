@@ -37,7 +37,7 @@ public class AddAuthorAction extends ActionSupport {
 		// ActionContext.getContext().getSession().put("autor", "autor");
 
 		Book book = (Book) session.get("book");
-		System.out.println(ActionContext.getContext().getSession().toString());
+		System.out.println(book.getAuthors());
 		return SUCCESS;
 
 	}
