@@ -19,7 +19,7 @@ public class PublicationCreationAction extends ActionSupport {
 
 		Map<String, Object> session = ActionContext.getContext().getSession();
 
-		if (session.containsKey("autoren")) {
+		if (session.containsKey("ProbeBuch")) {
 			@SuppressWarnings("unchecked")
 			HashSet<String> autoren = (HashSet<String>) session.get("autoren");
 			autoren.add(probeBuchBean.getAuthor());
@@ -27,9 +27,11 @@ public class PublicationCreationAction extends ActionSupport {
 		} else {
 			HashSet<String> autoren = new HashSet<String>();
 			session.put("autoren", autoren);
+			autoren.add(probeBuchBean.getAuthor());
+
 		}
 
-		ActionContext.getContext().getSession().put("autor", "autor");
+//		ActionContext.getContext().getSession().put("autor", "autor");
 		System.out.println(ActionContext.getContext().getSession().toString());
 
 		// call Service class to store personBean's state in database

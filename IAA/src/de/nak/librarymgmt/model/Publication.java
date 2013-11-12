@@ -63,6 +63,10 @@ public abstract class Publication implements Serializable {
 	public void setAuthors(Set<String> authors) {
 		this.authors = authors;
 	}
+	
+	public void addAuthors(Set<String> authors) {
+		this.authors.addAll(authors);
+	}
 
 	public Set<String> getKeywords() {
 		return keywords;
