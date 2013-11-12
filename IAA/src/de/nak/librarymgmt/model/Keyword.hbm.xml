@@ -3,10 +3,10 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="de.nak.librarymgmt.model.Keyword">
+	<class name="de.nak.librarymgmt.model.Keyword" table="KEYWORD">
 		<id name="KeywordID" column="KEYWORD_ID" type="long">
 			<generator class="sequence" />
 		</id>
-		<property name="name" column="NAME" type="string" not-null="true"></property>
+		<property name="name" column="NAME" type="string" not-null="true" />
 	</class>
 </hibernate-mapping>

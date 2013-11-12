@@ -9,6 +9,14 @@ public class KeywordServiceImpl implements KeywordService {
 
 	private KeywordDAO keywordDAO;
 
+	public void setKeywordDAO(KeywordDAO keywordDAO) {
+		this.keywordDAO = keywordDAO;
+	}
+
+	public KeywordDAO getKeywordDAO() {
+		return keywordDAO;
+	}
+
 	@Override
 	public void createKeyword(String name) {
 		Keyword keyword = new Keyword();

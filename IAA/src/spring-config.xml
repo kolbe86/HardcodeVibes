@@ -32,7 +32,7 @@
 				<value>de/nak/librarymgmt/model/Publication.hbm.xml</value>
 				<value>de/nak/librarymgmt/model/PublicationType.hbm.xml</value>
 				<value>de/nak/librarymgmt/model/Keyword.hbm.xml</value>
- 				<value>de/nak/librarymgmt/model/LendingProcess.hbm.xml</value>
+				<value>de/nak/librarymgmt/model/LendingProcess.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -62,12 +62,20 @@
 	<bean id="borrowerDAO" class="de.nak.librarymgmt.dao.BorrowerDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="publicationDAO" class="de.nak.librarymgmt.dao.PublicationDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>	
-	
+	</bean>
+
 	<bean id="lendingProcessDAO" class="de.nak.librarymgmt.dao.LendingProcessDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="keywordDAO" class="de.nak.librarymgmt.dao.KeywordDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="publicationTypeDAO" class="de.nak.librarymgmt.dao.PublicationTypeDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
@@ -79,11 +87,18 @@
 
 	<bean id="publicationService" class="de.nak.librarymgmt.service.PublicationServiceImpl">
 		<property name="publicationDAO" ref="publicationDAO" />
-	</bean>	
+	</bean>
 
 	<bean id="lendingProcessService" class="de.nak.librarymgmt.service.LendingProcessServiceImpl">
 		<property name="lendingProcessDAO" ref="lendingProcessDAO" />
 	</bean>
 
+	<bean id="keywordService" class="de.nak.librarymgmt.service.KeywordServiceImpl">
+		<property name="keywordDAO" ref="keywordDAO" />
+	</bean>
+
+	<bean id="publicationTypeService" class="de.nak.librarymgmt.service.PublicationTypeServiceImpl">
+		<property name="publicationTypeDAO" ref="publicationTypeDAO" />
+	</bean>
 
 </beans>

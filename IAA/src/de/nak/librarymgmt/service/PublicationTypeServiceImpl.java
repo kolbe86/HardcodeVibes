@@ -7,14 +7,14 @@ import de.nak.librarymgmt.model.PublicationType;
 
 public class PublicationTypeServiceImpl implements PublicationTypeService {
 
-	private PublicationTypeDAO publicationTypeDao;
+	private PublicationTypeDAO publicationTypeDAO;
 
 	@Override
 	public void createPublicationType(String name) {
 		PublicationType publicationType = new PublicationType();
 		publicationType.setName(name);
 		try {
-			publicationTypeDao.save(publicationType);
+			publicationTypeDAO.save(publicationType);
 		} catch (Exception e) {
 
 		}
@@ -22,10 +22,10 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 
 	@Override
 	public void deletePublicationType(long publicationTypeID) {
-		PublicationType publicationType = publicationTypeDao
+		PublicationType publicationType = publicationTypeDAO
 				.findById(publicationTypeID);
 		try {
-			publicationTypeDao.delete(publicationType);
+			publicationTypeDAO.delete(publicationType);
 		} catch (Exception e) {
 
 		}
@@ -38,14 +38,22 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 
 	@Override
 	public List<PublicationType> listAllPublicationTypes() {
-		return publicationTypeDao.findAll();
+		return publicationTypeDAO.findAll();
 	}
 
 	@Override
 	public PublicationType findPublicationTypeById(long publicationTypeID) {
-		PublicationType publicationType = publicationTypeDao
+		PublicationType publicationType = publicationTypeDAO
 				.findById(publicationTypeID);
 		return publicationType;
+	}
+
+	public PublicationTypeDAO getPublicationTypeDAO() {
+		return publicationTypeDAO;
+	}
+
+	public void setPublicationTypeDAO(PublicationTypeDAO publicationTypeDAO) {
+		this.publicationTypeDAO = publicationTypeDAO;
 	}
 
 }

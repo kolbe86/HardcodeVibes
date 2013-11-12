@@ -55,71 +55,70 @@ public class CreateTableAction implements Action {
 		authors2.add("Max Frisch");
 		authors2.add("Steven King");
 
-		Keyword keyword1 = new Keyword();
-		keyword1.setName("Informatik");
-		Keyword keyword2 = new Keyword();
-		keyword2.setName("Freak");
-		Keyword keyword3 = new Keyword();
-		keyword3.setName("Noob");
-		Keyword keyword4 = new Keyword();
-		keyword4.setName("Porno");
+		keywordService.createKeyword("Informatik");
+		keywordService.createKeyword("Nerd");
+		keywordService.createKeyword("Freak");
+		keywordService.createKeyword("Erotik");
 
 		Set<Keyword> keywords1 = new HashSet<>();
-		keywords1.add(keyword1);
-		keywords1.add(keyword2);
-		keywords1.add(keyword3);
+		keywords1.add(keywordService.findKeywordById(1L));
+		keywords1.add(keywordService.findKeywordById(2L));
+		keywords1.add(keywordService.findKeywordById(3L));
 
 		Set<Keyword> keywords2 = new HashSet<>();
-		keywords2.add(keyword4);
-		keywords2.add(keyword2);
-		keywords2.add(keyword3);
+		keywords2.add(keywordService.findKeywordById(2L));
+		keywords2.add(keywordService.findKeywordById(3L));
+		keywords2.add(keywordService.findKeywordById(4L));
 
 		publicationTypeService.createPublicationType("Buch");
 		publicationTypeService.createPublicationType("Zeitschrift");
 		publicationTypeService.createPublicationType("Hausarbeit");
-		PublicationType publicationType = publicationTypeService.findPublicationTypeById(1L);
-		PublicationType publicationType = publicationTypeService.findPublicationTypeById(2L);
-		PublicationType publicationType = publicationTypeService.findPublicationTypeById(2L);
-		
+		PublicationType publicationType1 = publicationTypeService
+				.findPublicationTypeById(5L);
+		PublicationType publicationType2 = publicationTypeService
+				.findPublicationTypeById(6L);
+		PublicationType publicationType3 = publicationTypeService
+				.findPublicationTypeById(7L);
+
 		publicationService.createPublication("BONG", authors, new Date(),
 				ConditionE.NEW, publicationType1, keywords1, "1231-1231-123",
 				"NAK", "1", "0");
 
-		Publication publication1 = publicationService.findPublicationById(1L);
+		Publication publication1 = publicationService.findPublicationById(8L);
 
 		publicationService.createPublication("MARIO", authors, new Date(),
 				ConditionE.NEW, publicationType2, keywords2, "1231-1231-123",
 				"NAK", "1", "0");
 
-		Publication publication2 = publicationService.findPublicationById(2L);
+		Publication publication2 = publicationService.findPublicationById(9L);
 
 		publicationService.createPublication("GAS, SCHEISSE, WASSER, M€CKEL",
 				authors, new Date(), ConditionE.NEW, publicationType3,
 				keywords2, "1231-1231-123", "NAK", "1", "0");
 
-		Publication publication3 = publicationService.findPublicationById(3L);
+		Publication publication3 = publicationService.findPublicationById(10L);
 
 		lendingProcessService.createLendingProcess(
 				borrowerService.findBorrowerById(1L),
-				publicationService.findPublicationById(1L), new Date());
+				publicationService.findPublicationById(8L), new Date());
 
 		lendingProcessService.createLendingProcess(
 				borrowerService.findBorrowerById(2L),
-				publicationService.findPublicationById(2L), new Date());
+				publicationService.findPublicationById(9L), new Date());
 
 		lendingProcessService.createLendingProcess(
 				borrowerService.findBorrowerById(3L),
-				publicationService.findPublicationById(3L), new Date());
+				publicationService.findPublicationById(10L), new Date());
 
-		lendingProcessService.setDunningLevel(2L, DunningLevelE.FIRST);
-		lendingProcessService.setDunningLevel(3L, DunningLevelE.SECOND);
+		lendingProcessService.setDunningLevel(1L, DunningLevelE.FIRST);
+		lendingProcessService.setDunningLevel(2L, DunningLevelE.SECOND);
 
 		List<LendingProcess> lendingProcesses = lendingProcessService
 				.findActiveLendingProcesses();
 		List<LendingProcess> lendingProcesses1 = lendingProcessService
 				.findDunnedLendingProcesses();
 
-		lendingProcessService.extendLendingProcess(2L);
+		lendingProcessService.extendLendingProcess(1L);
 
 		List<LendingProcess> lendingProcesses2 = lendingProcessService
 				.findDunnedLendingProcesses();
@@ -129,10 +128,9 @@ public class CreateTableAction implements Action {
 
 		List<Publication> publications = publicationService.listPublications();
 
-		List<Publication> publications2 = publicationService
-				.findPublicationsByCriteria("a", "");
+		List<Publication> publications2 = publicationService.findPublicationsByCriteria("a", ConditionE.NEW);
 
-		publicationService.updatePublication(1L, "BONG", authors, new Date(),
+		publicationService.updatePublication(8L, "BOND", authors, new Date(),
 				ConditionE.NEW, true, publicationType1, keywords1,
 				"1231-1231-123", "NAK", "1", "0");
 
@@ -162,6 +160,23 @@ public class CreateTableAction implements Action {
 
 	public void setPublicationService(PublicationService publicationService) {
 		this.publicationService = publicationService;
+	}
+
+	public PublicationTypeService getPublicationTypeService() {
+		return publicationTypeService;
+	}
+
+	public void setPublicationTypeService(
+			PublicationTypeService publicationTypeService) {
+		this.publicationTypeService = publicationTypeService;
+	}
+
+	public KeywordService getKeywordService() {
+		return keywordService;
+	}
+
+	public void setKeywordService(KeywordService keywordService) {
+		this.keywordService = keywordService;
 	}
 
 }
