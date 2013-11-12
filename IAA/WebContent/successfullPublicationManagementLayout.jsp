@@ -170,7 +170,7 @@
 	<thead>
 	<tbody>
 		<s:iterator value="publications">
-			<tr>
+			<tr onclick="addAuthorAction">
 
 				<td><s:property value="title"/></td>
 				<td><s:property value="authors"/></td>
@@ -179,8 +179,18 @@
 				<td><s:property value="condition"/></td>
 				<td><s:property value="distributed"/></td>
 				<td><s:property value="reserved"/></td>
+				
+				<td>Moin</td>
+				<td>Moin</td>
+				<td>Moin</td>
 			</tr>
 		</s:iterator>
+		
+			<tr onclick="baseLayoutLink">
+				<td>Moin</td>
+				<td>Moin</td>
+				<td>Moin</td>
+			</tr>
 		</tbody>
 			<tr style="border:solid,background-color:red">
 				<td>

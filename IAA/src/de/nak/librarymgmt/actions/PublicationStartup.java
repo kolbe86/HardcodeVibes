@@ -1,43 +1,53 @@
 package de.nak.librarymgmt.actions;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
-
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import de.nak.librarymgmt.model.ProbeBuch;
+import de.nak.librarymgmt.model.Keyword;
+import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.service.KeywordService;
 
 public class PublicationStartup extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	private ProbeBuch probeBuchBean = new ProbeBuch();
+	private Publication publicationBean = new Publication();
+	private KeywordService keywordService;
 
 
+	@SuppressWarnings("unchecked")
 	public String execute() throws Exception {
-		 List<String> tempSchlagwort = new LinkedList<String>();
-		tempSchlagwort.add("Informatik");
-		tempSchlagwort.add("Ingenieur");
-		tempSchlagwort.add("BWL");
 		
-		probeBuchBean = new ProbeBuch();
-		this.probeBuchBean.setSchlagwort(tempSchlagwort);
+
+		this.publicationBean.setKeywords(keywordService.listAllKeywords());
 		
 
 		return "publicationSuccess";
 	}
 
-	public ProbeBuch getProbeBuchBean() {
 
-		return probeBuchBean;
-
+	public Publication getPublicationBean() {
+		return publicationBean;
 	}
 
-	public void setProbeBuchBean(ProbeBuch probeBuch) {
 
-		probeBuchBean = probeBuch;
+	public void setPublicationBean(Publication publicationBean) {
+		this.publicationBean = publicationBean;
+	}
 
+
+	public KeywordService getKeywordService() {
+		return keywordService;
+	}
+
+
+	public void setKeywordService(KeywordService keywordService) {
+		this.keywordService = keywordService;
 	}
 
 }

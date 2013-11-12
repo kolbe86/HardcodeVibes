@@ -20,7 +20,7 @@ Der Titel der Publikation ist: <s:property value="publicationBean.title" />
  ISBN: <s:property value="publicationBean.isbn" />
  Verlag: <s:property value="publicationBean.publisher" />
  Auflage: <s:property value="publicationBean.edition" />
-<!--  + Weitere -->
+Ausgabe: <s:property value="publicationBean.issue"/>
  
  </p>
 
