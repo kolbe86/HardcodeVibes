@@ -1,6 +1,7 @@
 package de.nak.librarymgmt.service;
 
-import java.util.List;
+
+import java.util.Set;
 
 import de.nak.librarymgmt.model.PublicationType;
 
@@ -12,7 +13,7 @@ public interface PublicationTypeService {
 
 	void updatePublicationType(long publicationTypeID, String name);
 
-	List<PublicationType> listAllPublicationTypes();
+	Set<PublicationType> listAllPublicationTypes();
 
 	PublicationType findPublicationTypeById(long publicationTypeID);
 

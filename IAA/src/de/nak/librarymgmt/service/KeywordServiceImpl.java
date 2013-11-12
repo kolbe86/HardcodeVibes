@@ -1,6 +1,7 @@
 package de.nak.librarymgmt.service;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import de.nak.librarymgmt.dao.KeywordDAO;
 import de.nak.librarymgmt.model.Keyword;
@@ -52,7 +53,7 @@ public class KeywordServiceImpl implements KeywordService {
 	}
 
 	@Override
-	public List<Keyword> listAllKeywords() {
+	public Set<Keyword> listAllKeywords() {
 		return keywordDAO.findAll();
 	}
 

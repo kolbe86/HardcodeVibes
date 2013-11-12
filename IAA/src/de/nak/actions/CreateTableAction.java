@@ -17,7 +17,6 @@ import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.service.PublicationTypeService;
 import de.nak.librarymgmt.service.KeywordService;
-
 import de.nak.librarymgmt.util.ConditionE;
 import de.nak.librarymgmt.util.DunningLevelE;
 
@@ -84,6 +83,10 @@ public class CreateTableAction implements Action {
 				ConditionE.NEW, publicationType1, keywords1, "1231-1231-123",
 				"NAK", "1", "0");
 
+		List<Publication> publicationList = publicationService
+				.findPublicationByCriteria("bo", false, false,
+						publicationType1, "", "", "", "", ConditionE.NEW);
+
 		Publication publication1 = publicationService.findPublicationById(8L);
 
 		publicationService.createPublication("MARIO", authors, new Date(),
@@ -126,9 +129,9 @@ public class CreateTableAction implements Action {
 		List<Borrower> borrowers1 = borrowerService.findBorrowersByCriteria(
 				"Hans", "");
 
-		List<Publication> publications = publicationService.listPublications();
+		Set<Keyword> keywords = keywordService.listAllKeywords();
 
-		List<Publication> publications2 = publicationService.findPublicationsByCriteria("a", ConditionE.NEW);
+		List<Publication> publications = publicationService.listPublications();
 
 		publicationService.updatePublication(8L, "BOND", authors, new Date(),
 				ConditionE.NEW, true, publicationType1, keywords1,

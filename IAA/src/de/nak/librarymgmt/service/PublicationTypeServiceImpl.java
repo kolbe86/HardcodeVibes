@@ -1,6 +1,6 @@
 package de.nak.librarymgmt.service;
 
-import java.util.List;
+import java.util.Set;
 
 import de.nak.librarymgmt.dao.PublicationTypeDAO;
 import de.nak.librarymgmt.model.PublicationType;
@@ -37,7 +37,7 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 	}
 
 	@Override
-	public List<PublicationType> listAllPublicationTypes() {
+	public Set<PublicationType> listAllPublicationTypes() {
 		return publicationTypeDAO.findAll();
 	}
 

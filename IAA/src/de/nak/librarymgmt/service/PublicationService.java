@@ -18,14 +18,18 @@ public interface PublicationService {
 
 	void deletePublication(long publicationID);
 
-	void updatePublication(long publicationID, String title, Set<String> authors,
-			Date publicationDate, ConditionE condition, boolean reserved,
-			PublicationType publicationType, Set<Keyword> keywords,
-			String isbn, String publisher, String issue, String edition);
+	void updatePublication(long publicationID, String title,
+			Set<String> authors, Date publicationDate, ConditionE condition,
+			boolean reserved, PublicationType publicationType,
+			Set<Keyword> keywords, String isbn, String publisher, String issue,
+			String edition);
 
 	Publication findPublicationById(long publicationID);
 
 	List<Publication> listPublications();
 
-	List<Publication> findPublicationsByCriteria(String title, String condition);
+	List<Publication> findPublicationByCriteria(String title,
+			boolean distributed, boolean reserved,
+			PublicationType publicationType, String isbn, String publisher,
+			String issue, String edition, ConditionE condition);
 }

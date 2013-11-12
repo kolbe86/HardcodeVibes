@@ -16,8 +16,7 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public Publication findPublicationById(long publicationID) {
-		Publication publication = publicationDAO
-				.findById(publicationID);
+		Publication publication = publicationDAO.findById(publicationID);
 		try {
 			return publication;
 		} catch (Exception e) {
@@ -37,19 +36,6 @@ public class PublicationServiceImpl implements PublicationService {
 	@Override
 	public List<Publication> listPublications() {
 		return publicationDAO.findAll();
-	}
-
-	@Override
-	public List<Publication> findPublicationsByCriteria(String title,
-			String condition) {
-		List<Publication> publications = publicationDAO.findByCriteria(title,
-				condition);
-		try {
-			return publications;
-		} catch (Exception e) {
-			return null; // TODO
-
-		}
 	}
 
 	@Override
@@ -116,5 +102,14 @@ public class PublicationServiceImpl implements PublicationService {
 		} catch (Exception e) {
 			// TODO
 		}
+	}
+
+	@Override
+	public List<Publication> findPublicationByCriteria(String title,
+			boolean distributed, boolean reserved,
+			PublicationType publicationType, String isbn, String publisher,
+			String issue, String edition, ConditionE condition) {
+		return publicationDAO.findByCriteria(title, distributed, reserved,
+				publicationType, isbn, publisher, issue, edition, condition);
 	}
 }

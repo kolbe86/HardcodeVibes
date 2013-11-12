@@ -1,6 +1,7 @@
 package de.nak.librarymgmt.service;
 
-import java.util.List;
+
+import java.util.Set;
 
 import de.nak.librarymgmt.model.Keyword;
 
@@ -12,7 +13,7 @@ public interface KeywordService {
 
 	void updateKeyword(long keywordID, String name);
 
-	List<Keyword> listAllKeywords();
+	Set<Keyword> listAllKeywords();
 
 	Keyword findKeywordById(long keywordID);
 

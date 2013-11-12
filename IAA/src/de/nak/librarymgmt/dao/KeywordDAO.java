@@ -1,6 +1,7 @@
 package de.nak.librarymgmt.dao;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import de.nak.librarymgmt.model.Keyword;
 
@@ -17,8 +18,10 @@ public class KeywordDAO extends HibernateDaoSupport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Keyword> findAll() {
-		return getHibernateTemplate().find("from Keyword");
+	public Set<Keyword> findAll() {
+		Set<Keyword> keywordSet = new HashSet<Keyword>(getHibernateTemplate()
+				.find("from Keyword"));
+		return keywordSet;
 	}
 
 	public Keyword findById(Long keywordID) {
