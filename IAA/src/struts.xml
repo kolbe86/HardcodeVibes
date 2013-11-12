@@ -82,5 +82,9 @@
 		<action name="CreateTable" class="de.nak.actions.CreateTableAction" method="execute">
 			<result name="marioTest" type="tiles">marioTest</result>
 		</action>
+		
+		<action name="addAuthorAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
+			<result name="success" type="tiles">bookCreation</result>
+		</action>
 	</package>
 </struts>
