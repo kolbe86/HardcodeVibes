@@ -25,7 +25,7 @@
 			<result name="publicationSuccess" type="tiles">publicationCreation</result>
 		</action>
 		<action name="publicationCreationAction" class="de.nak.librarymgmt.actions.PublicationCreationAction" method="execute">
-  			<result name="success" type="tiles">successfullPublicationCreation</result>
+  			<result name="publicationSuccess" type="tiles">successfullPublicationCreation</result>
 		</action>
 		
 <!-- 		Mario -->

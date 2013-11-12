@@ -12,14 +12,15 @@
 <h3>Publikation wurde erfolgreich angelegt.</h3>
 
 <p>
-Der Titel der Publikation ist: <s:property value="probeBuchBean.titel" />
- Author: <s:property value="probeBuchBean.author" />
- Datum: <s:property value="probeBuchBean.datum" />
- Schlagwort: <s:property value="probeBuchBean.schlagwort" />
- Typ der Publikation: <s:property value="probeBuchBean.typ" />
- ISBN: <s:property value="probeBuchBean.isbn" />
- Verlag: <s:property value="probeBuchBean.verlag" />
- Anzahl: <s:property value="probeBuchBean.anzahl" />
+Der Titel der Publikation ist: <s:property value="publicationBean.title" />
+ Autor: <s:property value="publicationBean.authors" />
+ Datum: <s:property value="publicationBean.publicationDate" />
+ Schlagwort: <s:property value="publicationBean.keywords.name" />
+<%--  Zustand: <s:property value="publicationBean.condition" /> --%>
+ ISBN: <s:property value="publicationBean.isbn" />
+ Verlag: <s:property value="publicationBean.publisher" />
+ Auflage: <s:property value="publicationBean.edition" />
+<!--  + Weitere -->
  
  </p>
 

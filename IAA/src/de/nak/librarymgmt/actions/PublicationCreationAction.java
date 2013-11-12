@@ -1,56 +1,33 @@
 package de.nak.librarymgmt.actions;
 
-import java.util.HashSet;
-import java.util.Map;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import de.nak.librarymgmt.model.ProbeBuch;
+import de.nak.librarymgmt.model.Publication;
 
 public class PublicationCreationAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	private ProbeBuch probeBuchBean;
+	private Publication publicationBean;
 
 	@Override
 	public String execute() throws Exception {
+		
+		Publication testPublication = publicationBean;
 
-		Map<String, Object> session = ActionContext.getContext().getSession();
+		System.out.println("TEST");
 
-		if (session.containsKey("ProbeBuch")) {
-			@SuppressWarnings("unchecked")
-			HashSet<String> autoren = (HashSet<String>) session.get("autoren");
-			autoren.add(probeBuchBean.getAuthor());
-			session.put("autoren", autoren);
-		} else {
-			HashSet<String> autoren = new HashSet<String>();
-			session.put("autoren", autoren);
-			autoren.add(probeBuchBean.getAuthor());
-
-		}
-
-//		ActionContext.getContext().getSession().put("autor", "autor");
-		System.out.println(ActionContext.getContext().getSession().toString());
-
-		// call Service class to store personBean's state in database
-		System.out.println("Publikation anlegen");
-
-		return SUCCESS;
+		return "publicationSuccess";
 
 	}
 
-	public ProbeBuch getProbeBuchBean() {
-
-		return probeBuchBean;
-
+	public Publication getPublicationBean() {
+		return publicationBean;
 	}
 
-	public void setProbeBuchBean(ProbeBuch probeBuch) {
-
-		probeBuchBean = probeBuch;
-
+	public void setPublicationBean(Publication publicationBean) {
+		this.publicationBean = publicationBean;
 	}
 
 }
