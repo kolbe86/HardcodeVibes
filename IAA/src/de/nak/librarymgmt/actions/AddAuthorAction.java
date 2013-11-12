@@ -1,6 +1,5 @@
 package de.nak.librarymgmt.actions;
 
-import java.util.HashSet;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -19,7 +18,7 @@ public class AddAuthorAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		
+
 		Map<String, Object> session = ActionContext.getContext().getSession();
 
 		if (session.containsKey("book")) {
@@ -28,18 +27,17 @@ public class AddAuthorAction extends ActionSupport {
 			book.addAuthors(bookBean.getAuthors());
 			session.put("book", book);
 		} else {
-			Book book = new Book();
-			session.put("book", book);
-			this.setBook(bookBean);
-//			autoren.addAll(bookBean.getAuthors());
+			// Book book = new Book();
+			session.put("book", bookBean);
+			// this.setBook(bookBean);
+			// autoren.addAll(bookBean.getAuthors());
 
 		}
 
-//		ActionContext.getContext().getSession().put("autor", "autor");
-		System.out.println(ActionContext.getContext().getSession().toString());
-		
-		System.out.println("Book anlegen");
+		// ActionContext.getContext().getSession().put("autor", "autor");
 
+		Book book = (Book) session.get("book");
+		System.out.println(ActionContext.getContext().getSession().toString());
 		return SUCCESS;
 
 	}
@@ -68,6 +66,4 @@ public class AddAuthorAction extends ActionSupport {
 		this.book = book;
 	}
 
-
 }
-
