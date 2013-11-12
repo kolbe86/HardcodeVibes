@@ -1,9 +1,6 @@
-package de.nak.librarymgmt.actions;
+package de.nak.librarymgmt.old;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-import de.nak.librarymgmt.model.Magazine;
-import de.nak.librarymgmt.service.MagazineService;
 
 public class MagazineCreationAction extends ActionSupport {
 

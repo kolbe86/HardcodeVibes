@@ -29,10 +29,9 @@
 		<property name="mappingResources">
 			<list>
 				<value>de/nak/librarymgmt/model/Borrower.hbm.xml</value>
-<!-- 				<value>de/nak/librarymgmt/model/Book.hbm.xml</value> -->
-<!-- 				<value>de/nak/librarymgmt/model/Magazine.hbm.xml</value> -->
-<!-- 				<value>de/nak/librarymgmt/model/Dissertation.hbm.xml</value> -->
 				<value>de/nak/librarymgmt/model/Publication.hbm.xml</value>
+				<value>de/nak/librarymgmt/model/PublicationType.hbm.xml</value>
+				<value>de/nak/librarymgmt/model/Keyword.hbm.xml</value>
  				<value>de/nak/librarymgmt/model/LendingProcess.hbm.xml</value>
 			</list>
 		</property>
@@ -60,7 +59,6 @@
 
 	<!-- DAO´s -->
 
-	<!-- The borrower DAO -->
 	<bean id="borrowerDAO" class="de.nak.librarymgmt.dao.BorrowerDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -69,26 +67,12 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>	
 	
-	<bean id="bookDAO" class="de.nak.librarymgmt.dao.BookDAO">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>	
-	
-	<bean id="magazineDAO" class="de.nak.librarymgmt.dao.MagazineDAO">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>	
-	
-		<bean id="dissertationDAO" class="de.nak.librarymgmt.dao.DissertationDAO">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>	
-
-	<!-- The lending process DAO -->
 	<bean id="lendingProcessDAO" class="de.nak.librarymgmt.dao.LendingProcessDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<!-- Services -->
 
-	<!-- The borrower Service -->
 	<bean id="borrowerService" class="de.nak.librarymgmt.service.BorrowerServiceImpl">
 		<property name="borrowerDAO" ref="borrowerDAO" />
 	</bean>
@@ -96,20 +80,7 @@
 	<bean id="publicationService" class="de.nak.librarymgmt.service.PublicationServiceImpl">
 		<property name="publicationDAO" ref="publicationDAO" />
 	</bean>	
-	
-	<bean id="bookService" class="de.nak.librarymgmt.service.BookServiceImpl">
-		<property name="bookDAO" ref="bookDAO" />
-	</bean>	
-	
-	<bean id="magazineService" class="de.nak.librarymgmt.service.MagazineServiceImpl">
-		<property name="magazineDAO" ref="magazineDAO" />
-	</bean>	
 
-	<bean id="dissertationService" class="de.nak.librarymgmt.service.DissertationServiceImpl">
-		<property name="dissertationDAO" ref="dissertationDAO" />
-	</bean>	
-	
-	<!-- The lending process DAO Service -->
 	<bean id="lendingProcessService" class="de.nak.librarymgmt.service.LendingProcessServiceImpl">
 		<property name="lendingProcessDAO" ref="lendingProcessDAO" />
 	</bean>

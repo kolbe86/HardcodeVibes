@@ -1,4 +1,4 @@
-package de.nak.librarymgmt.service;
+package de.nak.librarymgmt.old;
 
 import java.util.Date;
 import java.util.Set;

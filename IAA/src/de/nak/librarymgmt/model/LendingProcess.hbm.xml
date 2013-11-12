@@ -9,8 +9,6 @@
 		</id>
 		<many-to-one name="borrower" column="borrowerID" unique="true"
 			not-null="true"></many-to-one>
-		<!-- <many-to-one name="publication" column="PUBLICATION_ID" unique="true" 
-			></many-to-one> -->
 		<many-to-one name="publication" column="publicationID"
 			unique="true" not-null="true"></many-to-one>
 		<property name="issueDate" column="ISSUE_DATE" type="timestamp" />

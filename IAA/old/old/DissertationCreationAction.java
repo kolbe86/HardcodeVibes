@@ -1,9 +1,6 @@
-package de.nak.librarymgmt.actions;
+package de.nak.librarymgmt.old;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-import de.nak.librarymgmt.model.Dissertation;
-import de.nak.librarymgmt.service.DissertationService;
 
 public class DissertationCreationAction extends ActionSupport {
 

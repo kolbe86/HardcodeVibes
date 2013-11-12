@@ -1,9 +1,6 @@
-package de.nak.librarymgmt.actions;
+package de.nak.librarymgmt.old;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-import de.nak.librarymgmt.model.Book;
-import de.nak.librarymgmt.service.BookService;
 
 public class BookCreationAction extends ActionSupport {
 

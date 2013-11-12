@@ -1,10 +1,8 @@
-package de.nak.librarymgmt.dao;
+package de.nak.librarymgmt.old;
 
 import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
-import de.nak.librarymgmt.model.Book;
 
 public class BookDAO extends HibernateDaoSupport {
 

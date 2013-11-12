@@ -7,33 +7,36 @@
 		<id name="publicationID" column="PUBLICATION_ID" type="long">
 			<generator class="sequence" />
 		</id>
-		<property name="title" column="TITLE" type="string" not-null="true"/>
+		<property name="title" column="TITLE" type="string" not-null="true" />
 		<set name="authors" table="AUTHORS" lazy="false">
-			<key column="ID"/>
-			<element type="string" column="AUTHOR"/>
+			<key column="ID" />
+			<element type="string" column="AUTHOR" />
 		</set>
 		<property name="publicationDate" column="PUBLICATIONDATE"
 			type="timestamp" />
-		<set name="keywords" table="KEYWORDS" lazy="false">
-		<key column="ID"/>
-		<element type="string" column="KEYWORD"/>
+		<property name="condition" length="10" column="CONDITION">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">de.nak.librarymgmt.util.ConditionE</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		<property name="distributed" column="DISTRIBUTED" not-null="true"
+			type="boolean" />
+		<property name="reserved" column="RESERVED" not-null="true"
+			type="boolean" />
+		<property name="isbn" column="ISBN" not-null="false" type="string"></property>
+		<property name="publisher" column="PUBLISHER" not-null="false"
+			type="string"></property>
+		<property name="issue" column="ISSUE" not-null="false" type="string"></property>
+		<property name="edition" column="EDITION" not-null="false"
+			type="string"></property>
+		<many-to-one name="publicationType" column="publicationTypeID" unique="true"
+			not-null="true"></many-to-one>
+		<set name="keywords" table="MAPPING_KEYWORDS">
+			<key column="publicationID" />
+			<many-to-many column="keywordID" class="de.nak.librarymgmt.model.Keyword" />
 		</set>
-		<property name="condition" not-null="true" type="string" />
-		<property name="distributed" not-null="true" type="boolean" />
-		<property name="reserved" not-null="true" type="boolean" />
-<!-- 		<one-to-one name="lendingProcess" property-ref="lendingProcessID"></one-to-one> -->
-		<union-subclass name="de.nak.librarymgmt.model.Book">
-			<property name="isbn" column="ISBN" type="string" not-null="true"></property>
-			<property name="publisher" column="PUBLISHER" type="string" not-null="true"></property>
-			<property name="edition" column="EDITION"  type="string" not-null="true"></property>
-		</union-subclass>
-		<union-subclass name="de.nak.librarymgmt.model.Magazine">
-			<property name="isbn" column="ISBN" type="string" not-null="true"></property>
-			<property name="publisher" column="PUBLISHER" type="string" not-null="true"></property>
-			<property name="issue" column="ISSUE"  type="string" not-null="true"></property>
-		</union-subclass>
-		<union-subclass name="de.nak.librarymgmt.model.Dissertation">
+		
 
-		</union-subclass>
 	</class>
 </hibernate-mapping>

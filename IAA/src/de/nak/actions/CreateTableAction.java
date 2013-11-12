@@ -10,11 +10,11 @@ import com.opensymphony.xwork2.Action;
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
-import de.nak.librarymgmt.service.BookService;
+import de.nak.librarymgmt.old.BookService;
+import de.nak.librarymgmt.old.DissertationService;
+import de.nak.librarymgmt.old.MagazineService;
 import de.nak.librarymgmt.service.BorrowerService;
-import de.nak.librarymgmt.service.DissertationService;
 import de.nak.librarymgmt.service.LendingProcessService;
-import de.nak.librarymgmt.service.MagazineService;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.util.DunningLevelE;
 

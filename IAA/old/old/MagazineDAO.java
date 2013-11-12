@@ -1,8 +1,6 @@
-package de.nak.librarymgmt.dao;
+package de.nak.librarymgmt.old;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
-import de.nak.librarymgmt.model.Magazine;
 
 public class MagazineDAO extends HibernateDaoSupport {
 

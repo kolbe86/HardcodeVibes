@@ -1,11 +1,8 @@
-package de.nak.librarymgmt.service;
+package de.nak.librarymgmt.old;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
-import de.nak.librarymgmt.dao.DissertationDAO;
-import de.nak.librarymgmt.model.Dissertation;
 
 public class DissertationServiceImpl implements DissertationService {
 

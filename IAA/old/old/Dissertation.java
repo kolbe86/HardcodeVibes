@@ -1,6 +1,8 @@
-package de.nak.librarymgmt.model;
+package de.nak.librarymgmt.old;
 
 import java.io.Serializable;
+
+import de.nak.librarymgmt.model.Publication;
 
 public class Dissertation extends Publication implements Serializable {
 

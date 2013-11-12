@@ -1,10 +1,7 @@
-package de.nak.librarymgmt.service;
+package de.nak.librarymgmt.old;
 
 import java.util.Date;
 import java.util.Set;
-
-import de.nak.librarymgmt.dao.MagazineDAO;
-import de.nak.librarymgmt.model.Magazine;
 
 public class MagazineServiceImpl implements MagazineService {
 

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="de.nak.librarymgmt.model.PublicationType">
+		<id name="publicationTypeID" column="PUBLICATIONTYPE_ID" type="long">
+			<generator class="sequence" />
+		</id>
+		<property name="name" column="NAME" type="string" not-null="true"></property>
+		<set name="publications" table="MAPPING_PUBLICATIONTYPE">
+			<key column="publicationTypeID" />
+			<many-to-many class="de.nak.librarymgmt.model.Publication"
+				column="publicationID" unique="true"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>
