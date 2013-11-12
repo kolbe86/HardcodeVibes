@@ -5,65 +5,60 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import de.nak.librarymgmt.model.Book;
-import de.nak.librarymgmt.service.BookService;
+import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.service.PublicationService;
 
 public class AddAuthorAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	private Book bookBean;
-	private Book book;
-	private BookService bookService;
+	private Publication publicationBean;
+	private Publication publication;
+	private PublicationService publicationService;
 
 	@Override
 	public String execute() throws Exception {
 
 		Map<String, Object> session = ActionContext.getContext().getSession();
-
-		if (session.containsKey("book")) {
-			@SuppressWarnings("unchecked")
-			Book book = (Book) session.get("book");
-			book.addAuthors(bookBean.getAuthors());
-			session.put("book", book);
-		} else {
-			// Book book = new Book();
-			session.put("book", bookBean);
-			// this.setBook(bookBean);
-			// autoren.addAll(bookBean.getAuthors());
-
-		}
-
-		// ActionContext.getContext().getSession().put("autor", "autor");
-
-		Book book = (Book) session.get("book");
-		System.out.println(book.getAuthors());
+		//
+		// if (session.containsKey("publication")) {
+		// @SuppressWarnings("unchecked")
+		// Publication publication = (Publication) session.get("publication");
+		// publication.addAuthors(publicationBean.getAuthors());
+		// session.put("publication", publication);
+		// } else {
+		// session.put("publication", publicationBean);
+		//
+		// }
+		//
+		// Publication publication = (Publication) session.get("publication");
+		// System.out.println(publication.getAuthors());
 		return SUCCESS;
 
 	}
 
-	public Book getBookBean() {
-		return bookBean;
+	public Publication getPublicationBean() {
+		return publicationBean;
 	}
 
-	public void setBookBean(Book bookBean) {
-		this.bookBean = bookBean;
+	public void setPublicationBean(Publication publicationBean) {
+		this.publicationBean = publicationBean;
 	}
 
-	public BookService getBookService() {
-		return bookService;
+	public Publication getPublication() {
+		return publication;
 	}
 
-	public void setBookService(BookService bookService) {
-		this.bookService = bookService;
+	public void setPublication(Publication publication) {
+		this.publication = publication;
 	}
 
-	public Book getBook() {
-		return book;
+	public PublicationService getPublicationService() {
+		return publicationService;
 	}
 
-	public void setBook(Book book) {
-		this.book = book;
+	public void setPublicationService(PublicationService publicationService) {
+		this.publicationService = publicationService;
 	}
 
 }

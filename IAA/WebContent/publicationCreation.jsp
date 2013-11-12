@@ -13,16 +13,17 @@
 
 <s:form action="publicationCreationAction">
 
- 	  <s:textfield name="probeBuchBean.titel" label="Titel" />
- 	  <s:textfield  name="probeBuchBean.author" label="Author" />
- 	  <s:textfield name="probeBuchBean.datum"  label ="Veroeffentlichkeitsdatum" />
- 	  <s:select name="probeBuchBean.schlagwort" list="probeBuchBean.schlagwort" size="1" multiple="True" label="Schlagwort"/>
- 	  <s:textfield name="probeBuchBean.art"  label ="Art der Publikation"/>
- 	  <s:textfield name="probeBuchBean.isbn"  label ="ISBN Nummer"/>
- 	  <s:textfield name="probeBuchBean.verlag"  label ="Verlag"/>
- 	  <s:textfield name="probeBuchBean.anzahl"  label ="Anzahl"/>
- 	   
- 	  
+ 	  <s:textfield name="publication.title" label="Titel" value="Buchtitel"/>
+ 	  <s:textfield  name="publication.authors" label="Autoren" value="Autor"/>
+ 	  <s:submit action="addAuthorAction"/>
+ 	  <s:property value="publication.authors"/>
+ 	  <s:textfield name="publication.publicationDate"  label ="Veroeffentlichungsdatum" value="01.01.2000"/>
+ 	  <s:textfield name="publication.keywords"  label ="Schlagwörter" value="Keyword"/>
+ 	  <s:textfield name="publication.condition"  label ="Zustand" value="Neu"/>
+ 	  <s:textfield name="publication.isbn"  label ="ISBN Nummer" value="978-3-86680-192-9"/>
+ 	  <s:textfield name="publication.publisher"  label ="Verlag" value="Grim"/>
+ 	  <s:textfield name="publication.edition"  label ="Auflage" value="3. Auflage"/>
+
    	  <s:submit/>
    	  
 </s:form>	

@@ -84,7 +84,7 @@
 		</action>
 		
 		<action name="addAuthorAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
-			<result name="success" type="tiles">bookCreation</result>
+			<result name="success" type="tiles">publicationCreation</result>
 		</action>
 	</package>
 </struts>
