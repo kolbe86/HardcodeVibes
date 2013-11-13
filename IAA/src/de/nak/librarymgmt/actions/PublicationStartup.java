@@ -24,14 +24,17 @@ public class PublicationStartup extends ActionSupport {
 	// DB-Sets
 	private Set<Keyword> keywords;
 	private Set<PublicationType> publicationTypes;
-	private Set<String> condition = new HashSet<String>();
 
 	// Select-Lists
-	List<Long> keywordSelection;
+	List<String> keywordSelection;
+	List<String> publicationTypeSelection;
 
+	// Services
 	private PublicationService publicationService;
 	private KeywordService keywordService;
 	private PublicationTypeService publicationTypeService;
+
+	private Set<String> condition = new HashSet<String>();
 
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception {
@@ -43,12 +46,16 @@ public class PublicationStartup extends ActionSupport {
 
 		// Get Publication-Types
 		publicationTypes = publicationTypeService.listAllPublicationTypes();
+		publicationTypeSelection = new LinkedList<String>();
+		for (PublicationType publicationType : publicationTypes) {
+			publicationTypeSelection.add(publicationType.getName());
+		}
 
 		// Get Keywords
 		keywords = keywordService.listAllKeywords();
-		keywordSelection = new LinkedList<Long>();
+		keywordSelection = new LinkedList<String>();
 		for (Keyword keyword : keywords) {
-			keywordSelection.add(keyword.getKeywordID());
+			keywordSelection.add(keyword.getName());
 		}
 
 		// Publication Bean
@@ -132,11 +139,20 @@ public class PublicationStartup extends ActionSupport {
 		this.condition = condition;
 	}
 
-	public List<Long> getKeywordSelection() {
+	public List<String> getKeywordSelection() {
 		return keywordSelection;
 	}
 
-	public void setKeywordSelection(List<Long> keywordSelection) {
+	public void setKeywordSelection(List<String> keywordSelection) {
 		this.keywordSelection = keywordSelection;
+	}
+
+	public List<String> getPublicationTypeSelection() {
+		return publicationTypeSelection;
+	}
+
+	public void setPublicationTypeSelection(
+			List<String> publicationTypeSelection) {
+		this.publicationTypeSelection = publicationTypeSelection;
 	}
 }

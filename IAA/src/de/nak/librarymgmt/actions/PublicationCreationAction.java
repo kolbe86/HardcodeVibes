@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.org.apache.xpath.internal.compiler.Keywords;
 
+import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.KeywordService;
@@ -16,11 +16,13 @@ import de.nak.librarymgmt.util.ConditionE;
 
 public class PublicationCreationAction extends ActionSupport {
 
-	// DB-Sets
-	private Set<Keywords> keywords;
+	// DB
+	private Set<Keyword> keywords = new HashSet<Keyword>();
+	private PublicationType publicationType;
 
-	// Selection-Lists
+	// Selection
 	private List<String> keywordSelection;
+	private String publicationTypeSelection;
 
 	private static final long serialVersionUID = 1L;
 	private Publication publicationBean;
@@ -31,9 +33,12 @@ public class PublicationCreationAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
-		publicationTypeService.createPublicationType("DUMMY");
-		PublicationType publicationType = publicationTypeService
-				.findPublicationTypeById(3L);
+		for (String keyword : keywordSelection) {
+			keywords.add(keywordService.findKeywordByName(keyword));
+		}
+
+		publicationType = publicationTypeService
+				.findPublicationTypeByName(publicationTypeSelection);
 
 		publicationService.createPublication(publicationBean.getTitle(),
 				new HashSet<String>(), publicationBean.getPublicationDate(),
@@ -79,11 +84,11 @@ public class PublicationCreationAction extends ActionSupport {
 		this.keywordService = keywordService;
 	}
 
-	public Set<Keywords> getKeywords() {
+	public Set<Keyword> getKeywords() {
 		return keywords;
 	}
 
-	public void setKeywords(Set<Keywords> keywords) {
+	public void setKeywords(Set<Keyword> keywords) {
 		this.keywords = keywords;
 	}
 
@@ -93,5 +98,21 @@ public class PublicationCreationAction extends ActionSupport {
 
 	public void setKeywordSelection(List<String> keywordSelection) {
 		this.keywordSelection = keywordSelection;
+	}
+
+	public PublicationType getPublicationType() {
+		return publicationType;
+	}
+
+	public void setPublicationType(PublicationType publicationType) {
+		this.publicationType = publicationType;
+	}
+
+	public String getPublicationTypeSelection() {
+		return publicationTypeSelection;
+	}
+
+	public void setPublicationTypeSelection(String publicationTypeSelection) {
+		this.publicationTypeSelection = publicationTypeSelection;
 	}
 }
