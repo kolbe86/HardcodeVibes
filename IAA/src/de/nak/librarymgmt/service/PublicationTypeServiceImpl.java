@@ -21,9 +21,8 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 	}
 
 	@Override
-	public void deletePublicationType(long publicationTypeID) {
-		PublicationType publicationType = publicationTypeDAO
-				.findById(publicationTypeID);
+	public void deletePublicationType(String name) {
+		PublicationType publicationType = publicationTypeDAO.findByName(name);
 		try {
 			publicationTypeDAO.delete(publicationType);
 		} catch (Exception e) {
@@ -32,8 +31,13 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 	}
 
 	@Override
-	public void updatePublicationType(long publicationTypeID, String name) {
+	public void updatePublicationType(String name, String newName) {
+		PublicationType publicationType = publicationTypeDAO.findByName(name);
+		try {
+			publicationType.setName(newName);
+		} catch (Exception e) {
 
+		}
 	}
 
 	@Override
@@ -42,9 +46,8 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 	}
 
 	@Override
-	public PublicationType findPublicationTypeById(long publicationTypeID) {
-		PublicationType publicationType = publicationTypeDAO
-				.findById(publicationTypeID);
+	public PublicationType findPublicationTypeByName(String name) {
+		PublicationType publicationType = publicationTypeDAO.findByName(name);
 		return publicationType;
 	}
 

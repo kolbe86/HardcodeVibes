@@ -2,6 +2,7 @@ package de.nak.actions;
 
 import com.opensymphony.xwork2.Action;
 
+import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.BorrowerService;
 import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.LendingProcessService;
@@ -61,11 +62,14 @@ public class CreateTableAction implements Action {
 		// keywords2.add(keywordService.findKeywordById(3L));
 		// keywords2.add(keywordService.findKeywordById(4L));
 		//
-		// publicationTypeService.createPublicationType("Buch");
-		// publicationTypeService.createPublicationType("Zeitschrift");
-		// publicationTypeService.createPublicationType("Hausarbeit");
-		// PublicationType publicationType1 = publicationTypeService
-		// .findPublicationTypeById(5L);
+		publicationTypeService.createPublicationType("Buch");
+		publicationTypeService.createPublicationType("Zeitschrift");
+		publicationTypeService.createPublicationType("Hausarbeit");
+		PublicationType publicationType1 = publicationTypeService
+				.findPublicationTypeByName("Buch");
+		publicationTypeService.deletePublicationType("Zeitschrift");
+		// publicationTypeService.updatePublicationType("Hausarbeit",
+		// "Bachelorarbeit");
 		// PublicationType publicationType2 = publicationTypeService
 		// .findPublicationTypeById(6L);
 		// PublicationType publicationType3 = publicationTypeService

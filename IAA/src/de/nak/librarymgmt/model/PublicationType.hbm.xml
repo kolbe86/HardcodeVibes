@@ -4,9 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="de.nak.librarymgmt.model.PublicationType" table="PUBLICATIONTYPE">
-		<id name="publicationTypeID" column="PUBLICATIONTYPE_ID" type="long">
-			<generator class="sequence" />
+		<id name="name" column="NAME" type="string">
 		</id>
-		<property name="name" column="NAME" type="string" not-null="true"></property>
 	</class>
 </hibernate-mapping>

@@ -1,6 +1,5 @@
 package de.nak.librarymgmt.service;
 
-
 import java.util.Set;
 
 import de.nak.librarymgmt.model.PublicationType;
@@ -9,12 +8,12 @@ public interface PublicationTypeService {
 
 	void createPublicationType(String name);
 
-	void deletePublicationType(long publicationTypeID);
+	void deletePublicationType(String name);
 
-	void updatePublicationType(long publicationTypeID, String name);
+	void updatePublicationType(String name, String newName);
 
 	Set<PublicationType> listAllPublicationTypes();
 
-	PublicationType findPublicationTypeById(long publicationTypeID);
+	PublicationType findPublicationTypeByName(String name);
 
 }

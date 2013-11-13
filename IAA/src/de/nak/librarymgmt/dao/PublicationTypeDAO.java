@@ -1,7 +1,6 @@
 package de.nak.librarymgmt.dao;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -24,8 +23,8 @@ public class PublicationTypeDAO extends HibernateDaoSupport {
 		return publicationTypeSet;
 	}
 
-	public PublicationType findById(Long publicationTypeID) {
+	public PublicationType findByName(String name) {
 		return (PublicationType) getHibernateTemplate().get(
-				PublicationType.class, publicationTypeID);
+				PublicationType.class, name);
 	}
 }
