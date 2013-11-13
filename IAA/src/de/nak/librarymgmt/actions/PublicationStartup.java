@@ -2,6 +2,8 @@ package de.nak.librarymgmt.actions;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,25 +21,37 @@ public class PublicationStartup extends ActionSupport {
 
 	private Publication publicationBean;
 
+	// DB-Sets
 	private Set<Keyword> keywords;
 	private Set<PublicationType> publicationTypes;
 	private Set<String> condition = new HashSet<String>();
+
+	// Select-Lists
+	List<Long> keywordSelection;
 
 	private PublicationService publicationService;
 	private KeywordService keywordService;
 	private PublicationTypeService publicationTypeService;
 
-	// private Map<String, Object> session;
-
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception {
 
-		keywords = keywordService.listAllKeywords();
-		publicationTypes = publicationTypeService.listAllPublicationTypes();
+		// Set Conditions
 		condition.add("Neu");
 		condition.add("Gebraucht");
 		condition.add("Alt");
 
+		// Get Publication-Types
+		publicationTypes = publicationTypeService.listAllPublicationTypes();
+
+		// Get Keywords
+		keywords = keywordService.listAllKeywords();
+		keywordSelection = new LinkedList<Long>();
+		for (Keyword keyword : keywords) {
+			keywordSelection.add(keyword.getKeywordID());
+		}
+
+		// Publication Bean
 		if (publicationBean == null) {
 			// initialize
 			publicationBean = new Publication();
@@ -50,38 +64,11 @@ public class PublicationStartup extends ActionSupport {
 			publicationBean.setIssue("Initial Issue");
 			publicationBean.setEdition("Initial Edition");
 
-			// Werden erst beim speichern gesetzt
-
-			// publicationBean.setCondition(ConditionE.NEW);
-			// publicationBean.setPublicationType(null);
-			// publicationBean.setKeywords(keywordService.listAllKeywords());
-
 		}
 
 		System.out.println("Startup Ende");
 		return "publicationSuccess";
-		// session = ActionContext.getContext().getSession();
-		// if (!session.containsKey("publication")) {
-		// publicationBean = new Publication();
-		// publicationBean.setTitle("Initial Title");
-		// publicationBean.setAuthors(new HashSet<String>());
-		// publicationBean.setPublicationDate(new Date());
-		// publicationBean.setCondition(ConditionE.NEW);
-		// publicationBean.setDistributed(false);
-		// publicationBean.setReserved(false);
-		// // publicationBean.setPublicationType(null);
-		// // publicationBean.setKeywords(keywordService.listAllKeywords());
-		// publicationBean.setLendingProcess(null);
-		// publicationBean.setIsbn("Initial ISBN");
-		// publicationBean.setPublisher("InitialPublisher");
-		// publicationBean.setIssue("Initial Issue");
-		// publicationBean.setEdition("Initial Edition");
-		//
-		// // setKeywords(keywordService.listAllKeywords());
-		// session.put("publication", publicationBean);
-		// } else {
-		// publicationBean = (Publication) session.get("publication");
-		// }
+
 	}
 
 	public Publication getPublicationBean() {
@@ -99,14 +86,6 @@ public class PublicationStartup extends ActionSupport {
 	public void setKeywordService(KeywordService keywordService) {
 		this.keywordService = keywordService;
 	}
-
-	// public Map<String, Object> getSession() {
-	// return session;
-	// }
-	//
-	// public void setSession(Map<String, Object> session) {
-	// this.session = session;
-	// }
 
 	public PublicationService getPublicationService() {
 		return publicationService;
@@ -151,5 +130,13 @@ public class PublicationStartup extends ActionSupport {
 
 	public void setCondition(Set<String> condition) {
 		this.condition = condition;
+	}
+
+	public List<Long> getKeywordSelection() {
+		return keywordSelection;
+	}
+
+	public void setKeywordSelection(List<Long> keywordSelection) {
+		this.keywordSelection = keywordSelection;
 	}
 }
