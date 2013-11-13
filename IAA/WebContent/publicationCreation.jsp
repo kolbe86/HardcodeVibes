@@ -21,7 +21,7 @@
 	<s:select name="publicationTypes.name"  list="publicationTypes" listKey="publicationTypes" listValue="name" size="1" multiple="True" label="Publikationsart"/>
 	<s:select name="keywords.name"  list="keywords" listKey="keywords" listValue="name" size="1" multiple="True" label="Schlagwörter"/>
 <%--  	  <s:textfield name="publicationBean.condition"  label ="Zustand" value="Neu"/> --%>
-	<s:select name="condition" list="condition" listKey="condition" size="1" multiple="true" label="Zustand"/>
+<%-- 	<s:select name="condition" list="condition" listKey="condition" size="1" multiple="true" label="Zustand"/> --%>
 	<s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/>
 	<s:textfield name="publicationBean.publisher"  label ="Verlag"/>
 	<s:textfield name="publicationBean.edition"  label ="Auflage"/>
