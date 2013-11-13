@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <!DOCTYPE validators PUBLIC -->
-<!-- 	"-//OpenSymphony Group//XWork Validator 1.0.2//EN"  -->
-<!-- 	"http://www.opensymphony.com/xwork/xwork-validator-￼ -->
-<!-- 		1.0.2.dtd"> -->
 
  <!DOCTYPE validators PUBLIC
          "-//Apache Struts//XWork Validator 1.0.3//EN"
@@ -10,14 +6,40 @@
 
 
 <validators>
-<!-- 	<field name="title"> -->
+	<field name="publicationBean.title">
+		<field-validator type="requiredstring">
+			<message>Der Titel für die Publikation ist obligatorisch</message>
+		</field-validator>
+	</field>
+<!-- 	<field name="publicationBean.authors"> -->
 <!-- 		<field-validator type="requiredstring"> -->
-<!-- 			<message>Der Titel für die Publikation ist obligatorisch</message> -->
+<!-- 			<message>Der Autor für die Publikation ist obligatorisch</message> -->
 <!-- 		</field-validator> -->
 <!-- 	</field> -->
-	<field name="publicationBean.title">
-		<field-validator type="required">
-			<message>Der Titel für die Publikation ist obligatorisch</message>
+		<field name="publicationBean.publicationDate">
+		<field-validator type="date">
+			<message>Das Datum für die Publikation ist obligatorisch</message>
+		</field-validator>
+	</field>
+	<field name="publicationBean.isbn">
+		<field-validator type="regex">
+			<param name="expression">|ISBN(?:-13)?:?\x20*(?=.{17}$)97(?:8|9)([ -])\d{1,5}\1\d{1,7}\1\d{1,6}\1\d$</param>
+			<message>Die ISBN für die Publikation ist obligatorisch</message>
+		</field-validator>
+	</field>
+		<field name="publicationBean.publisher">
+		<field-validator type="requiredstring">
+			<message>Der Verlag für die Publikation ist obligatorisch</message>
+		</field-validator>
+	</field>
+		<field name="publicationBean.edition">
+		<field-validator type="requiredstring">
+			<message>Die Edition für die Publikation ist obligatorisch</message>
+		</field-validator>
+	</field>
+		<field name="publicationBean.issue">
+		<field-validator type="requiredstring">
+			<message>Die Ausgabe für die Publikation ist obligatorisch</message>
 		</field-validator>
 	</field>
 </validators> 
