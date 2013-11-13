@@ -30,8 +30,7 @@
 		<property name="issue" column="ISSUE" not-null="false" type="string"></property>
 		<property name="edition" column="EDITION" not-null="false"
 			type="string" />
-		<many-to-one name="publicationType" column="publicationTypeID"
-			unique="true" not-null="true" />
+		<many-to-one name="publicationType" column="publicationTypeID" not-null="true" />
 		<set name="keywords" table="PUBLICATIONS_KEYWORDS">
 			<key column="publicationID" />
 			<many-to-many column="name" class="de.nak.librarymgmt.model.Keyword" />
