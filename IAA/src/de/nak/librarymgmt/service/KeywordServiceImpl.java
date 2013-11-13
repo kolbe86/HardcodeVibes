@@ -10,13 +10,6 @@ public class KeywordServiceImpl implements KeywordService {
 
 	private KeywordDAO keywordDAO;
 
-	public void setKeywordDAO(KeywordDAO keywordDAO) {
-		this.keywordDAO = keywordDAO;
-	}
-
-	public KeywordDAO getKeywordDAO() {
-		return keywordDAO;
-	}
 
 	@Override
 	public void createKeyword(String name) {
@@ -31,8 +24,8 @@ public class KeywordServiceImpl implements KeywordService {
 	}
 
 	@Override
-	public void deleteKeyword(long keywordID) {
-		Keyword keyword = keywordDAO.findById(keywordID);
+	public void deleteKeyword(String name) {
+		Keyword keyword = keywordDAO.findByName(name);
 		try {
 			keywordDAO.delete(keyword);
 		} catch (Exception e) {
@@ -42,10 +35,10 @@ public class KeywordServiceImpl implements KeywordService {
 	}
 
 	@Override
-	public void updateKeyword(long keywordID, String name) {
-		Keyword keyword = keywordDAO.findById(keywordID);
+	public void updateKeyword(String name, String newName) {
+		Keyword keyword = keywordDAO.findByName(name);
 		try {
-			keyword.setName(name);
+			keyword.setName(newName);
 		} catch (Exception e) {
 			// TODO
 		}
@@ -58,9 +51,17 @@ public class KeywordServiceImpl implements KeywordService {
 	}
 
 	@Override
-	public Keyword findKeywordById(long keywordID) {
-		Keyword keyword = keywordDAO.findById(keywordID);
+	public Keyword findKeywordByName(String name) {
+		Keyword keyword = keywordDAO.findByName(name);
 		return keyword;
 	}
 
+
+	public void setKeywordDAO(KeywordDAO keywordDAO) {
+		this.keywordDAO = keywordDAO;
+	}
+
+	public KeywordDAO getKeywordDAO() {
+		return keywordDAO;
+	}
 }

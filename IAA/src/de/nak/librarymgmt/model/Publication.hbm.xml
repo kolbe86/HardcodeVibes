@@ -34,7 +34,7 @@
 			unique="true" not-null="true" />
 		<set name="keywords" table="PUBLICATIONS_KEYWORDS">
 			<key column="publicationID" />
-			<many-to-many column="keywordID" class="de.nak.librarymgmt.model.Keyword" />
+			<many-to-many column="name" class="de.nak.librarymgmt.model.Keyword" />
 		</set>
 	</class>
 </hibernate-mapping>

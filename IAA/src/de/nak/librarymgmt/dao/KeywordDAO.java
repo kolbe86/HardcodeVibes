@@ -24,7 +24,7 @@ public class KeywordDAO extends HibernateDaoSupport {
 		return keywordSet;
 	}
 
-	public Keyword findById(Long keywordID) {
-		return (Keyword) getHibernateTemplate().get(Keyword.class, keywordID);
+	public Keyword findByName(String name) {
+		return (Keyword) getHibernateTemplate().get(Keyword.class, name);
 	}
 }

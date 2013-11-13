@@ -9,12 +9,12 @@ public interface KeywordService {
 
 	void createKeyword(String name);
 
-	void deleteKeyword(long keywordID);
+	void deleteKeyword(String name);
 
-	void updateKeyword(long keywordID, String name);
+	void updateKeyword(String name, String newName);
 
 	Set<Keyword> listAllKeywords();
 
-	Keyword findKeywordById(long keywordID);
+	Keyword findKeywordByName(String name);
 
 }
