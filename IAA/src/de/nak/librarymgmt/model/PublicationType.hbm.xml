@@ -8,10 +8,5 @@
 			<generator class="sequence" />
 		</id>
 		<property name="name" column="NAME" type="string" not-null="true"></property>
-		<set name="publications" table="MAPPING_PUBLICATIONTYPE">
-			<key column="publicationTypeID" />
-			<many-to-many class="de.nak.librarymgmt.model.Publication"
-				column="publicationID" unique="true"></many-to-many>
-		</set>
 	</class>
 </hibernate-mapping>

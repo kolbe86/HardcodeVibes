@@ -24,15 +24,15 @@
 			type="boolean" />
 		<property name="reserved" column="RESERVED" not-null="true"
 			type="boolean" />
-		<property name="isbn" column="ISBN" not-null="false" type="string"></property>
+		<property name="isbn" column="ISBN" not-null="false" type="string" />
 		<property name="publisher" column="PUBLISHER" not-null="false"
-			type="string"></property>
+			type="string" />
 		<property name="issue" column="ISSUE" not-null="false" type="string"></property>
 		<property name="edition" column="EDITION" not-null="false"
-			type="string"></property>
-		<many-to-one name="publicationType" column="publicationTypeID" unique="true"
-			not-null="true"></many-to-one>
-		<set name="keywords" table="MAPPING_KEYWORDS">
+			type="string" />
+		<many-to-one name="publicationType" column="publicationTypeID"
+			unique="true" not-null="true" />
+		<set name="keywords" table="PUBLICATIONS_KEYWORDS">
 			<key column="publicationID" />
 			<many-to-many column="keywordID" class="de.nak.librarymgmt.model.Keyword" />
 		</set>

@@ -67,30 +67,6 @@ public class BorrowerServiceImpl implements BorrowerService {
 	}
 
 	@Override
-	public void addLendingProcessToBorrower(long borrowerID,
-			LendingProcess lendingProcess) {
-		Borrower borrower = borrowerDAO.findById(borrowerID);
-		try {
-			borrower.getLendingProcesses().add(lendingProcess);
-		} catch (Exception e) {
-			// TODO
-		}
-
-	}
-
-	@Override
-	public void deleteLendingProcessFromBorrower(long borrowerID,
-			LendingProcess lendingProcess) {
-		Borrower borrower = borrowerDAO.findById(borrowerID);
-		try {
-			borrower.getLendingProcesses().remove(lendingProcess);
-		} catch (Exception e) {
-			// TODO
-		}
-
-	}
-
-	@Override
 	public List<Borrower> findBorrowersByCriteria(String firstName,
 			String lastName) {
 		List<Borrower> borrowers = borrowerDAO.findByCriteria(firstName,

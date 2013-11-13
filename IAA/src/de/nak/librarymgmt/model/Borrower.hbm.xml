@@ -11,12 +11,7 @@
 			type="string" />
 		<property name="lastName" column="LAST_NAME" not-null="true"
 			type="string" />
-<!--	<property name="matriculationNumber" column="MATRICULATION_NUMBER" not-null="false"
-			type="integer" />  -->
-		<set name="lendingProcesses" table="MAPPING_LENDING_PROCESSES">
-			<key column="borrowerID" />
-			<many-to-many class="de.nak.librarymgmt.model.LendingProcess"
-				column="lendingProcessID" unique="true"></many-to-many>
-		</set>
+		<!-- <property name="matriculationNumber" column="MATRICULATION_NUMBER" 
+			not-null="false" type="integer" /> -->
 	</class>
 </hibernate-mapping>

@@ -50,7 +50,6 @@ public class PublicationStartup extends ActionSupport {
 			publicationBean.setReserved(false);
 			// publicationBean.setPublicationType(null);
 			// publicationBean.setKeywords(keywordService.listAllKeywords());
-			publicationBean.setLendingProcess(null);
 			publicationBean.setIsbn("Initial ISBN");
 			publicationBean.setPublisher("InitialPublisher");
 			publicationBean.setIssue("Initial Issue");

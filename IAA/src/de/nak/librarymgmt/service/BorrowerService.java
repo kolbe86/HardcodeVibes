@@ -43,12 +43,6 @@ public interface BorrowerService {
 	 */
 	void updateBorrower(long borrowerID, String firstName, String lastName);
 
-	void addLendingProcessToBorrower(long borrowerID,
-			LendingProcess lendingProcess);
-
-	void deleteLendingProcessFromBorrower(long borrowerID,
-			LendingProcess lendingProcess);
-
 	/**
 	 * Returns the Borrower identified by the given id.
 	 * 

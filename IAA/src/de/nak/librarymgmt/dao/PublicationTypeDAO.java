@@ -24,8 +24,8 @@ public class PublicationTypeDAO extends HibernateDaoSupport {
 		return publicationTypeSet;
 	}
 
-	public PublicationType findById(Long publicationID) {
+	public PublicationType findById(Long publicationTypeID) {
 		return (PublicationType) getHibernateTemplate().get(
-				PublicationType.class, publicationID);
+				PublicationType.class, publicationTypeID);
 	}
 }

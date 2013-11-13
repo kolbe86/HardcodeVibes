@@ -16,7 +16,6 @@ public class Borrower implements Serializable {
 /*
  * 	private int matriculationNumber;
  */
-	private Set<LendingProcess> lendingProcesses;
 
 	public long getBorrowerID() {
 		return borrowerID;
@@ -42,13 +41,6 @@ public class Borrower implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public Set<LendingProcess> getLendingProcesses() {
-		return lendingProcesses;
-	}
-
-	public void setLendingProcesses(Set<LendingProcess> lendingProcesses) {
-		this.lendingProcesses = lendingProcesses;
-	}
 
 	/*
 	 * public int getMatriculationNumber() { return matriculationNumber; }

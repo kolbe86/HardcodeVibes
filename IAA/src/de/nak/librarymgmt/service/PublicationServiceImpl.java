@@ -57,7 +57,6 @@ public class PublicationServiceImpl implements PublicationService {
 		publication.setIssue(issue);
 		publication.setEdition(edition);
 		publication.setDistributed(false);
-		publication.setLendingProcess(null);
 
 		try {
 

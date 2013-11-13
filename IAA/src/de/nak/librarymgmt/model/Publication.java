@@ -21,7 +21,6 @@ public class Publication implements Serializable {
 	private boolean reserved;
 	private PublicationType publicationType;
 	private Set<Keyword> keywords;
-	private LendingProcess lendingProcess;
 
 	// nullable..
 	private String isbn = "keine";
@@ -99,14 +98,6 @@ public class Publication implements Serializable {
 
 	public void setKeywords(Set<Keyword> keywords) {
 		this.keywords = keywords;
-	}
-
-	public LendingProcess getLendingProcess() {
-		return lendingProcess;
-	}
-
-	public void setLendingProcess(LendingProcess lendingProcess) {
-		this.lendingProcess = lendingProcess;
 	}
 
 	public String getIsbn() {
