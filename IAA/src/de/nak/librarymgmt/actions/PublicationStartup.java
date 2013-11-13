@@ -43,7 +43,6 @@ public class PublicationStartup extends ActionSupport {
 			publicationBean = new Publication();
 			publicationBean.setTitle("Initial Title");
 			publicationBean.setPublicationDate(new Date());
-			// Testwert
 			publicationBean.setDistributed(false);
 			publicationBean.setReserved(false);
 			publicationBean.setIsbn("Initial ISBN");

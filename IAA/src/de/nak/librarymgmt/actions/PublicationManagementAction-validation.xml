@@ -9,15 +9,15 @@
            "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 
 
-<!-- <validators> -->
+<validators>
 <!-- 	<field name="title"> -->
 <!-- 		<field-validator type="requiredstring"> -->
 <!-- 			<message>Der Titel für die Publikation ist obligatorisch</message> -->
 <!-- 		</field-validator> -->
 <!-- 	</field> -->
-<!-- 	<field name="publicationBean.title"> -->
-<!-- 		<field-validator type="required"> -->
-<!-- 			<message>Der Titel für die Publikation ist obligatorisch</message> -->
-<!-- 		</field-validator> -->
-<!-- 	</field> -->
-<!-- </validators> -->
+	<field name="publicationBean.title">
+		<field-validator type="required">
+			<message>Der Titel für die Publikation ist obligatorisch</message>
+		</field-validator>
+	</field>
+</validators> 

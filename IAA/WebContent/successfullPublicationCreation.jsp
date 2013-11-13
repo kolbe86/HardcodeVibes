@@ -15,7 +15,7 @@
 Der Titel der Publikation ist: <s:property value="publicationBean.title" />
  Autor: <s:property value="publicationBean.authors" />
  Datum: <s:property value="publicationBean.publicationDate" />
- Schlagwort: <s:property value="publicationBean.keywords.name" />
+ Schlagwort: <s:property value="publicationBean.keywords" />
 <%--  Zustand: <s:property value="publicationBean.condition" /> --%>
  ISBN: <s:property value="publicationBean.isbn" />
  Verlag: <s:property value="publicationBean.publisher" />

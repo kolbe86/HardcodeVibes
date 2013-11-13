@@ -1,12 +1,9 @@
 package de.nak.librarymgmt.actions;
 
-import java.util.Date;
 import java.util.HashSet;
-import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.KeywordService;
@@ -25,19 +22,15 @@ public class PublicationCreationAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
-		keywordService.createKeyword("KW1");
-		keywordService.createKeyword("KW2");
-		Set<Keyword> keywords = new HashSet<Keyword>();
-		keywords.add(keywordService.findKeywordById(1L));
-		keywords.add(keywordService.findKeywordById(2L));
-
 		publicationTypeService.createPublicationType("DUMMY");
 		PublicationType publicationType = publicationTypeService
 				.findPublicationTypeById(3L);
 
-		publicationService.createPublication("Dummy", new HashSet<String>(),
-				new Date(), ConditionE.NEW, publicationType, keywords, "Dummy",
-				"Dummy", "Dummy", "Dummy");
+		publicationService.createPublication(publicationBean.getTitle(),
+				new HashSet<String>(), publicationBean.getPublicationDate(),
+				ConditionE.NEW, publicationType, publicationBean.getKeywords(),
+				publicationBean.getIsbn(), publicationBean.getPublisher(),
+				publicationBean.getIssue(), publicationBean.getEdition());
 
 		System.out.println("Publikation anlegen");
 		return "publicationSuccess";

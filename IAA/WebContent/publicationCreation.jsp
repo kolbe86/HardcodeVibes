@@ -12,14 +12,14 @@
 <h3>Lege eine neue Publikation an</h3>
 
 <s:form action="publicationCreationAction">
-	<jsp:useBean id="publicationBean" class="de.nak.librarymgmt.model.Publication" />
+<%-- 	<jsp:useBean id="publicationBean" class="de.nak.librarymgmt.model.Publication" /> --%>
 <%--  	<s:property value="publicationBean.authors"/> --%>
 	<s:textfield name="publicationBean.title" label="Titel"/>
 <%-- 	<s:textfield  name="author" label="Autoren"/> --%>
 <%-- 		<s:submit action="addAuthorAction"/> --%>
  	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
 	<s:select name="publicationTypes.name"  list="publicationTypes" listKey="publicationTypes" listValue="name" size="1" multiple="True" label="Publikationsart"/>
-	<s:select name="keywords.name"  list="keywords" listKey="keywords" listValue="name" size="1" multiple="True" label="Schlagwörter"/>
+	<s:select name="publicationBean.keywords.name"  list="keywords" listKey="keywords" listValue="name" size="1" multiple="True" label="Schlagwörter"/>
 	<s:select name="condition"  list="condition" listKey="condition" size="1" multiple="True" label="Zusatnd"/>
 	<s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/>
 	<s:textfield name="publicationBean.publisher"  label ="Verlag"/>
