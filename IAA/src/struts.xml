@@ -28,30 +28,6 @@
   			<result name="publicationSuccess" type="tiles">successfullPublicationCreation</result>
 		</action>
 		
-<!-- 		Mario -->
-		<action name="bookCreationLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
-			<result name="publicationSuccess" type="tiles">bookCreation</result>
-		</action>
-		<action name="bookCreationAction" class="de.nak.librarymgmt.actions.BookCreationAction" method="execute">
-  			<result name="success" type="tiles">successfullBookCreation</result>
-		</action>
-		
-<!-- 		Mario -->
-		<action name="magazineCreationLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
-			<result name="publicationSuccess" type="tiles">magazineCreation</result>
-		</action>
-		<action name="magazineCreationAction" class="de.nak.librarymgmt.actions.MagazineCreationAction" method="execute">
-  			<result name="success" type="tiles">successfullMagazineCreation</result>
-		</action>
-		
-<!-- 		Mario -->
-		<action name="dissertationCreationLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
-			<result name="publicationSuccess" type="tiles">dissertationCreation</result>
-		</action>
-		<action name="dissertationCreationAction" class="de.nak.librarymgmt.actions.DissertationCreationAction" method="execute">
-  			<result name="success" type="tiles">successfullDissertationCreation</result>
-		</action>
-		
 		<action name="publicationManagementLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
 			<result name="publicationSuccess" type="tiles">publicationManagement</result>
 		</action>
