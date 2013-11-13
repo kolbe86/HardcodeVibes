@@ -13,19 +13,20 @@
 
 <s:form action="publicationCreationAction">
 
- 	  <s:textfield name="publicationBean.title" label="Titel"/>
- 	  <s:textfield  name="publicationBean.authors" label="Autoren" value=""/>
- 	  	<s:submit action="addAuthorAction"/>
- 	  <s:property value="publicationBean.authors"/>
- 	  <s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
- 	  <s:select name="publicationBean.keywords.name"  list="publicationBean.keywords" listKey="publicationBean.keywords" listValue="name" size="1" multiple="True"/>
+	<s:textfield name="publicationBean.title" label="Titel"/>
+	<s:textfield  name="publicationBean.authors" label="Autoren" value=""/>
+		<s:submit action="addAuthorAction"/>
+ 	<s:property value="publicationBean.authors"/>
+ 	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
+	<s:select name="publicationTypes.name"  list="publicationTypes" listKey="publicationTypes" listValue="name" size="1" multiple="True" label="Publikationsart"/>
+	<s:select name="keywords.name"  list="keywords" listKey="keywords" listValue="name" size="1" multiple="True" label="Schlagwörter"/>
 <%--  	  <s:textfield name="publicationBean.condition"  label ="Zustand" value="Neu"/> --%>
- 	  <s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/>
- 	  <s:textfield name="publicationBean.publisher"  label ="Verlag"/>
- 	  <s:textfield name="publicationBean.edition"  label ="Auflage"/>
-		<s:textfield name="publicationBean.issue" label = "Ausgabe"/>
-
-   	  <s:submit/>
+	<s:select name="condition" list="condition" listKey="condition" size="1" multiple="true" label="Zustand"/>
+	<s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/>
+	<s:textfield name="publicationBean.publisher"  label ="Verlag"/>
+	<s:textfield name="publicationBean.edition"  label ="Auflage"/>
+	<s:textfield name="publicationBean.issue" label = "Ausgabe"/>
+   		<s:submit/>
    	  
 </s:form>	
  

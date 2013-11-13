@@ -3,13 +3,17 @@ package de.nak.librarymgmt.actions;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.PublicationService;
+import de.nak.librarymgmt.service.PublicationTypeService;
 import de.nak.librarymgmt.util.ConditionE;
 
 public class PublicationStartup extends ActionSupport {
@@ -17,8 +21,14 @@ public class PublicationStartup extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private Publication publicationBean;
-	private KeywordService keywordService;
+
+	private Set<Keyword> keywords;
+	private Set<PublicationType> publicationTypes;
+
 	private PublicationService publicationService;
+	private KeywordService keywordService;
+	private PublicationTypeService publicationTypeService;
+
 	private Map<String, Object> session;
 
 	@SuppressWarnings("unchecked")
@@ -26,6 +36,9 @@ public class PublicationStartup extends ActionSupport {
 
 		// Was ist der Value-Stack?
 		session = ActionContext.getContext().getSession();
+
+		keywords = keywordService.listAllKeywords();
+		publicationTypes = publicationTypeService.listAllPublicationTypes();
 
 		if (!session.containsKey("publication")) {
 			publicationBean = new Publication();
@@ -35,15 +48,15 @@ public class PublicationStartup extends ActionSupport {
 			publicationBean.setCondition(ConditionE.NEW);
 			publicationBean.setDistributed(false);
 			publicationBean.setReserved(false);
-			publicationBean.setPublicationType(null);
-			publicationBean.setKeywords(keywordService.listAllKeywords());
+			// publicationBean.setPublicationType(null);
+			// publicationBean.setKeywords(keywordService.listAllKeywords());
 			publicationBean.setLendingProcess(null);
 			publicationBean.setIsbn("Initial ISBN");
 			publicationBean.setPublisher("InitialPublisher");
 			publicationBean.setIssue("Initial Issue");
 			publicationBean.setEdition("Initial Edition");
 
-			publicationBean.setKeywords(keywordService.listAllKeywords());
+			// setKeywords(keywordService.listAllKeywords());
 			session.put("publication", publicationBean);
 		} else {
 			publicationBean = (Publication) session.get("publication");
@@ -83,5 +96,34 @@ public class PublicationStartup extends ActionSupport {
 
 	public void setPublicationService(PublicationService publicationService) {
 		this.publicationService = publicationService;
+	}
+
+	public PublicationTypeService getPublicationTypeService() {
+		return publicationTypeService;
+	}
+
+	public void setPublicationTypeService(
+			PublicationTypeService publicationTypeService) {
+		this.publicationTypeService = publicationTypeService;
+	}
+
+	public void setKeywords(HashSet<Keyword> keywords) {
+		this.keywords = keywords;
+	}
+
+	public Set<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(Set<Keyword> keywords) {
+		this.keywords = keywords;
+	}
+
+	public Set<PublicationType> getPublicationTypes() {
+		return publicationTypes;
+	}
+
+	public void setPublicationTypes(Set<PublicationType> publicationTypes) {
+		this.publicationTypes = publicationTypes;
 	}
 }
