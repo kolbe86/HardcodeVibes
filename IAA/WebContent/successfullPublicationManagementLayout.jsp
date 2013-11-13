@@ -9,12 +9,13 @@
 </head>
 
 
-<body style="height:100%;width:100%;opacity:0.5">
+<body style="height:100%;width:100%">
 
-<div style="width:100%;height:60%;background-color:red;">wohooo
+<div style="width:100%;height:60%;background-color:light-blue;margin:20px">
+<h1>Publikationen</h1>
 
-	<table style="border:solid">
-	<thead>
+	<table>
+	<thead style="background-color:#FF7140">
 	<tr>
 		<th>Titel</th>
 		<th>Autoren</th>
@@ -25,7 +26,7 @@
 		<th>Reserviert</th>
 	</tr>
 	<thead>
-	<tbody>
+	<tbody style="background-color:#FFCF73">
 		<s:iterator value="publications">
 			<tr>
 
@@ -36,18 +37,10 @@
 				<td><s:property value="condition"/></td>
 				<td><s:property value="distributed"/></td>
 				<td><s:property value="reserved"/></td>
-				<td>Moin</td>
-				<td>Moin</td>
-				<td>Moin</td>
 			</tr>
 		</s:iterator>
-			<tr onclick='<s:action name="sortColumnTitel"/>' >
-				<td onclick='<s:action name="sortColumnTitel"/>'>Moin</td>
-				<td>Moin</td>
-				<td>Moin</td>
-			</tr>
 		</tbody>
-			<tr style="border:solid,background-color:red">
+			<tr style="border:solid,background-color:#FF7140">
 				<td>
 				<s:form action="sortColumnTitel">
 					<s:submit value="sortieren" />
@@ -74,20 +67,28 @@
 
 </div>
 
-<div style="width:100%;height:40%;background-color:green;">
+<div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 <%-- 	<s:property value="param"/> --%>
-	<s:form action="baseLayoutLink">
-	<s:textfield name="publicationBean.title" label="Titel"/><br>
-	<s:textfield name="publicationBean.authors" label="Authoren"/><br>
-	<s:textfield name="publicationBean.publicationDate" label="Publikationsdatum"/><br>
-	<s:textfield name="publicationBean.keywords" label="Schlagwörter"/><br>
-	<s:textfield name="publicationBean.condition" label="Zustand"/><br>
-	<s:property value="publicationBean.distributed"/>
-	
-	<s:submit value="aendern" />
-	<s:submit value="loeschen" />
-	</s:form>
+<h2>Publikationsdetails</h2>
 
+	<table style="background-color:#FFCF73">
+	<tr>
+	<td><s:textfield name="publicationBean.title" label="Titel" size="auto"/></td>
+	<td><s:textfield name="publicationBean.authors" label="Autoren"/></td>
+	</tr>
+	<tr>
+	<td><s:textfield name="publicationBean.publicationDate" label="Publikationsdatum"/></td>
+	<td><s:textfield name="publicationBean.keywords" label="Schlagwörter"/></td>
+	</tr>
+	<tr>
+	<td><s:textfield name="publicationBean.condition" label="Zustand"/></td>
+	<td><s:property value="publicationBean.distributed"/></td>
+	</tr>
+	<tr>
+	<td><s:submit action="changePublicationAction" value="aendern" /></td>
+	<td><s:submit action="deletePublicationAction" value="loeschen" /></td>
+	</tr>
+	</table>
 </div>
 
 </body>
