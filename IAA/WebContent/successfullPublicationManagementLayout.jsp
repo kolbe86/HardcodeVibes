@@ -50,22 +50,22 @@
 			<tr style="border:solid,background-color:red">
 				<td>
 				<s:form action="sortColumnTitel">
-					<s:submit property="sortieren" />
+					<s:submit value="sortieren" />
 				</s:form>  
 				</td>
 				<td>
 				<s:form action="sortColumnAuthor">
-					<s:submit property="sortieren" />
+					<s:submit value="sortieren" />
 				</s:form> 
 				</td>
 				<td>
 				<s:form action="sortColumnIsbn">
-					<s:submit property="sortieren" />
+					<s:submit value="sortieren" />
 				</s:form> 
 				</td>
 				<td>
 				<s:form action="sortColumnVerlag">
-					<s:submit property="sortieren" />
+					<s:submit value="sortieren" />
 				</s:form> 
 				</td>
 			</tr>
@@ -84,7 +84,8 @@
 	<s:textfield name="publicationBean.condition" label="Zustand"/><br>
 	<s:property value="publicationBean.distributed"/>
 	
-	<s:submit/>
+	<s:submit value="aendern" />
+	<s:submit value="loeschen" />
 	</s:form>
 
 </div>
