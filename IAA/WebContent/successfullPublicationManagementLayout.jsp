@@ -29,7 +29,7 @@
 		<s:iterator value="publications">
 			<tr>
 
-				<td><a href="<s:url action="publicationManagementAction"><s:param name="publicationID" value="publicationID" /></s:url>"><s:property value="title"/></a></td>
+				<td><a href="<s:url action="publicationManagementDetailAction"><s:param name="publicationID" value="publicationID" /></s:url>"><s:property value="title"/></a></td>
 				<td><s:property value="authors"/></td>
 				<td><s:property value="publicationDate"/></td>
 				<td><s:property value="keywords"/></td>
@@ -74,7 +74,20 @@
 
 </div>
 
-<div style="width:100%;height:40%;background-color:green;"><s:property value="publicationBean.title"/></div>
+<div style="width:100%;height:40%;background-color:green;">
+<%-- 	<s:property value="param"/> --%>
+	<s:form action="baseLayoutLink">
+	<s:textfield name="publicationBean.title" label="Titel"/><br>
+	<s:textfield name="publicationBean.authors" label="Authoren"/><br>
+	<s:textfield name="publicationBean.publicationDate" label="Publikationsdatum"/><br>
+	<s:textfield name="publicationBean.keywords" label="Schlagwörter"/><br>
+	<s:textfield name="publicationBean.condition" label="Zustand"/><br>
+	<s:property value="publicationBean.distributed"/>
+	
+	<s:submit/>
+	</s:form>
+
+</div>
 
 </body>
 </html>

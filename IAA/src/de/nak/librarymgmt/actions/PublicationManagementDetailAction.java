@@ -7,12 +7,15 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.PublicationService;
 
-public class PublicationManagementAction extends ActionSupport {
+public class PublicationManagementDetailAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
 	private List<Publication> publications;
 	private PublicationService publicationService;
+	private Long param;
+	private Long publicationID;
+	private Publication publicationBean;
 
 
 	@Override
@@ -21,6 +24,9 @@ public class PublicationManagementAction extends ActionSupport {
 		// call Service class to store personBean's state in database
 
 		setPublications(publicationService.listPublications());
+		
+		setParam(publicationID);
+		setPublicationBean(publicationService.findPublicationById(param));
 
 		// publications.add(new ProbeBuch("Harry Potter", "JK Rowling",
 		// "123-456-789", "Super Verlag"));
@@ -34,7 +40,14 @@ public class PublicationManagementAction extends ActionSupport {
 		return SUCCESS;
 
 	}
+	
+	public Long getPublicationID() {
+		return publicationID;
+	}
 
+	public void setPublicationID(Long publicationID) {
+		this.publicationID = publicationID;
+	}
 
 	public PublicationService getPublicationService() {
 		return publicationService;
@@ -50,6 +63,22 @@ public class PublicationManagementAction extends ActionSupport {
 
 	public void setPublications(List<Publication> publications) {
 		this.publications = publications;
+	}
+
+	public Long getParam() {
+		return param;
+	}
+
+	public void setParam(Long param) {
+		this.param = param;
+	}
+
+	public Publication getPublicationBean() {
+		return publicationBean;
+	}
+
+	public void setPublicationBean(Publication publicationBean) {
+		this.publicationBean = publicationBean;
 	}
 
 

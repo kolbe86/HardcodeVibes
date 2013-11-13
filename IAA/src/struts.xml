@@ -34,6 +34,9 @@
 		<action name="publicationManagementAction" class="de.nak.librarymgmt.actions.PublicationManagementAction" method="execute">
   			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>
+		<action name="publicationManagementDetailAction" class="de.nak.librarymgmt.actions.PublicationManagementDetailAction" method="execute">
+  			<result name="success" type="tiles">successfullPublicationManagement</result>
+		</action>
 		
 		<action name="basicDataTypeLink" class="de.nak.librarymgmt.actions.PBasicDataTypeStartupAction" method="execute">
   			<result name="success" type="tiles">basicDataType</result>
