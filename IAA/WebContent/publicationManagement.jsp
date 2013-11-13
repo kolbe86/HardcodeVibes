@@ -18,7 +18,7 @@
  	  <s:submit action="addAuthorAction"/>
  	  <s:property value="publicationBean.authors"/>
  	  <s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum" value="01.01.2000"/>
- 	  <s:select name="publicationBean.keywords.name"  list="publicationBean.keywords" listValue="name" size="1" multiple="True"/>
+<%--  	  <s:select name="publicationBean.keywords.name"  list="publicationBean.keywords" listValue="name" size="1" multiple="True"/> --%>
  	  <s:textfield name="publicationBean.keywords.name"  label ="Schlagwörter" value="Keyword"/>
 <%--  	  <s:textfield name="publicationBean.condition"  label ="Zustand" value="Neu"/> --%>
  	  <s:textfield name="publicationBean.isbn"  label ="ISBN Nummer" value="978-3-86680-192-9"/>

@@ -33,6 +33,7 @@
 		</action>
 		<action name="publicationManagementAction" class="de.nak.librarymgmt.actions.PublicationManagementAction" method="execute">
   			<result name="success" type="tiles">successfullPublicationManagement</result>
+  			<result name="input" type="tiles">publicationManagement</result>
 		</action>
 		<action name="publicationManagementDetailAction" class="de.nak.librarymgmt.actions.PublicationManagementDetailAction" method="execute">
   			<result name="success" type="tiles">successfullPublicationManagement</result>
@@ -64,6 +65,13 @@
 		
 		<action name="addAuthorAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
 			<result name="success" type="tiles">publicationCreation</result>
+		</action>
+		
+		<action name="changePublicationAction" class="de.nak.librarymgmt.actions.ChangePublicationAction" method="execute">
+			<result name="success" type="tiles">successfullPublicationManagement</result>
+		</action>
+		<action name="deletePublicationAction" class="de.nak.librarymgmt.actions.DeletePublicationAction" method="execute">
+			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>
 	</package>
 </struts>
