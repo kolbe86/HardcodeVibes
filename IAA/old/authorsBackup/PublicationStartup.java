@@ -42,6 +42,7 @@ public class PublicationStartup extends ActionSupport {
 			// initialize
 			publicationBean = new Publication();
 			publicationBean.setTitle("Initial Title");
+			publicationBean.setAuthors(new HashSet<String>());
 			publicationBean.setPublicationDate(new Date());
 			// Testwert
 			publicationBean.setDistributed(false);

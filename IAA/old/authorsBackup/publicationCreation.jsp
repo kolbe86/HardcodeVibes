@@ -13,10 +13,10 @@
 
 <s:form action="publicationCreationAction">
 	<jsp:useBean id="publicationBean" class="de.nak.librarymgmt.model.Publication" />
-<%--  	<s:property value="publicationBean.authors"/> --%>
+ 	<s:property value="publicationBean.authors"/>
 	<s:textfield name="publicationBean.title" label="Titel"/>
-<%-- 	<s:textfield  name="author" label="Autoren"/> --%>
-<%-- 		<s:submit action="addAuthorAction"/> --%>
+	<s:textfield  name="author" label="Autoren"/>
+		<s:submit action="addAuthorAction"/>
  	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
 	<s:select name="publicationTypes.name"  list="publicationTypes" listKey="publicationTypes" listValue="name" size="1" multiple="True" label="Publikationsart"/>
 	<s:select name="keywords.name"  list="keywords" listKey="keywords" listValue="name" size="1" multiple="True" label="Schlagwörter"/>
