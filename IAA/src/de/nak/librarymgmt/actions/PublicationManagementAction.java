@@ -13,15 +13,14 @@ public class PublicationManagementAction extends ActionSupport {
 
 	private List<Publication> publications;
 	private PublicationService publicationService;
-
+	private Publication publicationBean;
 
 	@Override
 	public String execute() throws Exception {
 
 		// call Service class to store personBean's state in database
-		
+
 		setPublications(publicationService.listPublications());
-		
 
 		// publications.add(new ProbeBuch("Harry Potter", "JK Rowling",
 		// "123-456-789", "Super Verlag"));
@@ -35,7 +34,6 @@ public class PublicationManagementAction extends ActionSupport {
 		return SUCCESS;
 
 	}
-
 
 	public PublicationService getPublicationService() {
 		return publicationService;
@@ -53,6 +51,12 @@ public class PublicationManagementAction extends ActionSupport {
 		this.publications = publications;
 	}
 
+	public Publication getPublicationBean() {
+		return publicationBean;
+	}
 
+	public void setPublicationBean(Publication publicationBean) {
+		this.publicationBean = publicationBean;
+	}
 
 }

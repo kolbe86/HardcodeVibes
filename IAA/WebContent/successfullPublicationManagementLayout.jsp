@@ -20,7 +20,12 @@
 		<th>Titel</th>
 		<th>Autoren</th>
 		<th>Veröffentlichungsdatum</th>
+		<th>Publikationsart</th>
 		<th>Schlagwörter</th>
+		<th>ISBN</th>
+		<th>Verlag</th>
+		<th>Ausgabe</th>
+		<th>Auflage</th>
 		<th>Zustand</th>
 		<th>Verliehen</th>
 		<th>Reserviert</th>
@@ -34,6 +39,10 @@
 				<td><s:property value="authors"/></td>
 				<td><s:property value="publicationDate"/></td>
 				<td><s:property value="keywords"/></td>
+				<td><s:property value="isbn"/></td>
+				<td><s:property value="publisher"/></td>
+				<td><s:property value="edition"/></td>
+				<td><s:property value="issue"/></td>
 				<td><s:property value="condition"/></td>
 				<td><s:property value="distributed"/></td>
 				<td><s:property value="reserved"/></td>
@@ -61,6 +70,46 @@
 					<s:submit value="sortieren" />
 				</s:form> 
 				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
 			</tr>
 </table>
 
@@ -72,22 +121,35 @@
 <h2>Publikationsdetails</h2>
 
 	<table style="background-color:#FFCF73">
-	<tr>
-	<td><s:textfield name="publicationBean.title" label="Titel" size="auto"/></td>
-	<td><s:textfield name="publicationBean.authors" label="Autoren"/></td>
-	</tr>
-	<tr>
-	<td><s:textfield name="publicationBean.publicationDate" label="Publikationsdatum"/></td>
-	<td><s:textfield name="publicationBean.keywords" label="Schlagwörter"/></td>
-	</tr>
-	<tr>
-	<td><s:textfield name="publicationBean.condition" label="Zustand"/></td>
-	<td><s:property value="publicationBean.distributed"/></td>
-	</tr>
+	<thead style="background-color:#FF7140">
+		<tr>
+			<th>Spalte 1</th>
+			<th>Spalte 2</th>
+			<th>Spalte 3</th>
+		</tr>
+	</thead>
+	<tbody style="background-color:#FFCF73">
+		<tr>
+			<td><s:textfield name="publicationBean.title" label="Titel" size="auto"/></td>
+			<td><s:textfield name="publicationBean.authors" label="Autoren"/></td>
+			<td><s:textfield name="publicationBean.publicationDate" label="Publikationsdatum"/></td>
+		</tr>
+		<tr>
+		<tr>
+			<td><s:textfield name="publicationBean.keywords" label="Schlagwörter"/></td>
+			<td><s:textfield name="publicationBean.isbn" label="ISBN"/></td>
+			<td><s:textfield name="publicationBean.publisher" label="Verlag"/></td>
+		</tr>
+		<tr>
+			<td><s:textfield name="publicationBean.edition" label="Ausgabe"/></td>
+			<td><s:textfield name="publicationBean.issue" label="Auflage"/></td>
+			<td><s:textfield name="publicationBean.condition" label="Zustand"/></td>
+		</tr>
 	<tr>
 	<td><s:submit action="changePublicationAction" value="aendern" /></td>
 	<td><s:submit action="deletePublicationAction" value="loeschen" /></td>
 	</tr>
+	</tbody>
 	</table>
 </div>
 

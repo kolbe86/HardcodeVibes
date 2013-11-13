@@ -15,8 +15,8 @@
 
  	  <s:textfield name="publicationBean.title" label="Titel" value="Buchtitel"/>
  	  <s:textfield  name="publicationBean.authors" label="Autoren" value="Autor"/>
- 	  <s:submit action="addAuthorAction"/>
- 	  <s:property value="publicationBean.authors"/>
+<%--  	  <s:submit action="addAuthorAction"/> --%>
+<%--  	  <s:property value="publicationBean.authors"/> --%>
  	  <s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum" value="01.01.2000"/>
 <%--  	  <s:select name="publicationBean.keywords.name"  list="publicationBean.keywords" listValue="name" size="1" multiple="True"/> --%>
  	  <s:textfield name="publicationBean.keywords.name"  label ="Schlagwörter" value="Keyword"/>
