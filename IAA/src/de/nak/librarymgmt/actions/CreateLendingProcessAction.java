@@ -1,31 +1,49 @@
 package de.nak.librarymgmt.actions;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BorrowerService;
-import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.PublicationService;
 
 public class CreateLendingProcessAction extends ActionSupport {
 
-	private Publication publicationBean;
-	private LendingProcessService lendingProcessService;
-	private BorrowerService borrowerService;
-	private PublicationService publicationService;
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+
+	private List<Publication> publications;
+	private PublicationService publicationService;
+	// private Long publicationID;
+	private Publication publicationBean;
+	private BorrowerService borrowerService;
+	private List<Borrower> borrowers;
 
 	public String execute() {
 
-		// lendingProcessService.createLendingProcess(, publication,
-		// new Date());
+		setPublications(publicationService.listPublications());
 
-		System.out.println(publicationBean.toString());
+		setPublicationBean(publicationService
+				.findPublicationById(publicationBean.getPublicationID()));
+		setBorrowers(borrowerService.listBorrowers());
 		return SUCCESS;
+	}
+
+	public List<Publication> getPublications() {
+		return publications;
+	}
+
+	public void setPublications(List<Publication> publications) {
+		this.publications = publications;
+	}
+
+	public PublicationService getPublicationService() {
+		return publicationService;
+	}
+
+	public void setPublicationService(PublicationService publicationService) {
+		this.publicationService = publicationService;
 	}
 
 	public Publication getPublicationBean() {
@@ -36,15 +54,6 @@ public class CreateLendingProcessAction extends ActionSupport {
 		this.publicationBean = publicationBean;
 	}
 
-	public LendingProcessService getLendingProcessService() {
-		return lendingProcessService;
-	}
-
-	public void setLendingProcessService(
-			LendingProcessService lendingProcessService) {
-		this.lendingProcessService = lendingProcessService;
-	}
-
 	public BorrowerService getBorrowerService() {
 		return borrowerService;
 	}
@@ -53,11 +62,11 @@ public class CreateLendingProcessAction extends ActionSupport {
 		this.borrowerService = borrowerService;
 	}
 
-	public PublicationService getPublicationService() {
-		return publicationService;
+	public List<Borrower> getBorrowers() {
+		return borrowers;
 	}
 
-	public void setPublicationService(PublicationService publicationService) {
-		this.publicationService = publicationService;
+	public void setBorrowers(List<Borrower> borrowers) {
+		this.borrowers = borrowers;
 	}
 }
