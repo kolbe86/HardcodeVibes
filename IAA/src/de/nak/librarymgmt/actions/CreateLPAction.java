@@ -11,7 +11,7 @@ import de.nak.librarymgmt.service.BorrowerService;
 import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.PublicationService;
 
-public class CreateLendingprocessAction extends ActionSupport {
+public class CreateLPAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
