@@ -23,6 +23,7 @@ public class PublicationCreationAction extends ActionSupport {
 	// Selection
 	private List<String> keywordSelection;
 	private String publicationTypeSelection;
+	private ConditionE condition;
 
 	private static final long serialVersionUID = 1L;
 	private Publication publicationBean;
@@ -42,7 +43,7 @@ public class PublicationCreationAction extends ActionSupport {
 
 		publicationService.createPublication(publicationBean.getTitle(),
 				new HashSet<String>(), publicationBean.getPublicationDate(),
-				ConditionE.NEW, publicationType, publicationBean.getKeywords(),
+				condition, publicationType, publicationBean.getKeywords(),
 				publicationBean.getIsbn(), publicationBean.getPublisher(),
 				publicationBean.getIssue(), publicationBean.getEdition());
 
@@ -114,5 +115,13 @@ public class PublicationCreationAction extends ActionSupport {
 
 	public void setPublicationTypeSelection(String publicationTypeSelection) {
 		this.publicationTypeSelection = publicationTypeSelection;
+	}
+
+	public ConditionE getCondition() {
+		return condition;
+	}
+
+	public void setCondition(ConditionE condition) {
+		this.condition = condition;
 	}
 }

@@ -14,11 +14,11 @@ import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.service.PublicationTypeService;
+import de.nak.librarymgmt.util.ConditionE;
 
 public class PublicationStartup extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
-
 	private Publication publicationBean;
 
 	// DB-Sets
@@ -28,21 +28,21 @@ public class PublicationStartup extends ActionSupport {
 	// Select-Lists
 	List<String> keywordSelection;
 	List<String> publicationTypeSelection;
+	List<String> authorSelection;
+	private String author;
+	private ConditionE[] conditions = ConditionE.values();
 
 	// Services
 	private PublicationService publicationService;
 	private KeywordService keywordService;
 	private PublicationTypeService publicationTypeService;
 
-	private Set<String> condition = new HashSet<String>();
-
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception {
 
-		// Set Conditions
-		condition.add("Neu");
-		condition.add("Gebraucht");
-		condition.add("Alt");
+		if (authorSelection == null) {
+			authorSelection = new LinkedList<String>();
+		}
 
 		// Get Publication-Types
 		publicationTypes = publicationTypeService.listAllPublicationTypes();
@@ -63,6 +63,8 @@ public class PublicationStartup extends ActionSupport {
 			// initialize
 			publicationBean = new Publication();
 			publicationBean.setTitle("Initial Title");
+
+			// publicationBean.setAuthors(authors);
 			publicationBean.setPublicationDate(new Date());
 			publicationBean.setDistributed(false);
 			publicationBean.setReserved(false);
@@ -71,6 +73,18 @@ public class PublicationStartup extends ActionSupport {
 			publicationBean.setIssue("Initial Issue");
 			publicationBean.setEdition("Initial Edition");
 
+		} else {
+			publicationBean = new Publication();
+			publicationBean.setTitle("Initial Title");
+
+			// publicationBean.setAuthors(authors);
+			publicationBean.setPublicationDate(new Date());
+			publicationBean.setDistributed(false);
+			publicationBean.setReserved(false);
+			publicationBean.setIsbn("Initial ISBN");
+			publicationBean.setPublisher("InitialPublisher");
+			publicationBean.setIssue("Initial Issue");
+			publicationBean.setEdition("Initial Edition");
 		}
 
 		System.out.println("Startup Ende");
@@ -131,14 +145,6 @@ public class PublicationStartup extends ActionSupport {
 		this.publicationTypes = publicationTypes;
 	}
 
-	public Set<String> getCondition() {
-		return condition;
-	}
-
-	public void setCondition(Set<String> condition) {
-		this.condition = condition;
-	}
-
 	public List<String> getKeywordSelection() {
 		return keywordSelection;
 	}
@@ -154,5 +160,29 @@ public class PublicationStartup extends ActionSupport {
 	public void setPublicationTypeSelection(
 			List<String> publicationTypeSelection) {
 		this.publicationTypeSelection = publicationTypeSelection;
+	}
+
+	public ConditionE[] getConditions() {
+		return conditions;
+	}
+
+	public void setConditions(ConditionE[] conditions) {
+		this.conditions = conditions;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public List<String> getAuthorSelection() {
+		return authorSelection;
+	}
+
+	public void setAuthorSelection(List<String> authorSelection) {
+		this.authorSelection = authorSelection;
 	}
 }
