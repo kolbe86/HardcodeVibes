@@ -34,7 +34,7 @@ public class Keyword implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Keyword other = (Keyword) obj;
+		final Keyword other = (Keyword) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;

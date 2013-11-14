@@ -3,7 +3,6 @@ package de.nak.librarymgmt.service;
 import java.util.List;
 
 import de.nak.librarymgmt.model.Borrower;
-import de.nak.librarymgmt.model.LendingProcess;
 
 /**
  * The Borrower service interface.
@@ -20,7 +19,8 @@ public interface BorrowerService {
 	 * @param lastName
 	 *            , last name of the borrower.
 	 */
-	void createBorrower(String firstName, String lastName);
+	void createBorrower(int matriculationNumber, String firstName,
+			String lastName) throws Exception;
 
 	/**
 	 * Deletes an given Borrower entity.
@@ -29,7 +29,7 @@ public interface BorrowerService {
 	 *            , ID of the borrower that should be deleted.
 	 * 
 	 */
-	void deleteBorrower(long borrowerID);
+	void deleteBorrower(int matriculationNumber);
 
 	/**
 	 * Updates a borrower entity and stores the changes into the database.
@@ -41,7 +41,8 @@ public interface BorrowerService {
 	 * @param lastName
 	 *            , the last name of the borrower.
 	 */
-	void updateBorrower(long borrowerID, String firstName, String lastName);
+	void updateBorrower(int matriculationNumber, String firstName,
+			String lastName);
 
 	/**
 	 * Returns the Borrower identified by the given id.
@@ -50,8 +51,9 @@ public interface BorrowerService {
 	 *            , ID of the borrower that should be found.
 	 * @return the found borrower entity.
 	 */
-	Borrower findBorrowerById(long borrowerID);
+	Borrower findBorrowerByMatriculationNumber(int matriculationNumber);
 
+	List<Borrower> findBorrowerByMatriculationNumberList(int matriculationNumber);
 	/**
 	 * Lists all borrowers currently stored in the database.
 	 * 
@@ -59,7 +61,7 @@ public interface BorrowerService {
 	 */
 	List<Borrower> listBorrowers();
 
-	List<Borrower> findBorrowersByCriteria(String firstName, String lastName);
+	List<Borrower> findBorrowersByNames(String firstName, String lastName);
 
 	/*
 	 * void addLendingProcess(LendingProcess lendingProcess, Borrower borrower);

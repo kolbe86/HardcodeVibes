@@ -2,29 +2,32 @@ package de.nak.librarymgmt.service;
 
 import java.util.List;
 
+import org.springframework.dao.DataIntegrityViolationException;
+
 import de.nak.librarymgmt.dao.BorrowerDAO;
 import de.nak.librarymgmt.model.Borrower;
-import de.nak.librarymgmt.model.LendingProcess;
 
 public class BorrowerServiceImpl implements BorrowerService {
 
 	private BorrowerDAO borrowerDAO;
 
-	public void createBorrower(String firstName, String lastName) {
+	public void createBorrower(int matriculationNumber, String firstName,
+			String lastName) throws Exception {
 		Borrower borrower = new Borrower();
+		borrower.setMatriculationNumber(matriculationNumber);
 		borrower.setFirstName(firstName);
 		borrower.setLastName(lastName);
 		try {
-			System.out.println("Try borrowerDAO.save");
 			borrowerDAO.save(borrower);
-		} catch (Exception e) {
+		} catch (DataIntegrityViolationException ex) {
 			// TODO
 		}
 
 	}
 
-	public void deleteBorrower(long borrowerID) {
-		Borrower borrower = borrowerDAO.findById(borrowerID);
+	public void deleteBorrower(int matriculationNumber) {
+		Borrower borrower = borrowerDAO
+				.findByMatriculationNumber(matriculationNumber);
 		try {
 			System.out.println("Try borrowerDAO.delete");
 			borrowerDAO.delete(borrower);
@@ -34,9 +37,10 @@ public class BorrowerServiceImpl implements BorrowerService {
 
 	}
 
-	public void updateBorrower(long borrowerID, String firstName,
+	public void updateBorrower(int matriculationNumber, String firstName,
 			String lastName) {
-		Borrower borrower = borrowerDAO.findById(borrowerID);
+		Borrower borrower = borrowerDAO
+				.findByMatriculationNumber(matriculationNumber);
 		try {
 			borrower.setFirstName(firstName);
 			borrower.setLastName(lastName);
@@ -57,8 +61,9 @@ public class BorrowerServiceImpl implements BorrowerService {
 		this.borrowerDAO = borrowerDAO;
 	}
 
-	public Borrower findBorrowerById(long borrowerID) {
-		Borrower borrower = borrowerDAO.findById(borrowerID);
+	public Borrower findBorrowerByMatriculationNumber(int matriculationNumber) {
+		Borrower borrower = borrowerDAO
+				.findByMatriculationNumber(matriculationNumber);
 		try {
 			return borrower;
 		} catch (Exception e) {
@@ -66,11 +71,21 @@ public class BorrowerServiceImpl implements BorrowerService {
 		}
 	}
 
+	public List<Borrower> findBorrowerByMatriculationNumberList(
+			int matriculationNumber) {
+		List<Borrower> borrowers = borrowerDAO
+				.findByMatriculationNumberList(matriculationNumber);
+		try {
+			return borrowers;
+		} catch (Exception e) {
+			return null; // TODO
+
+		}
+	}
+
 	@Override
-	public List<Borrower> findBorrowersByCriteria(String firstName,
-			String lastName) {
-		List<Borrower> borrowers = borrowerDAO.findByCriteria(firstName,
-				lastName);
+	public List<Borrower> findBorrowersByNames(String firstName, String lastName) {
+		List<Borrower> borrowers = borrowerDAO.findByNames(firstName, lastName);
 		try {
 			return borrowers;
 		} catch (Exception e) {

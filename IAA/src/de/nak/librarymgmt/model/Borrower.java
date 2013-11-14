@@ -1,7 +1,6 @@
 package de.nak.librarymgmt.model;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * 
@@ -10,20 +9,9 @@ import java.util.Set;
 public class Borrower implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private long borrowerID;
+	private int matriculationNumber;
 	private String firstName;
 	private String lastName;
-/*
- * 	private int matriculationNumber;
- */
-
-	public long getBorrowerID() {
-		return borrowerID;
-	}
-
-	public void setBorrowerID(long borrowerID) {
-		this.borrowerID = borrowerID;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -41,11 +29,12 @@ public class Borrower implements Serializable {
 		this.lastName = lastName;
 	}
 
+	public int getMatriculationNumber() {
+		return matriculationNumber;
+	}
 
-	/*
-	 * public int getMatriculationNumber() { return matriculationNumber; }
-	 * 
-	 * public void setMatriculationNumber(int matriculationNumber) {
-	 * this.matriculationNumber = matriculationNumber; }
-	 */
+	public void setMatriculationNumber(int matriculationNumber) {
+		this.matriculationNumber = matriculationNumber;
+	}
+
 }

@@ -5,9 +5,11 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Borrower;
+import de.nak.librarymgmt.service.AlreadyExistException;
 
 /**
  * The borrower data access object(DAO).
@@ -23,9 +25,14 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 * @param borrower
 	 *            , object to persist.
 	 */
-	public void save(Borrower borrower) {
-		getHibernateTemplate().save(borrower);
-		System.out.println("saved!");
+	public void save(Borrower borrower) throws AlreadyExistException {
+		try {
+			getHibernateTemplate().saveOrUpdate(borrower);
+			getHibernateTemplate().flush();
+		} catch (DataIntegrityViolationException ex) {
+			throw new AlreadyExistException(
+					"Der Ausleiher ist bereits im System.");
+		}
 	}
 
 	/**
@@ -45,13 +52,22 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 *            to be searched for
 	 * @return borrower object or <code>null</code>.
 	 */
-	public Borrower findById(Long borrowerID) {
-		return (Borrower) getHibernateTemplate()
-				.get(Borrower.class, borrowerID);
+	public Borrower findByMatriculationNumber(int matriculationNumber) {
+		return (Borrower) getHibernateTemplate().get(Borrower.class,
+				matriculationNumber);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Borrower> findByCriteria(String firstName, String lastName) {
+	public List<Borrower> findByMatriculationNumberList(int matriculationNumber) {
+		Criteria criteria = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createCriteria(Borrower.class);
+		criteria.add(Restrictions
+				.eq("matriculationNumber", matriculationNumber));
+		return ((List<Borrower>) criteria.list());
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Borrower> findByNames(String firstName, String lastName) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Borrower.class);
 		criteria.add(Restrictions.like("firstName", "%" + firstName + "%")

@@ -4,14 +4,10 @@
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="de.nak.librarymgmt.model.Borrower" table="BORROWER">
-		<id name="borrowerID" column="BORROER_ID" type="long">
-			<generator class="native" />
-		</id>
+		<id name="matriculationNumber" column="MATRICULATION_NUMBER" type="int" />
 		<property name="firstName" column="FIRST_NAME" not-null="true"
 			type="string" />
 		<property name="lastName" column="LAST_NAME" not-null="true"
 			type="string" />
-		<!-- <property name="matriculationNumber" column="MATRICULATION_NUMBER" 
-			not-null="false" type="integer" /> -->
 	</class>
 </hibernate-mapping>
