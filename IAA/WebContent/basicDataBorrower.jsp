@@ -15,7 +15,7 @@
 <table>
 	<thead style="background-color:#FF7140">
 		<tr>
-			<th>AusleiherID</th>
+			<th>Matrikelnummer</th>
 			<th>Vorname</th>
 			<th>Nachname</th>
 		</tr>
@@ -24,13 +24,13 @@
 		<s:iterator value="borrowers">
 			<tr>
 				<td>
-				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="borrowerID" /></s:url>"><s:property value="borrowerID"/></a>
+				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="matriculationNumber" /></s:url>"><s:property value="matriculationNumber"/></a>
 				</td>
 				<td>
-				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="borrowerID" /></s:url>"><s:property value="firstName"/></a>
+				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="matriculationNumber" /></s:url>"><s:property value="firstName"/></a>
 				</td>
 				<td>
-				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="borrowerID" /></s:url>"><s:property value="lastName"/></a>
+				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="matriculationNumber" /></s:url>"><s:property value="lastName"/></a>
 				</td>
 
 			</tr>
@@ -41,15 +41,12 @@
 
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
-
-<s:textfield name="borrowerBean.borrowerID" label="AusleiherID" size="auto"/>
-<s:textfield name="borrowerBean.firstName" label="Vorname" size="auto"/>
-<s:textfield name="borrowerBean.lastName" label="Nachname" size="auto"/>
-				<s:form action="addBorrowerAction">
+		<s:form action="addBorrowerAction">
+			<s:textfield name="borrowerBean.matriculationNumber" label="Matrikelnummer" size="auto"/>
+			<s:textfield name="borrowerBean.firstName" label="Vorname" size="auto"/>
+			<s:textfield name="borrowerBean.lastName" label="Nachname" size="auto"/>
 					<s:submit value="hinzufügen" />
-				</s:form> 
-				<s:form action="deleteBorrowerAction">
-					<s:submit value="löschen" />
+					<s:submit value="löschen" action="deleteBorrowerAction"/>
 				</s:form> 
 </div>
 </body>

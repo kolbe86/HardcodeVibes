@@ -14,7 +14,7 @@ public class BorrowerStartupAction extends ActionSupport {
 	private List<Borrower> borrowers;
 	private BorrowerService borrowerService;
 	private Long tempFieldBorrower;
-	private Long paramBorrower;
+	private Integer paramBorrower;
 	private Borrower borrowerBean;
 
 	public String execute() throws Exception {
@@ -26,7 +26,8 @@ public class BorrowerStartupAction extends ActionSupport {
 
 		if (!(paramBorrower == null)) {
 
-			setBorrowerBean(borrowerService.findBorrowerById(paramBorrower));
+			setBorrowerBean(borrowerService
+					.findBorrowerByMatriculationNumber(paramBorrower));
 
 		}
 
@@ -74,11 +75,11 @@ public class BorrowerStartupAction extends ActionSupport {
 		this.borrowerService = borrowerService;
 	}
 
-	public Long getParamBorrower() {
+	public Integer getParamBorrower() {
 		return paramBorrower;
 	}
 
-	public void setParamBorrower(Long paramBorrower) {
+	public void setParamBorrower(Integer paramBorrower) {
 		this.paramBorrower = paramBorrower;
 	}
 
