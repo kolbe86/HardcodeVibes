@@ -10,12 +10,8 @@ import de.nak.librarymgmt.service.KeywordService;
 public class KeywordStartupAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
-	// private Publication publicationBean;
-	// private PublicationService publicationService;
-	private String tempFieldKeyword;
-	private Set<Keyword> keywords;
 
-	// List<String> keywordSelection;
+	private Set<Keyword> keywords;
 	private KeywordService keywordService;
 	private String paramKeyword;
 	private Keyword keywordBean;
@@ -24,42 +20,15 @@ public class KeywordStartupAction extends ActionSupport {
 
 		// Get Keywords
 		keywords = keywordService.listAllKeywords();
-		// keywordSelection = new LinkedList<String>();
-		// for (Keyword keyword : keywords) {
-		// keywordSelection.add(keyword.getName());
-		// }
 
 		if (!(paramKeyword == null)) {
 			keywordBean = new Keyword();
 			keywordBean.setName(paramKeyword);
 		}
 
-		// Publication Bean
-		// if (publicationBean == null) {
-		// // initialize
-		// publicationBean = new Publication();
-		// publicationBean.setTitle("Initial Title");
-		// publicationBean.setPublicationDate(new Date());
-		// publicationBean.setDistributed(false);
-		// publicationBean.setReserved(false);
-		// publicationBean.setIsbn("Initial ISBN");
-		// publicationBean.setPublisher("InitialPublisher");
-		// publicationBean.setIssue("Initial Issue");
-		// publicationBean.setEdition("Initial Edition");
-		//
-		// }
-
 		System.out.println("Startup BasicDataKeyword Ende");
 		return "basicDataSuccess";
 
-	}
-
-	public String getTempFieldKeyword() {
-		return tempFieldKeyword;
-	}
-
-	public void setTempFieldKeyword(String tempFieldKeyword) {
-		this.tempFieldKeyword = tempFieldKeyword;
 	}
 
 	public Set<Keyword> getKeywords() {

@@ -13,7 +13,6 @@ public class BorrowerStartupAction extends ActionSupport {
 
 	private List<Borrower> borrowers;
 	private BorrowerService borrowerService;
-	private Long tempFieldBorrower;
 	private Integer paramBorrower;
 	private Borrower borrowerBean;
 
@@ -22,8 +21,6 @@ public class BorrowerStartupAction extends ActionSupport {
 		// Get Borrowers
 		borrowers = borrowerService.listBorrowers();
 
-		// setTempFieldBorrower(paramBorrower);
-
 		if (!(paramBorrower == null)) {
 
 			setBorrowerBean(borrowerService
@@ -31,32 +28,9 @@ public class BorrowerStartupAction extends ActionSupport {
 
 		}
 
-		// Publication Bean
-		// if (publicationBean == null) {
-		// // initialize
-		// publicationBean = new Publication();
-		// publicationBean.setTitle("Initial Title");
-		// publicationBean.setPublicationDate(new Date());
-		// publicationBean.setDistributed(false);
-		// publicationBean.setReserved(false);
-		// publicationBean.setIsbn("Initial ISBN");
-		// publicationBean.setPublisher("InitialPublisher");
-		// publicationBean.setIssue("Initial Issue");
-		// publicationBean.setEdition("Initial Edition");
-		//
-		// }
-
 		System.out.println("Startup BasicDataBorrower Ende");
 		return "basicDataSuccess";
 
-	}
-
-	public Long getTempFieldBorrower() {
-		return tempFieldBorrower;
-	}
-
-	public void setTempFieldBorrower(Long tempFieldBorrower) {
-		this.tempFieldBorrower = tempFieldBorrower;
 	}
 
 	public List<Borrower> getBorrowers() {
