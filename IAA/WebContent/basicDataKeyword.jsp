@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Basic Data Type</title>
+<title>Basic Data Keyword</title>
 </head>
 <body style="height:100%;width:100%">
 
@@ -15,14 +15,14 @@
 <table>
 	<thead style="background-color:#FF7140">
 		<tr>
-			<th>Publikationsarten</th>
+			<th>Schlagwörter</th>
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
-		<s:iterator value="publicationTypes">
+		<s:iterator value="keywords">
 			<tr>
 				<td>
-				<a href="<s:url action="publicationTypeStartupAction"><s:param name="paramPublicationType" value="name" /></s:url>"><s:property value="name"/></a>
+				<a href="<s:url action="keywordStartupAction"><s:param name="paramKeyword" value="name" /></s:url>"><s:property value="name"/></a>
 				</td>
 
 			</tr>
@@ -34,11 +34,11 @@
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
 
-<s:textfield name="tempFieldPublicationType" label="Publikationsart" size="auto"/>
-				<s:form action="addPublicationTypeAction">
+<s:textfield name="tempFieldKeyword" label="Schlagwort" size="auto"/>
+				<s:form action="addKeywordAction">
 					<s:submit value="hinzufügen" />
 				</s:form> 
-				<s:form action="deletePublicationTypeAction">
+				<s:form action="deleteKeywordAction">
 					<s:submit value="löschen" />
 				</s:form> 
 </div>

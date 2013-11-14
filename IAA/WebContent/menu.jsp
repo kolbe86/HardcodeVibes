@@ -22,9 +22,8 @@ Ausleihvorgang
 </ul>
 Stammdaten
 <ul>
-	<li>Art</li>
-<%-- 	<li><a href="<s:url action="basicDataTypeLink" />" >Art</a></li> --%>
-	<li><a href="<s:url action="basicDataWordLink" />" >Schlagwort</a></li>	
-	<li><a href="<s:url action="basicDataLenderLink" />" >Ausleiher</a></li>	
+	<li><a href="<s:url action="publicationTypeStartupAction" />" >Art</a></li>
+	<li><a href="<s:url action="keywordStartupAction" />" >Schlagwort</a></li>	
+	<li><a href="<s:url action="borrowerStartupAction" />" >Ausleiher</a></li>	
 </ul>
 

@@ -5,12 +5,16 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.PublicationService;
 
 public class PublicationManagementAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
+	private PublicationType publicationType;
+	// private PublicationTypeService publicationTypeService;
+	// private String publicationTypeSelection;
 	private List<Publication> publications;
 	private PublicationService publicationService;
 	private Publication publicationBean;
@@ -18,6 +22,10 @@ public class PublicationManagementAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
+		// setPublicationType(publicationTypeService
+		// .findPublicationTypeByName(publicationTypeSelection));
+		//
+		// publicationBean.setPublicationType(publicationType);
 		// call Service class to store personBean's state in database
 
 		setPublications(publicationService.listPublications());
@@ -57,6 +65,14 @@ public class PublicationManagementAction extends ActionSupport {
 
 	public void setPublicationBean(Publication publicationBean) {
 		this.publicationBean = publicationBean;
+	}
+
+	public PublicationType getPublicationType() {
+		return publicationType;
+	}
+
+	public void setPublicationType(PublicationType publicationType) {
+		this.publicationType = publicationType;
 	}
 
 }

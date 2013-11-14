@@ -16,15 +16,15 @@
 <!-- 			<message>Der Autor für die Publikation ist obligatorisch</message> -->
 <!-- 		</field-validator> -->
 <!-- 	</field> -->
-		<field name="publicationBean.publicationDate">
-		<field-validator type="date">
-			<message>Das Datum für die Publikation ist obligatorisch</message>
-		</field-validator>
-	</field>
+<!-- 		<field name="publicationBean.publicationDate"> -->
+<!-- 		<field-validator type="date"> -->
+<!-- 			<message>Das Datum für die Publikation ist obligatorisch</message> -->
+<!-- 		</field-validator> -->
+<!-- 	</field> -->
 	<field name="publicationBean.isbn">
 		<field-validator type="regex">
 			<param name="expression">|ISBN(?:-13)?:?\x20*(?=.{17}$)97(?:8|9)([ -])\d{1,5}\1\d{1,7}\1\d{1,6}\1\d$</param>
-			<message>Die ISBN für die Publikation ist obligatorisch</message>
+			<message>Geben Sie keine oder eine gültige ISBN Nummer ein</message>
 		</field-validator>
 	</field>
 		<field name="publicationBean.publisher">
@@ -34,7 +34,7 @@
 	</field>
 		<field name="publicationBean.edition">
 		<field-validator type="requiredstring">
-			<message>Die Edition für die Publikation ist obligatorisch</message>
+			<message>Die Auflage für die Publikation ist obligatorisch</message>
 		</field-validator>
 	</field>
 		<field name="publicationBean.issue">

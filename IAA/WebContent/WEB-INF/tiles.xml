@@ -40,9 +40,9 @@
       	<put-attribute name="main"   value="/lendingProcessManagement.jsp"/>      
   	</definition>
   
-  	<definition name="basicDataLender" extends="baseLayout">
+  	<definition name="basicDataBorrower" extends="baseLayout">
       	<put-attribute name="header"  value="Stammdaten Ausleiher"/>
-      	<put-attribute name="main"   value="/basicDataLender.jsp"/>      
+      	<put-attribute name="main"   value="/basicDataBorrower.jsp"/>      
   	</definition>
   	
   	 <definition name="basicDataType" extends="baseLayout">
@@ -50,9 +50,9 @@
       	<put-attribute name="main"   value="/basicDataType.jsp"/>      
   	</definition>
   	
-  	 <definition name="basicDataWord" extends="baseLayout">
+  	 <definition name="basicDataKeyword" extends="baseLayout">
       	<put-attribute name="header"  value="Stammdaten Schlagwoerter"/>
-      	<put-attribute name="main"   value="/basicDataWord.jsp"/>      
+      	<put-attribute name="main"   value="/basicDataKeyword.jsp"/>      
   	</definition>
   	
   	 <definition name="marioTest" extends="baseLayout">

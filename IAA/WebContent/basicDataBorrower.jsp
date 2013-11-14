@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Basic Data Type</title>
+<title>Basic Data Borrower</title>
 </head>
 <body style="height:100%;width:100%">
 
@@ -15,14 +15,14 @@
 <table>
 	<thead style="background-color:#FF7140">
 		<tr>
-			<th>Publikationsarten</th>
+			<th>Ausleiher</th>
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
-		<s:iterator value="publicationTypes">
+		<s:iterator value="borrowers">
 			<tr>
 				<td>
-				<a href="<s:url action="publicationTypeStartupAction"><s:param name="paramPublicationType" value="name" /></s:url>"><s:property value="name"/></a>
+				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="borrowerID" /></s:url>"><s:property value="name"/></a>
 				</td>
 
 			</tr>
@@ -34,11 +34,11 @@
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
 
-<s:textfield name="tempFieldPublicationType" label="Publikationsart" size="auto"/>
-				<s:form action="addPublicationTypeAction">
+<s:textfield name="tempFieldBorrower" label="Ausleiher" size="auto"/>
+				<s:form action="addBorrowerAction">
 					<s:submit value="hinzufügen" />
 				</s:form> 
-				<s:form action="deletePublicationTypeAction">
+				<s:form action="deleteBorrowerAction">
 					<s:submit value="löschen" />
 				</s:form> 
 </div>
