@@ -10,7 +10,7 @@ import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.service.PublicationTypeService;
 
-public class PublicationTypeStartupAction extends ActionSupport {
+public class DeletePublicationTypeAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	private Publication publicationBean;
@@ -18,12 +18,15 @@ public class PublicationTypeStartupAction extends ActionSupport {
 	List<String> publicationTypeSelection;
 	private PublicationService publicationService;
 	private PublicationTypeService publicationTypeService;
-	private String tempFieldPublicationType;
+	// private String tempFieldPublicationType;
 	private String paramPublicationType;
 	private PublicationType publicationTypeBean;
 
 	public String execute() throws Exception {
 
+		// publicationTypeBean = new PublicationType();
+		publicationTypeService.deletePublicationType(publicationTypeBean
+				.getName());
 		// Get Publication-Types
 		publicationTypes = publicationTypeService.listAllPublicationTypes();
 		// publicationTypeSelection = new LinkedList<String>();
@@ -31,10 +34,12 @@ public class PublicationTypeStartupAction extends ActionSupport {
 		// publicationTypeSelection.add(publicationType.getName());
 		// }
 
-		if (!(paramPublicationType == null)) {
-			publicationTypeBean = new PublicationType();
-			publicationTypeBean.setName(paramPublicationType);
-		}
+		// Erstmal raus, dann wahrscheinlich Feld leer
+		// if (!(paramPublicationType == null)) {
+		//
+		// publicationTypeBean.setName(paramPublicationType);
+		//
+		// }
 		// Publication Bean
 		// if (publicationBean == null) {
 		// // initialize
@@ -50,7 +55,7 @@ public class PublicationTypeStartupAction extends ActionSupport {
 		//
 		// }
 
-		System.out.println("Startup BasicDataType Ende");
+		System.out.println("Delete BasicDataType Ende");
 		return "basicDataSuccess";
 
 	}
@@ -103,14 +108,6 @@ public class PublicationTypeStartupAction extends ActionSupport {
 
 	public void setParamPublicationType(String paramPublicationType) {
 		this.paramPublicationType = paramPublicationType;
-	}
-
-	public String getTempFieldPublicationType() {
-		return tempFieldPublicationType;
-	}
-
-	public void setTempFieldPublicationType(String tempFieldPublicationType) {
-		this.tempFieldPublicationType = tempFieldPublicationType;
 	}
 
 	public PublicationType getPublicationTypeBean() {

@@ -5,12 +5,14 @@ import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.model.PublicationType;
+import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.service.PublicationTypeService;
 
-public class PublicationTypeStartupAction extends ActionSupport {
+public class AddKeywordAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	private Publication publicationBean;
@@ -20,21 +22,25 @@ public class PublicationTypeStartupAction extends ActionSupport {
 	private PublicationTypeService publicationTypeService;
 	private String tempFieldPublicationType;
 	private String paramPublicationType;
-	private PublicationType publicationTypeBean;
+	private Keyword keywordBean;
+	private KeywordService keywordService;
+	private Set<Keyword> keywords;
 
 	public String execute() throws Exception {
 
+		keywordService.createKeyword(keywordBean.getName());
 		// Get Publication-Types
-		publicationTypes = publicationTypeService.listAllPublicationTypes();
+		keywords = keywordService.listAllKeywords();
 		// publicationTypeSelection = new LinkedList<String>();
 		// for (PublicationType publicationType : publicationTypes) {
 		// publicationTypeSelection.add(publicationType.getName());
 		// }
 
-		if (!(paramPublicationType == null)) {
-			publicationTypeBean = new PublicationType();
-			publicationTypeBean.setName(paramPublicationType);
-		}
+		// if (!(paramPublicationType == null)) {
+		//
+		// setTempFieldPublicationType(paramPublicationType);
+		//
+		// }
 		// Publication Bean
 		// if (publicationBean == null) {
 		// // initialize
@@ -50,7 +56,7 @@ public class PublicationTypeStartupAction extends ActionSupport {
 		//
 		// }
 
-		System.out.println("Startup BasicDataType Ende");
+		System.out.println("Add BasicDataKeyword Ende");
 		return "basicDataSuccess";
 
 	}
@@ -113,11 +119,27 @@ public class PublicationTypeStartupAction extends ActionSupport {
 		this.tempFieldPublicationType = tempFieldPublicationType;
 	}
 
-	public PublicationType getPublicationTypeBean() {
-		return publicationTypeBean;
+	public Keyword getKeywordBean() {
+		return keywordBean;
 	}
 
-	public void setPublicationTypeBean(PublicationType publicationTypeBean) {
-		this.publicationTypeBean = publicationTypeBean;
+	public void setKeywordBean(Keyword keywordBean) {
+		this.keywordBean = keywordBean;
+	}
+
+	public Set<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(Set<Keyword> keywords) {
+		this.keywords = keywords;
+	}
+
+	public KeywordService getKeywordService() {
+		return keywordService;
+	}
+
+	public void setKeywordService(KeywordService keywordService) {
+		this.keywordService = keywordService;
 	}
 }

@@ -18,6 +18,7 @@ public class KeywordStartupAction extends ActionSupport {
 	// List<String> keywordSelection;
 	private KeywordService keywordService;
 	private String paramKeyword;
+	private Keyword keywordBean;
 
 	public String execute() throws Exception {
 
@@ -28,7 +29,10 @@ public class KeywordStartupAction extends ActionSupport {
 		// keywordSelection.add(keyword.getName());
 		// }
 
-		setTempFieldKeyword(paramKeyword);
+		if (!(paramKeyword == null)) {
+			keywordBean = new Keyword();
+			keywordBean.setName(paramKeyword);
+		}
 
 		// Publication Bean
 		// if (publicationBean == null) {
@@ -80,5 +84,13 @@ public class KeywordStartupAction extends ActionSupport {
 
 	public void setParamKeyword(String paramKeyword) {
 		this.paramKeyword = paramKeyword;
+	}
+
+	public Keyword getKeywordBean() {
+		return keywordBean;
+	}
+
+	public void setKeywordBean(Keyword keywordBean) {
+		this.keywordBean = keywordBean;
 	}
 }

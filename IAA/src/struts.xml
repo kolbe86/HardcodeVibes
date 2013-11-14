@@ -53,6 +53,24 @@
   			<result name="basicDataSuccess" type="tiles">basicDataBorrower</result>
 		</action>
 		
+<!-- 		Add and Delete Methods for Basic Data Management -->
+
+		<action name="addPublicationTypeAction" class="de.nak.librarymgmt.actions.basicDataActions.AddPublicationTypeAction" method="execute">
+  			<result name="basicDataSuccess" type="tiles">basicDataType</result>
+		</action>
+		
+		<action name="deletePublicationTypeAction" class="de.nak.librarymgmt.actions.basicDataActions.DeletePublicationTypeAction" method="execute">
+  			<result name="basicDataSuccess" type="tiles">basicDataType</result>
+		</action>
+		
+		<action name="addKeywordAction" class="de.nak.librarymgmt.actions.basicDataActions.AddKeywordAction" method="execute">
+  			<result name="basicDataSuccess" type="tiles">basicDataKeyword</result>
+		</action>
+		
+		<action name="deleteKeywordAction" class="de.nak.librarymgmt.actions.basicDataActions.DeleteKeywordAction" method="execute">
+  			<result name="basicDataSuccess" type="tiles">basicDataKeyword</result>
+		</action>
+		
 		<action name="sortColumnTitel" class="de.nak.librarymgmt.actions.SortColumnTitel" method="execute">
   			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>

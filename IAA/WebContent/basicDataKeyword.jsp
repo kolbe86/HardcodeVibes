@@ -34,12 +34,11 @@
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
 
-<s:textfield name="tempFieldKeyword" label="Schlagwort" size="auto"/>
+
 				<s:form action="addKeywordAction">
+					<s:textfield name="keywordBean.name" label="Schlagwort" size="auto"/>
 					<s:submit value="hinzufügen" />
-				</s:form> 
-				<s:form action="deleteKeywordAction">
-					<s:submit value="löschen" />
+					<s:submit value="löschen" action="deleteKeywordAction"/>
 				</s:form> 
 </div>
 </body>

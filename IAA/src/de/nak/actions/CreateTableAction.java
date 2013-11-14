@@ -25,11 +25,11 @@ public class CreateTableAction implements Action {
 		keywordService.createKeyword("KW1");
 		keywordService.createKeyword("KW2");
 
-		// borrowerService.createBorrower("Hans", "Meier");
-		// borrowerService.createBorrower("Hans", "Deng");
-		// borrowerService.createBorrower("Hans", "Peng");
-		// borrowerService.createBorrower("Bong", "Bong");
-		// borrowerService.createBorrower("Ding", "Dong");
+		borrowerService.createBorrower("Hans", "Meier");
+		borrowerService.createBorrower("Hans", "Deng");
+		borrowerService.createBorrower("Hans", "Peng");
+		borrowerService.createBorrower("Bong", "Bong");
+		borrowerService.createBorrower("Ding", "Dong");
 		// /*
 		// * borrowerService.deleteBorrower(3L);
 		// * borrowerService.updateBorrower(2L, "Bing", "Bong");

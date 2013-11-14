@@ -15,13 +15,20 @@ public class BorrowerStartupAction extends ActionSupport {
 	private BorrowerService borrowerService;
 	private Long tempFieldBorrower;
 	private Long paramBorrower;
+	private Borrower borrowerBean;
 
 	public String execute() throws Exception {
 
 		// Get Borrowers
 		borrowers = borrowerService.listBorrowers();
 
-		setTempFieldBorrower(paramBorrower);
+		// setTempFieldBorrower(paramBorrower);
+
+		if (!(paramBorrower == null)) {
+
+			setBorrowerBean(borrowerService.findBorrowerById(paramBorrower));
+
+		}
 
 		// Publication Bean
 		// if (publicationBean == null) {
@@ -73,6 +80,14 @@ public class BorrowerStartupAction extends ActionSupport {
 
 	public void setParamBorrower(Long paramBorrower) {
 		this.paramBorrower = paramBorrower;
+	}
+
+	public Borrower getBorrowerBean() {
+		return borrowerBean;
+	}
+
+	public void setBorrowerBean(Borrower borrowerBean) {
+		this.borrowerBean = borrowerBean;
 	}
 
 }

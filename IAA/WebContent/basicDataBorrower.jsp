@@ -15,14 +15,22 @@
 <table>
 	<thead style="background-color:#FF7140">
 		<tr>
-			<th>Ausleiher</th>
+			<th>AusleiherID</th>
+			<th>Vorname</th>
+			<th>Nachname</th>
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
 		<s:iterator value="borrowers">
 			<tr>
 				<td>
-				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="borrowerID" /></s:url>"><s:property value="name"/></a>
+				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="borrowerID" /></s:url>"><s:property value="borrowerID"/></a>
+				</td>
+				<td>
+				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="borrowerID" /></s:url>"><s:property value="firstName"/></a>
+				</td>
+				<td>
+				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="borrowerID" /></s:url>"><s:property value="lastName"/></a>
 				</td>
 
 			</tr>
@@ -34,7 +42,9 @@
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
 
-<s:textfield name="tempFieldBorrower" label="Ausleiher" size="auto"/>
+<s:textfield name="borrowerBean.borrowerID" label="AusleiherID" size="auto"/>
+<s:textfield name="borrowerBean.firstName" label="Vorname" size="auto"/>
+<s:textfield name="borrowerBean.lastName" label="Nachname" size="auto"/>
 				<s:form action="addBorrowerAction">
 					<s:submit value="hinzufügen" />
 				</s:form> 

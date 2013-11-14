@@ -34,12 +34,10 @@
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
 
-<s:textfield name="tempFieldPublicationType" label="Publikationsart" size="auto"/>
-				<s:form action="addPublicationTypeAction">
+				<s:form action="addPublicationTypeAction" >
+					<s:textfield name="publicationTypeBean.name" label="Publikationsart" size="auto"/>
 					<s:submit value="hinzufügen" />
-				</s:form> 
-				<s:form action="deletePublicationTypeAction">
-					<s:submit value="löschen" />
+					<s:submit value="löschen" action="deletePublicationTypeAction"/>
 				</s:form> 
 </div>
 </body>
