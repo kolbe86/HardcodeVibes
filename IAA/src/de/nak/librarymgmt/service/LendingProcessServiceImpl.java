@@ -2,6 +2,7 @@ package de.nak.librarymgmt.service;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.GregorianCalendar;
 
@@ -39,41 +40,12 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 
 	}
 
-	public Date calculateReturnDate(Date issueDate) {
-		calender.setTime(issueDate);
-		calender.add(Calendar.DAY_OF_MONTH, loanPeriodInDays);
-		return calender.getTime();
-	}
-
-	public LendingProcessDAO getLendingProcessDAO() {
-		return lendingProcessDAO;
-	}
-
-	public void setLendingProcessDAO(LendingProcessDAO lendingProcessDAO) {
-		this.lendingProcessDAO = lendingProcessDAO;
-	}
-
 	@Override
 	public void endLendingProcess(long lendingProcessID) {
 		LendingProcess lendingProcess = lendingProcessDAO
 				.findById(lendingProcessID);
 		try {
 			lendingProcess.setStatus(StatusE.CLOSED);
-		} catch (Exception e) {
-			// TODO
-		}
-	}
-
-	/*
-	 * fürs testen
-	 */
-	public void setDunningLevel(long lendingProcessID,
-			DunningLevelE dunningLevel) {
-		LendingProcess lendingProcess = lendingProcessDAO
-				.findById(lendingProcessID);
-		try {
-			lendingProcess.setDunningLevel(dunningLevel);
-			;
 		} catch (Exception e) {
 			// TODO
 		}
@@ -97,12 +69,6 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 	}
 
 	/*
-	 * @Override public void updateDunningLevel(long lendingProcessID) { // TODO
-	 * Auto-generated method stub
-	 * 
-	 * }
-	 * 
-	 * 
 	 * Brauchen wir löschen?
 	 * 
 	 * @Override public void deleteLendingProcess(long lendingProcessID) {
@@ -114,6 +80,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 	 * 
 	 * }
 	 */
+
 	@Override
 	public void updateLendingProcess(long lendingProcessID, Borrower borrower,
 			Publication publication, Date issueDate, Date returnDate,
@@ -132,6 +99,44 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 			// TODO
 		}
 
+	}
+
+	public void dunLendingProcesses() {
+		List<LendingProcess> activeLendingProcesses = lendingProcessDAO
+				.findActiveProcesses();
+		Iterator iterator = activeLendingProcesses.iterator();
+		int i = 0;
+		while (iterator.hasNext() & i < activeLendingProcesses.size()) {
+			LendingProcess lendingProcess = activeLendingProcesses.get(i);
+			Date returnDate = lendingProcess.getReturnDate();
+			long difference = returnDate.getTime() - new Date().getTime();
+			long differenceInDate = difference / (24 * 60 * 60 * 1000);
+			if (differenceInDate > 15) {
+				activeLendingProcesses.get(i).setDunningLevel(
+						DunningLevelE.THIRD);
+				lendingProcessDAO.save(lendingProcess);
+				iterator.next();
+				i = i + 1;
+			}
+			if (differenceInDate > 8) {
+				activeLendingProcesses.get(i).setDunningLevel(
+						DunningLevelE.SECOND);
+				lendingProcessDAO.save(lendingProcess);
+
+				iterator.next();
+				i = i + 1;
+			}
+			if (differenceInDate > 1) {
+				activeLendingProcesses.get(i).setDunningLevel(
+						DunningLevelE.FIRST);
+				lendingProcessDAO.save(lendingProcess);
+				iterator.next();
+				i = i + 1;
+			} else {
+				iterator.next();
+				i = i + 1;
+			}
+		}
 	}
 
 	@Override
@@ -158,5 +163,19 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 	@Override
 	public List<LendingProcess> findActiveLendingProcesses() {
 		return lendingProcessDAO.findActiveProcesses();
+	}
+
+	private Date calculateReturnDate(Date issueDate) {
+		calender.setTime(issueDate);
+		calender.add(Calendar.DAY_OF_MONTH, loanPeriodInDays);
+		return calender.getTime();
+	}
+
+	public LendingProcessDAO getLendingProcessDAO() {
+		return lendingProcessDAO;
+	}
+
+	public void setLendingProcessDAO(LendingProcessDAO lendingProcessDAO) {
+		this.lendingProcessDAO = lendingProcessDAO;
 	}
 }

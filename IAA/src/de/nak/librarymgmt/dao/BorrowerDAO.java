@@ -3,13 +3,13 @@ package de.nak.librarymgmt.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Borrower;
-import de.nak.librarymgmt.service.AlreadyExistException;
 
 /**
  * The borrower data access object(DAO).
@@ -19,20 +19,16 @@ import de.nak.librarymgmt.service.AlreadyExistException;
 
 public class BorrowerDAO extends HibernateDaoSupport {
 
+	SessionFactory sessionFactory;
+
 	/**
 	 * Persists the given borrower object.
 	 * 
 	 * @param borrower
 	 *            , object to persist.
 	 */
-	public void save(Borrower borrower) throws AlreadyExistException {
-		try {
-			getHibernateTemplate().saveOrUpdate(borrower);
-			getHibernateTemplate().flush();
-		} catch (DataIntegrityViolationException ex) {
-			throw new AlreadyExistException(
-					"Der Ausleiher ist bereits im System.");
-		}
+	public void save(Borrower borrower) {
+		getHibernateTemplate().saveOrUpdate(borrower);
 	}
 
 	/**
@@ -41,7 +37,7 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 * @return a list of borrowers.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Borrower> findAll() {
+	public List<Borrower> findAll() throws DataAccessException {
 		return getHibernateTemplate().find("from Borrower");
 	}
 
@@ -52,13 +48,15 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 *            to be searched for
 	 * @return borrower object or <code>null</code>.
 	 */
-	public Borrower findByMatriculationNumber(int matriculationNumber) {
+	public Borrower findByMatriculationNumber(int matriculationNumber)
+			throws DataAccessException {
 		return (Borrower) getHibernateTemplate().get(Borrower.class,
 				matriculationNumber);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Borrower> findByMatriculationNumberList(int matriculationNumber) {
+	public List<Borrower> findByMatriculationNumberList(int matriculationNumber)
+			throws DataAccessException {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Borrower.class);
 		criteria.add(Restrictions
@@ -67,7 +65,8 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Borrower> findByNames(String firstName, String lastName) {
+	public List<Borrower> findByNames(String firstName, String lastName)
+			throws DataAccessException {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Borrower.class);
 		criteria.add(Restrictions.like("firstName", "%" + firstName + "%")
@@ -85,7 +84,7 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 *            , object to be deleted
 	 * 
 	 */
-	public void delete(Borrower borrower) {
+	public void delete(Borrower borrower) throws DataAccessException {
 		getHibernateTemplate().delete(borrower);
 	}
 }

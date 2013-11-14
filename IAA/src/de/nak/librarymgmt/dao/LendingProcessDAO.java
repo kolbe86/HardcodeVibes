@@ -28,7 +28,7 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 	 *            , object to persist.
 	 */
 	public void save(LendingProcess lendingProcess) {
-		getHibernateTemplate().save(lendingProcess);
+		getHibernateTemplate().saveOrUpdate(lendingProcess);
 		System.out.println("saved!");
 	}
 

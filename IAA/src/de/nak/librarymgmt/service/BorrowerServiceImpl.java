@@ -18,6 +18,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 		borrower.setFirstName(firstName);
 		borrower.setLastName(lastName);
 		try {
+
 			borrowerDAO.save(borrower);
 		} catch (DataIntegrityViolationException ex) {
 			// TODO
