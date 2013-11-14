@@ -18,6 +18,10 @@
 			<result name="jonasTest" type="tiles">successfullPublicationManagementLayout</result>
 		</action>
 		
+		<action name="testAction" class="de.nak.action.TestAction">
+			<result name="success" type="tiles">marioTest</result>
+		</action>
+		
 		<action name="publicationCreationLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
 			<result name="publicationSuccess" type="tiles">publicationCreation</result>
 		</action>
@@ -33,8 +37,8 @@
   			<result name="success" type="tiles">successfullPublicationManagement</result>
   			<result name="input" type="tiles">publicationManagement</result>
 		</action>
-		<action name="publicationManagementDetailAction" class="de.nak.librarymgmt.actions.PublicationManagementDetailAction" method="execute">
-  			<result name="success" type="tiles">successfullPublicationManagement</result>
+		<action name="showPublicationDetailAction" class="de.nak.actions.ShowPublicationDetailAction" method="execute">
+  			<result name="success" type="tiles">showPublicationDetail</result>
 		</action>
 		<action name="createLendingProcessAction" class="de.nak.librarymgmt.actions.CreateLendingProcessAction" method="execute">
   			<result name="success" type="tiles">successfullLendingProcessCreation</result>

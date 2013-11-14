@@ -40,6 +40,22 @@ public class Publication implements Serializable {
 		this.setEdition("Initial Edition");
 	}
 
+	public String toString() {
+		String publicationString;
+		publicationString = "Titel: " + title + " :: "
+				// + "Autoren: " + authors.toString()
+				+ "Datum: " + publicationDate.toString() + " :: "
+				// + "Zustand: " + condition
+				+ "Verliehen: " + distributed + " :: " + "Reserviert: "
+				+ reserved + " :: "
+		// + "Publicationstyp: " + publicationType.getName()
+		// + "Schlagwšrter: " + keywords
+		;
+
+		return publicationString;
+
+	}
+
 	public long getPublicationID() {
 		return publicationID;
 	}

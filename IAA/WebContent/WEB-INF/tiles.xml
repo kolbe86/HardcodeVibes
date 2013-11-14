@@ -11,6 +11,16 @@
 		<put-attribute name="main" value="/main.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="baseLayout2" template="/baseLayout2.jsp">
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/menu.jsp"></put-attribute>
+		<put-attribute name="dunning" value="/dunning.jsp"></put-attribute>
+		<put-attribute name="main" value="/main.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="/bottom.jsp"></put-attribute>
+		<put-attribute name="bottom-middle" value="/bottom.jsp"></put-attribute>
+		<put-attribute name="bottom-right" value="/bottom.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="publicationCreation" extends="baseLayout">
       	<put-attribute name="header"  value="Publikation Anlegen"/>
       	<put-attribute name="main"   value="/publicationCreation.jsp"/>      
@@ -25,15 +35,35 @@
       	<put-attribute name="main"   value="/publicationManagement.jsp"/>      
   	</definition>
   	
-  	<definition name="successfullPublicationManagement" extends="baseLayout">
-    	<put-attribute name="header"  value="Publikation erfolgreich verwalten"/>
-      	<put-attribute name="main"   value="/successfullPublicationManagementLayout.jsp"/>     
-  	</definition>
-  	
   	<definition name="successfullPublicationManagementLayout" template="/successfullPublicationManagementLayout.jsp">
 		<put-attribute name="toppart" value="/publicationTopPart.jsp" />
 		<put-attribute name="bottompart" value="/publicationBottomPart.jsp" />
 	</definition>
+<!-- TEST -->
+  	<definition name="successfullPublicationManagement" extends="baseLayout2">
+    			<put-attribute name="header" value="Publication Table"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="Bottom-Left"></put-attribute>
+		<put-attribute name="bottom-middle" value="Bottom-Left"></put-attribute>
+		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>     
+  	</definition>
+  	
+  	<definition name="successfullPublicationManagementLayout" extends="baseLayout2">
+		<put-attribute name="header" value="Publication Table"></put-attribute>
+		<put-attribute name="main" value="/publicationTable"></put-attribute>
+		<put-attribute name="bottom-left" value="Bottom-Left"></put-attribute>
+		<put-attribute name="bottom-middle" value="Bottom-Left"></put-attribute>
+		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>
+	</definition>
+	
+	<definition name="showPublicationDetail" extends="baseLayout2">		
+		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="/publicationDetail.jsp"></put-attribute>
+		<put-attribute name="bottom-middle" value="warte auf Action"></put-attribute>
+		<put-attribute name="bottom-right" value="Warte noch länger auf Action"></put-attribute>
+	</definition>
+<!-- 	TEST -->
   
   	<definition name="lendingProcessManagement" extends="baseLayout">
       	<put-attribute name="header"  value="Ausleihvorgang verwalten"/>
@@ -55,9 +85,9 @@
       	<put-attribute name="main"   value="/basicDataKeyword.jsp"/>      
   	</definition>
   	
-  	 <definition name="marioTest" extends="baseLayout">
+  	 <definition name="marioTest" extends="baseLayout2">
       	<put-attribute name="header"  value="Marios Testseite"/>
-      	<put-attribute name="main"   value="/marioTest.jsp"/>      
+      	<put-attribute name="main"   value="/publicationTable.jsp"/>      
   	</definition>
   	
   	<definition name="successfullLendingProcessCreation" extends="baseLayout">
