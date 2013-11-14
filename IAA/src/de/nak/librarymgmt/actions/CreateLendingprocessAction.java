@@ -1,5 +1,6 @@
 package de.nak.librarymgmt.actions;
 
+import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -7,26 +8,33 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BorrowerService;
+import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.PublicationService;
 
-public class CreateLendingProcessAction extends ActionSupport {
+public class CreateLendingprocessAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
 	private List<Publication> publications;
-	private PublicationService publicationService;
-	// private Long publicationID;
-	private Publication publicationBean;
 	private BorrowerService borrowerService;
+	private PublicationService publicationService;
+	private LendingProcessService lendingProcessService;
+	private Publication publicationBean;
 	private List<Borrower> borrowers;
+	private Long publicationID;
+	private int matriculationNumber;
 
 	public String execute() {
 
 		setPublications(publicationService.listPublications());
 
-		setPublicationBean(publicationService
-				.findPublicationById(publicationBean.getPublicationID()));
-		setBorrowers(borrowerService.listBorrowers());
+		lendingProcessService.createLendingProcess(borrowerService
+				.findBorrowerByMatriculationNumber(matriculationNumber),
+				publicationService.findPublicationById(publicationID),
+				new Date());
+
+		publications = publicationService.listPublications();
+
 		return SUCCESS;
 	}
 
@@ -68,5 +76,30 @@ public class CreateLendingProcessAction extends ActionSupport {
 
 	public void setBorrowers(List<Borrower> borrowers) {
 		this.borrowers = borrowers;
+	}
+
+	public Long getPublicationID() {
+		return publicationID;
+	}
+
+	public void setPublicationID(Long publicationID) {
+		this.publicationID = publicationID;
+	}
+
+	public int getMatriculationNumber() {
+		return matriculationNumber;
+	}
+
+	public void setMatriculationNumber(int matriculationNumber) {
+		this.matriculationNumber = matriculationNumber;
+	}
+
+	public LendingProcessService getLendingProcessService() {
+		return lendingProcessService;
+	}
+
+	public void setLendingProcessService(
+			LendingProcessService lendingProcessService) {
+		this.lendingProcessService = lendingProcessService;
 	}
 }

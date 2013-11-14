@@ -15,9 +15,8 @@
 	<div style="width:100%;height:50%;background-color:aqua;float:left"><tiles:insertAttribute name="dunning" /></div>
 </div>
 <div style="width:84%;height:45%;background-color:red;float:left"><tiles:insertAttribute name="main" /></div>
-<div style="width:28%;height:40%;background-color:green;float:left"><tiles:insertAttribute name="bottom-left" /></div>
-<div style="width:28%;height:40%;background-color:blue;float:left"><tiles:insertAttribute name="bottom-middle" /></div>
-<div style="width:28%;height:40%;background-color:yellow;float:left"><tiles:insertAttribute name="bottom-right" /></div>
+<div style="width:42%;height:40%;background-color:green;float:left"><tiles:insertAttribute name="bottom-left" /></div>
+<div style="width:42%;height:40%;background-color:yellow;float:left"><tiles:insertAttribute name="bottom-right" /></div>
 
 </body>
 </html>

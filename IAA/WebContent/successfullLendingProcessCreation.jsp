@@ -8,12 +8,7 @@
 </head>
 <body>
 <h1>Ausleihvorgang erfolgreich erstellt</h1><br/>
-ID: <s:property value="publicationBean.publicationID"/><br/>
-Titel: <s:property value="publicationBean.title" /><br/>
-Veröffentlichungsdatum: <s:property value="publicationBean.publicationDate"/><br/>
-Edition: <s:property value="publicationBean.edition"/><br/>
-Issue <s:property value="publicationBean.issue"/><br/>
-Zustand: <s:property value="publicationBean.condition"/><br/>
+
 			
 </body>
 </html>

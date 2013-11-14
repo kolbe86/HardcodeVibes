@@ -1,0 +1,37 @@
+<%@taglib uri="/struts-tags" prefix="s"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Choose Borrower</title>
+</head>
+<body>
+Sie möchten das Buch mit dem Titel <s:property value="publicationBean.title"/> ausleihen. Wählen Sie einen Ausleiher aus der Liste oder erstellen Sie über das Menu zunächst einen neuen Ausleiher:
+
+<s:property value="publicationBean.publicationID"/>
+
+
+<table>
+	<thead style="background-color:#FF7140">
+	<tr>
+		<th>Matrikelnumer</th>
+		<th>Vorname</th>
+		<th>Nachname</th>
+	</tr>
+	<thead>
+	<tbody style="background-color:#FFCF73"> 
+		<s:iterator value="borrowers">
+			<tr>
+				<td><a href="<s:url action="createLendingProcessAction" escapeAmp="false">
+								<s:param name="matriculationNumber" value="matriculationNumber"/>
+								<s:param name="publicationID" value="publicationBean.publicationID"/>
+								</s:url>"><s:property value="matriculationNumber"/></a></td>
+				<td><s:property value="firstName"/></td>
+				<td><s:property value="lastName"/></td>
+			</tr>
+		</s:iterator>
+		</tbody>
+</table>
+</body>
+</html>

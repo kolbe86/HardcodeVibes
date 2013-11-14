@@ -11,7 +11,6 @@ public class ShowPublicationDetailAction implements Action {
 
 	private List<Publication> publications;
 	private PublicationService publicationService;
-	private Long param;
 	private Long publicationID;
 	private Publication publicationBean;
 
@@ -20,8 +19,8 @@ public class ShowPublicationDetailAction implements Action {
 
 		setPublications(publicationService.listPublications());
 
-		setParam(publicationID);
-		setPublicationBean(publicationService.findPublicationById(param));
+		setPublicationBean(publicationService
+				.findPublicationById(publicationID));
 
 		return SUCCESS;
 	}
@@ -48,14 +47,6 @@ public class ShowPublicationDetailAction implements Action {
 
 	public void setPublications(List<Publication> publications) {
 		this.publications = publications;
-	}
-
-	public Long getParam() {
-		return param;
-	}
-
-	public void setParam(Long param) {
-		this.param = param;
 	}
 
 	public Publication getPublicationBean() {

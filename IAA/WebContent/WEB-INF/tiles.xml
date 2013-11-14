@@ -17,7 +17,6 @@
 		<put-attribute name="dunning" value="/dunning.jsp"></put-attribute>
 		<put-attribute name="main" value="/main.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="/bottom.jsp"></put-attribute>
-		<put-attribute name="bottom-middle" value="/bottom.jsp"></put-attribute>
 		<put-attribute name="bottom-right" value="/bottom.jsp"></put-attribute>
 	</definition>
 	
@@ -44,7 +43,6 @@
     			<put-attribute name="header" value="Publication Table"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="Bottom-Left"></put-attribute>
-		<put-attribute name="bottom-middle" value="Bottom-Left"></put-attribute>
 		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>     
   	</definition>
   	
@@ -52,7 +50,6 @@
 		<put-attribute name="header" value="Publication Table"></put-attribute>
 		<put-attribute name="main" value="/publicationTable"></put-attribute>
 		<put-attribute name="bottom-left" value="Bottom-Left"></put-attribute>
-		<put-attribute name="bottom-middle" value="Bottom-Left"></put-attribute>
 		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>
 	</definition>
 	
@@ -60,9 +57,22 @@
 		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="/publicationDetail.jsp"></put-attribute>
-		<put-attribute name="bottom-middle" value="warte auf Action"></put-attribute>
 		<put-attribute name="bottom-right" value="Warte noch länger auf Action"></put-attribute>
 	</definition>
+		<definition name="chooseBorrower" extends="baseLayout2">		
+		<put-attribute name="header" value="Wähle einen Ausleiher"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="/publicationDetail.jsp"></put-attribute>
+		<put-attribute name="bottom-right" value="/chooseBorrowerTable.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="successfullLendingProcessCreation" extends="baseLayout2">
+		<put-attribute name="header" value="Publikation erfolgreich angelegt"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="/successfullLendingProcessCreation.jsp"></put-attribute>
+		<put-attribute name="bottom-right" value="/bottom.jsp"></put-attribute>
+	</definition>
+	
 <!-- 	TEST -->
   
   	<definition name="lendingProcessManagement" extends="baseLayout">
@@ -90,9 +100,9 @@
       	<put-attribute name="main"   value="/publicationTable.jsp"/>      
   	</definition>
   	
-  	<definition name="successfullLendingProcessCreation" extends="baseLayout">
-      	<put-attribute name="header"  value="Marios Testseite"/>
-      	<put-attribute name="main"   value="/successfullLendingProcessCreation.jsp"/>      
-  	</definition>
+<!--   	<definition name="successfullLendingProcessCreation" extends="baseLayout"> -->
+<!--       	<put-attribute name="header"  value="Marios Testseite"/> -->
+<!--       	<put-attribute name="main"   value="/successfullLendingProcessCreation.jsp"/>       -->
+<!--   	</definition> -->
   	
 </tiles-definitions>
