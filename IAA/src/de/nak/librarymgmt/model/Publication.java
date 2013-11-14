@@ -28,6 +28,18 @@ public class Publication implements Serializable {
 	private String issue = "keine";
 	private String edition = "keine";
 
+	public void initialize() {
+
+		this.setTitle("Initial Title");
+		this.setPublicationDate(new Date());
+		this.setDistributed(false);
+		this.setReserved(false);
+		this.setIsbn("Initial ISBN");
+		this.setPublisher("InitialPublisher");
+		this.setIssue("Initial Issue");
+		this.setEdition("Initial Edition");
+	}
+
 	public long getPublicationID() {
 		return publicationID;
 	}

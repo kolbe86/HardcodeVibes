@@ -60,4 +60,9 @@
       	<put-attribute name="main"   value="/marioTest.jsp"/>      
   	</definition>
   	
+  	<definition name="successfullLendingProcessCreation" extends="baseLayout">
+      	<put-attribute name="header"  value="Marios Testseite"/>
+      	<put-attribute name="main"   value="/successfullLendingProcessCreation.jsp"/>      
+  	</definition>
+  	
 </tiles-definitions>

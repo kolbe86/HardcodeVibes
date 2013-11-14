@@ -36,6 +36,9 @@
 		<action name="publicationManagementDetailAction" class="de.nak.librarymgmt.actions.PublicationManagementDetailAction" method="execute">
   			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>
+		<action name="createLendingProcessAction" class="de.nak.librarymgmt.actions.CreateLendingProcessAction" method="execute">
+  			<result name="success" type="tiles">successfullLendingProcessCreation</result>
+		</action>
 		
 <!-- 		Startups for Basic Data Management -->
 		<action name="publicationTypeStartupAction" class="de.nak.librarymgmt.actions.basicDataActions.PublicationTypeStartupAction" method="execute">
@@ -80,5 +83,6 @@
 		<action name="deletePublicationAction" class="de.nak.librarymgmt.actions.DeletePublicationAction" method="execute">
 			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>
+		
 	</package>
 </struts>

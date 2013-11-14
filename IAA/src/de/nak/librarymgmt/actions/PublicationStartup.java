@@ -1,6 +1,5 @@
 package de.nak.librarymgmt.actions;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -28,7 +27,7 @@ public class PublicationStartup extends ActionSupport {
 	// Select-Lists
 	List<String> keywordSelection;
 	List<String> publicationTypeSelection;
-	List<String> authorSelection;
+	List<String> authorSelection = new LinkedList<String>();
 	private String author;
 	private ConditionE[] conditions = ConditionE.values();
 
@@ -40,9 +39,9 @@ public class PublicationStartup extends ActionSupport {
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception {
 
-		if (authorSelection == null) {
-			authorSelection = new LinkedList<String>();
-		}
+		// Initialize
+		publicationBean = new Publication();
+		publicationBean.initialize();
 
 		// Get Publication-Types
 		publicationTypes = publicationTypeService.listAllPublicationTypes();
@@ -58,36 +57,6 @@ public class PublicationStartup extends ActionSupport {
 			keywordSelection.add(keyword.getName());
 		}
 
-		// Publication Bean
-		if (publicationBean == null) {
-			// initialize
-			publicationBean = new Publication();
-			publicationBean.setTitle("Initial Title");
-
-			// publicationBean.setAuthors(authors);
-			publicationBean.setPublicationDate(new Date());
-			publicationBean.setDistributed(false);
-			publicationBean.setReserved(false);
-			publicationBean.setIsbn("Initial ISBN");
-			publicationBean.setPublisher("InitialPublisher");
-			publicationBean.setIssue("Initial Issue");
-			publicationBean.setEdition("Initial Edition");
-
-		} else {
-			publicationBean = new Publication();
-			publicationBean.setTitle("Initial Title");
-
-			// publicationBean.setAuthors(authors);
-			publicationBean.setPublicationDate(new Date());
-			publicationBean.setDistributed(false);
-			publicationBean.setReserved(false);
-			publicationBean.setIsbn("Initial ISBN");
-			publicationBean.setPublisher("InitialPublisher");
-			publicationBean.setIssue("Initial Issue");
-			publicationBean.setEdition("Initial Edition");
-		}
-
-		System.out.println("Startup Ende");
 		return "publicationSuccess";
 
 	}

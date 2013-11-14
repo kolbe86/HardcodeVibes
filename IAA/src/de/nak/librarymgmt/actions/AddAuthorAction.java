@@ -1,5 +1,6 @@
 package de.nak.librarymgmt.actions;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -26,6 +27,7 @@ public class AddAuthorAction extends ActionSupport {
 	List<String> keywordSelection;
 	List<String> publicationTypeSelection;
 	List<String> authorSelection;
+
 	private String author;
 	private ConditionE[] conditions = ConditionE.values();
 
@@ -37,8 +39,23 @@ public class AddAuthorAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
+		// Autor bearbeiten
 		authorSelection.add(author);
 		author = null;
+
+		// Get Publication-Types
+		publicationTypes = publicationTypeService.listAllPublicationTypes();
+		publicationTypeSelection = new LinkedList<String>();
+		for (PublicationType publicationType : publicationTypes) {
+			publicationTypeSelection.add(publicationType.getName());
+		}
+
+		// Get Keywords
+		keywords = keywordService.listAllKeywords();
+		keywordSelection = new LinkedList<String>();
+		for (Keyword keyword : keywords) {
+			keywordSelection.add(keyword.getName());
+		}
 
 		return SUCCESS;
 	}

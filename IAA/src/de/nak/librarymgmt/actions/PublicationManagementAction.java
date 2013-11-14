@@ -13,8 +13,6 @@ public class PublicationManagementAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private PublicationType publicationType;
-	// private PublicationTypeService publicationTypeService;
-	// private String publicationTypeSelection;
 	private List<Publication> publications;
 	private PublicationService publicationService;
 	private Publication publicationBean;
@@ -22,22 +20,7 @@ public class PublicationManagementAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
-		// setPublicationType(publicationTypeService
-		// .findPublicationTypeByName(publicationTypeSelection));
-		//
-		// publicationBean.setPublicationType(publicationType);
-		// call Service class to store personBean's state in database
-
 		setPublications(publicationService.listPublications());
-
-		// publications.add(new ProbeBuch("Harry Potter", "JK Rowling",
-		// "123-456-789", "Super Verlag"));
-		// publications.add(new ProbeBuch("Die Bibel", "Jesus", "000-000-000",
-		// "Heiliger Verlag"));
-		// publications.add(new ProbeBuch("Investitionsfinanzierung",
-		// "Ralf Kesten", "111-111-111", "NAK Verlag"));
-		// publications.add(new ProbeBuch("How to Be Awesome", "Jonas Maeckel",
-		// "567-567-567", "Mein verlag"));
 
 		return SUCCESS;
 
