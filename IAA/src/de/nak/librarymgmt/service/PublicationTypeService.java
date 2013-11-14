@@ -6,7 +6,7 @@ import de.nak.librarymgmt.model.PublicationType;
 
 public interface PublicationTypeService {
 
-	void createPublicationType(String name);
+	void createPublicationType(String name) throws Exception;
 
 	void deletePublicationType(String name);
 

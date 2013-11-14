@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.Criteria;
+
 import de.nak.librarymgmt.dao.PublicationDAO;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
@@ -105,10 +107,14 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public List<Publication> findPublicationByCriteria(String title,
-			boolean distributed, boolean reserved,
-			PublicationType publicationType, String isbn, String publisher,
-			String issue, String edition, ConditionE condition) {
-		return publicationDAO.findByCriteria(title, distributed, reserved,
-				publicationType, isbn, publisher, issue, edition, condition);
+			Set<String> authors, String isbn, String publisher, String issue,
+			String edition) {
+		return publicationDAO.findByCriteria(title, authors, isbn, publisher,
+				issue, edition);
 	}
+
+	public List<Publication> findPublicationByAuthors(String title, Set<String> authors) {
+		return publicationDAO.findPublicationByAuthors(title, authors);
+	}
+
 }

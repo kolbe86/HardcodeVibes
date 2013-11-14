@@ -8,7 +8,7 @@
 			<generator class="sequence" />
 		</id>
 		<property name="title" column="TITLE" type="string" not-null="true" />
-		<set name="authors" table="AUTHORS" lazy="false">
+		<set name="authors" table="AUTHORS" fetch="join">
 			<key column="ID" />
 			<element type="string" column="AUTHOR" />
 		</set>

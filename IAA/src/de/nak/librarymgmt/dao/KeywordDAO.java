@@ -4,13 +4,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 import de.nak.librarymgmt.model.Keyword;
+import de.nak.librarymgmt.service.AlreadyExistException;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public class KeywordDAO extends HibernateDaoSupport {
 
-	public void save(Keyword keyword) {
-		getHibernateTemplate().save(keyword);
+	public void save(Keyword keyword) throws AlreadyExistException {
+		try {
+			getHibernateTemplate().saveOrUpdate(keyword);
+			getHibernateTemplate().flush();
+		} catch (DataIntegrityViolationException ex) {
+			throw new AlreadyExistException("keyword already exists");
+		}
 	}
 
 	public void delete(Keyword keyword) {

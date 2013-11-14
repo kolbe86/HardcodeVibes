@@ -29,7 +29,8 @@ public interface PublicationService {
 	List<Publication> listPublications();
 
 	List<Publication> findPublicationByCriteria(String title,
-			boolean distributed, boolean reserved,
-			PublicationType publicationType, String isbn, String publisher,
-			String issue, String edition, ConditionE condition);
+			Set<String> authors, String isbn, String publisher, String issue,
+			String edition);
+
+	List<Publication> findPublicationByAuthors(String title, Set<String> authors);
 }

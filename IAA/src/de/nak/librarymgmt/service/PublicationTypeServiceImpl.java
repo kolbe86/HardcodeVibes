@@ -2,6 +2,8 @@ package de.nak.librarymgmt.service;
 
 import java.util.Set;
 
+import org.springframework.dao.DataIntegrityViolationException;
+
 import de.nak.librarymgmt.dao.PublicationTypeDAO;
 import de.nak.librarymgmt.model.PublicationType;
 
@@ -10,12 +12,12 @@ public class PublicationTypeServiceImpl implements PublicationTypeService {
 	private PublicationTypeDAO publicationTypeDAO;
 
 	@Override
-	public void createPublicationType(String name) {
+	public void createPublicationType(String name) throws Exception{
 		PublicationType publicationType = new PublicationType();
 		publicationType.setName(name);
 		try {
 			publicationTypeDAO.save(publicationType);
-		} catch (Exception e) {
+		} catch (DataIntegrityViolationException ex) {
 
 		}
 	}

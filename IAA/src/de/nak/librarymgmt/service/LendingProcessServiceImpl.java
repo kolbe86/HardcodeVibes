@@ -55,13 +55,17 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 
 	@Override
 	public void endLendingProcess(long lendingProcessID) {
-		// TODO Auto-generated method stub
-
+		LendingProcess lendingProcess = lendingProcessDAO
+				.findById(lendingProcessID);
+		try {
+			lendingProcess.setStatus(StatusE.CLOSED);
+		} catch (Exception e) {
+			// TODO
+		}
 	}
 
-	/* fürs testen
-	 * 
-	 * 
+	/*
+	 * fürs testen
 	 */
 	public void setDunningLevel(long lendingProcessID,
 			DunningLevelE dunningLevel) {
