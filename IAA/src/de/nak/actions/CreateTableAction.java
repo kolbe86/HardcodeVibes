@@ -54,17 +54,17 @@ public class CreateTableAction implements Action {
 		PublicationType publicationType = publicationTypeService
 				.findPublicationTypeByName("Buch");
 
-		publicationService.createPublication("GAS, SCHEISSE, WASSER, M€CKEL",
+		publicationService.createPublication("SuperBuch", authors, new Date(),
+				ConditionE.NEW, publicationType, keywords1, "1231-1231-123",
+				"NAK", "1", "0");
+
+		publicationService.createPublication("GAS, WASSER, SCHEISSE, M€CKEL",
 				authors, new Date(), ConditionE.NEW, publicationType,
 				keywords1, "1231-1231-123", "NAK", "1", "0");
 
-		publicationService.createPublication("GAS, SCHEISSE, WASSER, M€CKEL",
-				authors, new Date(), ConditionE.NEW, publicationType,
-				keywords1, "1231-1231-123", "NAK", "1", "0");
-
-		publicationService.createPublication("GAS, SCHEISSE, WASSER, M€CKEL",
-				authors, new Date(), ConditionE.NEW, publicationType,
-				keywords1, "1231-1231-123", "NAK", "1", "0");
+		publicationService.createPublication("BestesBuch", authors, new Date(),
+				ConditionE.NEW, publicationType, keywords1, "1231-1231-123",
+				"NAK", "1", "0");
 
 		lendingProcessService.createLendingProcess(
 				borrowerService.findBorrowerByMatriculationNumber(1),

@@ -38,8 +38,51 @@
 		</tbody>
 			<tr style="border:solid,background-color:#FF7140">
 				<td>
-				<s:form action="sortColumnTitel">
+				<s:form action="sortPublicationAttributeTitleIncreasing">
+					<s:submit value="aufwärts sortieren" />
+				</s:form>  
+				</td>
+				<td>
+				<s:form action="sortColumnAuthor">
 					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnIsbn">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+
+				<td>
+				<s:form action="sortColumnVerlag">
+					<s:submit value="sortieren" />
+				</s:form> 
+				</td>
+			</tr>
+			<tr style="border:solid,background-color:#FF7140">
+				<td>
+				<s:form action="sortPublicationAttributeTitleDecreasing">
+					<s:submit value="abwärts sortieren" />
 				</s:form>  
 				</td>
 				<td>

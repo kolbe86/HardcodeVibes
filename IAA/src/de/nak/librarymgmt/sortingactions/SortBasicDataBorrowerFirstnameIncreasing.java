@@ -23,11 +23,6 @@ public class SortBasicDataBorrowerFirstnameIncreasing extends ActionSupport {
 
 		setBorrowers(borrowerService.listBorrowers());
 
-		// setKeywords(new LinkedList<Keyword>());
-		// for (Keyword publicationType : tempKeywords) {
-		// keywords.add(publicationType);
-		// }
-
 		Collections.sort(borrowers, comp);
 
 		return SUCCESS;
