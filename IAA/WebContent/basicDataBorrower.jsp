@@ -21,6 +21,40 @@
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
+			<tr>
+			<td>
+				<s:form action="sortBasicDataBorrowerIdIncreasing" method="execute">
+					<s:submit value="aufwärts sortieren" />
+				</s:form> 
+			</td>
+			<td>
+				<s:form action="sortBasicDataBorrowerFirstnameIncreasing" method="execute">
+					<s:submit value="aufwärts sortieren" />
+				</s:form> 
+			</td>
+			<td>
+				<s:form action="sortBasicDataBorrowerLastnameIncreasing" method="execute">
+					<s:submit value="aufwärts sortieren" />
+				</s:form> 
+			</td>
+		</tr>
+			<tr>
+			<td>
+				<s:form action="sortBasicDataBorrowerIdDecreasing" method="execute">
+					<s:submit value="abwärts sortieren" />
+				</s:form> 
+			</td>
+			<td>
+				<s:form action="sortBasicDataBorrowerFirstnameDecreasing" method="execute">
+					<s:submit value="abwärts sortieren" />
+				</s:form> 
+			</td>
+			<td>
+				<s:form action="sortBasicDataBorrowerLastnameDecreasing" method="execute">
+					<s:submit value="abwärts sortieren" />
+				</s:form> 
+			</td>
+		</tr>
 		<s:iterator value="borrowers">
 			<tr>
 				<td>

@@ -19,6 +19,20 @@
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
+		<tr>
+			<td>
+				<s:form action="sortBasicDataPublicationTypeIncreasing" method="execute">
+					<s:submit value="aufwärts sortieren" />
+				</s:form> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<s:form action="sortBasicDataPublicationTypeDecreasing" method="execute">
+					<s:submit value="abwärts sortieren" />
+				</s:form> 
+			</td>
+		</tr>
 		<s:iterator value="publicationTypes">
 			<tr>
 				<td>

@@ -7,15 +7,33 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.service.BorrowerService;
 
-public class AddBorrowerAction extends ActionSupport {
+public class BasicDataBorrowerAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
 	private BorrowerService borrowerService;
 	private Borrower borrowerBean;
 	private List<Borrower> borrowers;
+	private Integer paramBorrower;
 
 	public String execute() throws Exception {
+
+		// Get Borrowers
+		borrowers = borrowerService.listBorrowers();
+
+		if (!(paramBorrower == null)) {
+
+			setBorrowerBean(borrowerService
+					.findBorrowerByMatriculationNumber(paramBorrower));
+
+		}
+
+		System.out.println("Startup BasicDataBorrower Ende");
+		return "basicDataSuccess";
+
+	}
+
+	public String addBorrower() throws Exception {
 
 		borrowerService.createBorrower(borrowerBean.getMatriculationNumber(),
 				borrowerBean.getLastName(), borrowerBean.getLastName());
@@ -23,6 +41,17 @@ public class AddBorrowerAction extends ActionSupport {
 		borrowers = borrowerService.listBorrowers();
 
 		System.out.println("Add BasicDataType Ende");
+		return "basicDataSuccess";
+
+	}
+
+	public String deleteBorrower() throws Exception {
+
+		borrowerService.deleteBorrower(borrowerBean.getMatriculationNumber());
+
+		borrowers = borrowerService.listBorrowers();
+
+		System.out.println("Delete BasicDataType Ende");
 		return "basicDataSuccess";
 
 	}

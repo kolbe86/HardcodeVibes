@@ -19,6 +19,20 @@
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
+		<tr>
+			<td>
+				<s:form action="sortBasicDataKeywordIncreasing" method="execute">
+					<s:submit value="aufwärts sortieren" />
+				</s:form> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<s:form action="sortBasicDataKeywordDecreasing" method="execute">
+					<s:submit value="abwärts sortieren" />
+				</s:form> 
+			</td>
+		</tr>
 		<s:iterator value="keywords">
 			<tr>
 				<td>
