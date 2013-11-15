@@ -50,22 +50,12 @@ public class PublicationDAO extends HibernateDaoSupport {
 		return ((List<Publication>) criteria.list());
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<Publication> findPublicationByAuthors(String title,
-			Set<String> authors) {
-		Criteria criteria = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createCriteria(Publication.class);
-		criteria.add(Restrictions.like("title", "%" + title + "%").ignoreCase());
-		criteria.setFetchMode("authors", FetchMode.JOIN);
-		addRestrictionsForAuthor(criteria, authors);
-		return ((List<Publication>) criteria.list());
-	}
-
 	private void addRestrictionsForAuthor(Criteria criteria, Set<String> authors) {
 		Iterator<String> iter = authors.iterator();
+		Criteria authorsCriteria = criteria.createCriteria("authors");
 		while (iter.hasNext()) {
 			String author = (String) iter.next();
-			criteria.add(Restrictions.like("name", "%" + author + "%"));
+			authorsCriteria.add(Restrictions.like("name", "%" + author + "%"));
 		}
 	}
 }

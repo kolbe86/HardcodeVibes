@@ -3,6 +3,7 @@ package de.nak.librarymgmt.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Order;
@@ -10,6 +11,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.LendingProcess;
+import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.util.DunningLevelE;
 import de.nak.librarymgmt.util.StatusE;
 
@@ -55,6 +58,24 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 				LendingProcess.class, lendingProcessID);
 	}
 
+	public LendingProcess findByPublication(long publicationID) {
+		Criteria criteria = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createCriteria(LendingProcess.class);
+		criteria.add(Restrictions
+				.eq("publication.publicationID", publicationID));
+		criteria.setFetchMode("borrower", FetchMode.JOIN);
+		criteria.setFetchMode("publication", FetchMode.JOIN);
+		return (LendingProcess) criteria.list().get(0);
+
+	}
+
+	/*
+	 * public LendingProcess findByPublication(Publication publication) {
+	 * Criteria criteria = getHibernateTemplate().getSessionFactory()
+	 * .getCurrentSession().createCriteria(LendingProcess.class);
+	 * criteria.add(Restrictions.eq("publicationID", publication)); return
+	 * (LendingProcess) criteria; }
+	 */
 	/**
 	 * Finds and returns all lending processes.
 	 * 

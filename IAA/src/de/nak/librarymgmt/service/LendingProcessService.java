@@ -32,6 +32,8 @@ public interface LendingProcessService {
 
 	LendingProcess findLendingProcessById(long lendingProcessID);
 
+	LendingProcess findLendingProcessByPublicationId(long publicationID);
+
 	List<LendingProcess> listLendingProcess();
 
 	List<LendingProcess> findDunnedLendingProcesses();

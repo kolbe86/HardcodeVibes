@@ -15,8 +15,9 @@ import de.nak.librarymgmt.util.StatusE;
 
 public class LendingProcessServiceImpl implements LendingProcessService {
 
+	private PublicationService publicationService;
 	private LendingProcessDAO lendingProcessDAO;
-	private int loanPeriodInDays = 28;
+	private static final int LOANPERIODINDAYS = 28;
 	private Calendar calender = new GregorianCalendar();
 
 	@Override
@@ -162,6 +163,29 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 	}
 
 	@Override
+	public LendingProcess findLendingProcessByPublicationId(long publicationID) {
+		LendingProcess lendingProcess = lendingProcessDAO
+				.findByPublication(publicationID);
+		try {
+			return lendingProcess;
+		} catch (Exception e) {
+			return null; // TODO
+		}
+	}
+/*	@Override
+	public LendingProcess findLendingProcessByPublicationId(long publicationID) {
+		Publication publication = publicationService
+				.findPublicationById(publicationID);
+		LendingProcess lendingProcess = lendingProcessDAO
+				.findByPublication(publication);
+		try {
+			return lendingProcess;
+		} catch (Exception e) {
+			return null; // TODO
+		}
+	}
+*/
+	@Override
 	public List<LendingProcess> listLendingProcess() {
 		return lendingProcessDAO.findAll();
 	}
@@ -178,7 +202,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 
 	private Date calculateReturnDate(Date issueDate) {
 		calender.setTime(issueDate);
-		calender.add(Calendar.DAY_OF_MONTH, loanPeriodInDays);
+		calender.add(Calendar.DAY_OF_MONTH, LOANPERIODINDAYS);
 		return calender.getTime();
 	}
 
