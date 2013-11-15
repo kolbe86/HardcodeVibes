@@ -16,16 +16,14 @@ import de.nak.librarymgmt.util.ConditionE;
 
 public class PublicationCreationAction extends ActionSupport {
 
-	// DB
-	private Set<Keyword> keywords = new HashSet<Keyword>();
-	private PublicationType publicationType;
+	private static final long serialVersionUID = 1L;
 
 	// Selection
 	private List<String> keywordSelection;
 	private String publicationTypeSelection;
+	private List<String> authorSelection;
 	private ConditionE condition;
 
-	private static final long serialVersionUID = 1L;
 	private Publication publicationBean;
 	private PublicationService publicationService;
 	private PublicationTypeService publicationTypeService;
@@ -34,21 +32,26 @@ public class PublicationCreationAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
+		Set<Keyword> keywords = new HashSet<Keyword>();
 		for (String keyword : keywordSelection) {
 			keywords.add(keywordService.findKeywordByName(keyword));
 		}
 
-		publicationType = publicationTypeService
+		// TODO Set<String> im Service in List<String> Šndern - mšglich?
+		Set<String> authors = new HashSet<String>();
+		for (String author : authorSelection) {
+			authors.add(author);
+		}
+		PublicationType publicationType = publicationTypeService
 				.findPublicationTypeByName(publicationTypeSelection);
 
 		publicationService.createPublication(publicationBean.getTitle(),
-				new HashSet<String>(), publicationBean.getPublicationDate(),
-				condition, publicationType, publicationBean.getKeywords(),
-				publicationBean.getIsbn(), publicationBean.getPublisher(),
-				publicationBean.getIssue(), publicationBean.getEdition());
+				authors, publicationBean.getPublicationDate(), condition,
+				publicationType, keywords, publicationBean.getIsbn(),
+				publicationBean.getPublisher(), publicationBean.getIssue(),
+				publicationBean.getEdition());
 
-		System.out.println("Publikation anlegen");
-		return "publicationSuccess";
+		return SUCCESS;
 
 	}
 
@@ -85,28 +88,12 @@ public class PublicationCreationAction extends ActionSupport {
 		this.keywordService = keywordService;
 	}
 
-	public Set<Keyword> getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(Set<Keyword> keywords) {
-		this.keywords = keywords;
-	}
-
 	public List<String> getKeywordSelection() {
 		return keywordSelection;
 	}
 
 	public void setKeywordSelection(List<String> keywordSelection) {
 		this.keywordSelection = keywordSelection;
-	}
-
-	public PublicationType getPublicationType() {
-		return publicationType;
-	}
-
-	public void setPublicationType(PublicationType publicationType) {
-		this.publicationType = publicationType;
 	}
 
 	public String getPublicationTypeSelection() {
@@ -123,5 +110,13 @@ public class PublicationCreationAction extends ActionSupport {
 
 	public void setCondition(ConditionE condition) {
 		this.condition = condition;
+	}
+
+	public List<String> getAuthorSelection() {
+		return authorSelection;
+	}
+
+	public void setAuthorSelection(List<String> authorSelection) {
+		this.authorSelection = authorSelection;
 	}
 }

@@ -14,7 +14,7 @@ import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.PublicationTypeService;
 import de.nak.librarymgmt.util.ConditionE;
 
-public class PublicationStartup extends ActionSupport {
+public class InitPublicationSearchAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
@@ -55,7 +55,7 @@ public class PublicationStartup extends ActionSupport {
 			keywordSelection.add(keyword.getName());
 		}
 
-		return "publicationSuccess";
+		return SUCCESS;
 
 	}
 

@@ -1,29 +1,29 @@
 package de.nak.librarymgmt.actions;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.librarymgmt.model.Publication;
-import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.PublicationService;
 
-public class PublicationManagementAction extends ActionSupport {
+public class ListPublicationsAction extends ActionSupport {
 
+	List<Publication> publications;
+	private PublicationService publicationService;
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
-	private PublicationType publicationType;
-	private List<Publication> publications;
-	private PublicationService publicationService;
-	private Publication publicationBean;
+	public String execute() {
 
-	@Override
-	public String execute() throws Exception {
-
+		List<Publication> publications = new LinkedList<Publication>();
 		setPublications(publicationService.listPublications());
 
 		return SUCCESS;
-
 	}
 
 	public PublicationService getPublicationService() {
@@ -40,22 +40,6 @@ public class PublicationManagementAction extends ActionSupport {
 
 	public void setPublications(List<Publication> publications) {
 		this.publications = publications;
-	}
-
-	public Publication getPublicationBean() {
-		return publicationBean;
-	}
-
-	public void setPublicationBean(Publication publicationBean) {
-		this.publicationBean = publicationBean;
-	}
-
-	public PublicationType getPublicationType() {
-		return publicationType;
-	}
-
-	public void setPublicationType(PublicationType publicationType) {
-		this.publicationType = publicationType;
 	}
 
 }

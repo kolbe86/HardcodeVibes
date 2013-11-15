@@ -58,7 +58,7 @@ public class CreateTableAction implements Action {
 				publicationTypeService.findPublicationTypeByName("Buch"),
 				keywords, "213-213-2134123", "Axel Springer", "3.", "10.");
 
-		return SUCCESS;
+		return "marioTest";
 	}
 
 	public LendingProcessService getLendingProcessService() {

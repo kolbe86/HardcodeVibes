@@ -24,22 +24,22 @@
       	<put-attribute name="header"  value="Publikation Anlegen"/>
       	<put-attribute name="main"   value="/publicationCreation.jsp"/>      
   	</definition>
-  	<definition name="successfullPublicationCreation" extends="baseLayout">
+  	<definition name="publicationCreationSuccess" extends="baseLayout">
       	<put-attribute name="header"  value="Publikation erfolgreich angelegt"/>
-      	<put-attribute name="main"   value="/successfullPublicationCreation.jsp"/>      
+      	<put-attribute name="main"   value="/publicationCreationSuccess.jsp"/>      
   	</definition>    
   	
-    <definition name="publicationManagement" extends="baseLayout">
+    <definition name="publicationSearch" extends="baseLayout">
     	<put-attribute name="header"  value="Publikation verwalten"/>
-      	<put-attribute name="main"   value="/publicationManagement.jsp"/>      
+      	<put-attribute name="main"   value="/publicationSearch.jsp"/>      
   	</definition>
   	
   	<definition name="successfullPublicationManagementLayout" template="/successfullPublicationManagementLayout.jsp">
 		<put-attribute name="toppart" value="/publicationTopPart.jsp" />
 		<put-attribute name="bottompart" value="/publicationBottomPart.jsp" />
 	</definition>
-<!-- TEST -->
-  	<definition name="successfullPublicationManagement" extends="baseLayout2">
+
+  	<definition name="showPublicationTable" extends="baseLayout2">
     			<put-attribute name="header" value="Publication Table"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="Bottom-Left"></put-attribute>

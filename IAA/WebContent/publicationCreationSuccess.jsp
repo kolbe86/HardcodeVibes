@@ -11,18 +11,34 @@
 <body>
 <h3>Publikation wurde erfolgreich angelegt.</h3>
 
-<p>
-Der Titel der Publikation ist: <s:property value="publicationBean.title" />
- Autor: <s:property value="publicationBean.authors" />
- Datum: <s:property value="publicationBean.publicationDate" />
- Schlagwort: <s:property value="publicationBean.keywords" />
-<%--  Zustand: <s:property value="publicationBean.condition" /> --%>
- ISBN: <s:property value="publicationBean.isbn" />
- Verlag: <s:property value="publicationBean.publisher" />
- Auflage: <s:property value="publicationBean.edition" />
-Ausgabe: <s:property value="publicationBean.issue"/>
- 
- </p>
+<table>
+	<tbody>
+		<tr>
+			<td>Titel: </td>
+			<td><s:property value="publicationBean.title" /></td>
+		</tr>
+		<tr>
+			<td>Datum: </td>
+			<td><s:property value="publicationBean.publicationDate" /></td>
+		</tr>
+		<tr>
+			<td>ISBN: </td>
+			<td><s:property value="publicationBean.isbn" /></td>
+		</tr>
+		<tr>
+			<td>Verlag: </td>
+			<td><s:property value="publicationBean.publisher" /></td>
+		</tr>
+		<tr>
+			<td>Auflage: </td>
+			<td><s:property value="publicationBean.edition" /></td>
+		</tr>
+		<tr>
+			<td>Ausgabe: </td>
+			<td><s:property value="publicationBean.issue"/></td>
+		</tr>
+	</tbody>
+</table>
 
 <p><a href="<s:url action='publicationCreationLink' />" >Weitere Publikation anlegen</a>.</p>
 <p><a href="<s:url action='baseLayoutLink' />" >Zueruck zur Startseite</a>.</p>

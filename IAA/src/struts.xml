@@ -9,39 +9,65 @@
 		<result-types>
 			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
+		
+<!-- 		Menu-Actions -->
 		<action name="*Link" method="{1}" class="de.nak.librarymgmt.actions.LinkAction">
 			<result name="baseLayout" type="tiles">baseLayout</result>
-<!-- 			<result name="publicationCreation" type="tiles">publicationCreation</result> -->
-<!-- 			<result name="publicationManagement" type="tiles">publicationManagement</result> -->
 			<result name="lendingProcessManagement" type="tiles">lendingProcessManagement</result>
 			<result name="marioTest" type="tiles">marioTest</result>
 			<result name="jonasTest" type="tiles">successfullPublicationManagementLayout</result>
 		</action>
 		
-		<action name="testAction" class="de.nak.action.TestAction">
-			<result name="success" type="tiles">marioTest</result>
-		</action>
 		
+<!-- 		Publication-Actions -->
 		<action name="publicationCreationLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
 			<result name="publicationSuccess" type="tiles">publicationCreation</result>
 		</action>
+		
 		<action name="publicationCreationAction" class="de.nak.librarymgmt.actions.PublicationCreationAction" method="execute">
-  			<result name="publicationSuccess" type="tiles">successfullPublicationCreation</result>
-<!--   			<result name="input" type="tiles">publicationCreation</result> -->
+  			<result name="success" type="tiles">publicationCreationSuccess</result>
 		</action>
 		
-		<action name="publicationManagementLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
-			<result name="publicationSuccess" type="tiles">publicationManagement</result>
+		<action name="addAuthorAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
+			<result name="success" type="tiles">publicationCreation</result>
 		</action>
-		<action name="publicationManagementAction" class="de.nak.librarymgmt.actions.PublicationManagementAction" method="execute">
-  			<result name="success" type="tiles">successfullPublicationManagement</result>
-  			<result name="input" type="tiles">publicationManagement</result>
+		
+		<action name="searchPublicationLink" class="de.nak.librarymgmt.actions.InitPublicationSearchAction" method="execute">
+			<result name="success" type="tiles">publicationSearch</result>
 		</action>
+		
+		<action name="searchPublicationAction" class="de.nak.librarymgmt.actions.SearchPublicationAction" method="execute">
+  			<result name="success" type="tiles">showPublicationTable</result>
+		</action>
+		
+		<action name="listPublicationsLink" class="de.nak.librarymgmt.actions.ListPublicationsAction" method="execute">
+			<result name="success" type="tiles">showPublicationTable</result>
+		</action>
+		
 		<action name="showPublicationDetailAction" class="de.nak.actions.ShowPublicationDetailAction" method="execute">
   			<result name="success" type="tiles">showPublicationDetail</result>
 		</action>
+		
 		<action name="chooseBorrowerAction" class="de.nak.librarymgmt.actions.ChooseBorrowerAction" method="execute">
   			<result name="success" type="tiles">chooseBorrower</result>
+		</action>
+		
+<!-- 		Other Actions -->
+		<action name="CreateTable" class="de.nak.actions.CreateTableAction" method="execute">
+			<result name="success" type="tiles">marioTest</result>
+		</action>
+		
+		<action name="changePublicationAction" class="de.nak.librarymgmt.actions.ChangePublicationAction" method="execute">
+			<result name="success" type="tiles">successfullPublicationManagement</result>
+		</action>
+		
+		<action name="deletePublicationAction" class="de.nak.librarymgmt.actions.DeletePublicationAction" method="execute">
+			<result name="success" type="tiles">successfullPublicationManagement</result>
+		</action>
+		
+		<action name="createLendingProcessAction" class="de.nak.librarymgmt.actions.CreateLPAction">
+			<result name="success" type="tiles">successfullLendingProcessCreation</result>
+			<result name="error" type="tiles">errorLendingProcessCreation</result>
 		</action>
 		
 <!-- 		Startups for Basic Data Management -->
@@ -146,25 +172,6 @@
 		
 		<action name="sortColumnVerlag" class="de.nak.librarymgmt.actions.SortColumnVerlag" method="execute">
   			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
-		
-		<action name="CreateTable" class="de.nak.actions.CreateTableAction" method="execute">
-			<result name="marioTest" type="tiles">marioTest</result>
-		</action>
-		
-		<action name="addAuthorAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
-			<result name="success" type="tiles">publicationCreation</result>
-		</action>
-		
-		<action name="changePublicationAction" class="de.nak.librarymgmt.actions.ChangePublicationAction" method="execute">
-			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
-		<action name="deletePublicationAction" class="de.nak.librarymgmt.actions.DeletePublicationAction" method="execute">
-			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
-		<action name="createLendingProcessAction" class="de.nak.librarymgmt.actions.CreateLPAction">
-			<result name="success" type="tiles">successfullLendingProcessCreation</result>
-			<result name="error" type="tiles">errorLendingProcessCreation</result>
 		</action>
 		
 		

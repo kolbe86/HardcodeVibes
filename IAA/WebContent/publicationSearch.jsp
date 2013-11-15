@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -6,26 +6,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Register</title>
+<title>Publikation verwalten</title>
 </head>
 <body>
-<h3>Lege eine neue Publikation an</h3>
+<h3>Suchen Sie eine Publikation, die Sie verwalten mÃ¶chten</h3>
 
-<s:form action="publicationCreationAction">
- 	
+<s:form>
+
 	<s:textfield name="publicationBean.title" label="Titel"/>
 	<s:textfield  name="author" label="Autor"/>
-	<s:select name="authorSelection"  list="authorSelection" size="3" multiple="true" label="Autoren"/>
-		<s:submit value="Autor hinzufügen" action="addAuthorAction"></s:submit>
+<%-- 	<s:select name="authorSelection"  list="authorSelection" size="3" multiple="true" label="Autoren"/> --%>
+<%-- 		<s:submit value="Autor hinzufÃ¼gen" action="addAuthorAction"></s:submit> --%>
  	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
-	<s:select name="publicationTypeSelection"  list="publicationTypeSelection" size="1" multiple="false"  label="Publikationsart"/>
-	<s:select name="keywordSelection"  list="keywordSelection" size="1" multiple="true" label="Schlagwörter" disabled=""/>
+ 	<s:select name="publicationTypeSelection"  list="publicationTypeSelection" size="1" multiple="false"  label="Publikationsart"/>
+	<s:select name="keywordSelection"  list="keywordSelection" size="1" multiple="true" label="SchlagwÃ¶rter" disabled=""/>
 	<s:radio name="condition" key="conditions" list="conditions" label="Zustand" />
 	<s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/>
 	<s:textfield name="publicationBean.publisher"  label ="Verlag"/>
 	<s:textfield name="publicationBean.edition"  label ="Auflage"/>
 	<s:textfield name="publicationBean.issue" label = "Ausgabe"/>
-   		<s:submit value="Publikation anlegen"/>
+   		<s:submit  action="searchPublicationAction" value="Suche"/>
+   	  
 </s:form>	
  
 </body>
