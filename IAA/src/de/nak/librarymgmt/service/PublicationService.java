@@ -20,9 +20,9 @@ public interface PublicationService {
 
 	void updatePublication(long publicationID, String title,
 			Set<String> authors, Date publicationDate, ConditionE condition,
-			boolean reserved, PublicationType publicationType,
-			Set<Keyword> keywords, String isbn, String publisher, String issue,
-			String edition);
+			boolean distributed, boolean reserved,
+			PublicationType publicationType, Set<Keyword> keywords,
+			String isbn, String publisher, String issue, String edition);
 
 	Publication findPublicationById(long publicationID);
 

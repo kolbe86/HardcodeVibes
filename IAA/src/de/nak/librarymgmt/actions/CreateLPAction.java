@@ -7,8 +7,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.service.BorrowerNotFoundException;
 import de.nak.librarymgmt.service.BorrowerService;
 import de.nak.librarymgmt.service.LendingProcessService;
+import de.nak.librarymgmt.service.PublicationAlreadyDistributedException;
+import de.nak.librarymgmt.service.PublicationAlreadyReservedException;
+import de.nak.librarymgmt.service.PublicationNotFoundException;
 import de.nak.librarymgmt.service.PublicationService;
 
 public class CreateLPAction extends ActionSupport {
@@ -27,13 +31,40 @@ public class CreateLPAction extends ActionSupport {
 	public String execute() {
 
 		setPublications(publicationService.listPublications());
-
-		lendingProcessService.createLendingProcess(borrowerService
-				.findBorrowerByMatriculationNumber(matriculationNumber),
-				publicationService.findPublicationById(publicationID),
-				new Date());
-
+		// Unnštig?
 		publications = publicationService.listPublications();
+
+		Publication publication = publicationService
+				.findPublicationById(publicationID);
+		Borrower borrower = borrowerService
+				.findBorrowerByMatriculationNumber(matriculationNumber);
+
+		try {
+			lendingProcessService.createLendingProcess(borrower, publication,
+					new Date());
+
+			publication.setDistributed(true);
+			publicationService.updatePublication(
+					publication.getPublicationID(), publication.getTitle(),
+					publication.getAuthors(), publication.getPublicationDate(),
+					publication.getCondition(), publication.isDistributed(),
+					publication.isReserved(), publication.getPublicationType(),
+					publication.getKeywords(), publication.getIsbn(),
+					publication.getPublisher(), publication.getIssue(),
+					publication.getEdition());
+		} catch (PublicationNotFoundException e) {
+			System.out.println("Publication nicht gefunden");
+			return "error";
+		} catch (PublicationAlreadyDistributedException e) {
+			System.out.println("Publication ist bereits verliehen");
+			return "error";
+		} catch (PublicationAlreadyReservedException e) {
+			System.out.println("Publication ist bereits reserviert");
+			return "error";
+		} catch (BorrowerNotFoundException e) {
+			System.out.println("Der Ausleiher wurde nicht gefunden");
+			return "error";
+		}
 
 		return SUCCESS;
 	}

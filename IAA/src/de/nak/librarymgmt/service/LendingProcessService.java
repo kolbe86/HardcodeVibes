@@ -11,7 +11,9 @@ import de.nak.librarymgmt.util.StatusE;
 public interface LendingProcessService {
 
 	void createLendingProcess(Borrower borrower, Publication publication,
-			Date issueDate);
+			Date issueDate) throws PublicationNotFoundException,
+			PublicationAlreadyDistributedException,
+			PublicationAlreadyReservedException, BorrowerNotFoundException;
 
 	void endLendingProcess(long lendingProcessID);
 

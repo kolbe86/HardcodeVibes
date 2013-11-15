@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import org.hibernate.Criteria;
-
 import de.nak.librarymgmt.dao.PublicationDAO;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
@@ -83,15 +81,16 @@ public class PublicationServiceImpl implements PublicationService {
 	@Override
 	public void updatePublication(long publicationID, String title,
 			Set<String> authors, Date publicationDate, ConditionE condition,
-			boolean reserved, PublicationType publicationType,
-			Set<Keyword> keywords, String isbn, String publisher, String issue,
-			String edition) {
+			boolean distributed, boolean reserved,
+			PublicationType publicationType, Set<Keyword> keywords,
+			String isbn, String publisher, String issue, String edition) {
 		Publication publication = publicationDAO.findById(publicationID);
 		try {
 			publication.setTitle(title);
 			publication.setAuthors(authors);
 			publication.setPublicationDate(publicationDate);
 			publication.setCondition(condition);
+			publication.setDistributed(distributed);
 			publication.setReserved(reserved);
 			publication.setPublicationType(publicationType);
 			publication.setKeywords(keywords);
@@ -113,7 +112,8 @@ public class PublicationServiceImpl implements PublicationService {
 				issue, edition);
 	}
 
-	public List<Publication> findPublicationByAuthors(String title, Set<String> authors) {
+	public List<Publication> findPublicationByAuthors(String title,
+			Set<String> authors) {
 		return publicationDAO.findPublicationByAuthors(title, authors);
 	}
 

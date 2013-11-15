@@ -164,6 +164,7 @@
 		</action>
 		<action name="createLendingProcessAction" class="de.nak.librarymgmt.actions.CreateLPAction">
 			<result name="success" type="tiles">successfullLendingProcessCreation</result>
+			<result name="error" type="tiles">errorLendingProcessCreation</result>
 		</action>
 		
 		

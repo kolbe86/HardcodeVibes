@@ -73,6 +73,13 @@
 		<put-attribute name="bottom-right" value="/bottom.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="errorLendingProcessCreation" extends="baseLayout2">
+		<put-attribute name="header" value="Publikation erfolgreich angelegt"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="/errorLendingProcessCreation.jsp"></put-attribute>
+		<put-attribute name="bottom-right" value="/bottom.jsp"></put-attribute>
+	</definition>
+	
 <!-- 	TEST -->
   
   	<definition name="lendingProcessManagement" extends="baseLayout">

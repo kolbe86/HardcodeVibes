@@ -2,16 +2,16 @@ package de.nak.librarymgmt.service;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
-import java.util.GregorianCalendar;
 
 import de.nak.librarymgmt.dao.LendingProcessDAO;
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
-import de.nak.librarymgmt.util.StatusE;
 import de.nak.librarymgmt.util.DunningLevelE;
+import de.nak.librarymgmt.util.StatusE;
 
 public class LendingProcessServiceImpl implements LendingProcessService {
 
@@ -21,7 +21,11 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 
 	@Override
 	public void createLendingProcess(Borrower borrower,
-			Publication publication, Date issueDate) {
+			Publication publication, Date issueDate)
+			throws PublicationNotFoundException,
+			PublicationAlreadyDistributedException,
+			PublicationAlreadyReservedException, BorrowerNotFoundException {
+
 		LendingProcess lendingProcess = new LendingProcess();
 		lendingProcess.setBorrower(borrower);
 		lendingProcess.setPublication(publication);
@@ -31,13 +35,19 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		lendingProcess.setStatus(StatusE.OPEN);
 		lendingProcess.setDunningLevel(DunningLevelE.ZERO);
 
-		try {
-
+		if ((lendingProcess.getPublication() == null)) {
+			throw new PublicationNotFoundException();
+		} else if (lendingProcess.getPublication().isDistributed()) {
+			throw new PublicationAlreadyDistributedException();
+		} else if (lendingProcess.getPublication().isReserved()) {
+			throw new PublicationAlreadyReservedException();
+		} else if (lendingProcess.getBorrower() == null) {
+			throw new BorrowerNotFoundException();
+		} else {
 			lendingProcessDAO.save(lendingProcess);
-		} catch (Exception e) {
-			// TODO: handle exception
 		}
 
+		lendingProcessDAO.save(lendingProcess);
 	}
 
 	@Override
@@ -114,6 +124,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 			if (differenceInDate > 15) {
 				activeLendingProcesses.get(i).setDunningLevel(
 						DunningLevelE.THIRD);
+
 				lendingProcessDAO.save(lendingProcess);
 				iterator.next();
 				i = i + 1;
