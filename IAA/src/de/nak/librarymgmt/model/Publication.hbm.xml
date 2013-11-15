@@ -8,13 +8,14 @@
 			<generator class="sequence" />
 		</id>
 		<property name="title" column="TITLE" type="string" not-null="true" />
-		<set name="authors" table="AUTHORS" lazy="false">
+		<set name="authors" table="AUTHORS" fetch="join">
 			<key column="ID" />
-			<element type="string" column="AUTHOR" />
+			<element type="string" column="AUTHOR" not-null="true" />
 		</set>
 		<property name="publicationDate" column="PUBLICATIONDATE"
-			type="timestamp" />
-		<property name="condition" length="10" column="CONDITION">
+			type="timestamp" not-null="false" />
+		<property name="condition" length="10" column="CONDITION"
+			not-null="true">
 			<type name="org.hibernate.type.EnumType">
 				<param name="enumClass">de.nak.librarymgmt.util.ConditionE</param>
 				<param name="type">12</param>
@@ -27,11 +28,12 @@
 		<property name="isbn" column="ISBN" not-null="false" type="string" />
 		<property name="publisher" column="PUBLISHER" not-null="false"
 			type="string" />
-		<property name="issue" column="ISSUE" not-null="false" type="string"></property>
+		<property name="issue" column="ISSUE" not-null="false" type="string" />
 		<property name="edition" column="EDITION" not-null="false"
 			type="string" />
-		<many-to-one name="publicationType" column="publicationTypeID" not-null="true" />
-		<set name="keywords" table="PUBLICATIONS_KEYWORDS" lazy="false">
+		<many-to-one name="publicationType" column="publicationTypeID"
+			not-null="true" fetch="join" />
+		<set name="keywords" table="PUBLICATIONS_KEYWORDS" fetch="join">
 			<key column="publicationID" />
 			<many-to-many column="name" class="de.nak.librarymgmt.model.Keyword" />
 		</set>

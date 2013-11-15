@@ -43,7 +43,6 @@ public class PublicationServiceImpl implements PublicationService {
 			Date publicationDate, ConditionE condition,
 			PublicationType publicationType, Set<Keyword> keywords,
 			String isbn, String publisher, String issue, String edition) {
-
 		Publication publication = new Publication();
 		publication.setTitle(title);
 		publication.setAuthors(authors);
@@ -57,7 +56,6 @@ public class PublicationServiceImpl implements PublicationService {
 		publication.setIssue(issue);
 		publication.setEdition(edition);
 		publication.setDistributed(false);
-
 		try {
 
 			publicationDAO.save(publication);
@@ -106,15 +104,9 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public List<Publication> findPublicationByCriteria(String title,
-			Set<String> authors, String isbn, String publisher, String issue,
+			Set<Keyword> keywords, String isbn, String publisher, String issue,
 			String edition) {
-		return publicationDAO.findByCriteria(title, authors, isbn, publisher,
+		return publicationDAO.findByCriteria(title, keywords, isbn, publisher,
 				issue, edition);
 	}
-
-	public List<Publication> findPublicationByAuthors(String title,
-			Set<String> authors) {
-		return publicationDAO.findPublicationByAuthors(title, authors);
-	}
-
 }

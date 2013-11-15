@@ -10,6 +10,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
 
 public class PublicationDAO extends HibernateDaoSupport {
@@ -26,7 +27,11 @@ public class PublicationDAO extends HibernateDaoSupport {
 
 	@SuppressWarnings("unchecked")
 	public List<Publication> findAll() {
-		return getHibernateTemplate().find("from Publication");
+		Criteria criteria = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createCriteria(Publication.class);
+		criteria.setFetchMode("publicationType", FetchMode.JOIN);
+		criteria.setFetchMode("keyword", FetchMode.JOIN);
+		return (List<Publication>) criteria.list();
 	}
 
 	public Publication findById(Long publicationID) {
@@ -35,10 +40,15 @@ public class PublicationDAO extends HibernateDaoSupport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Publication> findByCriteria(String title, Set<String> authors,
-			String isbn, String publisher, String issue, String edition) {
+	public List<Publication> findByCriteria(String title,
+			Set<Keyword> keywords, String isbn, String publisher, String issue,
+			String edition) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Publication.class);
+		criteria.setFetchMode("authors", FetchMode.JOIN);
+		if (keywords != null) {
+			addRestrictionsForKeywords(criteria, keywords);
+		}
 		criteria.add(Restrictions.like("title", "%" + title + "%").ignoreCase());
 		criteria.add(Restrictions.like("isbn", "%" + isbn + "%"));
 		criteria.add(Restrictions.like("publisher", "%" + publisher + "%")
@@ -47,15 +57,27 @@ public class PublicationDAO extends HibernateDaoSupport {
 		criteria.add(Restrictions.like("edition", "%" + edition + "%")
 				.ignoreCase());
 		criteria.addOrder(Order.asc("title"));
-		return ((List<Publication>) criteria.list());
+
+		return (List<Publication>) criteria.list();
 	}
 
-	private void addRestrictionsForAuthor(Criteria criteria, Set<String> authors) {
+	private void addRestrictionsForKeywords(Criteria criteria,
+			Set<Keyword> keywords) {
+		Iterator<Keyword> iter = keywords.iterator();
+		Criteria authorsCriteria = criteria.createCriteria("keywords");
+		while (iter.hasNext()) {
+			Keyword keyword = (Keyword) iter.next();
+			authorsCriteria.add(Restrictions.like("name", "%" + keyword + "%"));
+		}
+	}
+
+	private void addRestrictionsForAuthors(Criteria criteria,
+			Set<String> authors) {
 		Iterator<String> iter = authors.iterator();
 		Criteria authorsCriteria = criteria.createCriteria("authors");
 		while (iter.hasNext()) {
 			String author = (String) iter.next();
-			authorsCriteria.add(Restrictions.like("name", "%" + author + "%"));
+			authorsCriteria.add(Restrictions.like("", "%" + author + "%"));
 		}
 	}
 }
