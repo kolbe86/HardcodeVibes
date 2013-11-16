@@ -26,7 +26,8 @@ public class InitPublicationSearchAction extends ActionSupport {
 
 	// Select-Lists
 	// private?
-	List<String> keywordSelection;
+	List<String> keywordSelectionList;
+
 	List<String> publicationTypeSelection;
 	List<String> authorSelection = new LinkedList<String>();
 	private ConditionE[] conditions = ConditionE.values();
@@ -51,10 +52,10 @@ public class InitPublicationSearchAction extends ActionSupport {
 
 		// Get Keywords
 		keywords = keywordService.listAllKeywords();
-		keywordSelection = new LinkedList<String>();
-		// for (Keyword keyword : keywords) {
-		// keywordSelection.add(keyword.getName());
-		// }
+		keywordSelectionList = new LinkedList<String>();
+		for (Keyword keyword : keywords) {
+			keywordSelectionList.add(keyword.getName());
+		}
 
 		return SUCCESS;
 
@@ -106,11 +107,11 @@ public class InitPublicationSearchAction extends ActionSupport {
 	}
 
 	public List<String> getKeywordSelection() {
-		return keywordSelection;
+		return keywordSelectionList;
 	}
 
 	public void setKeywordSelection(List<String> keywordSelection) {
-		this.keywordSelection = keywordSelection;
+		this.keywordSelectionList = keywordSelection;
 	}
 
 	public List<String> getPublicationTypeSelection() {
@@ -144,5 +145,13 @@ public class InitPublicationSearchAction extends ActionSupport {
 
 	public void setCondition(String condition) {
 		this.condition = condition;
+	}
+
+	public List<String> getKeywordSelectionList() {
+		return keywordSelectionList;
+	}
+
+	public void setKeywordSelectionList(List<String> keywordSelectionList) {
+		this.keywordSelectionList = keywordSelectionList;
 	}
 }

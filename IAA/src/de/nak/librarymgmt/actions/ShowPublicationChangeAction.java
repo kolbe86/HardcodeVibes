@@ -43,6 +43,11 @@ public class ShowPublicationChangeAction extends ActionSupport {
 
 		publicationBean = publicationService
 				.findPublicationById(publicationBean.getPublicationID());
+
+		if (publicationBean == null) {
+			// throw new PublictionNotFoundException
+			return "publicationNotFound";
+		}
 		condition = publicationBean.getCondition().name();
 
 		// Publication-Types

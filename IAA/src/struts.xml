@@ -51,6 +51,7 @@
 		
 		<action name="showPublicationChangeAction" class="de.nak.librarymgmt.actions.ShowPublicationChangeAction" method="execute">
   			<result name="success" type="tiles">showPublicationChange</result>
+  			<result name="publicationNotFound" type="tiles">publicationDetailError</result>
 		</action>
 
 		<action name="changePublicationAction" class="de.nak.librarymgmt.actions.ChangePublicationAction" method="execute">
@@ -74,6 +75,8 @@
 			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>
 		
+
+
 		<action name="createLendingProcessAction" class="de.nak.librarymgmt.actions.CreateLPAction">
 			<result name="success" type="tiles">successfullLendingProcessCreation</result>
 			<result name="error" type="tiles">errorLendingProcessCreation</result>
@@ -82,6 +85,16 @@
 		<action name="lendingProcessStartupAction" class="de.nak.librarymgmt.actions.LendingProcessStartupAction" method="execute">
   			<result name="lendingProcessSuccess" type="tiles">lendingProcessManagement</result>
 		</action>
+		
+		<action name="giveBackPublicationAction" class="de.nak.librarymgmt.actions.GiveBackPublicationAction" method="execute">
+			<result name="lendingProcessSuccess" type="tiles">successfullGiveBack</result>
+		</action>
+		
+		<action name="extendLendingProcessAction" class="de.nak.librarymgmt.actions.ExtendLendingProcessAction" method="execute">
+			<result name="lendingProcessSuccess" type="tiles">successfullExtension</result>
+		</action>
+		
+	
 		
 <!-- 		Startups for Basic Data Management -->
 		<action name="publicationTypeStartupAction" class="de.nak.librarymgmt.actions.basicDataActions.PublicationTypeStartupAction" method="execute">

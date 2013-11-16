@@ -59,6 +59,10 @@
 		<put-attribute name="bottom-left" value="/publicationDetailShow.jsp"></put-attribute>
 		<put-attribute name="bottom-right" value="Warte noch länger auf Action"></put-attribute>
 	</definition>
+	<definition name="publicationDetailError" extends="baseLayout">		
+		<put-attribute name="header" value="Fehler!"></put-attribute>
+		<put-attribute name="main" value="Die ausgewählte Publikation ist leider nicht im System verfügbar"></put-attribute>
+	</definition>
 	<definition name="showPublicationChange" extends="baseLayout2">		
 		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
@@ -93,12 +97,24 @@
 		<put-attribute name="bottom-right" value="/bottom.jsp"></put-attribute>
 	</definition>
 	
-<!-- 	TEST -->
+<!-- 	Lending Process -->
   
   	<definition name="lendingProcessManagement" extends="baseLayout">
       	<put-attribute name="header"  value="Ausleihvorgang verwalten"/>
       	<put-attribute name="main"   value="/lendingProcessManagement.jsp"/>      
   	</definition>
+  	
+  	  <definition name="successfullGiveBack" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation wurde erfolgreich zurückgegeben"/>
+      	<put-attribute name="main"   value="/successfullGiveBack.jsp"/>      
+  	</definition>
+  	
+  	  <definition name="successfullExtension" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation wurde erfolgreich verlängert"/>
+      	<put-attribute name="main"   value="/successfullExtension.jsp"/>      
+  	</definition>
+  
+<!--   Basic Data Layouts -->
   
   	<definition name="basicDataBorrower" extends="baseLayout">
       	<put-attribute name="header"  value="Stammdaten Ausleiher"/>
