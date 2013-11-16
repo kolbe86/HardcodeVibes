@@ -6,9 +6,11 @@ import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.model.PublicationType;
+import de.nak.librarymgmt.service.AuthorService;
 import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.service.PublicationTypeService;
@@ -25,6 +27,15 @@ public class PublicationCreationAction extends ActionSupport {
 	private ConditionE condition;
 
 	private Publication publicationBean;
+	private AuthorService authorService;
+	public AuthorService getAuthorService() {
+		return authorService;
+	}
+
+	public void setAuthorService(AuthorService authorService) {
+		this.authorService = authorService;
+	}
+
 	private PublicationService publicationService;
 	private PublicationTypeService publicationTypeService;
 	private KeywordService keywordService;
@@ -40,10 +51,11 @@ public class PublicationCreationAction extends ActionSupport {
 		}
 
 		// TODO Set<String> im Service in List<String> Šndern - mšglich?
-		Set<String> authors = new HashSet<String>();
+		Set<Author> authors = new HashSet<Author>();
 		for (String author : authorSelection) {
-			authors.add(author);
+			authors.add(authorService.findAuthorByName(author));
 		}
+
 		PublicationType publicationType = publicationTypeService
 				.findPublicationTypeByName(publicationTypeSelection);
 
