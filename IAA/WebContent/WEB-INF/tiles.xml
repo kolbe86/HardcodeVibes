@@ -113,6 +113,16 @@
       	<put-attribute name="header"  value="Publikation wurde erfolgreich verlängert"/>
       	<put-attribute name="main"   value="/successfullExtension.jsp"/>      
   	</definition>
+  	
+  	  <definition name="noMoreExtensionPossible" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation kann nicht mehr verlängert werden"/>
+      	<put-attribute name="main"   value="/noMoreExtensionPossible.jsp"/>      
+  	</definition>
+  	
+  	 <definition name="lostPublication" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation wurde als Verlust gemeldet"/>
+      	<put-attribute name="main"   value="/lostPublication.jsp"/>      
+  	</definition>
   
 <!--   Basic Data Layouts -->
   

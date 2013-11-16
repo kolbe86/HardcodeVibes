@@ -54,12 +54,11 @@ public class ChangePublicationAction extends ActionSupport {
 				changePublication.getPublicationID(),
 				changePublication.getTitle(), changePublication.getAuthors(),
 				changePublication.getPublicationDate(), condition,
-				changePublication.isDistributed(),
-				changePublication.isReserved(),
 				changePublication.getPublicationType(),
 				changePublication.getKeywords(), changePublication.getIsbn(),
 				changePublication.getPublisher(), changePublication.getIssue(),
-				changePublication.getEdition());
+				changePublication.getEdition(),
+				changePublication.isDistributed());
 
 		publications = publicationService.listPublications();
 

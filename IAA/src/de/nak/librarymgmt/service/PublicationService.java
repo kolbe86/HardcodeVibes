@@ -19,10 +19,11 @@ public interface PublicationService {
 
 	void deletePublication(long publicationID);
 
-	void updatePublication (long publicationID, String title, Set<Author> authors,
-			Date publicationDate, ConditionE condition,
+	void updatePublication(long publicationID, String title,
+			Set<Author> authors, Date publicationDate, ConditionE condition,
 			PublicationType publicationType, Set<Keyword> keywords,
-			String isbn, String publisher, String issue, String edition, boolean distributed);
+			String isbn, String publisher, String issue, String edition,
+			boolean distributed);
 
 	Publication findPublicationById(long publicationID);
 

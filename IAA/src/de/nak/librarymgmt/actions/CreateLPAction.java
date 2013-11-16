@@ -47,11 +47,11 @@ public class CreateLPAction extends ActionSupport {
 			publicationService.updatePublication(
 					publication.getPublicationID(), publication.getTitle(),
 					publication.getAuthors(), publication.getPublicationDate(),
-					publication.getCondition(), publication.isDistributed(),
-					publication.isReserved(), publication.getPublicationType(),
+					publication.getCondition(),
+					publication.getPublicationType(),
 					publication.getKeywords(), publication.getIsbn(),
 					publication.getPublisher(), publication.getIssue(),
-					publication.getEdition());
+					publication.getEdition(), publication.isDistributed());
 		} catch (PublicationNotFoundException e) {
 			System.out.println("Publication nicht gefunden");
 			return "error";

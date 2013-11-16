@@ -23,8 +23,6 @@
 		</property>
 		<property name="distributed" column="DISTRIBUTED" not-null="true"
 			type="boolean" />
-		<property name="reserved" column="RESERVED" not-null="true"
-			type="boolean" />
 		<property name="isbn" column="ISBN" not-null="false" type="string" />
 		<property name="publisher" column="PUBLISHER" not-null="false"
 			type="string" />

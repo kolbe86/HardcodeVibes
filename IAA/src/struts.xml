@@ -92,6 +92,11 @@
 		
 		<action name="extendLendingProcessAction" class="de.nak.librarymgmt.actions.ExtendLendingProcessAction" method="execute">
 			<result name="lendingProcessSuccess" type="tiles">successfullExtension</result>
+			<result name="noExtensionPossible" type="tiles">noMoreExtensionPossible</result>
+		</action>
+		
+		<action name="lostPublicationAction" class="de.nak.librarymgmt.actions.LostPublicationAction" method="execute">
+			<result name="lendingProcessSuccess" type="tiles">lostPublication</result>
 		</action>
 		
 	

@@ -81,18 +81,19 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		}
 	}
 
-	/*
-	 * Brauchen wir lšschen?
-	 * 
-	 * @Override public void deleteLendingProcess(long lendingProcessID) {
-	 * LendingProcess lendingProcess = lendingProcessDAO
-	 * .findById(lendingProcessID); try {
-	 * System.out.println("Try lendingProcessDAO.delete");
-	 * lendingProcessDAO.delete(lendingProcess); } catch (Exception e) { // TODO
-	 * }
-	 * 
-	 * }
-	 */
+	// Brauchen wir lšschen?
+
+	@Override
+	public void deleteLendingProcess(long lendingProcessID) {
+		LendingProcess lendingProcess = lendingProcessDAO
+				.findById(lendingProcessID);
+		try {
+			System.out.println("Try lendingProcessDAO.delete");
+			lendingProcessDAO.delete(lendingProcess);
+		} catch (Exception e) { // TODO
+		}
+
+	}
 
 	@Override
 	public void updateLendingProcess(long lendingProcessID, Borrower borrower,
@@ -174,19 +175,14 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 			return null; // TODO
 		}
 	}
-/*	@Override
-	public LendingProcess findLendingProcessByPublicationId(long publicationID) {
-		Publication publication = publicationService
-				.findPublicationById(publicationID);
-		LendingProcess lendingProcess = lendingProcessDAO
-				.findByPublication(publication);
-		try {
-			return lendingProcess;
-		} catch (Exception e) {
-			return null; // TODO
-		}
-	}
-*/
+
+	/*
+	 * @Override public LendingProcess findLendingProcessByPublicationId(long
+	 * publicationID) { Publication publication = publicationService
+	 * .findPublicationById(publicationID); LendingProcess lendingProcess =
+	 * lendingProcessDAO .findByPublication(publication); try { return
+	 * lendingProcess; } catch (Exception e) { return null; // TODO } }
+	 */
 	@Override
 	public List<LendingProcess> listLendingProcess() {
 		return lendingProcessDAO.findAll();

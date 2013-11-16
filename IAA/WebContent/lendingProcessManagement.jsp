@@ -62,7 +62,7 @@
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
 		<s:form action="giveBackPublicationAction">
-			<s:textfield name="lendingProcessBean.lendingProcessID" label="ID" disabled="true"/>
+			<s:textfield name="lendingProcessBean.lendingProcessID" label="ID"/>
 			<s:textfield name="lendingProcessBean.borrower" label="Ausleiher" disabled="true"/>
 			<s:textfield name="lendingProcessBean.publication" label="Publikation" disabled="true"/>
 			<s:textfield name="lendingProcessBean.issueDate" label="Ausleihdatum" disabled="true"/>
@@ -73,6 +73,7 @@
 					<s:submit value="Rückgabe" />
 					<s:submit value="verlängern" action="extendLendingProcessAction"/>
 					<s:submit value="Verlust" action="lostPublicationAction"/>
+					<s:param name="paramLendingProcess" value="lendingProcessBean.lendingProcessID"/>
 				</s:form> 
 </div>
 </body>

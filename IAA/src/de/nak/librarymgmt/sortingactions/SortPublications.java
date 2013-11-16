@@ -15,7 +15,6 @@ import de.nak.librarymgmt.comparators.PublicationKeywordComparator;
 import de.nak.librarymgmt.comparators.PublicationPublicationDateComparator;
 import de.nak.librarymgmt.comparators.PublicationPublicationTypeComparator;
 import de.nak.librarymgmt.comparators.PublicationPublisherComparator;
-import de.nak.librarymgmt.comparators.PublicationReservedComparator;
 import de.nak.librarymgmt.comparators.PublicationTitleComparator;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.PublicationService;
@@ -115,14 +114,15 @@ public class SortPublications extends ActionSupport {
 			}
 			break;
 
-		case "reserved":
-
-			Comparator<Publication> compReserved = new PublicationReservedComparator();
-			Collections.sort(publications, compReserved);
-			if (increasing == false) {
-				Collections.reverse(publications);
-			}
-			break;
+		// case "reserved":
+		//
+		// Comparator<Publication> compReserved = new
+		// PublicationReservedComparator();
+		// Collections.sort(publications, compReserved);
+		// if (increasing == false) {
+		// Collections.reverse(publications);
+		// }
+		// break;
 
 		case "condition":
 

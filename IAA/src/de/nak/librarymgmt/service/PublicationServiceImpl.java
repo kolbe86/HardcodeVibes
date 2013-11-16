@@ -8,7 +8,6 @@ import de.nak.librarymgmt.dao.LendingProcessDAO;
 import de.nak.librarymgmt.dao.PublicationDAO;
 import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Keyword;
-import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.util.ConditionE;
@@ -70,10 +69,7 @@ public class PublicationServiceImpl implements PublicationService {
 	@Override
 	public void deletePublication(long publicationID) {
 		Publication publication = publicationDAO.findById(publicationID);
-		LendingProcess lendingProcess = lendingProcessDAO
-				.findByPublication(publicationID);
 		try {
-			lendingProcessDAO.delete(lendingProcess);
 			publicationDAO.delete(publication);
 
 		} catch (Exception e) {
