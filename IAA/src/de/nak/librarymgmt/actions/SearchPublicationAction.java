@@ -13,20 +13,15 @@ import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.util.ConditionE;
 
 public class SearchPublicationAction extends ActionSupport {
-	// TODO listAllPublicationsAction - ins Menu und alle Variablen raus
+
 	private static final long serialVersionUID = 1L;
 
-	private Publication publicationBean;
-
-	// Select-Lists
-	// private?
-
-	// multiple authors
+	// Worklists
+	List<Publication> publications;
 	List<String> keywordSelection;
 	List<String> publicationTypeSelection;
-	// TODO authorselection
-	// List<String> authorSelection;
-	List<Publication> publications;
+
+	private Publication publicationBean;
 
 	private ConditionE[] conditions = ConditionE.values();
 	private ConditionE condition;

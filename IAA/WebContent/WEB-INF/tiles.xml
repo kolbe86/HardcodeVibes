@@ -59,6 +59,10 @@
 		<put-attribute name="bottom-left" value="/publicationDetailShow.jsp"></put-attribute>
 		<put-attribute name="bottom-right" value="Warte noch länger auf Action"></put-attribute>
 	</definition>
+	<definition name="publicationDetailError" extends="baseLayout">		
+		<put-attribute name="header" value="Fehler!"></put-attribute>
+		<put-attribute name="main" value="Die ausgewählte Publikation ist leider nicht im System verfügbar"></put-attribute>
+	</definition>
 	<definition name="showPublicationChange" extends="baseLayout2">		
 		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>

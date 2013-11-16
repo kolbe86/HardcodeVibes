@@ -32,6 +32,8 @@ public class PublicationCreationAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
+		System.out.println("CreationActionStart");
+
 		Set<Keyword> keywords = new HashSet<Keyword>();
 		for (String keyword : keywordSelection) {
 			keywords.add(keywordService.findKeywordByName(keyword));

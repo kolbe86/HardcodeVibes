@@ -51,6 +51,7 @@
 		
 		<action name="showPublicationChangeAction" class="de.nak.librarymgmt.actions.ShowPublicationChangeAction" method="execute">
   			<result name="success" type="tiles">showPublicationChange</result>
+  			<result name="publicationNotFound" type="tiles">publicationDetailError</result>
 		</action>
 
 		<action name="changePublicationAction" class="de.nak.librarymgmt.actions.ChangePublicationAction" method="execute">

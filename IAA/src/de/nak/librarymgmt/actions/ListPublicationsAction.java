@@ -9,12 +9,11 @@ import de.nak.librarymgmt.service.PublicationService;
 
 public class ListPublicationsAction extends ActionSupport {
 
-	List<Publication> publications;
 	private PublicationService publicationService;
 
-	/**
-	 * 
-	 */
+	// Worklists
+	List<Publication> publications;
+
 	private static final long serialVersionUID = 1L;
 
 	public String execute() {
