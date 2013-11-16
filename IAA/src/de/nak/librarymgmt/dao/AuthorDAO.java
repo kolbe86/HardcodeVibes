@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Author;

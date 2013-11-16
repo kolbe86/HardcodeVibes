@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.DistinctRootEntityResultTransformer;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
 
@@ -42,13 +43,16 @@ public class PublicationDAO extends HibernateDaoSupport {
 	}
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public List<Publication> findByCriteria(String title,
+	public List<Publication> findByCriteria(String title, Set<Author> authors,
 			Set<Keyword> keywords, String isbn, String publisher, String issue,
 			String edition) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Publication.class);
 		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
 		criteria.setFetchMode("keywords", FetchMode.EAGER);
+		if (authors != null) {
+			addRestrictionsForAuthors(criteria, authors);
+		}
 		if (keywords != null) {
 			addRestrictionsForKeywords(criteria, keywords);
 		}
@@ -75,11 +79,11 @@ public class PublicationDAO extends HibernateDaoSupport {
 	}
 
 	private void addRestrictionsForAuthors(Criteria criteria,
-			Set<String> authors) {
-		Iterator<String> iter = authors.iterator();
+			Set<Author> authors) {
+		Iterator<Author> iter = authors.iterator();
 		Criteria authorsCriteria = criteria.createCriteria("authors");
 		while (iter.hasNext()) {
-			String author = (String) iter.next();
+			Author author = (Author) iter.next();
 			authorsCriteria.add(Restrictions.like("", "%" + author + "%"));
 		}
 	}

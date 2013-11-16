@@ -29,7 +29,7 @@ public interface PublicationService {
 
 	List<Publication> listPublications();
 
-	List<Publication> findPublicationByCriteria(String title,
+	List<Publication> findPublicationByCriteria(String title, Set<Author> authors,
 			Set<Keyword> keywords, String isbn, String publisher, String issue,
 			String edition);
 }

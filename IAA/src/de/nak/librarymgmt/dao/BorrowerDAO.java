@@ -37,7 +37,7 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 * @return a list of borrowers.
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Borrower> findAll() throws DataAccessException {
+	public List<Borrower> findAll() {
 		return getHibernateTemplate().find("from Borrower");
 	}
 
@@ -48,15 +48,13 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 *            to be searched for
 	 * @return borrower object or <code>null</code>.
 	 */
-	public Borrower findByMatriculationNumber(int matriculationNumber)
-			throws DataAccessException {
+	public Borrower findByMatriculationNumber(int matriculationNumber) {
 		return (Borrower) getHibernateTemplate().get(Borrower.class,
 				matriculationNumber);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Borrower> findByMatriculationNumberList(int matriculationNumber)
-			throws DataAccessException {
+	public List<Borrower> findByMatriculationNumberList(int matriculationNumber) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Borrower.class);
 		criteria.add(Restrictions
@@ -65,8 +63,7 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Borrower> findByNames(String firstName, String lastName)
-			throws DataAccessException {
+	public List<Borrower> findByNames(String firstName, String lastName) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Borrower.class);
 		criteria.add(Restrictions.like("firstName", "%" + firstName + "%")
@@ -84,7 +81,7 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 *            , object to be deleted
 	 * 
 	 */
-	public void delete(Borrower borrower) throws DataAccessException {
+	public void delete(Borrower borrower) {
 		getHibernateTemplate().delete(borrower);
 	}
 }

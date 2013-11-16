@@ -15,19 +15,18 @@ public class PublicationTypeDAO extends HibernateDaoSupport {
 
 	}
 
-	public void delete(PublicationType publicationType)
-			throws DataAccessException {
+	public void delete(PublicationType publicationType) {
 		getHibernateTemplate().delete(publicationType);
 	}
 
 	@SuppressWarnings("unchecked")
-	public Set<PublicationType> findAll() throws DataAccessException {
+	public Set<PublicationType> findAll() {
 		Set<PublicationType> publicationTypeSet = new HashSet<PublicationType>(
 				getHibernateTemplate().find("from PublicationType"));
 		return publicationTypeSet;
 	}
 
-	public PublicationType findByName(String name) throws DataAccessException {
+	public PublicationType findByName(String name) {
 		return (PublicationType) getHibernateTemplate().get(
 				PublicationType.class, name);
 	}
