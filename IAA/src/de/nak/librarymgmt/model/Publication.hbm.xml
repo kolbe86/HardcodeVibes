@@ -33,9 +33,9 @@
 			type="string" />
 		<many-to-one name="publicationType" column="publicationTypeID"
 			not-null="true" fetch="join" />
-		<set name="keywords" table="PUBLICATIONS_KEYWORDS" fetch="join">
+		<set name="keywords" table="PUBLICATIONS_KEYWORDS" fetch="join" lazy="false">
 			<key column="publicationID" />
-			<many-to-many column="name" class="de.nak.librarymgmt.model.Keyword" lazy="false"/>
+			<many-to-many column="name" class="de.nak.librarymgmt.model.Keyword"/>
 		</set>
 	</class>
 </hibernate-mapping>
