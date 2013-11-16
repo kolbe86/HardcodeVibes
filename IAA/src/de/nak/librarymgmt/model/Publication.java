@@ -14,11 +14,10 @@ public class Publication implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private long publicationID;
 	private String title;
-	private Set<String> authors;
+	private Set<Author> authors;
 	private Date publicationDate;
 	private ConditionE condition;
 	private boolean distributed;
-	private boolean reserved;
 	private PublicationType publicationType;
 	private Set<Keyword> keywords;
 	private String isbn;
@@ -31,7 +30,6 @@ public class Publication implements Serializable {
 		this.setTitle("Initial Title");
 		this.setPublicationDate(new Date());
 		this.setDistributed(false);
-		this.setReserved(false);
 		this.setIsbn("Initial ISBN");
 		this.setPublisher("InitialPublisher");
 		this.setIssue("Initial Issue");
@@ -41,11 +39,10 @@ public class Publication implements Serializable {
 	public String toString() {
 		String publicationString;
 		publicationString = "Titel: " + title + " :: "
-				// + "Autoren: " + authors.toString()
+		// + "Autoren: " + authors.toString()
 				+ "Datum: " + publicationDate.toString() + " :: "
 				// + "Zustand: " + condition
-				+ "Verliehen: " + distributed + " :: " + "Reserviert: "
-				+ reserved + " :: "
+				+ "Verliehen: " + distributed + " :: "
 		// + "Publicationstyp: " + publicationType.getName()
 		// + "Schlagwšrter: " + keywords
 		;
@@ -70,14 +67,6 @@ public class Publication implements Serializable {
 		this.title = title;
 	}
 
-	public Set<String> getAuthors() {
-		return authors;
-	}
-
-	public void setAuthors(Set<String> authors) {
-		this.authors = authors;
-	}
-
 	public Date getPublicationDate() {
 		return publicationDate;
 	}
@@ -100,14 +89,6 @@ public class Publication implements Serializable {
 
 	public void setDistributed(boolean distributed) {
 		this.distributed = distributed;
-	}
-
-	public boolean isReserved() {
-		return reserved;
-	}
-
-	public void setReserved(boolean reserved) {
-		this.reserved = reserved;
 	}
 
 	public PublicationType getPublicationType() {
@@ -156,6 +137,14 @@ public class Publication implements Serializable {
 
 	public void setEdition(String edition) {
 		this.edition = edition;
+	}
+
+	public Set<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Set<Author> authors) {
+		this.authors = authors;
 	}
 
 }

@@ -8,9 +8,9 @@
 			<generator class="sequence" />
 		</id>
 		<property name="title" column="TITLE" type="string" not-null="true" />
-		<set name="authors" table="AUTHORS" fetch="join">
-			<key column="ID" />
-			<element type="string" column="AUTHOR" not-null="true" />
+		<set name="authors" table="PUBLICATION_AUTHORS" fetch="join">
+			<key column="publicationID" />
+			<many-to-many column="id" class="de.nak.librarymgmt.model.Author" />
 		</set>
 		<property name="publicationDate" column="PUBLICATIONDATE"
 			type="timestamp" not-null="false" />

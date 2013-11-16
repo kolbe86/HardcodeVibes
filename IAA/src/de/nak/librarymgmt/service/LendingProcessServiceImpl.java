@@ -17,7 +17,11 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 
 	private PublicationService publicationService;
 	private LendingProcessDAO lendingProcessDAO;
-	private static final int LOANPERIODINDAYS = 28;
+	private static final int loanPeriodInDays = 28;
+	private static final int daysForFirstDunning = 1;
+	private static final int daysForSecondDunning = 8;
+	private static final int daysForThirdDunning = 15;
+
 	private Calendar calender = new GregorianCalendar();
 
 	@Override
@@ -40,8 +44,6 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 			throw new PublicationNotFoundException();
 		} else if (lendingProcess.getPublication().isDistributed()) {
 			throw new PublicationAlreadyDistributedException();
-		} else if (lendingProcess.getPublication().isReserved()) {
-			throw new PublicationAlreadyReservedException();
 		} else if (lendingProcess.getBorrower() == null) {
 			throw new BorrowerNotFoundException();
 		} else {
@@ -122,7 +124,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 			Date returnDate = lendingProcess.getReturnDate();
 			long difference = returnDate.getTime() - new Date().getTime();
 			long differenceInDate = difference / (24 * 60 * 60 * 1000);
-			if (differenceInDate > 15) {
+			if (differenceInDate > daysForThirdDunning) {
 				activeLendingProcesses.get(i).setDunningLevel(
 						DunningLevelE.THIRD);
 
@@ -130,7 +132,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 				iterator.next();
 				i = i + 1;
 			}
-			if (differenceInDate > 8) {
+			if (differenceInDate > daysForSecondDunning) {
 				activeLendingProcesses.get(i).setDunningLevel(
 						DunningLevelE.SECOND);
 				lendingProcessDAO.save(lendingProcess);
@@ -138,7 +140,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 				iterator.next();
 				i = i + 1;
 			}
-			if (differenceInDate > 1) {
+			if (differenceInDate > daysForFirstDunning) {
 				activeLendingProcesses.get(i).setDunningLevel(
 						DunningLevelE.FIRST);
 				lendingProcessDAO.save(lendingProcess);
@@ -202,7 +204,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 
 	private Date calculateReturnDate(Date issueDate) {
 		calender.setTime(issueDate);
-		calender.add(Calendar.DAY_OF_MONTH, LOANPERIODINDAYS);
+		calender.add(Calendar.DAY_OF_MONTH, loanPeriodInDays);
 		return calender.getTime();
 	}
 
