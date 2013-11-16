@@ -127,6 +127,10 @@
 		
 <!-- 		Publication Sorting -->
 		
+		<action name="sortPublications" class="de.nak.librarymgmt.sortingactions.SortPublications" method="execute">
+  			<result name="success" type="tiles">showPublicationTable</result>
+		</action>
+		
 		<action name="sortPublicationAttributeTitleIncreasing" class="de.nak.librarymgmt.sortingactions.SortPublicationAttributeTitleIncreasing" method="execute">
   			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>

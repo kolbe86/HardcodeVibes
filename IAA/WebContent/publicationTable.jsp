@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<s:form action="sortPublications" method="execute" escapeAmp="false">
+		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
+		<s:radio name="whichColumn"  value="'title'" label="Spalte" list="#@java.util.LinkedHashMap@{'title':'Titel','publicationDate':'Veröffentlichungsdatum','publicationType':'Publikationsart','keyword':'Schlagwörter','isbn':'ISBN','publisher':'Verlag','edition':'Ausgabe','issue':'Auflage','distributed':'Verliehen','reserved':'Reserviert','condition':'Zustand'}"/>
+		<s:submit value="sortieren" />
+	</s:form> 
 <table>
 	<thead style="background-color:#FF7140">
 	<tr>
@@ -50,92 +54,6 @@
 			</tr>
 		</s:iterator>
 		</tbody>
-			<tr style="border:solid,background-color:#FF7140">
-				<td>
-				<s:form action="sortPublicationAttributeTitleIncreasing">
-					<s:submit value="aufwärts sortieren" />
-				</s:form>  
-				</td>
-				<td>
-				<s:form action="sortColumnAuthor">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnIsbn">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-			</tr>
-			<tr style="border:solid,background-color:#FF7140">
-				<td>
-				<s:form action="sortPublicationAttributeTitleDecreasing">
-					<s:submit value="abwärts sortieren" />
-				</s:form>  
-				</td>
-				<td>
-				<s:form action="sortColumnAuthor">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnIsbn">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-
-				<td>
-				<s:form action="sortColumnVerlag">
-					<s:submit value="sortieren" />
-				</s:form> 
-				</td>
-			</tr>
 </table>
 
 </body>
