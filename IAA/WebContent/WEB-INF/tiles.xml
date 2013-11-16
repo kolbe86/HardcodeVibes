@@ -93,12 +93,24 @@
 		<put-attribute name="bottom-right" value="/bottom.jsp"></put-attribute>
 	</definition>
 	
-<!-- 	TEST -->
+<!-- 	Lending Process -->
   
   	<definition name="lendingProcessManagement" extends="baseLayout">
       	<put-attribute name="header"  value="Ausleihvorgang verwalten"/>
       	<put-attribute name="main"   value="/lendingProcessManagement.jsp"/>      
   	</definition>
+  	
+  	  <definition name="successfullGiveBack" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation wurde erfolgreich zurückgegeben"/>
+      	<put-attribute name="main"   value="/successfullGiveBack.jsp"/>      
+  	</definition>
+  	
+  	  <definition name="successfullExtension" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation wurde erfolgreich verlängert"/>
+      	<put-attribute name="main"   value="/successfullExtension.jsp"/>      
+  	</definition>
+  
+<!--   Basic Data Layouts -->
   
   	<definition name="basicDataBorrower" extends="baseLayout">
       	<put-attribute name="header"  value="Stammdaten Ausleiher"/>
