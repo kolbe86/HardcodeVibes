@@ -14,7 +14,6 @@ public class ChooseBorrowerAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private List<Publication> publications;
 	private PublicationService publicationService;
-	// private Long publicationID;
 	private Publication publicationBean;
 	private BorrowerService borrowerService;
 	private List<Borrower> borrowers;

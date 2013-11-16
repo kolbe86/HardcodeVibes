@@ -56,13 +56,19 @@
 	<definition name="showPublicationDetail" extends="baseLayout2">		
 		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
-		<put-attribute name="bottom-left" value="/publicationDetail.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="/publicationDetailShow.jsp"></put-attribute>
+		<put-attribute name="bottom-right" value="Warte noch länger auf Action"></put-attribute>
+	</definition>
+	<definition name="showPublicationChange" extends="baseLayout2">		
+		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="/publicationChange.jsp"></put-attribute>
 		<put-attribute name="bottom-right" value="Warte noch länger auf Action"></put-attribute>
 	</definition>
 		<definition name="chooseBorrower" extends="baseLayout2">		
 		<put-attribute name="header" value="Wähle einen Ausleiher"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
-		<put-attribute name="bottom-left" value="/publicationDetail.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="/publicationDetailShow.jsp"></put-attribute>
 		<put-attribute name="bottom-right" value="/chooseBorrowerTable.jsp"></put-attribute>
 	</definition>
 	

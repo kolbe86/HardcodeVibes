@@ -69,13 +69,7 @@
 			<result name="success" type="tiles">marioTest</result>
 		</action>
 		
-		<action name="changePublicationAction" class="de.nak.librarymgmt.actions.ChangePublicationAction" method="execute">
-			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
 		
-		<action name="deletePublicationAction" class="de.nak.librarymgmt.actions.DeletePublicationAction" method="execute">
-			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
 		
 		<action name="createLendingProcessAction" class="de.nak.librarymgmt.actions.CreateLPAction">
 			<result name="success" type="tiles">successfullLendingProcessCreation</result>
@@ -139,14 +133,26 @@
 		
 <!-- 		Publication Sorting -->
 		
-		<action name="sortPublications" class="de.nak.librarymgmt.sortingactions.SortPublications" method="execute">
-  			<result name="success" type="tiles">showPublicationTable</result>
+		<action name="sortPublicationAttributeTitleIncreasing" class="de.nak.librarymgmt.sortingactions.SortPublicationAttributeTitleIncreasing" method="execute">
+  			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>
 		
-<!-- 		Other Sorting -->
-		
-		<action name="sortBorrowerTablePublication" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrower" method="execute">
-			<result name="success" type="tiles">chooseBorrower</result>
+		<action name="sortPublicationAttributeTitleDecreasing" class="de.nak.librarymgmt.sortingactions.SortPublicationAttributeTitleDecreasing" method="execute">
+  			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>
+		
+		<action name="sortColumnAuthor" class="de.nak.librarymgmt.actions.SortColumnAuthor" method="execute">
+  			<result name="success" type="tiles">successfullPublicationManagement</result>
+		</action>
+		
+		<action name="sortColumnIsbn" class="de.nak.librarymgmt.actions.SortColumnIsbn" method="execute">
+  			<result name="success" type="tiles">successfullPublicationManagement</result>
+		</action>
+		
+		<action name="sortColumnVerlag" class="de.nak.librarymgmt.actions.SortColumnVerlag" method="execute">
+  			<result name="success" type="tiles">successfullPublicationManagement</result>
+		</action>
+		
+		
 	</package>
 </struts>

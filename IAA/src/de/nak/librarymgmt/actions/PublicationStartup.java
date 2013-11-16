@@ -43,6 +43,7 @@ public class PublicationStartup extends ActionSupport {
 		// Initialize
 		publicationBean = new Publication();
 		publicationBean.initialize();
+		condition = ConditionE.NEW.name();
 
 		// Get Publication-Types
 		publicationTypes = publicationTypeService.listAllPublicationTypes();

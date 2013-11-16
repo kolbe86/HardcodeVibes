@@ -12,18 +12,20 @@
 		<tbody style="background-color:#FFCF73">
 			<tr>
 				<td><s:textfield name="publicationBean.publicationID" label="ID"></s:textfield></td>
+<%-- 					<s:submit action="showPublicationDetailAction" value="Publikation anzeigen"/> --%>
 				<td><s:textfield name="publicationBean.title" label="Titel" size="auto" disabled="true"/></td>
 				<td><s:textfield name="publicationBean.publicationDate" label="Publikationsdatum" disabled="true"/></td>
-			</tr>
-			<tr>
+				<td><s:textfield name="publicationBean.publicationType" label="Publikationsart" disabled="true"/></td>
+				<td><s:textfield name="publicationBean.keywords" label="Schlagwörter" disabled="true"/></td>
+				<td><s:textfield name="publicationBean.isbn" label="ISBN" disabled="true"/></td>
+				<td><s:textfield name="publicationBean.publisher" label="Verlag" disabled="true"/></td>
 				<td><s:textfield name="publicationBean.edition" label="Ausgabe" disabled="true"/></td>
 				<td><s:textfield name="publicationBean.issue" label="Auflage" disabled="true"/></td>
 				<td><s:textfield name="publicationBean.condition" label="Zustand" disabled="true"/></td>
-			</tr>
-			<tr>
-				<td><s:submit action="changePublicationAction" value="aendern"/></td>
-				<td><s:submit action="deletePublicationAction" value="loeschen" /></td>
-				<td><s:submit action="chooseBorrowerAction" value="Ausleihvorgang anlegen" /></td>
+				<td><s:checkbox name="publicationBean.distributed" label="Verliehen" disabled="true"></s:checkbox>
+				<s:submit action="showPublicationChangeAction" value="aendern"/>
+				<s:submit action="deletePublicationAction" value="loeschen" />
+				<s:submit action="chooseBorrowerAction" value="Ausleihvorgang anlegen" />
 			</tr>
 		</tbody>
 		</table>
