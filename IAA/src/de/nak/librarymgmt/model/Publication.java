@@ -21,12 +21,10 @@ public class Publication implements Serializable {
 	private boolean reserved;
 	private PublicationType publicationType;
 	private Set<Keyword> keywords;
-
-	// nullable..
-	private String isbn = "keine";
-	private String publisher = "keiner";
-	private String issue = "keine";
-	private String edition = "keine";
+	private String isbn;
+	private String publisher;
+	private String issue;
+	private String edition;
 
 	public void initialize() {
 

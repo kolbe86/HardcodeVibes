@@ -30,6 +30,9 @@ public class AddAuthorAction extends ActionSupport {
 
 	private String author;
 	private ConditionE[] conditions = ConditionE.values();
+	private String condition;
+	private String selectedPublicationType;
+	private List<String> selectedKeywords;
 
 	// Services
 	private PublicationService publicationService;
@@ -40,10 +43,13 @@ public class AddAuthorAction extends ActionSupport {
 	public String execute() throws Exception {
 
 		// Autor bearbeiten
-		authorSelection.add(author);
-		author = null;
+		if (!(author.equals(""))) {
+			authorSelection.add(author);
+			author = null;
+		}
 
 		// Get Publication-Types
+		setSelectedPublicationType(publicationTypeSelection.get(0));
 		publicationTypes = publicationTypeService.listAllPublicationTypes();
 		publicationTypeSelection = new LinkedList<String>();
 		for (PublicationType publicationType : publicationTypes) {
@@ -51,6 +57,10 @@ public class AddAuthorAction extends ActionSupport {
 		}
 
 		// Get Keywords
+		selectedKeywords = new LinkedList<String>();
+		for (String keyword : keywordSelection) {
+			selectedKeywords.add(keyword);
+		}
 		keywords = keywordService.listAllKeywords();
 		keywordSelection = new LinkedList<String>();
 		for (Keyword keyword : keywords) {
@@ -148,5 +158,29 @@ public class AddAuthorAction extends ActionSupport {
 	public void setPublicationTypeService(
 			PublicationTypeService publicationTypeService) {
 		this.publicationTypeService = publicationTypeService;
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+	public String getSelectedPublicationType() {
+		return selectedPublicationType;
+	}
+
+	public void setSelectedPublicationType(String selectedPublicationType) {
+		this.selectedPublicationType = selectedPublicationType;
+	}
+
+	public List<String> getSelectedKeywords() {
+		return selectedKeywords;
+	}
+
+	public void setSelectedKeywords(List<String> selectedKeywords) {
+		this.selectedKeywords = selectedKeywords;
 	}
 }

@@ -6,7 +6,9 @@ import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.util.ConditionE;
 
@@ -28,22 +30,21 @@ public class SearchPublicationAction extends ActionSupport {
 
 	private ConditionE[] conditions = ConditionE.values();
 	private ConditionE condition;
-	private String author;
 
 	private PublicationService publicationService;
+	private KeywordService keywordService;
 
 	@Override
 	public String execute() throws Exception {
 
-		// setPublications(publicationService.listPublications());
-		Set<String> authors = new HashSet<String>();
-		if (!(author == null)) {
-			authors.add(author);
+		Set<Keyword> keywords = new HashSet<Keyword>();
+		for (String keyword : keywordSelection) {
+			keywords.add(keywordService.findKeywordByName(keyword));
 		}
 		setPublications(publicationService.findPublicationByCriteria(
-				publicationBean.getTitle(), authors, publicationBean.getIsbn(),
-				publicationBean.getPublisher(), publicationBean.getIssue(),
-				publicationBean.getEdition()));
+				publicationBean.getTitle(), keywords,
+				publicationBean.getIsbn(), publicationBean.getPublisher(),
+				publicationBean.getIssue(), publicationBean.getEdition()));
 		return SUCCESS;
 
 	}
@@ -105,12 +106,11 @@ public class SearchPublicationAction extends ActionSupport {
 		this.conditions = conditions;
 	}
 
-	public String getAuthor() {
-		return author;
+	public KeywordService getKeywordService() {
+		return keywordService;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setKeywordService(KeywordService keywordService) {
+		this.keywordService = keywordService;
 	}
-
 }

@@ -30,6 +30,7 @@ public class InitPublicationSearchAction extends ActionSupport {
 	List<String> publicationTypeSelection;
 	List<String> authorSelection = new LinkedList<String>();
 	private ConditionE[] conditions = ConditionE.values();
+	private String condition;
 
 	// Services
 	private KeywordService keywordService;
@@ -39,7 +40,7 @@ public class InitPublicationSearchAction extends ActionSupport {
 
 		// Initialize
 		publicationBean = new Publication();
-		publicationBean.initialize();
+		condition = ConditionE.NEW.name();
 
 		// Get Publication-Types
 		publicationTypes = publicationTypeService.listAllPublicationTypes();
@@ -135,5 +136,13 @@ public class InitPublicationSearchAction extends ActionSupport {
 
 	public void setAuthorSelection(List<String> authorSelection) {
 		this.authorSelection = authorSelection;
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
 	}
 }

@@ -12,15 +12,14 @@
 <h3>Lege eine neue Publikation an</h3>
 
 <s:form action="publicationCreationAction">
- 	
 	<s:textfield name="publicationBean.title" label="Titel"/>
 	<s:textfield  name="author" label="Autor"/>
 	<s:select name="authorSelection"  list="authorSelection" size="3" multiple="true" label="Autoren"/>
 		<s:submit value="Autor hinzufügen" action="addAuthorAction"></s:submit>
  	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
-	<s:select name="publicationTypeSelection"  list="publicationTypeSelection" size="1" multiple="false"  label="Publikationsart"/>
-	<s:select name="keywordSelection"  list="keywordSelection" size="1" multiple="true" label="Schlagwörter" disabled=""/>
-	<s:radio name="condition" key="conditions" list="conditions" label="Zustand" />
+	<s:select name="publicationTypeSelection"  list="publicationTypes" size="1" multiple="false"  label="Publikationsart" value="publicationTypeSelection"/>
+	<s:select name="keywordSelection"  list="keywordSelection" size="1" multiple="true" label="Schlagwörter" value="selectedKeywords"/>
+	<s:radio name="condition" key="conditions" list="conditions" value="condition" />
 	<s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/>
 	<s:textfield name="publicationBean.publisher"  label ="Verlag"/>
 	<s:textfield name="publicationBean.edition"  label ="Auflage"/>

@@ -30,7 +30,7 @@ public class PublicationDAO extends HibernateDaoSupport {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Publication.class);
 		criteria.setFetchMode("publicationType", FetchMode.JOIN);
-		criteria.setFetchMode("keyword", FetchMode.JOIN);
+		criteria.setFetchMode("keywords", FetchMode.JOIN);
 		return (List<Publication>) criteria.list();
 	}
 

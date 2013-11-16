@@ -25,11 +25,14 @@ public class PublicationStartup extends ActionSupport {
 	private Set<PublicationType> publicationTypes;
 
 	// Select-Lists
-	// private?
+	// TODO private?
 	List<String> keywordSelection;
 	List<String> publicationTypeSelection;
 	List<String> authorSelection = new LinkedList<String>();
+
 	private ConditionE[] conditions = ConditionE.values();
+	private String condition;
+	private String selectedPublicatoinType;
 
 	// Services
 	private KeywordService keywordService;
@@ -96,14 +99,6 @@ public class PublicationStartup extends ActionSupport {
 		this.keywords = keywords;
 	}
 
-	public Set<PublicationType> getPublicationTypes() {
-		return publicationTypes;
-	}
-
-	public void setPublicationTypes(Set<PublicationType> publicationTypes) {
-		this.publicationTypes = publicationTypes;
-	}
-
 	public List<String> getKeywordSelection() {
 		return keywordSelection;
 	}
@@ -135,5 +130,29 @@ public class PublicationStartup extends ActionSupport {
 
 	public void setAuthorSelection(List<String> authorSelection) {
 		this.authorSelection = authorSelection;
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+	public Set<PublicationType> getPublicationTypes() {
+		return publicationTypes;
+	}
+
+	public void setPublicationTypes(Set<PublicationType> publicationTypes) {
+		this.publicationTypes = publicationTypes;
+	}
+
+	public String getSelectedPublicatoinType() {
+		return selectedPublicatoinType;
+	}
+
+	public void setSelectedPublicatoinType(String selectedPublicatoinType) {
+		this.selectedPublicatoinType = selectedPublicatoinType;
 	}
 }

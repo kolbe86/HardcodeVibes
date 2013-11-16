@@ -3,9 +3,9 @@
 Publikation
 <ul>
 	<li>
-		<a href="<s:url action="publicationCreationLink" />" >anlegen</a>
+		<a href="<s:url action="publicationCreationLink" />" >Anlegen</a>
 	</li>
-	<li><a href="<s:url action="searchPublicationLink" />" >verwalten</a></li>	
+	<li><a href="<s:url action="searchPublicationLink" />" >Suchen</a></li>	
 	<li><a href="<s:url action="listPublicationsLink" />" >Publikationsliste</a></li>	
 </ul>
 Ausleihvorgang

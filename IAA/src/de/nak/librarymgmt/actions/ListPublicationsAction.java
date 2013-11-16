@@ -1,6 +1,5 @@
 package de.nak.librarymgmt.actions;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,7 +19,6 @@ public class ListPublicationsAction extends ActionSupport {
 
 	public String execute() {
 
-		List<Publication> publications = new LinkedList<Publication>();
 		setPublications(publicationService.listPublications());
 
 		return SUCCESS;
