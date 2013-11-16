@@ -17,6 +17,6 @@ public class BorrowerFirstnameComparator implements Comparator<Borrower> {
 		if (b2.getLastName() == null) {
 			return -1;
 		}
-		return b1.getLastName().compareTo(b2.getLastName());
+		return b1.getFirstName().compareTo(b2.getFirstName());
 	}
 }

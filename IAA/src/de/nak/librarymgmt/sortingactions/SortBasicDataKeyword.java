@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -12,27 +11,24 @@ import de.nak.librarymgmt.comparators.KeywordComparator;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.service.KeywordService;
 
-public class SortBasicDataKeywordIncreasing extends ActionSupport {
+public class SortBasicDataKeyword extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	private Set<Keyword> tempKeywords;
-
 	private List<Keyword> keywords;
 	private KeywordService keywordService;
+	private boolean increasing;
+	private String whichColumn;
 
 	public String execute() throws Exception {
 
+		setKeywords(new LinkedList<Keyword>(keywordService.listAllKeywords()));
+
 		Comparator<Keyword> comp = new KeywordComparator();
-
-		setTempKeywords(keywordService.listAllKeywords());
-
-		setKeywords(new LinkedList<Keyword>());
-		for (Keyword publicationType : tempKeywords) {
-			keywords.add(publicationType);
-		}
-
 		Collections.sort(keywords, comp);
+		if (increasing == false) {
+			Collections.reverse(keywords);
+		}
 
 		return SUCCESS;
 
@@ -46,12 +42,20 @@ public class SortBasicDataKeywordIncreasing extends ActionSupport {
 		this.keywordService = keywordService;
 	}
 
-	public Set<Keyword> getTempKeywords() {
-		return tempKeywords;
+	public boolean isIncreasing() {
+		return increasing;
 	}
 
-	public void setTempKeywords(Set<Keyword> tempKeywords) {
-		this.tempKeywords = tempKeywords;
+	public void setIncreasing(boolean increasing) {
+		this.increasing = increasing;
+	}
+
+	public String getWhichColumn() {
+		return whichColumn;
+	}
+
+	public void setWhichColumn(String whichColumn) {
+		this.whichColumn = whichColumn;
 	}
 
 	public List<Keyword> getKeywords() {

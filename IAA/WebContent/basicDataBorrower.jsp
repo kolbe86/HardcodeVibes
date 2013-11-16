@@ -12,6 +12,11 @@
 
 <div style="width:100%;height:60%;background-color:light-blue;margin:20px">
 
+<s:form action="sortBasicDataBorrower" method="execute" escapeAmp="false">
+		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
+		<s:radio name="whichColumn"  value="'matNumber'" label="Spalte" list="#@java.util.LinkedHashMap@{'matNumber':'Matrikelnummer','firstName':'Vorname','lastName':'Nachname'}"/>
+		<s:submit value="sortieren" />
+</s:form> 
 <table>
 	<thead style="background-color:#FF7140">
 		<tr>
@@ -21,40 +26,6 @@
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
-			<tr>
-			<td>
-				<s:form action="sortBasicDataBorrowerIdIncreasing" method="execute">
-					<s:submit value="aufwärts sortieren" />
-				</s:form> 
-			</td>
-			<td>
-				<s:form action="sortBasicDataBorrowerFirstnameIncreasing" method="execute">
-					<s:submit value="aufwärts sortieren" />
-				</s:form> 
-			</td>
-			<td>
-				<s:form action="sortBasicDataBorrowerLastnameIncreasing" method="execute">
-					<s:submit value="aufwärts sortieren" />
-				</s:form> 
-			</td>
-		</tr>
-			<tr>
-			<td>
-				<s:form action="sortBasicDataBorrowerIdDecreasing" method="execute">
-					<s:submit value="abwärts sortieren" />
-				</s:form> 
-			</td>
-			<td>
-				<s:form action="sortBasicDataBorrowerFirstnameDecreasing" method="execute">
-					<s:submit value="abwärts sortieren" />
-				</s:form> 
-			</td>
-			<td>
-				<s:form action="sortBasicDataBorrowerLastnameDecreasing" method="execute">
-					<s:submit value="abwärts sortieren" />
-				</s:form> 
-			</td>
-		</tr>
 		<s:iterator value="borrowers">
 			<tr>
 				<td>
@@ -66,7 +37,6 @@
 				<td>
 				<a href="<s:url action="borrowerStartupAction"><s:param name="paramBorrower" value="matriculationNumber" /></s:url>"><s:property value="lastName"/></a>
 				</td>
-
 			</tr>
 		</s:iterator>
 	</tbody>

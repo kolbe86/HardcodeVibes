@@ -112,43 +112,16 @@
 <!-- 		Sorting Actions -->
 		
 <!-- 		Basic Data Sorting -->
-		<action name="sortBasicDataPublicationTypeIncreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataPublicationTypeIncreasing" method="execute">
+
+		<action name="sortBasicDataPublicationType" class="de.nak.librarymgmt.sortingactions.SortBasicDataPublicationType" method="execute">
 			<result name="success" type="tiles">basicDataType</result>
 		</action>
 		
-		<action name="sortBasicDataPublicationTypeDecreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataPublicationTypeDecreasing" method="execute">
-			<result name="success" type="tiles">basicDataType</result>
-		</action>
-		
-		<action name="sortBasicDataKeywordIncreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataKeywordIncreasing" method="execute">
+		<action name="sortBasicDataKeyword" class="de.nak.librarymgmt.sortingactions.SortBasicDataKeyword" method="execute">
 			<result name="success" type="tiles">basicDataKeyword</result>
 		</action>
 		
-		<action name="sortBasicDataKeywordDecreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataKeywordDecreasing" method="execute">
-			<result name="success" type="tiles">basicDataKeyword</result>
-		</action>
-		
-		<action name="sortBasicDataBorrowerIdIncreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrowerIdIncreasing" method="execute">
-			<result name="success" type="tiles">basicDataBorrower</result>
-		</action>
-		
-		<action name="sortBasicDataBorrowerIdDecreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrowerIdDecreasing" method="execute">
-			<result name="success" type="tiles">basicDataBorrower</result>
-		</action>
-		
-		<action name="sortBasicDataBorrowerFirstnameIncreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrowerFirstnameIncreasing" method="execute">
-			<result name="success" type="tiles">basicDataBorrower</result>
-		</action>
-		
-		<action name="sortBasicDataBorrowerFirstnameDecreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrowerFirstnameDecreasing" method="execute">
-			<result name="success" type="tiles">basicDataBorrower</result>
-		</action>
-		
-		<action name="sortBasicDataBorrowerLastnameIncreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrowerLastnameIncreasing" method="execute">
-			<result name="success" type="tiles">basicDataBorrower</result>
-		</action>
-		
-		<action name="sortBasicDataBorrowerLastnameDecreasing" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrowerLastnameDecreasing" method="execute">
+		<action name="sortBasicDataBorrower" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrower" method="execute">
 			<result name="success" type="tiles">basicDataBorrower</result>
 		</action>
 		

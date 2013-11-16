@@ -12,6 +12,11 @@
 
 <div style="width:100%;height:60%;background-color:light-blue;margin:20px">
 
+<s:form action="sortBasicDataPublicationType" method="execute">
+		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
+		<s:submit value="sortieren" />
+</s:form> 
+
 <table>
 	<thead style="background-color:#FF7140">
 		<tr>
@@ -19,20 +24,6 @@
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
-		<tr>
-			<td>
-				<s:form action="sortBasicDataPublicationTypeIncreasing" method="execute">
-					<s:submit value="aufwärts sortieren" />
-				</s:form> 
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<s:form action="sortBasicDataPublicationTypeDecreasing" method="execute">
-					<s:submit value="abwärts sortieren" />
-				</s:form> 
-			</td>
-		</tr>
 		<s:iterator value="publicationTypes">
 			<tr>
 				<td>
