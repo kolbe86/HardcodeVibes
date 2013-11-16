@@ -28,6 +28,7 @@
 		</property>
 		<property name="mappingResources">
 			<list>
+				<value>de/nak/librarymgmt/model/Author.hbm.xml</value>
 				<value>de/nak/librarymgmt/model/Borrower.hbm.xml</value>
 				<value>de/nak/librarymgmt/model/Publication.hbm.xml</value>
 				<value>de/nak/librarymgmt/model/PublicationType.hbm.xml</value>
@@ -59,6 +60,10 @@
 
 	<!-- DAO´s -->
 
+	<bean id="authorDAO" class="de.nak.librarymgmt.dao.AuthorDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
 	<bean id="borrowerDAO" class="de.nak.librarymgmt.dao.BorrowerDAO">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -81,6 +86,10 @@
 
 	<!-- Services -->
 
+	<bean id="authorService" class="de.nak.librarymgmt.service.AuthorServiceImpl">
+		<property name="authorDAO" ref="authorDAO" />
+	</bean>
+	
 	<bean id="borrowerService" class="de.nak.librarymgmt.service.BorrowerServiceImpl">
 		<property name="borrowerDAO" ref="borrowerDAO" />
 	</bean>
