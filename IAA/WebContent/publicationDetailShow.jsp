@@ -12,6 +12,7 @@
 		<tbody style="background-color:#FFCF73">
 			<tr>
 				<td><s:textfield name="publicationBean.publicationID" label="ID"></s:textfield></td>
+<%-- 				<td><s:textfield name="publicationBean.authors" label="Autor"></s:textfield></td> --%>
 <%-- 					<s:submit action="showPublicationDetailAction" value="Publikation anzeigen"/> --%>
 				<td><s:textfield name="publicationBean.title" label="Titel" size="auto" disabled="true"/></td>
 				<td><s:textfield name="publicationBean.publicationDate" label="Publikationsdatum" disabled="true"/></td>

@@ -11,11 +11,11 @@ Sie möchten das Buch mit dem Titel <s:property value="publicationBean.title"/> a
 
 <s:property value="publicationBean.publicationID"/>
 
-<s:form action="sortBorrowerTablePublication" method="execute" escapeAmp="false">
-		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
-		<s:radio name="whichColumn"  value="'matNumber'" label="Spalte" list="#@java.util.LinkedHashMap@{'matNumber':'Matrikelnummer','firstName':'Vorname','lastName':'Nachname'}"/>
-		<s:submit value="sortieren" />
-</s:form> 
+<%-- <s:form action="sortBorrowerTablePublication" method="execute" escapeAmp="false"> --%>
+<%-- 		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br> --%>
+<%-- 		<s:radio name="whichColumn"  value="'matNumber'" label="Spalte" list="#@java.util.LinkedHashMap@{'matNumber':'Matrikelnummer','firstName':'Vorname','lastName':'Nachname'}"/> --%>
+<%-- 		<s:submit value="sortieren" /> --%>
+<%-- </s:form>  --%>
 
 <table>
 	<thead style="background-color:#FF7140">

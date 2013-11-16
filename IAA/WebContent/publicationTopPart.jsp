@@ -13,7 +13,7 @@
 
 <p>
 Der Titel der Publikation ist: <s:property value="probeBuchBean.titel" />
- Author: <s:property value="probeBuchBean.author" />
+ Author: <s:property value="probeBuchBean.authors" />
  Datum: <s:property value="probeBuchBean.datum" />
  Schlagwort: <s:property value="probeBuchBean.schlagwort" />
  Typ der Publikation: <s:property value="probeBuchBean.typ" />

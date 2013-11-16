@@ -18,6 +18,10 @@
 			<td><s:property value="publicationBean.title" /></td>
 		</tr>
 		<tr>
+			<td>Autor: </td>
+			<td><s:property value="publicationBean.authors" /></td>
+		</tr>
+		<tr>
 			<td>Datum: </td>
 			<td><s:property value="publicationBean.publicationDate" /></td>
 		</tr>
