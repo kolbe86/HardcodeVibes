@@ -39,13 +39,13 @@ public class PublicationDAO extends HibernateDaoSupport {
 				publicationID);
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<Publication> findByCriteria(String title,
 			Set<Keyword> keywords, String isbn, String publisher, String issue,
 			String edition) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Publication.class);
-		criteria.setFetchMode("authors", FetchMode.JOIN);
+		criteria.setFetchMode("authors", FetchMode.EAGER);
 		if (keywords != null) {
 			addRestrictionsForKeywords(criteria, keywords);
 		}

@@ -2,10 +2,12 @@ package de.nak.actions;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 
 import de.nak.librarymgmt.model.Keyword;
+import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BorrowerService;
 import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.LendingProcessService;
@@ -39,9 +41,21 @@ public class CreateTableAction implements Action {
 		publicationTypeService.createPublicationType("Zeitschrift");
 		publicationTypeService.createPublicationType("Hausarbeit");
 
+		keywordService.createKeyword("Mark");
+		
+		HashSet<Keyword> keywords1;
+		keywords1 = new HashSet<Keyword>();
+		keywords1.add(keywordService.findKeywordByName("Mark"));
+		
 		HashSet<Keyword> keywords;
 		keywords = new HashSet<Keyword>();
 		keywords.add(keywordService.findKeywordByName("Schnulze"));
+
+		
+		HashSet<String> authors;
+		authors = new HashSet<String>();
+		authors.add("Axel");
+
 		publicationService.createPublication("Vampire", null, new Date(),
 				ConditionE.NEW,
 				publicationTypeService.findPublicationTypeByName("Buch"),
@@ -51,12 +65,15 @@ public class CreateTableAction implements Action {
 				.createPublication("Das Kartell", null, new Date(),
 						ConditionE.NEW, publicationTypeService
 								.findPublicationTypeByName("Zeitschrift"),
-						keywords, "232-234-432-234", "Grim", "4.", "11.");
+						keywords1, "232-234-432-234", "Grim", "4.", "11.");
 
 		publicationService.createPublication("Der Hund", null, new Date(),
 				ConditionE.NEW,
 				publicationTypeService.findPublicationTypeByName("Buch"),
 				keywords, "213-213-2134123", "Axel Springer", "3.", "10.");
+
+		List<Publication> publications = publicationService
+				.findPublicationByCriteria("", keywords1, "", "", "", "");
 
 		return SUCCESS;
 	}
