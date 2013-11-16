@@ -115,6 +115,18 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 
 	}
 
+	public void updateDunningLevelForLendingProcess(long lendingProcessID,
+			DunningLevelE dunningLevel) {
+		LendingProcess lendingProcess = lendingProcessDAO
+				.findById(lendingProcessID);
+		try {
+			lendingProcess.setDunningLevel(dunningLevel);
+		} catch (Exception e) {
+			// TODO
+		}
+
+	}
+
 	public void dunLendingProcesses() {
 		List<LendingProcess> activeLendingProcesses = lendingProcessDAO
 				.findActiveProcesses();
@@ -183,6 +195,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 	 * lendingProcessDAO .findByPublication(publication); try { return
 	 * lendingProcess; } catch (Exception e) { return null; // TODO } }
 	 */
+
 	@Override
 	public List<LendingProcess> listLendingProcess() {
 		return lendingProcessDAO.findAll();

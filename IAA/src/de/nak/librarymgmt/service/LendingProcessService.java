@@ -6,6 +6,7 @@ import java.util.List;
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.util.DunningLevelE;
 import de.nak.librarymgmt.util.StatusE;
 
 public interface LendingProcessService {
@@ -43,5 +44,8 @@ public interface LendingProcessService {
 	List<LendingProcess> findActiveLendingProcesses();
 
 	void dunLendingProcesses();
+	
+	void updateDunningLevelForLendingProcess(long lendingProcessID,
+			DunningLevelE dunningLevel);
 
 }

@@ -11,9 +11,6 @@
 			fetch="join" />
 		<many-to-one name="publication" column="publicationID"
 			not-null="true" fetch="join" />
-		<!--- <set name="publication" table="PUBLICATION_LENDINGPROCESSES"> <key 
-			column="publicationID" /> <many-to-many column="id" class="de.nak.librarymgmt.model.Publication" 
-			/> </set> - -->
 		<property name="issueDate" column="ISSUE_DATE" type="timestamp" />
 		<property name="returnDate" column="RETURN_DATE" type="timestamp" />
 		<property name="extensionOfTimeLevel" column="EXTENSION_OF_TIME_LEVEL"
