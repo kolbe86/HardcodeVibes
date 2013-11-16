@@ -4,8 +4,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import de.nak.librarymgmt.dao.LendingProcessDAO;
 import de.nak.librarymgmt.dao.PublicationDAO;
+import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Keyword;
+import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.util.ConditionE;
@@ -13,6 +16,7 @@ import de.nak.librarymgmt.util.ConditionE;
 public class PublicationServiceImpl implements PublicationService {
 
 	private PublicationDAO publicationDAO;
+	private LendingProcessDAO lendingProcessDAO;
 
 	@Override
 	public Publication findPublicationById(long publicationID) {
@@ -39,7 +43,7 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public void createPublication(String title, Set<String> authors,
+	public void createPublication(String title, Set<Author> authors,
 			Date publicationDate, ConditionE condition,
 			PublicationType publicationType, Set<Keyword> keywords,
 			String isbn, String publisher, String issue, String edition) {
@@ -48,7 +52,6 @@ public class PublicationServiceImpl implements PublicationService {
 		publication.setAuthors(authors);
 		publication.setPublicationDate(publicationDate);
 		publication.setCondition(condition);
-		publication.setReserved(false);
 		publication.setPublicationType(publicationType);
 		publication.setKeywords(keywords);
 		publication.setIsbn(isbn);
@@ -67,7 +70,10 @@ public class PublicationServiceImpl implements PublicationService {
 	@Override
 	public void deletePublication(long publicationID) {
 		Publication publication = publicationDAO.findById(publicationID);
+		LendingProcess lendingProcess = lendingProcessDAO
+				.findByPublication(publicationID);
 		try {
+			lendingProcessDAO.delete(lendingProcess);
 			publicationDAO.delete(publication);
 
 		} catch (Exception e) {
@@ -78,10 +84,10 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public void updatePublication(long publicationID, String title,
-			Set<String> authors, Date publicationDate, ConditionE condition,
-			boolean distributed, boolean reserved,
+			Set<Author> authors, Date publicationDate, ConditionE condition,
 			PublicationType publicationType, Set<Keyword> keywords,
-			String isbn, String publisher, String issue, String edition) {
+			String isbn, String publisher, String issue, String edition,
+			boolean distributed) {
 		Publication publication = publicationDAO.findById(publicationID);
 		try {
 			publication.setTitle(title);
@@ -89,7 +95,6 @@ public class PublicationServiceImpl implements PublicationService {
 			publication.setPublicationDate(publicationDate);
 			publication.setCondition(condition);
 			publication.setDistributed(distributed);
-			publication.setReserved(reserved);
 			publication.setPublicationType(publicationType);
 			publication.setKeywords(keywords);
 			publication.setIsbn(isbn);
