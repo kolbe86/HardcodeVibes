@@ -10,7 +10,7 @@ Publikation
 </ul>
 Ausleihvorgang
 <ul>
-	<li><a href="<s:url action="lendingProcessManagementLink" />" >verwalten</a></li>
+	<li><a href="<s:url action="lendingProcessStartupAction" />" >verwalten</a></li>
 </ul>
 Stammdaten
 <ul>
