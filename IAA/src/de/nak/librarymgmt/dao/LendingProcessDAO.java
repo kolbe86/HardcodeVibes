@@ -8,6 +8,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.DistinctRootEntityResultTransformer;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.LendingProcess;
@@ -108,6 +109,7 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 		LogicalExpression firstSecondThird = Restrictions
 				.or(third, firstSecond);
 		criteria.add(firstSecond).add(firstSecondThird);
+		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
 		criteria.addOrder(Order.asc("issueDate"));
 		return ((List<LendingProcess>) criteria.list());
 	}
