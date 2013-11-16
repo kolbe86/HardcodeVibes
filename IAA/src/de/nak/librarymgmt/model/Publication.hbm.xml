@@ -33,7 +33,7 @@
 			type="string" />
 		<many-to-one name="publicationType" column="publicationTypeID"
 			not-null="true" fetch="join" />
-		<set name="keywords" table="PUBLICATIONS_KEYWORDS" fetch="join" lazy="false">
+		<set name="keywords" table="PUBLICATIONS_KEYWORDS" fetch="join">
 			<key column="publicationID" />
 			<many-to-many column="name" class="de.nak.librarymgmt.model.Keyword"/>
 		</set>
