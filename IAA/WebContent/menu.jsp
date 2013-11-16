@@ -1,4 +1,8 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
+Startseite
+<ul>
+	<li><a href="<s:url action="mainPageStartupAction" />" >anzeigen</a></li>
+</ul>
 
 Publikation
 <ul>

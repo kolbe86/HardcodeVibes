@@ -14,7 +14,7 @@ public class LostPublicationAction extends ActionSupport {
 	private LendingProcessService lendingProcessService;
 	private LendingProcess lendingProcessBean;
 	private PublicationService publicationService;
-	private Publication publication;
+	private Publication publicationBean;
 
 	public String execute() throws Exception {
 
@@ -25,7 +25,7 @@ public class LostPublicationAction extends ActionSupport {
 		lendingProcessService.endLendingProcess(lendingProcessBean
 				.getLendingProcessID());
 
-		setPublication(publicationService
+		setPublicationBean(publicationService
 				.findPublicationById(lendingProcessBean.getPublication()
 						.getPublicationID()));
 		// publicationService.updatePublication(publication.getPublicationID(),
@@ -37,7 +37,8 @@ public class LostPublicationAction extends ActionSupport {
 		// publication.getIssue(), publication.getEdition());
 		lendingProcessService.deleteLendingProcess(lendingProcessBean
 				.getLendingProcessID());
-		publicationService.deletePublication(publication.getPublicationID());
+		publicationService
+				.deletePublication(publicationBean.getPublicationID());
 
 		System.out.println("Startup LendingProcessGiveBack Ende");
 
@@ -70,12 +71,12 @@ public class LostPublicationAction extends ActionSupport {
 		this.publicationService = publicationService;
 	}
 
-	public Publication getPublication() {
-		return publication;
+	public Publication getPublicationBean() {
+		return publicationBean;
 	}
 
-	public void setPublication(Publication publication) {
-		this.publication = publication;
+	public void setPublicationBean(Publication publicationBean) {
+		this.publicationBean = publicationBean;
 	}
 
 }

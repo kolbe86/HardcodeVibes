@@ -10,8 +10,16 @@
 </head>
 <body style="height:100%;width:100%">
 
-<h1>Die folgende Publikation kann nicht mehr als zwei mal verlängert werden:</h1>
+<h1>Der folgende Ausleihvorgang kann nicht mehr als zwei mal verlängert werden:</h1>
 
-<s:property value="lendingProcessBean"/>
+<table>
+<tr><td>Ausleiher:</td><td><s:property value="lendingProcessBean.borrower" /></td></tr>
+<tr><td>Publikation</td><td><s:property value="lendingProcessBean.publication"/></td></tr>
+<tr><td>Ausleihdatum: </td><td><s:property value="lendingProcessBean.issueDate"/></td></tr>
+<tr><td>Rückgabedatum: </td><td><s:property value="lendingProcessBean.returnDate"/></td></tr>
+<tr><td>Verlängerungslevel:</td><td><s:property value="lendingProcessBean.extensionOfTimeLevel" /></td></tr>
+<tr><td>Status:</td><td><s:property value="lendingProcessBean.status" /></td></tr>
+<tr><td>Mahnstufe: </td><td><s:property value="lendingProcessBean.dunningLevel"/></td></tr>
+</table>
 </body>
 </html>

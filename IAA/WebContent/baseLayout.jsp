@@ -11,8 +11,8 @@
 <div style="width:100%;height:15%;background-color:#025167;"><tiles:insertAttribute name="header" /></div>
 <div style="width:15%;height:85%;background-color:pink;float:left">
 
-	<div style="width:100%;height:50%;background-color:#FFCF73;float:left"><tiles:insertAttribute name="menu" /></div>
-	<div style="width:100%;height:50%;background-color:#FF9773;float:left"><tiles:insertAttribute name="dunning" /></div>
+	<div style="width:100%;height:70%;background-color:#FFCF73;float:left"><tiles:insertAttribute name="menu" /></div>
+	<div style="width:100%;height:30%;background-color:#FF9773;float:left"><tiles:insertAttribute name="dunning" /></div>
 </div>
 <div style="width:85%;height:85%;background-color:#61B7CF;float:left"><tiles:insertAttribute name="main" /></div>
 

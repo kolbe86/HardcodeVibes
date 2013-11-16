@@ -15,6 +15,7 @@ public class GiveBackPublicationAction extends ActionSupport {
 	// private Long paramLendingProcess;
 	private LendingProcess lendingProcessBean;
 	private PublicationService publicationService;
+	private Publication publicationBean;
 
 	public String execute() throws Exception {
 
@@ -24,15 +25,19 @@ public class GiveBackPublicationAction extends ActionSupport {
 		lendingProcessService.endLendingProcess(lendingProcessBean
 				.getLendingProcessID());
 
-		Publication publication = publicationService
+		setPublicationBean(publicationService
 				.findPublicationById(lendingProcessBean.getPublication()
-						.getPublicationID());
-		publicationService.updatePublication(publication.getPublicationID(),
-				publication.getTitle(), publication.getAuthors(),
-				publication.getPublicationDate(), publication.getCondition(),
-				publication.getPublicationType(), publication.getKeywords(),
-				publication.getIsbn(), publication.getPublisher(),
-				publication.getIssue(), publication.getEdition(), false);
+						.getPublicationID()));
+
+		publicationService.updatePublication(
+				publicationBean.getPublicationID(), publicationBean.getTitle(),
+				publicationBean.getAuthors(),
+				publicationBean.getPublicationDate(),
+				publicationBean.getCondition(),
+				publicationBean.getPublicationType(),
+				publicationBean.getKeywords(), publicationBean.getIsbn(),
+				publicationBean.getPublisher(), publicationBean.getIssue(),
+				publicationBean.getEdition(), false);
 
 		System.out.println("Startup LendingProcessGiveBack Ende");
 		return "lendingProcessSuccess";
@@ -70,6 +75,14 @@ public class GiveBackPublicationAction extends ActionSupport {
 
 	public void setPublicationService(PublicationService publicationService) {
 		this.publicationService = publicationService;
+	}
+
+	public Publication getPublicationBean() {
+		return publicationBean;
+	}
+
+	public void setPublicationBean(Publication publicationBean) {
+		this.publicationBean = publicationBean;
 	}
 
 }

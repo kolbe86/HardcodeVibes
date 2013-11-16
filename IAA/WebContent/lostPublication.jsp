@@ -10,8 +10,20 @@
 </head>
 <body style="height:100%;width:100%">
 
-<h1>Der folgende Ausleihvorgang wurde beendet und die Publikation als Verlust gemeldet:</h1>
+<h1>Der Ausleihvorgang wurde beendet und die folgende Publikation als Verlust gemeldet:</h1>
 
-<s:property value="lendingProcessBean"/>
+<table>
+<tr><td>Titel:</td><td><s:property value="publicationBean.title" /></td></tr>
+<tr><td>Autoren:</td><td><s:property value="publicationBean.authors"/></td></tr>
+<tr><td>Publikationsdatum: </td><td><s:property value="publicationBean.publicationDate"/></td></tr>
+<tr><td>Publikationstyp: </td><td><s:property value="publicationBean.publicationType"/></td></tr>
+<tr><td>Schlagwörter:</td><td><s:property value="publicationBean.keywords" /></td></tr>
+<tr><td>ISBN:</td><td><s:property value="publicationBean.isbn" /></td></tr>
+<tr><td>Verlag: </td><td><s:property value="publicationBean.publisher"/></td></tr>
+<tr><td>Ausgabe:</td><td><s:property value="publicationBean.issue"/></td></tr>
+<tr><td>Auflage:</td><td><s:property value="publicationBean.edition"/></td></tr>
+<tr><td>Zustand:</td><td><s:property value="publicationBean.condition"/></td></tr>
+
+</table>
 </body>
 </html>
