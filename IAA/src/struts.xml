@@ -26,6 +26,7 @@
 		
 		<action name="publicationCreationAction" class="de.nak.librarymgmt.actions.PublicationCreationAction" method="execute">
   			<result name="success" type="tiles">publicationCreationSuccess</result>
+  			<result name="input" type="chain">publicationCreationLink</result>
 		</action>
 		
 		<action name="addAuthorAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
