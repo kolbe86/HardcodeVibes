@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.DistinctRootEntityResultTransformer;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Keyword;
@@ -29,6 +30,7 @@ public class PublicationDAO extends HibernateDaoSupport {
 	public List<Publication> findAll() {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Publication.class);
+		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
 		criteria.setFetchMode("publicationType", FetchMode.JOIN);
 		criteria.setFetchMode("keywords", FetchMode.JOIN);
 		return (List<Publication>) criteria.list();
@@ -45,7 +47,8 @@ public class PublicationDAO extends HibernateDaoSupport {
 			String edition) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Publication.class);
-		criteria.setFetchMode("authors", FetchMode.EAGER);
+		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
+		criteria.setFetchMode("keywords", FetchMode.EAGER);
 		if (keywords != null) {
 			addRestrictionsForKeywords(criteria, keywords);
 		}
