@@ -131,26 +131,5 @@
   			<result name="success" type="tiles">showPublicationTable</result>
 		</action>
 		
-		<action name="sortPublicationAttributeTitleIncreasing" class="de.nak.librarymgmt.sortingactions.SortPublicationAttributeTitleIncreasing" method="execute">
-  			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
-		
-		<action name="sortPublicationAttributeTitleDecreasing" class="de.nak.librarymgmt.sortingactions.SortPublicationAttributeTitleDecreasing" method="execute">
-  			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
-		
-		<action name="sortColumnAuthor" class="de.nak.librarymgmt.actions.SortColumnAuthor" method="execute">
-  			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
-		
-		<action name="sortColumnIsbn" class="de.nak.librarymgmt.actions.SortColumnIsbn" method="execute">
-  			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
-		
-		<action name="sortColumnVerlag" class="de.nak.librarymgmt.actions.SortColumnVerlag" method="execute">
-  			<result name="success" type="tiles">successfullPublicationManagement</result>
-		</action>
-		
-		
 	</package>
 </struts>
