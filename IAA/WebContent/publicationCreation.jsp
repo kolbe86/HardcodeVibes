@@ -19,7 +19,7 @@
  	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
 	<s:select name="publicationTypeSelection"  list="publicationTypes" size="1" multiple="false"  label="Publikationsart" value="publicationTypeSelection"/>
 	<s:select name="keywordSelection"  list="keywordSelection" size="1" multiple="true" label="Schlagwörter" value="selectedKeywords"/>
-	<s:radio name="condition" key="conditions" list="conditions" value="condition" />
+	<s:radio name="condition" key="conditions" list="conditions" value="condition" label="Zustand"/>
 	<s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/>
 	<s:textfield name="publicationBean.publisher"  label ="Verlag"/>
 	<s:textfield name="publicationBean.edition"  label ="Auflage"/>

@@ -40,7 +40,7 @@
 	</definition>
 
   	<definition name="showPublicationTable" extends="baseLayout2">
-    			<put-attribute name="header" value="Publication Table"></put-attribute>
+    	<put-attribute name="header" value="Publication Table"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="Bottom-Left"></put-attribute>
 		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>     
@@ -71,6 +71,13 @@
 		<put-attribute name="bottom-left" value="/publicationDetailShow.jsp"></put-attribute>
 		<put-attribute name="bottom-right" value="/chooseBorrowerTable.jsp"></put-attribute>
 	</definition>
+	
+	 <definition name="successfullPublicationChange" extends="baseLayout2">
+    			<put-attribute name="header" value="Publication Table"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="Die Publikation wurde erfolgreich geändert"></put-attribute>
+		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>     
+  	</definition>
 	
 	<definition name="successfullLendingProcessCreation" extends="baseLayout2">
 		<put-attribute name="header" value="Publikation erfolgreich angelegt"></put-attribute>

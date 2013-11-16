@@ -52,9 +52,9 @@ public class InitPublicationSearchAction extends ActionSupport {
 		// Get Keywords
 		keywords = keywordService.listAllKeywords();
 		keywordSelection = new LinkedList<String>();
-		for (Keyword keyword : keywords) {
-			keywordSelection.add(keyword.getName());
-		}
+		// for (Keyword keyword : keywords) {
+		// keywordSelection.add(keyword.getName());
+		// }
 
 		return SUCCESS;
 

@@ -24,9 +24,14 @@ public class ShowPublicationChangeAction extends ActionSupport {
 	private Set<PublicationType> publicationTypes;
 
 	// Select-Lists
+	List<Publication> publications;
 	List<String> keywordSelection;
 	List<String> publicationTypeSelection;
-	List<String> authorSelection;
+
+	// Services
+	private PublicationService publicationService;
+	private KeywordService keywordService;
+	private PublicationTypeService publicationTypeService;
 
 	private String author;
 	private ConditionE[] conditions = ConditionE.values();
@@ -34,16 +39,33 @@ public class ShowPublicationChangeAction extends ActionSupport {
 	private String selectedPublicationType;
 	private List<String> selectedKeywords;
 
-	// Services
-	private PublicationService publicationService;
-	private KeywordService keywordService;
-	private PublicationTypeService publicationTypeService;
-
 	public String execute() {
 
-		authorSelection = new LinkedList<String>();
 		publicationBean = publicationService
 				.findPublicationById(publicationBean.getPublicationID());
+		condition = publicationBean.getCondition().name();
+
+		// Publication-Types
+		setSelectedPublicationType(publicationBean.getPublicationType()
+				.getName());
+		publicationTypes = publicationTypeService.listAllPublicationTypes();
+		publicationTypeSelection = new LinkedList<String>();
+		publicationTypeSelection.add(selectedPublicationType);
+
+		// Keywords
+		// TODO lazyLoading
+		selectedKeywords = new LinkedList<String>();
+		for (Keyword keyword : publicationBean.getKeywords()) {
+			selectedKeywords.add(keyword.getName());
+		}
+		keywords = keywordService.listAllKeywords();
+		keywordSelection = new LinkedList<String>();
+		for (Keyword keyword : keywords) {
+			keywordSelection.add(keyword.getName());
+		}
+
+		// Update Publication-Table
+		publications = publicationService.listPublications();
 
 		return SUCCESS;
 	}
@@ -87,14 +109,6 @@ public class ShowPublicationChangeAction extends ActionSupport {
 	public void setPublicationTypeSelection(
 			List<String> publicationTypeSelection) {
 		this.publicationTypeSelection = publicationTypeSelection;
-	}
-
-	public List<String> getAuthorSelection() {
-		return authorSelection;
-	}
-
-	public void setAuthorSelection(List<String> authorSelection) {
-		this.authorSelection = authorSelection;
 	}
 
 	public String getAuthor() {
@@ -162,4 +176,11 @@ public class ShowPublicationChangeAction extends ActionSupport {
 		this.publicationTypeService = publicationTypeService;
 	}
 
+	public List<Publication> getPublications() {
+		return publications;
+	}
+
+	public void setPublications(List<Publication> publications) {
+		this.publications = publications;
+	}
 }

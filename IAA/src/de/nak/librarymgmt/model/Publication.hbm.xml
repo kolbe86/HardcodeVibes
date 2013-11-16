@@ -32,8 +32,8 @@
 		<property name="edition" column="EDITION" not-null="false"
 			type="string" />
 		<many-to-one name="publicationType" column="publicationTypeID"
-			not-null="true" fetch="join" />
-		<set name="keywords" table="PUBLICATIONS_KEYWORDS">
+			not-null="true" fetch="join"/>
+		<set name="keywords" table="PUBLICATIONS_KEYWORDS"  lazy="false">
 			<key column="publicationID" />
 			<many-to-many column="name" class="de.nak.librarymgmt.model.Keyword" />
 		</set>
