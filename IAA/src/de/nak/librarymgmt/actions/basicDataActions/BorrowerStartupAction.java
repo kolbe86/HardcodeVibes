@@ -18,7 +18,7 @@ public class BorrowerStartupAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
-		// Get Borrowers
+		// get list of borrowers for table in jsp
 		borrowers = borrowerService.listBorrowers();
 
 		if (!(paramBorrower == null)) {

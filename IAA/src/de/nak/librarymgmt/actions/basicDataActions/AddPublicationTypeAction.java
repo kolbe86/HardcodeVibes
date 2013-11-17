@@ -17,9 +17,9 @@ public class AddPublicationTypeAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
+		// Create Publication Type and get new list for table in jsp
 		publicationTypeService.createPublicationType(publicationTypeBean
 				.getName());
-		// Get Publication-Types
 		publicationTypes = publicationTypeService.listAllPublicationTypes();
 
 		System.out.println("Add BasicDataType Ende");

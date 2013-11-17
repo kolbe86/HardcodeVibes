@@ -17,6 +17,7 @@ public class DeleteBorrowerAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
+		// Delete borrower and get list for table in jsp
 		borrowerService.deleteBorrower(borrowerBean.getMatriculationNumber());
 
 		borrowers = borrowerService.listBorrowers();

@@ -17,6 +17,7 @@ public class AddKeywordAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
+		// Create Keyword and get new list for table in jsp
 		keywordService.createKeyword(keywordBean.getName());
 
 		keywords = keywordService.listAllKeywords();

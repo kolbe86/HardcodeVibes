@@ -17,6 +17,7 @@ public class DeletePublicationTypeAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
+		// Delete Publication Type and get list for table in jsp
 		publicationTypeService.deletePublicationType(publicationTypeBean
 				.getName());
 		// Get Publication-Types

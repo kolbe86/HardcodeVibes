@@ -17,6 +17,7 @@ public class DeleteKeywordAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
+		// Delete Keyword and get list for table in jsp
 		keywordService.deleteKeyword(keywordBean.getName());
 
 		setKeywords(keywordService.listAllKeywords());
