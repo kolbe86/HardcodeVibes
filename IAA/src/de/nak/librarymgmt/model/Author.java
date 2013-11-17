@@ -49,6 +49,10 @@ public class Author implements Serializable {
 		this.name = name;
 	}
 
+	
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -65,7 +69,7 @@ public class Author implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		final Author other = (Author) obj;
+		Author other = (Author) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;

@@ -23,9 +23,8 @@ public class AuthorServiceImpl implements AuthorService {
 	public Author findAuthorByName(String name) {
 		Author author = new Author();
 		author.setName(name);
-		
 		Author existingAuthor = authorDAO.findByName(name);
-		if (author == existingAuthor) {
+		if (existingAuthor != null) {
 			return authorDAO.findByName(name);
 		} else {
 			authorDAO.save(author);
@@ -33,7 +32,6 @@ public class AuthorServiceImpl implements AuthorService {
 		}
 
 	}
-
 
 	public Author findAuthorById(long id) {
 		Author author = authorDAO.findById(id);

@@ -50,6 +50,7 @@ public class PublicationDAO extends HibernateDaoSupport {
 				.getCurrentSession().createCriteria(Publication.class);
 		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
 		criteria.setFetchMode("keywords", FetchMode.EAGER);
+		criteria.setFetchMode("authors", FetchMode.EAGER);
 		if (authors != null) {
 			addRestrictionsForAuthors(criteria, authors);
 		}
@@ -84,7 +85,7 @@ public class PublicationDAO extends HibernateDaoSupport {
 		Criteria authorsCriteria = criteria.createCriteria("authors");
 		while (iter.hasNext()) {
 			Author author = (Author) iter.next();
-			authorsCriteria.add(Restrictions.like("", "%" + author + "%"));
+			authorsCriteria.add(Restrictions.like("name", "%" + author + "%"));
 		}
 	}
 }
