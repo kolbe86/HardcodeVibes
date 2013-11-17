@@ -35,8 +35,9 @@ public class LostPublicationAction extends ActionSupport {
 		// publication.getPublicationType(), publication.getKeywords(),
 		// publication.getIsbn(), publication.getPublisher(),
 		// publication.getIssue(), publication.getEdition());
-		lendingProcessService.deleteLendingProcess(lendingProcessBean
-				.getLendingProcessID());
+		lendingProcessService
+				.deleteLendingProcessesWithGivenPublicationId(publicationBean
+						.getPublicationID());
 		publicationService
 				.deletePublication(publicationBean.getPublicationID());
 

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
-
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.DistinctRootEntityResultTransformer;
@@ -42,6 +41,24 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 	 */
 	public void delete(LendingProcess lendingProcess) {
 		getHibernateTemplate().delete(lendingProcess);
+	}
+
+	public void deleteAllLendingProcessesWithLostPublication(long publicationID) {
+		List<LendingProcess> lendingProcessesWithGivenPublication = findAllByPublicationID(publicationID);
+		for (LendingProcess lendingProcess : lendingProcessesWithGivenPublication) {
+			getHibernateTemplate().delete(lendingProcess);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<LendingProcess> findAllByPublicationID(long publicationID) {
+		Criteria criteria = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createCriteria(LendingProcess.class);
+		criteria.add(Restrictions
+				.eq("publication.publicationID", publicationID));
+		criteria.setFetchMode("borrower", FetchMode.JOIN);
+		criteria.setFetchMode("publication", FetchMode.JOIN);
+		return (List<LendingProcess>) criteria.list();
 	}
 
 	/**

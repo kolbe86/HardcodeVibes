@@ -21,6 +21,8 @@ public interface LendingProcessService {
 	void extendLendingProcess(long lendingProcessID);
 
 	void deleteLendingProcess(long lendingProcessID);
+	
+	void deleteLendingProcessesWithGivenPublicationId(long publicationID);
 
 	/*
 	 * void updateDunningLevel(long lendingProcessID);

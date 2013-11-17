@@ -188,13 +188,11 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		}
 	}
 
-	/*
-	 * @Override public LendingProcess findLendingProcessByPublicationId(long
-	 * publicationID) { Publication publication = publicationService
-	 * .findPublicationById(publicationID); LendingProcess lendingProcess =
-	 * lendingProcessDAO .findByPublication(publication); try { return
-	 * lendingProcess; } catch (Exception e) { return null; // TODO } }
-	 */
+	@Override
+	
+	public void deleteLendingProcessesWithGivenPublicationId(long publicationID){
+		lendingProcessDAO.deleteAllLendingProcessesWithLostPublication(publicationID);
+	}
 
 	@Override
 	public List<LendingProcess> listLendingProcess() {
