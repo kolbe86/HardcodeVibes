@@ -10,7 +10,7 @@ pageEncoding="ISO-8859-1"%>
 </head>
 <body style="height:100%;width:100%">
 
-<h1>Die folgende Publikation wurde erfolgreich zurück gegeben:</h1>
+<h4 style="background-color:#FF7140">Die folgende Publikation wurde erfolgreich zurück gegeben:</h4>
 <table>
 <tr><td>Titel:</td><td><s:property value="publicationBean.title" /></td></tr>
 <tr><td>Autoren:</td><td><s:property value="publicationBean.authors"/></td></tr>

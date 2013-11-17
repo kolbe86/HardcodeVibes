@@ -4,5 +4,6 @@ pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head><title>Simple jsp page</title></head>
-  <body>Place your content here</body>
+  <body>
+  <h1>Bibliotheksverwaltung von Mario, Kowk und Jonas</h1></body>
 </html>

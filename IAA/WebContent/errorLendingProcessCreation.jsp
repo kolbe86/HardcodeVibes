@@ -10,7 +10,7 @@ pageEncoding="ISO-8859-1"%>
 <title>SuccessfulLendingPrcessCreation</title>
 </head>
 <body>
-<h1 style="background-color:#FF7140">Ausleihvorgang konnte nocht erstellt werden</h1><br/>
+<h1 style="background-color:#FF7140">Ausleihvorgang konnte ncht erstellt werden. Die Publikation ist nicht verfügbar</h1><br/>
 
 			
 </body>
