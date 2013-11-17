@@ -128,7 +128,7 @@
 
 		<action name="addPublicationTypeAction" class="de.nak.librarymgmt.actions.basicDataActions.AddPublicationTypeAction" method="execute">
   			<result name="basicDataSuccess" type="tiles">basicDataType</result>
-  			<result name="input" type="tiles">basicDataType</result>
+  			<result name="input" type="chain">publicationTypeStartupAction</result>
 		</action>
 		
 		<action name="deletePublicationTypeAction" class="de.nak.librarymgmt.actions.basicDataActions.DeletePublicationTypeAction" method="execute">
@@ -137,7 +137,7 @@
 		
 		<action name="addKeywordAction" class="de.nak.librarymgmt.actions.basicDataActions.AddKeywordAction" method="execute">
   			<result name="basicDataSuccess" type="tiles">basicDataKeyword</result>
-  			<result name="input" type="tiles">basicDataKeyword</result>
+  			<result name="input" type="chain">keywordStartupAction</result>
 		</action>
 		
 		<action name="deleteKeywordAction" class="de.nak.librarymgmt.actions.basicDataActions.DeleteKeywordAction" method="execute">
@@ -146,6 +146,7 @@
 		
 		<action name="addBorrowerAction" class="de.nak.librarymgmt.actions.basicDataActions.AddBorrowerAction" method="execute">
   			<result name="basicDataSuccess" type="tiles">basicDataBorrower</result>
+  			<result name="input" type="chain">borrowerStartupAction</result>
 		</action>
 		
 		<action name="deleteBorrowerAction" class="de.nak.librarymgmt.actions.basicDataActions.DeleteBorrowerAction" method="execute">

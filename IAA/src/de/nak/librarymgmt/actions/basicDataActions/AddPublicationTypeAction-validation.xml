@@ -8,7 +8,7 @@
 <validators>
 	<field name="publicationTypeBean.name">
 		<field-validator type="requiredstring">
-			<message>Bitte geben Sie ein Schlagwort ein um es hinzuzufügen.</message>
+			<message>Bitte geben Sie eine Publikationsart ein um es hinzuzufügen.</message>
 		</field-validator>
 	</field>
 </validators> 
