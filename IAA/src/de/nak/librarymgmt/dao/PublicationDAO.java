@@ -9,22 +9,28 @@ import org.hibernate.FetchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.DistinctRootEntityResultTransformer;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.service.PublicationNotDeletableException;
 
 public class PublicationDAO extends HibernateDaoSupport {
 
 	public void save(Publication publication) {
 		getHibernateTemplate().save(publication);
-		System.out.println("saved!");
 	}
 
-	public void delete(Publication publication) {
-		getHibernateTemplate().delete(publication);
-		System.out.println("saved!");
+	public void delete(Publication publication)
+			throws PublicationNotDeletableException {
+		try {
+			getHibernateTemplate().delete(publication);
+
+		} catch (DataIntegrityViolationException e) {
+			throw new PublicationNotDeletableException();
+		}
 	}
 
 	@SuppressWarnings("unchecked")

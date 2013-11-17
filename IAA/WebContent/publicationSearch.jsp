@@ -17,7 +17,6 @@ pageEncoding="ISO-8859-1"%>
 	<s:textfield  name="author" label="Autor"/>
 	<s:select name="authorSelection"  list="authorSelection" size="3" multiple="true" label="Autoren"/>
 		<s:submit value="Autor hinzufügen" action="addAuthorForSearchAction"></s:submit>
- 	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
  	<s:select name="publicationTypeSelection"  list="publicationTypeSelection" size="1" multiple="false"  label="Publikationsart"/>
 	<s:select name="keywordSelection"  list="keywordSelectionList" size="1" multiple="false" label="Schlagwort" value=""/>
 	<s:radio name="condition" key="conditions" list="conditions" label="Zustand" value="condition"/>

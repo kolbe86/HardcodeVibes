@@ -17,7 +17,8 @@ public interface PublicationService {
 			PublicationType publicationType, Set<Keyword> keywords,
 			String isbn, String publisher, String issue, String edition);
 
-	void deletePublication(long publicationID);
+	void deletePublication(long publicationID)
+			throws PublicationNotDeletableException;
 
 	void updatePublication(long publicationID, String title,
 			Set<Author> authors, Date publicationDate, ConditionE condition,

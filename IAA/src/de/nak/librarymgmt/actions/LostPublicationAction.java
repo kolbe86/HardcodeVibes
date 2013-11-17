@@ -41,8 +41,6 @@ public class LostPublicationAction extends ActionSupport {
 		publicationService
 				.deletePublication(publicationBean.getPublicationID());
 
-		System.out.println("Startup LendingProcessGiveBack Ende");
-
 		return "lendingProcessSuccess";
 
 	}

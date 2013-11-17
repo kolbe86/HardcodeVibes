@@ -5,6 +5,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.service.LendingProcessService;
+import de.nak.librarymgmt.service.PublicationNotDeletableException;
 import de.nak.librarymgmt.service.PublicationService;
 
 public class DeletePublicationAction extends ActionSupport {
@@ -13,15 +15,26 @@ public class DeletePublicationAction extends ActionSupport {
 
 	private List<Publication> publications;
 	private PublicationService publicationService;
+	private LendingProcessService lendingProcessService;
+
 	private Publication publicationBean;
 
 	@Override
 	public String execute() throws Exception {
 
-		System.out.println(publicationBean.getPublicationID());
+		try {
+			lendingProcessService
+					.deleteLendingProcessesWithGivenPublicationId(publicationBean
+							.getPublicationID());
+			publicationService.deletePublication(publicationBean
+					.getPublicationID());
+
+		} catch (PublicationNotDeletableException ex) {
+			return "error";
+		}
 
 		setPublications(publicationService.listPublications());
-		return "error";
+		return "success";
 
 	}
 
@@ -49,4 +62,12 @@ public class DeletePublicationAction extends ActionSupport {
 		this.publicationBean = publicationBean;
 	}
 
+	public LendingProcessService getLendingProcessService() {
+		return lendingProcessService;
+	}
+
+	public void setLendingProcessService(
+			LendingProcessService lendingProcessService) {
+		this.lendingProcessService = lendingProcessService;
+	}
 }

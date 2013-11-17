@@ -66,13 +66,13 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public void deletePublication(long publicationID) {
+	public void deletePublication(long publicationID)
+			throws PublicationNotDeletableException {
 		Publication publication = publicationDAO.findById(publicationID);
 		try {
 			publicationDAO.delete(publication);
-
-		} catch (Exception e) {
-			// TODO
+		} catch (PublicationNotDeletableException ex) {
+			throw new PublicationNotDeletableException();
 
 		}
 	}
