@@ -27,7 +27,7 @@
   	
   	<definition name="fillData" extends="baseLayout">
       	<put-attribute name="header"  value="Publikation Anlegen"/>
-      	<put-attribute name="main"   value="Legen Sie zuerst Stammdaten an, um Publikation zu erzeugen."/>      
+      	<put-attribute name="main"   value="Legen Sie zuerst Stammdaten an, um Publikation zu verwalten."/>      
   	</definition>
   	
   	<definition name="publicationCreationSuccess" extends="baseLayout">
