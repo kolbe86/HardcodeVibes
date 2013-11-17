@@ -4,16 +4,13 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.LogicalExpression;
+
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.DistinctRootEntityResultTransformer;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.LendingProcess;
-import de.nak.librarymgmt.model.Publication;
-import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.util.DunningLevelE;
 import de.nak.librarymgmt.util.StatusE;
 
@@ -97,18 +94,12 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 		return ((List<LendingProcess>) criteria.list());
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked" })
 	public List<LendingProcess> findDunnedProcesses() {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(LendingProcess.class);
-		Criterion first = Restrictions.eq("dunningLevel", DunningLevelE.FIRST);
-		Criterion second = Restrictions
-				.eq("dunningLevel", DunningLevelE.SECOND);
-		Criterion third = Restrictions.eq("dunningLevel", DunningLevelE.THIRD);
-		LogicalExpression firstSecond = Restrictions.or(first, second);
-		LogicalExpression firstSecondThird = Restrictions
-				.or(third, firstSecond);
-		criteria.add(firstSecond).add(firstSecondThird);
+		criteria.add(Restrictions.not(Restrictions.eq("dunningLevel",
+				DunningLevelE.ZERO)));
 		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
 		criteria.addOrder(Order.asc("issueDate"));
 		return ((List<LendingProcess>) criteria.list());
