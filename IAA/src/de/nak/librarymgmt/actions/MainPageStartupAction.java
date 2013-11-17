@@ -16,6 +16,11 @@ public class MainPageStartupAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
+		// Automatisches Mahnen der abgelaufenen Ausleihvorgänge
+
+		lendingProcessService.dunLendingProcesses();
+
+		// Suchen der gemahnten Ausleihvorgänge
 		setLendingProcesses(lendingProcessService.findDunnedLendingProcesses());
 
 		System.out.println("Startup DunnedLendingProcess Ende");
