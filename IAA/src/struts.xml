@@ -173,6 +173,10 @@
 			<result name="success" type="tiles">lendingProcessManagement</result>
 		</action>
 		
+		<action name="sortDunnedLendingProcess" class="de.nak.librarymgmt.sortingactions.SortDunnedLendingProcess" method="execute">
+			<result name="success" type="tiles">baseLayout</result>
+		</action>
+		
 <!-- 		Other Sorting -->
 		
 		<action name="sortBorrowerTablePublication" class="de.nak.librarymgmt.sortingactions.SortBasicDataBorrower" method="execute">
