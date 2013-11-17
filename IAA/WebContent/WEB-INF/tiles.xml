@@ -151,6 +151,11 @@
       	<put-attribute name="header"  value="Publikation wurde als Verlust gemeldet"/>
       	<put-attribute name="main"   value="/lostPublication.jsp"/>      
   	</definition>
+  	
+  	 <definition name="lostNotPossible" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation kann nicht als Verlust gemeldet werden"/>
+      	<put-attribute name="main"   value="/lostNotPossible.jsp"/>      
+  	</definition>
   
 <!--   Basic Data Layouts -->
   

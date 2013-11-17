@@ -6,6 +6,7 @@ import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.PublicationService;
+import de.nak.librarymgmt.util.DunningLevelE;
 
 public class LostPublicationAction extends ActionSupport {
 
@@ -15,6 +16,7 @@ public class LostPublicationAction extends ActionSupport {
 	private LendingProcess lendingProcessBean;
 	private PublicationService publicationService;
 	private Publication publicationBean;
+	private DunningLevelE dunningLevel;
 
 	public String execute() throws Exception {
 
@@ -22,22 +24,27 @@ public class LostPublicationAction extends ActionSupport {
 				.findLendingProcessById(lendingProcessBean
 						.getLendingProcessID()));
 
+		setDunningLevel(lendingProcessBean.getDunningLevel());
+
+		if (dunningLevel != DunningLevelE.THIRD) {
+
+			setPublicationBean(publicationService
+					.findPublicationById(lendingProcessBean.getPublication()
+							.getPublicationID()));
+
+			return "lostNotPossible";
+		}
 		lendingProcessService.endLendingProcess(lendingProcessBean
 				.getLendingProcessID());
 
 		setPublicationBean(publicationService
 				.findPublicationById(lendingProcessBean.getPublication()
 						.getPublicationID()));
-		// publicationService.updatePublication(publication.getPublicationID(),
-		// publication.getTitle(), publication.getAuthors(),
-		// publication.getPublicationDate(), publication.getCondition(),
-		// false, publication.isReserved(),
-		// publication.getPublicationType(), publication.getKeywords(),
-		// publication.getIsbn(), publication.getPublisher(),
-		// publication.getIssue(), publication.getEdition());
+
 		lendingProcessService
 				.deleteLendingProcessesWithGivenPublicationId(publicationBean
 						.getPublicationID());
+
 		publicationService
 				.deletePublication(publicationBean.getPublicationID());
 
@@ -76,6 +83,14 @@ public class LostPublicationAction extends ActionSupport {
 
 	public void setPublicationBean(Publication publicationBean) {
 		this.publicationBean = publicationBean;
+	}
+
+	public DunningLevelE getDunningLevel() {
+		return dunningLevel;
+	}
+
+	public void setDunningLevel(DunningLevelE dunningLevel) {
+		this.dunningLevel = dunningLevel;
 	}
 
 }

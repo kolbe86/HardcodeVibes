@@ -105,7 +105,9 @@
 		
 		<action name="lostPublicationAction" class="de.nak.librarymgmt.actions.LostPublicationAction" method="execute">
 			<result name="lendingProcessSuccess" type="tiles">lostPublication</result>
+			<result name="lostNotPossible" type="tiles">lostNotPossible</result>
 		</action>
+		
 		
 	
 		
