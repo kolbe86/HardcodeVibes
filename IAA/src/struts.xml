@@ -136,6 +136,7 @@
 		
 		<action name="addKeywordAction" class="de.nak.librarymgmt.actions.basicDataActions.AddKeywordAction" method="execute">
   			<result name="basicDataSuccess" type="tiles">basicDataKeyword</result>
+  			<result name="input" type="tiles">basicDataKeyword</result>
 		</action>
 		
 		<action name="deleteKeywordAction" class="de.nak.librarymgmt.actions.basicDataActions.DeleteKeywordAction" method="execute">
