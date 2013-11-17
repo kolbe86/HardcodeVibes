@@ -15,7 +15,9 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.PublicationNotDeletableException;
+import de.nak.librarymgmt.util.ConditionE;
 
 public class PublicationDAO extends HibernateDaoSupport {
 
@@ -50,29 +52,32 @@ public class PublicationDAO extends HibernateDaoSupport {
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public List<Publication> findByCriteria(String title, Set<Author> authors,
-			Set<Keyword> keywords, String isbn, String publisher, String issue,
-			String edition) {
-		Criteria criteria = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createCriteria(Publication.class);
-		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
-		criteria.setFetchMode("keywords", FetchMode.EAGER);
-		criteria.setFetchMode("authors", FetchMode.EAGER);
-		if (authors != null) {
-			addRestrictionsForAuthors(criteria, authors);
+	PublicationType publicationType, Set<Keyword> keywords,
+	ConditionE condition, String isbn, String publisher,
+	String edition, String issue) {
+	Criteria criteria = getHibernateTemplate().getSessionFactory()
+	.getCurrentSession().createCriteria(Publication.class);
+	criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
+	// criteria.setFetchMode("keywords", FetchMode.EAGER);
+	// criteria.setFetchMode("keywords", FetchMode.EAGER);
+	// criteria.setFetchMode("authors", FetchMode.EAGER);
+	if (authors != null) {
+	addRestrictionsForAuthors(criteria, authors);
+	}
+	if (keywords != null) {
+		addRestrictionsForKeywords(criteria, keywords);
 		}
-		if (keywords != null) {
-			addRestrictionsForKeywords(criteria, keywords);
-		}
-		criteria.add(Restrictions.like("title", "%" + title + "%").ignoreCase());
-		criteria.add(Restrictions.like("isbn", "%" + isbn + "%"));
-		criteria.add(Restrictions.like("publisher", "%" + publisher + "%")
-				.ignoreCase());
-		criteria.add(Restrictions.like("issue", "%" + issue + "%").ignoreCase());
-		criteria.add(Restrictions.like("edition", "%" + edition + "%")
-				.ignoreCase());
-		criteria.addOrder(Order.asc("title"));
-
-		return (List<Publication>) criteria.list();
+	criteria.add(Restrictions.like("title", "%" + title + "%").ignoreCase());
+	criteria.add(Restrictions.eq("publicationType", publicationType));
+	criteria.add(Restrictions.eq("condition", condition));
+	criteria.add(Restrictions.like("isbn", "%" + isbn + "%"));
+	criteria.add(Restrictions.like("publisher", "%" + publisher + "%")
+	.ignoreCase());
+	criteria.add(Restrictions.like("issue", "%" + issue + "%").ignoreCase());
+	criteria.add(Restrictions.like("edition", "%" + edition + "%")
+	.ignoreCase());
+	criteria.addOrder(Order.asc("title"));
+	return (List<Publication>) criteria.list();
 	}
 
 	private void addRestrictionsForKeywords(Criteria criteria,

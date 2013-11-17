@@ -8,7 +8,7 @@
 			<generator class="sequence" />
 		</id>
 		<property name="title" column="TITLE" type="string" not-null="true" />
-		<set name="authors" table="PUBLICATION_AUTHORS" fetch="join">
+		<set name="authors" table="PUBLICATION_AUTHORS" lazy="false">
 			<key column="publicationID" />
 			<many-to-many column="id" class="de.nak.librarymgmt.model.Author" />
 		</set>
@@ -30,8 +30,8 @@
 		<property name="edition" column="EDITION" not-null="false"
 			type="string" />
 		<many-to-one name="publicationType" column="publicationTypeID"
-			not-null="true" fetch="join"/>
-		<set name="keywords" table="PUBLICATIONS_KEYWORDS"  lazy="false">
+			not-null="true" lazy="false" />
+		<set name="keywords" table="PUBLICATIONS_KEYWORDS" lazy="false">
 			<key column="publicationID" />
 			<many-to-many column="name" class="de.nak.librarymgmt.model.Keyword" />
 		</set>

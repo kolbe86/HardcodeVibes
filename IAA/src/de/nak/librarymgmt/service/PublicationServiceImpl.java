@@ -104,9 +104,10 @@ public class PublicationServiceImpl implements PublicationService {
 
 	@Override
 	public List<Publication> findPublicationByCriteria(String title,
-			Set<Author> authors, Set<Keyword> keywords, String isbn,
-			String publisher, String issue, String edition) {
-		return publicationDAO.findByCriteria(title, authors, keywords, isbn,
-				publisher, issue, edition);
+	Set<Author> authors, PublicationType publicationType,
+	Set<Keyword> keywords, ConditionE condition, String isbn,
+	String publisher, String edition, String issue) {
+	return publicationDAO.findByCriteria(title, authors, publicationType,
+	keywords, condition, isbn, publisher, edition, issue);
 	}
 }

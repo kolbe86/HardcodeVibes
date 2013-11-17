@@ -9,9 +9,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.AuthorService;
 import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.PublicationService;
+import de.nak.librarymgmt.service.PublicationTypeService;
 import de.nak.librarymgmt.util.ConditionE;
 
 public class SearchPublicationAction extends ActionSupport {
@@ -33,6 +35,8 @@ public class SearchPublicationAction extends ActionSupport {
 	private PublicationService publicationService;
 	private KeywordService keywordService;
 	private AuthorService authorService;
+	private PublicationTypeService publicationTypeService;
+
 
 	@Override
 	public String execute() throws Exception {
@@ -42,18 +46,21 @@ public class SearchPublicationAction extends ActionSupport {
 			keywords.add(keywordService.findKeywordByName(keyword));
 		}
 
-		// CRASH
 		Set<Author> authors = new HashSet<Author>();
-		// for (String selectedAuthor : authorSelection) {
-		// Author author = authorService.findAuthorByName(selectedAuthor);
-		// if (author != null) {
-		// authors.add(author);
-		// }
-		// }
+		for (String selectedAuthor : authorSelection) {
+			Author author = authorService.findAuthorByName(selectedAuthor);
+			if (author != null) {
+				authors.add(author);
+			}
+		}
+		
+		PublicationType publicationType = publicationTypeService.findPublicationTypeByName(publicationTypeSelection.get(0));
+		
 		setPublications(publicationService.findPublicationByCriteria(
-				publicationBean.getTitle(), authors, keywords,
+				publicationBean.getTitle(), authors,publicationType,
+				publicationBean.getKeywords(), condition,
 				publicationBean.getIsbn(), publicationBean.getPublisher(),
-				publicationBean.getIssue(), publicationBean.getEdition()));
+				publicationBean.getEdition(), publicationBean.getIssue()));
 		return SUCCESS;
 
 	}
@@ -147,4 +154,12 @@ public class SearchPublicationAction extends ActionSupport {
 		this.author = author;
 	}
 
+	public PublicationTypeService getPublicationTypeService() {
+		return publicationTypeService;
+	}
+
+	public void setPublicationTypeService(
+			PublicationTypeService publicationTypeService) {
+		this.publicationTypeService = publicationTypeService;
+	}
 }
