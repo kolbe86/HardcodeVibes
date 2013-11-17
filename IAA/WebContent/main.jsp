@@ -32,10 +32,10 @@ pageEncoding="ISO-8859-1"%>
 		<s:iterator value="lendingProcesses">
 			<tr>
 				<td>
-				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="borrower"/></a>
+				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="borrower.firstName"/> <s:property value="borrower.lastName"/></a>
 				</td>
 				<td>
-				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="publication"/></a>
+				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="publication.title"/></a>
 				</td>
 				<td>
 				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="issueDate"/></a>
