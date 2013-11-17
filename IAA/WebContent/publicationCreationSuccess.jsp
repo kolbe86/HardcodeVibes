@@ -13,7 +13,7 @@ pageEncoding="ISO-8859-1"%>
 <h3>Publikation wurde erfolgreich angelegt.</h3>
 
 <table>
-	<tbody>
+	<tbody  style="background-color:#FFCF73">
 		<tr>
 			<td>Titel: </td>
 			<td><s:property value="publicationBean.title" /></td>
@@ -46,7 +46,6 @@ pageEncoding="ISO-8859-1"%>
 </table>
 
 <p><a href="<s:url action='publicationCreationLink' />" >Weitere Publikation anlegen</a>.</p>
-<p><a href="<s:url action='baseLayoutLink' />" >Zueruck zur Startseite</a>.</p>
 
 </body>
 </html>

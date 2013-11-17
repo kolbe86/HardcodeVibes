@@ -9,9 +9,8 @@ pageEncoding="ISO-8859-1"%>
 <title>Publikation verwalten</title>
 </head>
 <body>
-<h3>Suchen Sie eine Publikation, die Sie verwalten möchten</h3>
-
-<s:form>
+<h4 style="background-color:#FF7140">Suchen Sie eine Publikation, die Sie verwalten möchten</h4>
+<s:form style="background-color:#FFCF73">
 
 	<s:textfield name="publicationBean.title" label="Titel"/>
 	<s:textfield  name="author" label="Autor"/>

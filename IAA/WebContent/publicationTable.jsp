@@ -7,9 +7,12 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Publikationsansicht</title>
 </head>
 <body>
+
+<h4 style="background-color:#FF7140">Übersicht der Publikationen</h4>
+
 	<s:form action="sortPublications" method="execute" escapeAmp="false">
 		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
 		<s:radio name="whichColumn"  value="'title'" label="Spalte" list="#@java.util.LinkedHashMap@{'title':'Titel','publicationDate':'Veröffentlichungsdatum','publicationType':'Publikationsart','keyword':'Schlagwörter','isbn':'ISBN','publisher':'Verlag','edition':'Ausgabe','issue':'Auflage','distributed':'Verliehen','reserved':'Reserviert','condition':'Zustand'}"/>

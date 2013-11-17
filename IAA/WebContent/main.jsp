@@ -10,10 +10,8 @@ pageEncoding="ISO-8859-1"%>
 </head>
 <body style="height:100%;width:100%">
 
-<h1>Die Bibliothekare Chu, Kolbe und Mäckel begrüßen Sie!</h1>
-<br></br>
-<h1>Übersicht gemahnter Ausleihvorgänge:</h1>
-<br></br>
+<h4 style="background-color:#FF7140">Übersicht gemahnter Ausleihvorgänge:</h4>
+
 <s:form action="sortDunnedLendingProcess" method="execute" escapeAmp="false">
 		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
 		<s:radio name="whichColumn"  value="'borrower'" label="Spalte" list="#@java.util.LinkedHashMap@{'borrower':'Ausleiher','publication':'Publikation','issueDate':'Ausleihdatum','returnDate':'Rückgabedatum','extensionOfTimeLevel':'Verlängerungslevel','dunningLevel':'Mahnstufe'}"/>

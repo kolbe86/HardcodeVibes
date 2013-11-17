@@ -20,6 +20,13 @@
 		<put-attribute name="bottom-right" value="/bottom.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="baseLayout2" template="/baseLayout3.jsp">
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/menu.jsp"></put-attribute>
+		<put-attribute name="dunning" value="/dunning.jsp"></put-attribute>
+		<put-attribute name="main" value="/main.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="publicationCreation" extends="baseLayout">
       	<put-attribute name="header"  value="Publikation Anlegen"/>
       	<put-attribute name="main"   value="/publicationCreation.jsp"/>      

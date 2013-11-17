@@ -9,20 +9,27 @@ pageEncoding="ISO-8859-1"%>
 <title>Register</title>
 </head>
 <body>
-<h3>Publikation ändern</h3>
+
+<h4 style="background-color:#FF7140">Publikation ändern</h4>
 
 <s:form action="changePublicationAction">
-	<s:textfield name="publicationBean.publicationID" label="ID"/>
-	<s:textfield name="publicationBean.title" label="Titel"/>
- 	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
-	<s:select name="publicationTypeSelection"  list="publicationTypes" size="1" multiple="false"  label="Publikationsart" value="publicationTypeSelection"/>
-	<s:select name="keywordSelection"  list="keywordSelection" size="1" multiple="true" label="Schlagwörter" value="selectedKeywords"/>
-	<s:radio name="condition" key="conditions" list="conditions" value="condition" label="Zustand"/>
-	<s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/>
-	<s:textfield name="publicationBean.publisher"  label ="Verlag"/>
-	<s:textfield name="publicationBean.edition"  label ="Auflage"/>
-	<s:textfield name="publicationBean.issue" label = "Ausgabe"/>
+<table style="background-color:#FFCF73">
+		<tbody style="background-color:#FFCF73">
+			<tr>
+	<td><s:textfield name="publicationBean.publicationID" label="ID"/></td>
+	<td><s:textfield name="publicationBean.title" label="Titel"/></td>
+ 	<td><s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/></td>
+	<td><s:select name="publicationTypeSelection"  list="publicationTypes" size="1" multiple="false"  label="Publikationsart" value="publicationTypeSelection"/></td>
+	<td><s:select name="keywordSelection"  list="keywordSelection" size="1" multiple="true" label="Schlagwörter" value="selectedKeywords"/></td>
+	<td><s:radio name="condition" key="conditions" list="conditions" value="condition" label="Zustand"/></td>
+	<td><s:textfield name="publicationBean.isbn"  label ="ISBN Nummer"/></td>
+	<td><s:textfield name="publicationBean.publisher"  label ="Verlag"/></td>
+	<td><s:textfield name="publicationBean.edition"  label ="Auflage"/></td>
+	<td><s:textfield name="publicationBean.issue" label = "Ausgabe"/></td>
    		<s:submit value="Publikation ändern"/>
+   			</tr>
+		</tbody>
+		</table>
 </s:form>	
  
 </body>

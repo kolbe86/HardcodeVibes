@@ -8,11 +8,14 @@ pageEncoding="ISO-8859-1"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Basic Data Type</title>
 </head>
-<body style="height:100%;width:100%">
+<body>
+
+<h4 style="background-color:#FF7140">Stammdaten Publikationsart</h4>
+
 
 <div style="width:100%;height:60%;background-color:light-blue;margin:20px">
 
-<s:form action="sortBasicDataPublicationType" method="execute">
+<s:form  action="sortBasicDataPublicationType" method="execute">
 		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
 		<s:submit value="sortieren" />
 </s:form> 
@@ -38,6 +41,7 @@ pageEncoding="ISO-8859-1"%>
 
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
+<h4 style="background-color:#FF7140">Details zur Publikationsart</h4>
 
 				<s:form action="addPublicationTypeAction" >
 					<s:textfield name="publicationTypeBean.name" label="Publikationsart" size="auto"/>

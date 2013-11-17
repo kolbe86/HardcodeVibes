@@ -10,6 +10,8 @@ pageEncoding="ISO-8859-1"%>
 </head>
 <body style="height:100%;width:100%">
 
+<h4 style="background-color:#FF7140">Übersicht der Ausleihvorgänge</h4>
+
 <div style="width:100%;height:60%;background-color:light-blue;margin:20px">
 
 <s:form action="sortLendingProcess" method="execute" escapeAmp="false">
@@ -58,6 +60,8 @@ pageEncoding="ISO-8859-1"%>
 	</tbody>
 </table>
 </div>
+
+<h4 style="background-color:#FF7140">Details zum Ausleihvorgang</h4>
 
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 

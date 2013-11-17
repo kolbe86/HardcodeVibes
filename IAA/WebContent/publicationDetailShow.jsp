@@ -10,13 +10,12 @@ pageEncoding="ISO-8859-1"%>
 <title>Insert title here</title>
 </head>
 <body>
+<h4 style="background-color:#FF7140">Details zur Publikation</h4>
 <s:form>
 		<table style="background-color:#FFCF73">
 		<tbody style="background-color:#FFCF73">
 			<tr>
 				<td><s:textfield name="publicationBean.publicationID" label="ID"></s:textfield></td>
-<%-- 				<td><s:textfield name="publicationBean.authors" label="Autor"></s:textfield></td> --%>
-<%-- 					<s:submit action="showPublicationDetailAction" value="Publikation anzeigen"/> --%>
 				<td><s:textfield name="publicationBean.title" label="Titel" size="auto" disabled="true"/></td>
 				<td><s:textfield name="publicationBean.publicationDate" label="Publikationsdatum" disabled="true"/></td>
 				<td><s:textfield name="publicationBean.publicationType" label="Publikationsart" disabled="true"/></td>

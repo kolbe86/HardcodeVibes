@@ -8,7 +8,9 @@ pageEncoding="ISO-8859-1"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Basic Data Keyword</title>
 </head>
-<body style="height:100%;width:100%">
+<body>
+
+<h4 style="background-color:#FF7140">Stammdaten Schlagwörter</h4>
 
 <div style="width:100%;height:60%;background-color:light-blue;margin:20px">
 
@@ -38,7 +40,7 @@ pageEncoding="ISO-8859-1"%>
 
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
-
+<h4 style="background-color:#FF7140">Details zum Keyword</h4>
 
 				<s:form action="addKeywordAction">
 					<s:textfield name="keywordBean.name" label="Schlagwort" size="auto"/>

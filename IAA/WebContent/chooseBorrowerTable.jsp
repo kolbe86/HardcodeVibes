@@ -10,9 +10,8 @@ pageEncoding="ISO-8859-1"%>
 <title>Choose Borrower</title>
 </head>
 <body>
-Sie möchten das Buch mit dem Titel <s:property value="publicationBean.title"/> ausleihen. Wählen Sie einen Ausleiher aus der Liste oder erstellen Sie über das Menu zunächst einen neuen Ausleiher:
-
-<s:property value="publicationBean.publicationID"/>
+<h4 style="background-color:#FF7140">Ausleiher wählen</h4>
+Sie möchten das Buch mit dem Titel <s:property value="publicationBean.title"/> (ID:<s:property value="publicationBean.publicationID"/>) ausleihen.
 
 <%-- <s:form action="sortBorrowerTablePublication" method="execute" escapeAmp="false"> --%>
 <%-- 		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br> --%>

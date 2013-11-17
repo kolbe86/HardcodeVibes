@@ -10,7 +10,7 @@ pageEncoding="ISO-8859-1"%>
 <title>SuccessfulLendingPrcessCreation</title>
 </head>
 <body>
-<h1>Ausleihvorgang erfolgreich erstellt</h1><br/>
+<h1 style="background-color:#FF7140">Ausleihvorgang erfolgreich erstellt</h1><br/>
 
 			
 </body>

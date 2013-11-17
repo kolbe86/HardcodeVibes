@@ -9,9 +9,8 @@ pageEncoding="ISO-8859-1"%>
 <title>Register</title>
 </head>
 <body>
-<h3>Lege eine neue Publikation an</h3>
-
-<s:form action="publicationCreationAction">
+<h4 style="background-color:#FF7140">Lege eine neue Publikation an</h4>
+<s:form action="publicationCreationAction" style="background-color:#FFCF73">
 	<s:textfield name="publicationBean.title" label="Titel"/>
 	<s:textfield  name="author" label="Autor"/>
 	<s:select name="authorSelection"  list="authorSelection" size="3" multiple="true" label="Autoren"/>
