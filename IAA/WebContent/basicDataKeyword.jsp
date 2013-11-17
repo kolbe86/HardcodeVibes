@@ -45,7 +45,7 @@ pageEncoding="ISO-8859-1"%>
 				<s:form action="addKeywordAction">
 					<s:textfield name="keywordBean.name" label="Schlagwort" size="auto"/>
 					<s:submit value="hinzufügen" />
-					<s:submit value="löschen" action="deleteKeywordAction"/>
+					<s:submit value="löschen" action="deleteKeywordAction" disabled="true"/>
 				</s:form> 
 </div>
 </body>

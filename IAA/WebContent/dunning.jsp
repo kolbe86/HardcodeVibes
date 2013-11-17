@@ -7,9 +7,14 @@ pageEncoding="ISO-8859-1"%>
 <html>
   <head><title>Simple jsp page</title></head>
   <body>
-  <s:form action="CreateTable">
-  		<s:submit label="Test-Knopf"/>
-  </s:form>
   
-  <p><a href="<s:url action="marioTestLink" />" >TEST TEST TEST</a></p></body>
+<!--   Development Test-Buttons -->
+  
+<%--   <s:form action="CreateTable"> --%>
+<%--   		<s:submit label="Test-Knopf"/> --%>
+<%--   </s:form> --%>
+  
+<%--   <p><a href="<s:url action="marioTestLink" />" >TEST TEST TEST</a></p> --%>
+  
+  </body>
 </html>

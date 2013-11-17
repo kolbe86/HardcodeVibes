@@ -56,7 +56,7 @@ pageEncoding="ISO-8859-1"%>
 			<s:textfield name="borrowerBean.firstName" label="Vorname" size="auto"/>
 			<s:textfield name="borrowerBean.lastName" label="Nachname" size="auto"/>
 					<s:submit value="hinzufügen"/>
-					<s:submit value="löschen" action="deleteBorrowerAction"/>
+					<s:submit value="löschen" action="deleteBorrowerAction" disabled="true"/>
 				</s:form> 
 </div>
 </body>

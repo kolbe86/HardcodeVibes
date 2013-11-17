@@ -46,7 +46,7 @@ pageEncoding="ISO-8859-1"%>
 				<s:form action="addPublicationTypeAction" >
 					<s:textfield name="publicationTypeBean.name" label="Publikationsart" size="auto"/>
 					<s:submit value="hinzufügen" />
-					<s:submit value="löschen" action="deletePublicationTypeAction"/>
+					<s:submit value="löschen" action="deletePublicationTypeAction" disabled="true"/>
 				</s:form> 
 </div>
 </body>
