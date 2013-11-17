@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -19,9 +22,9 @@
 	<tr>
 		<th>Titel</th>
 		<th>Autoren</th>
-		<th>Veröffentlichungsdatum</th>
+		<th>VerÃ¶ffentlichungsdatum</th>
 		<th>Publikationsart</th>
-		<th>Schlagwörter</th>
+		<th>SchlagwÃ¶rter</th>
 		<th>ISBN</th>
 		<th>Verlag</th>
 		<th>Ausgabe</th>
@@ -137,7 +140,7 @@
 				<td><s:textfield name="publicationBean.publicationDate" label="Publikationsdatum"/></td>
 			</tr>
 <!-- 				<tr> -->
-<%-- 					<td><s:textfield name="publicationBean.keywords" label="Schlagwörter"/></td> --%>
+<%-- 					<td><s:textfield name="publicationBean.keywords" label="SchlagwÃ¶rter"/></td> --%>
 <%-- 					<td><s:textfield name="publicationBean.isbn" label="ISBN"/></td> --%>
 <%-- 					<td><s:textfield name="publicationBean.publisher" label="Verlag"/></td> --%>
 <!-- 				</tr> -->

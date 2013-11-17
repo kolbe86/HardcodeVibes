@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Basic Data Keyword</title>
 </head>
 <body style="height:100%;width:100%">
@@ -20,7 +20,7 @@
 <table>
 	<thead style="background-color:#FF7140">
 		<tr>
-			<th>Schlagwörter</th>
+			<th>SchlagwÃ¶rter</th>
 		</tr>
 	</thead>
 	<tbody style="background-color:#FFCF73">
@@ -42,8 +42,8 @@
 
 				<s:form action="addKeywordAction">
 					<s:textfield name="keywordBean.name" label="Schlagwort" size="auto"/>
-					<s:submit value="hinzufügen" />
-					<s:submit value="löschen" action="deleteKeywordAction"/>
+					<s:submit value="hinzufÃ¼gen" />
+					<s:submit value="lÃ¶schen" action="deleteKeywordAction"/>
 				</s:form> 
 </div>
 </body>

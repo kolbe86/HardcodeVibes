@@ -1,15 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="ISO-8859-1"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<s:form action="sortPublications" method="execute" escapeAmp="false">
 		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
-		<s:radio name="whichColumn"  value="'title'" label="Spalte" list="#@java.util.LinkedHashMap@{'title':'Titel','publicationDate':'Veröffentlichungsdatum','publicationType':'Publikationsart','keyword':'Schlagwörter','isbn':'ISBN','publisher':'Verlag','edition':'Ausgabe','issue':'Auflage','distributed':'Verliehen','reserved':'Reserviert','condition':'Zustand'}"/>
+		<s:radio name="whichColumn"  value="'title'" label="Spalte" list="#@java.util.LinkedHashMap@{'title':'Titel','publicationDate':'VerÃ¶ffentlichungsdatum','publicationType':'Publikationsart','keyword':'SchlagwÃ¶rter','isbn':'ISBN','publisher':'Verlag','edition':'Ausgabe','issue':'Auflage','distributed':'Verliehen','reserved':'Reserviert','condition':'Zustand'}"/>
 		<s:submit value="sortieren" />
 	</s:form> 
 <table>
@@ -17,9 +20,9 @@
 	<tr>
 		<th>Titel</th>
 		<th>Autoren</th>
-		<th>Veröffentlichungsdatum</th>
+		<th>VerÃ¶ffentlichungsdatum</th>
 		<th>Publikationsart</th>
-		<th>Schlagwörter</th>
+		<th>SchlagwÃ¶rter</th>
 		<th>ISBN</th>
 		<th>Verlag</th>
 		<th>Ausgabe</th>

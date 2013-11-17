@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=IUTF-8" />
 <title>Basic Data Borrower</title>
 </head>
 <body style="height:100%;width:100%">
@@ -45,12 +45,12 @@
 
 <div style="width:100%;height:40%;background-color:light-blue;margin:20px">
 
-		<s:form action="addBorrowerAction">
+		<s:form action="addBorrowerAction" acceptcharset="utf-8">
 			<s:textfield name="borrowerBean.matriculationNumber" label="Matrikelnummer" size="auto"/>
 			<s:textfield name="borrowerBean.firstName" label="Vorname" size="auto"/>
 			<s:textfield name="borrowerBean.lastName" label="Nachname" size="auto"/>
-					<s:submit value="hinzufügen" />
-					<s:submit value="löschen" action="deleteBorrowerAction"/>
+					<s:submit value="hinzufÃ¼gen"/>
+					<s:submit value="lÃ¶schen" action="deleteBorrowerAction"/>
 				</s:form> 
 </div>
 </body>

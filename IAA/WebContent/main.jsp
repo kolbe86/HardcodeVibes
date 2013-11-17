@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,13 +10,13 @@
 </head>
 <body style="height:100%;width:100%">
 
-<h1>Die Bibliothekare Chu, Kolbe und Mäckel begrüßen Sie!</h1>
+<h1>Die Bibliothekare Chu, Kolbe und MÃ¤ckel begrÃ¼ÃŸen Sie!</h1>
 <br></br>
-<h1>Übersicht gemahnter Ausleihvorgänge:</h1>
+<h1>Ãœbersicht gemahnter AusleihvorgÃ¤nge:</h1>
 <br></br>
 <s:form action="sortDunnedLendingProcess" method="execute" escapeAmp="false">
 		<s:radio name="increasing" value="true" label="Sortierreihenfolge" list="#@java.util.LinkedHashMap@{true:'Aufsteigend',false:'Absteigend'}"/><br></br>
-		<s:radio name="whichColumn"  value="'borrower'" label="Spalte" list="#@java.util.LinkedHashMap@{'borrower':'Ausleiher','publication':'Publikation','issueDate':'Ausleihdatum','returnDate':'Rückgabedatum','extensionOfTimeLevel':'Verlängerungslevel','dunningLevel':'Mahnstufe'}"/>
+		<s:radio name="whichColumn"  value="'borrower'" label="Spalte" list="#@java.util.LinkedHashMap@{'borrower':'Ausleiher','publication':'Publikation','issueDate':'Ausleihdatum','returnDate':'RÃ¼ckgabedatum','extensionOfTimeLevel':'VerlÃ¤ngerungslevel','dunningLevel':'Mahnstufe'}"/>
 		<s:submit value="sortieren" />
 </s:form> 
 <table>
@@ -25,8 +25,8 @@
 			<th>Ausleiher</th>
 			<th>Publikation</th>
 			<th>Ausleihdatum</th>
-			<th>Rückgabedatum</th>
-			<th>Verlängerungslevel</th>
+			<th>RÃ¼ckgabedatum</th>
+			<th>VerlÃ¤ngerungslevel</th>
 			<th>Mahnstufe</th>
 		</tr>
 	</thead>

@@ -57,7 +57,7 @@
 		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="/publicationDetailShow.jsp"></put-attribute>
-		<put-attribute name="bottom-right" value="Warte noch länger auf Action"></put-attribute>
+		<put-attribute name="bottom-right" value="Warte noch laenger auf Action"></put-attribute>
 	</definition>
 	<definition name="publicationDetailError" extends="baseLayout">		
 		<put-attribute name="header" value="Fehler!"></put-attribute>
