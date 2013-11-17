@@ -42,15 +42,15 @@
   	<definition name="showPublicationTable" extends="baseLayout2">
     	<put-attribute name="header" value="Publication Table"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
-		<put-attribute name="bottom-left" value="Bottom-Left"></put-attribute>
-		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>     
+		<put-attribute name="bottom-left" value=""></put-attribute>
+		<put-attribute name="bottom-right" value=""></put-attribute>     
   	</definition>
   	
   	<definition name="successfullPublicationManagementLayout" extends="baseLayout2">
 		<put-attribute name="header" value="Publication Table"></put-attribute>
 		<put-attribute name="main" value="/publicationTable"></put-attribute>
-		<put-attribute name="bottom-left" value="Bottom-Left"></put-attribute>
-		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>
+		<put-attribute name="bottom-left" value=""></put-attribute>
+		<put-attribute name="bottom-right" value=""></put-attribute>
 	</definition>
 	
 	<definition name="showPublicationDetail" extends="baseLayout2">		
@@ -67,7 +67,7 @@
 		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="/publicationChange.jsp"></put-attribute>
-		<put-attribute name="bottom-right" value="Warte noch länger auf Action"></put-attribute>
+		<put-attribute name="bottom-right" value=""></put-attribute>
 	</definition>
 		<definition name="chooseBorrower" extends="baseLayout2">		
 		<put-attribute name="header" value="Wähle einen Ausleiher"></put-attribute>
@@ -80,7 +80,21 @@
     			<put-attribute name="header" value="Publication Table"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="Die Publikation wurde erfolgreich geändert"></put-attribute>
-		<put-attribute name="bottom-right" value="Bottom-Left"></put-attribute>     
+		<put-attribute name="bottom-right" value=""></put-attribute>     
+  	</definition>
+	
+	<definition name="successfullPublicationDelete" extends="baseLayout2">
+    			<put-attribute name="header" value="Publication Table"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="Die Publikation wurde erfolgreich gelöscht.jsp"></put-attribute>
+		<put-attribute name="bottom-right" value=""></put-attribute>     
+  	</definition>
+  	
+  	<definition name="errorPublicationDelete" extends="baseLayout2">
+    			<put-attribute name="header" value="Publication Table"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="ERROR"></put-attribute>
+		<put-attribute name="bottom-right" value=""></put-attribute>     
   	</definition>
 	
 	<definition name="successfullLendingProcessCreation" extends="baseLayout2">

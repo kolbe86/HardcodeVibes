@@ -9,11 +9,12 @@ import de.nak.librarymgmt.util.ConditionE;
 public class Publication implements Serializable {
 
 	/**
-	 * 
+	 *  
 	 */
 	private static final long serialVersionUID = 1L;
 	private long publicationID;
 	private String title;
+
 	private Set<Author> authors;
 	private Date publicationDate;
 	private ConditionE condition;
@@ -38,13 +39,9 @@ public class Publication implements Serializable {
 
 	public String toString() {
 		String publicationString;
-		publicationString = "Titel: " + title + " :: "
-		// + "Autoren: " + authors.toString()
-				+ "Datum: " + publicationDate.toString() + " :: "
-				// + "Zustand: " + condition
-				+ "Verliehen: " + distributed + " :: "
-		// + "Publicationstyp: " + publicationType.getName()
-		// + "Schlagwšrter: " + keywords
+		publicationString = "Titel: " + title + " :: " + "Datum: "
+				+ publicationDate.toString() + " :: " + "Verliehen: "
+				+ distributed;
 		;
 
 		return publicationString;

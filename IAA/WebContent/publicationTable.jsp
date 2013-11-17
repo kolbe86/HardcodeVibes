@@ -35,7 +35,7 @@
 				<td><a href="<s:url action="showPublicationDetailAction"><s:param name="publicationID" value="publicationID" /></s:url>"><s:property value="title"/></a></td>	
 				<td>
 					<s:iterator value="authors">
-						<s:property value="authors"/>
+						<s:property value="name"/>
 					</s:iterator>
 				</td>
 				<td><s:property value="publicationDate"/></td>

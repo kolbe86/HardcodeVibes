@@ -19,7 +19,7 @@
 		</tr>
 		<tr>
 			<td>Autor: </td>
-			<td><s:property value="publicationBean.authors" /></td>
+			<td><s:property value="authorSelection"/> </td>
 		</tr>
 		<tr>
 			<td>Datum: </td>

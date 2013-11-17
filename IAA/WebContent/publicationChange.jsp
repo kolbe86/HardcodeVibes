@@ -13,7 +13,6 @@
 
 <s:form action="changePublicationAction">
 	<s:textfield name="publicationBean.publicationID" label="ID"/>
-	<s:textfield name="publicationBean.authors" label="ID"/>
 	<s:textfield name="publicationBean.title" label="Titel"/>
  	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
 	<s:select name="publicationTypeSelection"  list="publicationTypes" size="1" multiple="false"  label="Publikationsart" value="publicationTypeSelection"/>
