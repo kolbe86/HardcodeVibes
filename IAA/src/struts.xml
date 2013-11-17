@@ -128,6 +128,7 @@
 
 		<action name="addPublicationTypeAction" class="de.nak.librarymgmt.actions.basicDataActions.AddPublicationTypeAction" method="execute">
   			<result name="basicDataSuccess" type="tiles">basicDataType</result>
+  			<result name="input" type="tiles">basicDataType</result>
 		</action>
 		
 		<action name="deletePublicationTypeAction" class="de.nak.librarymgmt.actions.basicDataActions.DeletePublicationTypeAction" method="execute">
