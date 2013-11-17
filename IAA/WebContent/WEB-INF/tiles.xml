@@ -24,12 +24,18 @@
       	<put-attribute name="header"  value="Publikation Anlegen"/>
       	<put-attribute name="main"   value="/publicationCreation.jsp"/>      
   	</definition>
+  	
+  	<definition name="fillData" extends="baseLayout">
+      	<put-attribute name="header"  value="Publikation Anlegen"/>
+      	<put-attribute name="main"   value="Legen Sie zuerst Stammdaten an, um Publikation zu erzeugen."/>      
+  	</definition>
+  	
   	<definition name="publicationCreationSuccess" extends="baseLayout">
       	<put-attribute name="header"  value="Publikation erfolgreich angelegt"/>
       	<put-attribute name="main"   value="/publicationCreationSuccess.jsp"/>      
   	</definition>    
   	
-    <definition name="publicationSearch" extends="baseLayout">
+    <definition name="successPublicationSearch" extends="baseLayout">
     	<put-attribute name="header"  value="Publikation verwalten"/>
       	<put-attribute name="main"   value="/publicationSearch.jsp"/>      
   	</definition>
@@ -57,11 +63,11 @@
 		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="/publicationDetailShow.jsp"></put-attribute>
-		<put-attribute name="bottom-right" value="Warte noch laenger auf Action"></put-attribute>
+		<put-attribute name="bottom-right" value=""></put-attribute>
 	</definition>
 	<definition name="publicationDetailError" extends="baseLayout">		
 		<put-attribute name="header" value="Fehler!"></put-attribute>
-		<put-attribute name="main" value="Die ausgewählte Publikation ist leider nicht im System verfügbar"></put-attribute>
+		<put-attribute name="main" value="Die Publikation ist leider nicht im System verfügbar"></put-attribute>
 	</definition>
 	<definition name="showPublicationChange" extends="baseLayout2">		
 		<put-attribute name="header" value="Publikationsdetails"></put-attribute>
@@ -69,11 +75,19 @@
 		<put-attribute name="bottom-left" value="/publicationChange.jsp"></put-attribute>
 		<put-attribute name="bottom-right" value=""></put-attribute>
 	</definition>
-		<definition name="chooseBorrower" extends="baseLayout2">		
+		<definition name="successChooseBorrower" extends="baseLayout2">		
 		<put-attribute name="header" value="Wähle einen Ausleiher"></put-attribute>
 		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
 		<put-attribute name="bottom-left" value="/publicationDetailShow.jsp"></put-attribute>
 		<put-attribute name="bottom-right" value="/chooseBorrowerTable.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="errorChooseBorrower" extends="baseLayout2">		
+		<put-attribute name="header" value="Wähle einen Ausleiher"></put-attribute>
+		<put-attribute name="main" value="/publicationTable.jsp"></put-attribute>
+		<put-attribute name="bottom-left" value="Die Publikation ist nicht verfügbar"></put-attribute>
+		<put-attribute name="bottom-right" value=""></put-attribute>
 	</definition>
 	
 	 <definition name="successfullPublicationChange" extends="baseLayout2">

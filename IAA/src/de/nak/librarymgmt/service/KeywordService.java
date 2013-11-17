@@ -6,14 +6,14 @@ import de.nak.librarymgmt.model.Keyword;
 
 public interface KeywordService {
 
-	void createKeyword(String name) throws Exception;
+	void createKeyword(String name);
 
-	void deleteKeyword(String name) throws NotFoundException;
+	void deleteKeyword(String name);
 
-	void updateKeyword(String name, String newName) throws NotFoundException;
+	void updateKeyword(String name, String newName);
 
 	Set<Keyword> listAllKeywords();
 
-	Keyword findKeywordByName(String name) throws NotFoundException;
+	Keyword findKeywordByName(String name);
 
 }

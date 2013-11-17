@@ -34,12 +34,12 @@ public class CreateLPAction extends ActionSupport {
 		// Unnštig?
 		publications = publicationService.listPublications();
 
-		Publication publication = publicationService
-				.findPublicationById(publicationID);
-		Borrower borrower = borrowerService
-				.findBorrowerByMatriculationNumber(matriculationNumber);
-
 		try {
+			Publication publication = publicationService
+					.findPublicationById(publicationID);
+			Borrower borrower = borrowerService
+					.findBorrowerByMatriculationNumber(matriculationNumber);
+
 			lendingProcessService.createLendingProcess(borrower, publication,
 					new Date());
 
@@ -53,7 +53,6 @@ public class CreateLPAction extends ActionSupport {
 					publication.getPublisher(), publication.getIssue(),
 					publication.getEdition(), publication.isDistributed());
 		} catch (PublicationNotFoundException e) {
-			System.out.println("Publication nicht gefunden");
 			return "error";
 		} catch (PublicationAlreadyDistributedException e) {
 			System.out.println("Publication ist bereits verliehen");

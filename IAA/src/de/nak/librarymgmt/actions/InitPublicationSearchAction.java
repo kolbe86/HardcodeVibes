@@ -57,6 +57,10 @@ public class InitPublicationSearchAction extends ActionSupport {
 			keywordSelectionList.add(keyword.getName());
 		}
 
+		if (keywords.isEmpty() || publicationTypes.isEmpty()) {
+			return "error";
+		}
+
 		return SUCCESS;
 
 	}

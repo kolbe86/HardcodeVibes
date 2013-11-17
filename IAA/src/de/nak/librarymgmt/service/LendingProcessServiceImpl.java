@@ -15,7 +15,6 @@ import de.nak.librarymgmt.util.StatusE;
 
 public class LendingProcessServiceImpl implements LendingProcessService {
 
-	private PublicationService publicationService;
 	private LendingProcessDAO lendingProcessDAO;
 	private static final int loanPeriodInDays = 28;
 	private static final int daysForFirstDunning = 1;
@@ -189,9 +188,9 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 	}
 
 	@Override
-	
-	public void deleteLendingProcessesWithGivenPublicationId(long publicationID){
-		lendingProcessDAO.deleteAllLendingProcessesWithLostPublication(publicationID);
+	public void deleteLendingProcessesWithGivenPublicationId(long publicationID) {
+		lendingProcessDAO
+				.deleteAllLendingProcessesWithLostPublication(publicationID);
 	}
 
 	@Override

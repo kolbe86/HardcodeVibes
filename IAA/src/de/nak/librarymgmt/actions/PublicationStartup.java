@@ -59,6 +59,10 @@ public class PublicationStartup extends ActionSupport {
 			keywordSelection.add(keyword.getName());
 		}
 
+		if (keywords.isEmpty() || publicationTypes.isEmpty()) {
+			return "error";
+		}
+
 		return "publicationSuccess";
 
 	}

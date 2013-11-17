@@ -27,6 +27,7 @@
 <!-- 		Publication-Actions -->
 		<action name="publicationCreationLink" class="de.nak.librarymgmt.actions.PublicationStartup" method="execute">
 			<result name="publicationSuccess" type="tiles">publicationCreation</result>
+			<result name="error" type="tiles">fillData</result>
 		</action>
 		
 		<action name="publicationCreationAction" class="de.nak.librarymgmt.actions.PublicationCreationAction" method="execute">
@@ -39,11 +40,12 @@
 		</action>
 		
 		<action name="addAuthorForSearchAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
-			<result name="success" type="tiles">publicationSearch</result>
+			<result name="success" type="tiles">successPublicationSearch</result>
 		</action>
 		
 		<action name="searchPublicationLink" class="de.nak.librarymgmt.actions.InitPublicationSearchAction" method="execute">
-			<result name="success" type="tiles">publicationSearch</result>
+			<result name="success" type="tiles">successPublicationSearch</result>
+			<result name="error" type="tiles">fillData</result>
 		</action>
 		
 		<action name="searchPublicationAction" class="de.nak.librarymgmt.actions.SearchPublicationAction" method="execute">
@@ -54,7 +56,7 @@
 			<result name="success" type="tiles">showPublicationTable</result>
 		</action>
 		
-		<action name="showPublicationDetailAction" class="de.nak.actions.ShowPublicationDetailAction" method="execute">
+		<action name="showPublicationDetailAction" class="de.nak.librarymgmt.actions.ShowPublicationDetailAction" method="execute">
   			<result name="success" type="tiles">showPublicationDetail</result>
 		</action>
 		
@@ -65,6 +67,7 @@
 
 		<action name="changePublicationAction" class="de.nak.librarymgmt.actions.ChangePublicationAction" method="execute">
 			<result name="success" type="tiles">successfullPublicationChange</result>
+			<result name="error" type="tiles">publicationDetailError</result>
 		</action>
 		
 		<action name="deletePublicationAction" class="de.nak.librarymgmt.actions.DeletePublicationAction" method="execute">
@@ -73,7 +76,8 @@
 		</action>
 		
 		<action name="chooseBorrowerAction" class="de.nak.librarymgmt.actions.ChooseBorrowerAction" method="execute">
-  			<result name="success" type="tiles">chooseBorrower</result>
+  			<result name="success" type="tiles">successChooseBorrower</result>
+  			<result name="error" type="tiles">errorChooseBorrower</result>
 		</action>
 		
 <!-- 		Other Actions -->

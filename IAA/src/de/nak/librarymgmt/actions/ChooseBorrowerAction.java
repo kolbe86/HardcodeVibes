@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.BorrowerService;
+import de.nak.librarymgmt.service.PublicationNotFoundException;
 import de.nak.librarymgmt.service.PublicationService;
 
 public class ChooseBorrowerAction extends ActionSupport {
@@ -22,8 +23,13 @@ public class ChooseBorrowerAction extends ActionSupport {
 
 		setPublications(publicationService.listPublications());
 
-		setPublicationBean(publicationService
-				.findPublicationById(publicationBean.getPublicationID()));
+		try {
+			setPublicationBean(publicationService
+					.findPublicationById(publicationBean.getPublicationID()));
+		} catch (PublicationNotFoundException e) {
+
+			return "error";
+		}
 		setBorrowers(borrowerService.listBorrowers());
 		return SUCCESS;
 	}

@@ -10,6 +10,7 @@ import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.KeywordService;
+import de.nak.librarymgmt.service.PublicationNotFoundException;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.service.PublicationTypeService;
 import de.nak.librarymgmt.util.ConditionE;
@@ -41,13 +42,13 @@ public class ShowPublicationChangeAction extends ActionSupport {
 
 	public String execute() {
 
-		publicationBean = publicationService
-				.findPublicationById(publicationBean.getPublicationID());
-
-		if (publicationBean == null) {
-			// throw new PublictionNotFoundException
+		try {
+			publicationBean = publicationService
+					.findPublicationById(publicationBean.getPublicationID());
+		} catch (PublicationNotFoundException e) {
 			return "publicationNotFound";
 		}
+
 		condition = publicationBean.getCondition().name();
 
 		// Publication-Types

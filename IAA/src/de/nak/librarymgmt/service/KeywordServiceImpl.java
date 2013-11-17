@@ -2,10 +2,10 @@ package de.nak.librarymgmt.service;
 
 import java.util.Set;
 
+import org.springframework.dao.DataIntegrityViolationException;
+
 import de.nak.librarymgmt.dao.KeywordDAO;
 import de.nak.librarymgmt.model.Keyword;
-
-import org.springframework.dao.DataIntegrityViolationException;
 
 public class KeywordServiceImpl implements KeywordService {
 
@@ -13,7 +13,7 @@ public class KeywordServiceImpl implements KeywordService {
 
 	/** {@inheritDoc} */
 	@Override
-	public void createKeyword(String name) throws Exception {
+	public void createKeyword(String name) {
 		Keyword keyword = new Keyword();
 		keyword.setName(name);
 		try {
@@ -23,22 +23,15 @@ public class KeywordServiceImpl implements KeywordService {
 	}
 
 	@Override
-	public void deleteKeyword(String name) throws NotFoundException {
+	public void deleteKeyword(String name) {
 		keywordDAO.getSessionFactory().getCurrentSession().beginTransaction();
 		Keyword keyword = keywordDAO.findByName(name);
-		if (keyword == null) {
-			throw new NotFoundException("Keyword does not exist");
-		}
 		keywordDAO.delete(keyword);
 	}
 
 	@Override
-	public void updateKeyword(String name, String newName)
-			throws NotFoundException {
+	public void updateKeyword(String name, String newName) {
 		Keyword keyword = keywordDAO.findByName(name);
-		if (keyword == null) {
-			throw new NotFoundException("Keyword does not exist");
-		}
 		keyword.setName(newName);
 
 	}
@@ -49,11 +42,9 @@ public class KeywordServiceImpl implements KeywordService {
 	}
 
 	@Override
-	public Keyword findKeywordByName(String name) throws NotFoundException {
+	public Keyword findKeywordByName(String name) {
 		Keyword keyword = keywordDAO.findByName(name);
-		if (keyword == null) {
-			throw new NotFoundException("Keyword does not exist");
-		}
+
 		return keyword;
 	}
 

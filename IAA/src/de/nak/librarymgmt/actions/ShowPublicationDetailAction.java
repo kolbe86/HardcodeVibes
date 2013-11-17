@@ -1,4 +1,4 @@
-package de.nak.actions;
+package de.nak.librarymgmt.actions;
 
 import java.util.List;
 

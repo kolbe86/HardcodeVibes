@@ -31,36 +31,43 @@ public class ChangePublicationAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
-		Publication changePublication = publicationService
-				.findPublicationById(publicationBean.getPublicationID());
+		try {
 
-		changePublication.setTitle(publicationBean.getTitle());
-		changePublication.setPublicationDate(publicationBean
-				.getPublicationDate());
-		changePublication.setPublicationType(publicationTypeService
-				.findPublicationTypeByName(publicationTypeSelection));
+			Publication changePublication = publicationService
+					.findPublicationById(publicationBean.getPublicationID());
+			changePublication.setTitle(publicationBean.getTitle());
+			changePublication.setPublicationDate(publicationBean
+					.getPublicationDate());
+			changePublication.setPublicationType(publicationTypeService
+					.findPublicationTypeByName(publicationTypeSelection));
 
-		HashSet<Keyword> keywords = new HashSet<Keyword>();
-		for (String keyword : keywordSelection) {
-			keywords.add(keywordService.findKeywordByName(keyword));
+			HashSet<Keyword> keywords = new HashSet<Keyword>();
+			for (String keyword : keywordSelection) {
+				keywords.add(keywordService.findKeywordByName(keyword));
+			}
+			changePublication.setKeywords(keywords);
+			changePublication.setIsbn(publicationBean.getIsbn());
+			changePublication.setPublisher(publicationBean.getPublisher());
+			changePublication.setEdition(publicationBean.getEdition());
+			changePublication.setIssue(publicationBean.getIssue());
+
+			publicationService.updatePublication(
+					changePublication.getPublicationID(),
+					changePublication.getTitle(),
+					changePublication.getAuthors(),
+					changePublication.getPublicationDate(), condition,
+					changePublication.getPublicationType(),
+					changePublication.getKeywords(),
+					changePublication.getIsbn(),
+					changePublication.getPublisher(),
+					changePublication.getIssue(),
+					changePublication.getEdition(),
+					changePublication.isDistributed());
+
+			publications = publicationService.listPublications();
+		} catch (Exception e) {
+			return "error";
 		}
-		changePublication.setKeywords(keywords);
-		changePublication.setIsbn(publicationBean.getIsbn());
-		changePublication.setPublisher(publicationBean.getPublisher());
-		changePublication.setEdition(publicationBean.getEdition());
-		changePublication.setIssue(publicationBean.getIssue());
-
-		publicationService.updatePublication(
-				changePublication.getPublicationID(),
-				changePublication.getTitle(), changePublication.getAuthors(),
-				changePublication.getPublicationDate(), condition,
-				changePublication.getPublicationType(),
-				changePublication.getKeywords(), changePublication.getIsbn(),
-				changePublication.getPublisher(), changePublication.getIssue(),
-				changePublication.getEdition(),
-				changePublication.isDistributed());
-
-		publications = publicationService.listPublications();
 
 		return SUCCESS;
 

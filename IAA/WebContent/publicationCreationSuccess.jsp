@@ -19,7 +19,7 @@ pageEncoding="ISO-8859-1"%>
 			<td><s:property value="publicationBean.title" /></td>
 		</tr>
 		<tr>
-			<td>Autor: </td>
+			<td>Autoren): </td>
 			<td><s:property value="authorSelection"/> </td>
 		</tr>
 		<tr>
