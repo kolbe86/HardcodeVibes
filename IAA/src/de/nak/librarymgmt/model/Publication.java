@@ -14,13 +14,12 @@ public class Publication implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private long publicationID;
 	private String title;
-
 	private Set<Author> authors;
+	private Set<Keyword> keywords;
+	private PublicationType publicationType;
 	private Date publicationDate;
 	private ConditionE condition;
 	private boolean distributed;
-	private PublicationType publicationType;
-	private Set<Keyword> keywords;
 	private String isbn;
 	private String publisher;
 	private String issue;
@@ -64,6 +63,30 @@ public class Publication implements Serializable {
 		this.title = title;
 	}
 
+	public Set<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Set<Author> authors) {
+		this.authors = authors;
+	}
+
+	public Set<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(Set<Keyword> keywords) {
+		this.keywords = keywords;
+	}
+
+	public PublicationType getPublicationType() {
+		return publicationType;
+	}
+
+	public void setPublicationType(PublicationType publicationType) {
+		this.publicationType = publicationType;
+	}
+
 	public Date getPublicationDate() {
 		return publicationDate;
 	}
@@ -86,22 +109,6 @@ public class Publication implements Serializable {
 
 	public void setDistributed(boolean distributed) {
 		this.distributed = distributed;
-	}
-
-	public PublicationType getPublicationType() {
-		return publicationType;
-	}
-
-	public void setPublicationType(PublicationType publicationType) {
-		this.publicationType = publicationType;
-	}
-
-	public Set<Keyword> getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(Set<Keyword> keywords) {
-		this.keywords = keywords;
 	}
 
 	public String getIsbn() {
@@ -134,14 +141,6 @@ public class Publication implements Serializable {
 
 	public void setEdition(String edition) {
 		this.edition = edition;
-	}
-
-	public Set<Author> getAuthors() {
-		return authors;
-	}
-
-	public void setAuthors(Set<Author> authors) {
-		this.authors = authors;
 	}
 
 }

@@ -103,7 +103,6 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(LendingProcess.class);
 		criteria.add(Restrictions.eq("status", StatusE.OPEN));
-		criteria.add(Restrictions.eq("dunningLevel", DunningLevelE.ZERO));
 		criteria.addOrder(Order.desc("returnDate"));
 		return ((List<LendingProcess>) criteria.list());
 	}
@@ -116,6 +115,7 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 		criteria.setFetchMode("publication", FetchMode.JOIN);
 		criteria.add(Restrictions.not(Restrictions.eq("dunningLevel",
 				DunningLevelE.ZERO)));
+		criteria.add(Restrictions.eq("status", StatusE.OPEN));
 		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
 		criteria.addOrder(Order.asc("issueDate"));
 		return ((List<LendingProcess>) criteria.list());

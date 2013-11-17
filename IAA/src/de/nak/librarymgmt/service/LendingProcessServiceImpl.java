@@ -134,7 +134,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		while (iterator.hasNext() & i < activeLendingProcesses.size()) {
 			LendingProcess lendingProcess = activeLendingProcesses.get(i);
 			Date returnDate = lendingProcess.getReturnDate();
-			long difference = returnDate.getTime() - new Date().getTime();
+			long difference = new Date().getTime() - returnDate.getTime();
 			long differenceInDate = difference / (24 * 60 * 60 * 1000);
 			if (differenceInDate > daysForThirdDunning) {
 				activeLendingProcesses.get(i).setDunningLevel(
