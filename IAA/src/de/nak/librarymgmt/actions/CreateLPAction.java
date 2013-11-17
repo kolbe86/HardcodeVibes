@@ -31,7 +31,6 @@ public class CreateLPAction extends ActionSupport {
 	public String execute() {
 
 		setPublications(publicationService.listPublications());
-		// Unnštig?
 		publications = publicationService.listPublications();
 
 		try {

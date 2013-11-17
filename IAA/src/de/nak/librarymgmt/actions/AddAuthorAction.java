@@ -43,21 +43,11 @@ public class AddAuthorAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 
-		// Autor bearbeiten Mario
 		if (!(author.equals(""))) {
 			authorSelection.add(author);
 			author = null;
 		}
 
-		/*
-		 * if (!(author.equals(""))){ author.trim(); String []
-		 * authorLastNameFirstName = author.split(",");
-		 * authorLastNameFirstName.length String lastName =
-		 * authorLastNameFirstName[0]; String firstName =
-		 * authorLastNameFirstName[1];
-		 * 
-		 * authorSelection.add() }
-		 */
 		// Get Publication-Types
 		setSelectedPublicationType(publicationTypeSelection.get(0));
 		publicationTypes = publicationTypeService.listAllPublicationTypes();

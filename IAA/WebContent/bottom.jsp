@@ -10,6 +10,6 @@ pageEncoding="ISO-8859-1"%>
 <title>Insert title here</title>
 </head>
 <body style="background-color:#FF7140">
-Bottom
+
 </body>
 </html>

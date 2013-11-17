@@ -18,7 +18,7 @@ public class AddBorrowerAction extends ActionSupport {
 	public String execute() throws Exception {
 
 		borrowerService.createBorrower(borrowerBean.getMatriculationNumber(),
-				borrowerBean.getLastName(), borrowerBean.getLastName());
+				borrowerBean.getFirstName(), borrowerBean.getLastName());
 
 		borrowers = borrowerService.listBorrowers();
 

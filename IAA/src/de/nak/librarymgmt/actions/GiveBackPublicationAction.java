@@ -12,7 +12,6 @@ public class GiveBackPublicationAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private LendingProcessService lendingProcessService;
-	// private Long paramLendingProcess;
 	private LendingProcess lendingProcessBean;
 	private PublicationService publicationService;
 	private Publication publicationBean;
@@ -43,14 +42,6 @@ public class GiveBackPublicationAction extends ActionSupport {
 		return "lendingProcessSuccess";
 
 	}
-
-	// public Long getParamLendingProcess() {
-	// return paramLendingProcess;
-	// }
-	//
-	// public void setParamLendingProcess(Long paramLendingProcess) {
-	// this.paramLendingProcess = paramLendingProcess;
-	// }
 
 	public LendingProcessService getLendingProcessService() {
 		return lendingProcessService;

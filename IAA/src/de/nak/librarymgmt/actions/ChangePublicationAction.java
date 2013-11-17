@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.KeywordService;
+import de.nak.librarymgmt.service.PublicationNotFoundException;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.service.PublicationTypeService;
 import de.nak.librarymgmt.util.ConditionE;
@@ -33,23 +34,7 @@ public class ChangePublicationAction extends ActionSupport {
 
 		try {
 
-			Publication changePublication = publicationService
-					.findPublicationById(publicationBean.getPublicationID());
-			changePublication.setTitle(publicationBean.getTitle());
-			changePublication.setPublicationDate(publicationBean
-					.getPublicationDate());
-			changePublication.setPublicationType(publicationTypeService
-					.findPublicationTypeByName(publicationTypeSelection));
-
-			HashSet<Keyword> keywords = new HashSet<Keyword>();
-			for (String keyword : keywordSelection) {
-				keywords.add(keywordService.findKeywordByName(keyword));
-			}
-			changePublication.setKeywords(keywords);
-			changePublication.setIsbn(publicationBean.getIsbn());
-			changePublication.setPublisher(publicationBean.getPublisher());
-			changePublication.setEdition(publicationBean.getEdition());
-			changePublication.setIssue(publicationBean.getIssue());
+			Publication changePublication = changePublication();
 
 			publicationService.updatePublication(
 					changePublication.getPublicationID(),
@@ -64,6 +49,7 @@ public class ChangePublicationAction extends ActionSupport {
 					changePublication.getEdition(),
 					changePublication.isDistributed());
 
+			// Set Publication-Table-Data
 			publications = publicationService.listPublications();
 		} catch (Exception e) {
 			return "error";
@@ -71,6 +57,30 @@ public class ChangePublicationAction extends ActionSupport {
 
 		return SUCCESS;
 
+	}
+
+	/**
+	 * @return
+	 * @throws PublicationNotFoundException
+	 */
+	private Publication changePublication() throws PublicationNotFoundException {
+		Publication changePublication = publicationService
+				.findPublicationById(publicationBean.getPublicationID());
+		changePublication.setTitle(publicationBean.getTitle());
+		changePublication.setPublicationDate(publicationBean
+				.getPublicationDate());
+		changePublication.setPublicationType(publicationTypeService
+				.findPublicationTypeByName(publicationTypeSelection));
+		HashSet<Keyword> keywords = new HashSet<Keyword>();
+		for (String keyword : keywordSelection) {
+			keywords.add(keywordService.findKeywordByName(keyword));
+		}
+		changePublication.setKeywords(keywords);
+		changePublication.setIsbn(publicationBean.getIsbn());
+		changePublication.setPublisher(publicationBean.getPublisher());
+		changePublication.setEdition(publicationBean.getEdition());
+		changePublication.setIssue(publicationBean.getIssue());
+		return changePublication;
 	}
 
 	public String getPublicationTypeSelection() {

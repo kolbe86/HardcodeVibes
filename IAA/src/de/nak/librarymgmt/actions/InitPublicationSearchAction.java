@@ -25,7 +25,6 @@ public class InitPublicationSearchAction extends ActionSupport {
 	private Set<PublicationType> publicationTypes;
 
 	// Select-Lists
-	// private?
 	List<String> keywordSelectionList;
 
 	List<String> publicationTypeSelection;
