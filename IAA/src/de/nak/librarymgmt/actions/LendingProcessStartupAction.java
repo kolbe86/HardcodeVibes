@@ -24,7 +24,6 @@ public class LendingProcessStartupAction extends ActionSupport {
 
 			setLendingProcessBean(lendingProcessService
 					.findLendingProcessById(paramLendingProcess));
-
 		}
 
 		System.out.println("Startup LendingProcess Ende");

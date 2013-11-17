@@ -34,8 +34,12 @@
   			<result name="input" type="chain">publicationCreationLink</result>
 		</action>
 		
-		<action name="addAuthorAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
+		<action name="addAuthorForCreationAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
 			<result name="success" type="tiles">publicationCreation</result>
+		</action>
+		
+		<action name="addAuthorForSearchAction" class="de.nak.librarymgmt.actions.AddAuthorAction" method="execute">
+			<result name="success" type="tiles">publicationSearch</result>
 		</action>
 		
 		<action name="searchPublicationLink" class="de.nak.librarymgmt.actions.InitPublicationSearchAction" method="execute">
@@ -79,7 +83,6 @@
 		<action name="deletePublicationAction" class="de.nak.librarymgmt.actions.DeletePublicationAction" method="execute">
 			<result name="success" type="tiles">successfullPublicationManagement</result>
 		</action>
-		
 
 
 		<action name="createLendingProcessAction" class="de.nak.librarymgmt.actions.CreateLPAction">

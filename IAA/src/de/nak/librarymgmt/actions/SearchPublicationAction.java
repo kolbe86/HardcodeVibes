@@ -6,8 +6,10 @@ import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Keyword;
 import de.nak.librarymgmt.model.Publication;
+import de.nak.librarymgmt.service.AuthorService;
 import de.nak.librarymgmt.service.KeywordService;
 import de.nak.librarymgmt.service.PublicationService;
 import de.nak.librarymgmt.util.ConditionE;
@@ -15,19 +17,22 @@ import de.nak.librarymgmt.util.ConditionE;
 public class SearchPublicationAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
+	private Publication publicationBean;
 
 	// Worklists
 	List<Publication> publications;
 	List<String> keywordSelection;
 	List<String> publicationTypeSelection;
-
-	private Publication publicationBean;
+	List<String> authorSelection;
 
 	private ConditionE[] conditions = ConditionE.values();
 	private ConditionE condition;
+	private String author;
 
+	// Services
 	private PublicationService publicationService;
 	private KeywordService keywordService;
+	private AuthorService authorService;
 
 	@Override
 	public String execute() throws Exception {
@@ -36,12 +41,29 @@ public class SearchPublicationAction extends ActionSupport {
 		for (String keyword : keywordSelection) {
 			keywords.add(keywordService.findKeywordByName(keyword));
 		}
+
+		// CRASH
+		Set<Author> authors = new HashSet<Author>();
+		// for (String selectedAuthor : authorSelection) {
+		// Author author = authorService.findAuthorByName(selectedAuthor);
+		// if (author != null) {
+		// authors.add(author);
+		// }
+		// }
 		setPublications(publicationService.findPublicationByCriteria(
-				publicationBean.getTitle(), keywords,
+				publicationBean.getTitle(), authors, keywords,
 				publicationBean.getIsbn(), publicationBean.getPublisher(),
 				publicationBean.getIssue(), publicationBean.getEdition()));
 		return SUCCESS;
 
+	}
+
+	public AuthorService getAuthorService() {
+		return authorService;
+	}
+
+	public void setAuthorService(AuthorService authorService) {
+		this.authorService = authorService;
 	}
 
 	public PublicationService getPublicationService() {
@@ -108,4 +130,21 @@ public class SearchPublicationAction extends ActionSupport {
 	public void setKeywordService(KeywordService keywordService) {
 		this.keywordService = keywordService;
 	}
+
+	public List<String> getAuthorSelection() {
+		return authorSelection;
+	}
+
+	public void setAuthorSelection(List<String> authorSelection) {
+		this.authorSelection = authorSelection;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
 }

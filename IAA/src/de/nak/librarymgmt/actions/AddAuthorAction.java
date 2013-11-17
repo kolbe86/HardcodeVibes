@@ -27,6 +27,7 @@ public class AddAuthorAction extends ActionSupport {
 	List<String> keywordSelection;
 	List<String> publicationTypeSelection;
 	List<String> authorSelection;
+	List<String> keywordSelectionList;
 
 	private String author;
 	private ConditionE[] conditions = ConditionE.values();
@@ -76,7 +77,20 @@ public class AddAuthorAction extends ActionSupport {
 			keywordSelection.add(keyword.getName());
 		}
 
+		keywordSelectionList = new LinkedList<String>();
+		for (Keyword keyword : keywords) {
+			keywordSelectionList.add(keyword.getName());
+		}
+
 		return SUCCESS;
+	}
+
+	public List<String> getKeywordSelectionList() {
+		return keywordSelectionList;
+	}
+
+	public void setKeywordSelectionList(List<String> keywordSelectionList) {
+		this.keywordSelectionList = keywordSelectionList;
 	}
 
 	public Publication getPublicationBean() {

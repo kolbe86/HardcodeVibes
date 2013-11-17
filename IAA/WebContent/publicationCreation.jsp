@@ -15,7 +15,7 @@
 	<s:textfield name="publicationBean.title" label="Titel"/>
 	<s:textfield  name="author" label="Autor"/>
 	<s:select name="authorSelection"  list="authorSelection" size="3" multiple="true" label="Autoren"/>
-		<s:submit value="Autor hinzufügen" action="addAuthorAction"></s:submit>
+		<s:submit value="Autor hinzufügen" action="addAuthorForCreationAction"></s:submit>
  	<s:textfield name="publicationBean.publicationDate"  label ="Veroeffentlichungsdatum"/>
 	<s:select name="publicationTypeSelection"  list="publicationTypes" size="1" multiple="false"  label="Publikationsart" value="publicationTypeSelection"/>
 	<s:select name="keywordSelection"  list="keywordSelection" size="1" multiple="true" label="Schlagwörter" value="selectedKeywords"/>

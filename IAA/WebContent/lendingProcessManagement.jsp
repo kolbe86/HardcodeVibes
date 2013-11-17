@@ -33,10 +33,10 @@
 		<s:iterator value="lendingProcesses">
 			<tr>
 				<td>
-				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="borrower"/></a>
+				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="borrower.matriculationNumber"/></a>
 				</td>
 				<td>
-				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="publication"/></a>
+				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="publication.publicationID"/></a>
 				</td>
 				<td>
 				<a href="<s:url action="lendingProcessStartupAction"><s:param name="paramLendingProcess" value="lendingProcessID" /></s:url>"><s:property value="issueDate"/></a>
