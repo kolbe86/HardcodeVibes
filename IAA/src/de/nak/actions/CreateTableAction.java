@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.Action;
 import de.nak.librarymgmt.model.Author;
 import de.nak.librarymgmt.model.Borrower;
 import de.nak.librarymgmt.model.Keyword;
+import de.nak.librarymgmt.model.LendingProcess;
 import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.service.AuthorService;
 import de.nak.librarymgmt.service.BorrowerService;
@@ -89,6 +90,7 @@ public class CreateTableAction implements Action {
 		Publication publication1 = publicationService.findPublicationById(4L);
 		Publication publication2 = publicationService.findPublicationById(5L);
 		Publication publication3 = publicationService.findPublicationById(6L);
+		
 
 		lendingProcessService.createLendingProcess(borrower1, publication1,
 				new Date());
@@ -103,6 +105,9 @@ public class CreateTableAction implements Action {
 				DunningLevelE.SECOND);
 		lendingProcessService.updateDunningLevelForLendingProcess(3L,
 				DunningLevelE.THIRD);
+		
+		List<LendingProcess> lendingProcesses = lendingProcessService.findDunnedLendingProcesses();
+
 
 		return SUCCESS;
 	}

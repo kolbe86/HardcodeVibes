@@ -69,8 +69,12 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 	 * @return lendingProcess object or <code>null</code>.
 	 */
 	public LendingProcess findById(Long lendingProcessID) {
-		return (LendingProcess) getHibernateTemplate().get(
-				LendingProcess.class, lendingProcessID);
+		Criteria criteria = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createCriteria(LendingProcess.class);
+		criteria.setFetchMode("borrower", FetchMode.JOIN);
+		criteria.setFetchMode("publication", FetchMode.JOIN);
+		criteria.add(Restrictions.eq("lendingProcessID", lendingProcessID));
+		return (LendingProcess) criteria.uniqueResult();
 	}
 
 	public LendingProcess findByPublication(long publicationID) {
@@ -84,13 +88,6 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 
 	}
 
-	/*
-	 * public LendingProcess findByPublication(Publication publication) {
-	 * Criteria criteria = getHibernateTemplate().getSessionFactory()
-	 * .getCurrentSession().createCriteria(LendingProcess.class);
-	 * criteria.add(Restrictions.eq("publicationID", publication)); return
-	 * (LendingProcess) criteria; }
-	 */
 	/**
 	 * Finds and returns all lending processes.
 	 * 
@@ -115,6 +112,8 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 	public List<LendingProcess> findDunnedProcesses() {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(LendingProcess.class);
+		criteria.setFetchMode("borrower", FetchMode.JOIN);
+		criteria.setFetchMode("publication", FetchMode.JOIN);
 		criteria.add(Restrictions.not(Restrictions.eq("dunningLevel",
 				DunningLevelE.ZERO)));
 		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);

@@ -40,63 +40,77 @@ public class PublicationDAO extends HibernateDaoSupport {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Publication.class);
 		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
+		criteria.setFetchMode("authors", FetchMode.JOIN);
 		criteria.setFetchMode("publicationType", FetchMode.JOIN);
 		criteria.setFetchMode("keywords", FetchMode.JOIN);
 		return (List<Publication>) criteria.list();
 	}
 
 	public Publication findById(Long publicationID) {
-		return (Publication) getHibernateTemplate().get(Publication.class,
-				publicationID);
+		Criteria criteria = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createCriteria(Publication.class);
+		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
+		criteria.setFetchMode("keywords", FetchMode.JOIN);
+		criteria.setFetchMode("publicationType", FetchMode.JOIN);
+		criteria.setFetchMode("authors", FetchMode.JOIN);
+		criteria.add(Restrictions.eq("publicationID", publicationID));
+		return (Publication) criteria.uniqueResult();
+
 	}
 
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	@SuppressWarnings({ "unchecked" })
 	public List<Publication> findByCriteria(String title, Set<Author> authors,
-	PublicationType publicationType, Set<Keyword> keywords,
-	ConditionE condition, String isbn, String publisher,
-	String edition, String issue) {
-	Criteria criteria = getHibernateTemplate().getSessionFactory()
-	.getCurrentSession().createCriteria(Publication.class);
-	criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
-	// criteria.setFetchMode("keywords", FetchMode.EAGER);
-	// criteria.setFetchMode("keywords", FetchMode.EAGER);
-	// criteria.setFetchMode("authors", FetchMode.EAGER);
-	if (authors != null) {
-	addRestrictionsForAuthors(criteria, authors);
-	}
-	if (keywords != null) {
-		addRestrictionsForKeywords(criteria, keywords);
+			PublicationType publicationType, Set<Keyword> keywords,
+			ConditionE condition, String isbn, String publisher,
+			String edition, String issue) {
+		Criteria criteria = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createCriteria(Publication.class);
+		criteria.setResultTransformer(DistinctRootEntityResultTransformer.INSTANCE);
+		criteria.setFetchMode("keywords", FetchMode.JOIN);
+		criteria.setFetchMode("publicationType", FetchMode.JOIN);
+		criteria.setFetchMode("authors", FetchMode.JOIN);
+		if (authors != null) {
+			addRestrictionsForAuthors(criteria, authors);
 		}
-	criteria.add(Restrictions.like("title", "%" + title + "%").ignoreCase());
-	criteria.add(Restrictions.eq("publicationType", publicationType));
-	criteria.add(Restrictions.eq("condition", condition));
-	criteria.add(Restrictions.like("isbn", "%" + isbn + "%"));
-	criteria.add(Restrictions.like("publisher", "%" + publisher + "%")
-	.ignoreCase());
-	criteria.add(Restrictions.like("issue", "%" + issue + "%").ignoreCase());
-	criteria.add(Restrictions.like("edition", "%" + edition + "%")
-	.ignoreCase());
-	criteria.addOrder(Order.asc("title"));
-	return (List<Publication>) criteria.list();
+		if (keywords != null) {
+			addRestrictionsForKeywords(criteria, keywords);
+		}
+		criteria.add(Restrictions.like("title", "%" + title + "%").ignoreCase());
+		criteria.add(Restrictions.eq("publicationType", publicationType));
+		criteria.add(Restrictions.eq("condition", condition));
+		criteria.add(Restrictions.like("isbn", "%" + isbn + "%"));
+		criteria.add(Restrictions.like("publisher", "%" + publisher + "%")
+				.ignoreCase());
+		criteria.add(Restrictions.like("issue", "%" + issue + "%").ignoreCase());
+		criteria.add(Restrictions.like("edition", "%" + edition + "%")
+				.ignoreCase());
+		criteria.addOrder(Order.asc("title"));
+		return (List<Publication>) criteria.list();
 	}
 
 	private void addRestrictionsForKeywords(Criteria criteria,
 			Set<Keyword> keywords) {
 		Iterator<Keyword> iter = keywords.iterator();
-		Criteria authorsCriteria = criteria.createCriteria("keywords");
 		while (iter.hasNext()) {
 			Keyword keyword = (Keyword) iter.next();
-			authorsCriteria.add(Restrictions.like("name", "%" + keyword + "%"));
+			String name = keyword.getName();
+			criteria.add(Restrictions
+					.sqlRestriction("'"
+							+ name
+							+ "' IN (SELECT NAME FROM PUBLICATIONS_KEYWORDS WHERE PUBLICATION_ID = this.id)"));
 		}
 	}
 
 	private void addRestrictionsForAuthors(Criteria criteria,
 			Set<Author> authors) {
 		Iterator<Author> iter = authors.iterator();
-		Criteria authorsCriteria = criteria.createCriteria("authors");
 		while (iter.hasNext()) {
 			Author author = (Author) iter.next();
-			authorsCriteria.add(Restrictions.like("name", "%" + author + "%"));
+			String name = author.getName();
+			criteria.add(Restrictions
+					.sqlRestriction("'"
+							+ name
+							+ "' IN (SELECT NAME FROM PUBLICATIONS_AUTHORS WHERE PUBLICATION_ID = this.id)"));
 		}
 	}
 }

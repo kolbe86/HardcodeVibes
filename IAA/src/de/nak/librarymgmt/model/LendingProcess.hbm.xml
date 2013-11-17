@@ -7,10 +7,9 @@
 		<id name="lendingProcessID" column="LENDINGPROCESS_ID" type="long">
 			<generator class="native" />
 		</id>
-		<many-to-one name="borrower" column="borrowerID" not-null="true"
-			fetch="join" />
+		<many-to-one name="borrower" column="borrowerID" not-null="true" />
 		<many-to-one name="publication" column="publicationID"
-			not-null="true" fetch="join" />
+			not-null="true" />
 		<property name="issueDate" column="ISSUE_DATE" type="timestamp" />
 		<property name="returnDate" column="RETURN_DATE" type="timestamp" />
 		<property name="extensionOfTimeLevel" column="EXTENSION_OF_TIME_LEVEL"
