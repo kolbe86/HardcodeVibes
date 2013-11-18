@@ -2,8 +2,6 @@ package de.nak.librarymgmt.service;
 
 import java.util.Set;
 
-import org.springframework.dao.DataIntegrityViolationException;
-
 import de.nak.librarymgmt.dao.PublicationTypeDAO;
 import de.nak.librarymgmt.model.PublicationType;
 

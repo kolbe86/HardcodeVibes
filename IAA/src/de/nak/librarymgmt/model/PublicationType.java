@@ -1,7 +1,6 @@
 package de.nak.librarymgmt.model;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * the publication type POJO
