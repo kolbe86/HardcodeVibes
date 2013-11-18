@@ -20,33 +20,38 @@ public class LostPublicationAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
-		setLendingProcessBean(lendingProcessService
-				.findLendingProcessById(lendingProcessBean
-						.getLendingProcessID()));
+		try {
+			setLendingProcessBean(lendingProcessService
+					.findLendingProcessById(lendingProcessBean
+							.getLendingProcessID()));
 
-		setDunningLevel(lendingProcessBean.getDunningLevel());
+			setDunningLevel(lendingProcessBean.getDunningLevel());
 
-		if (dunningLevel != DunningLevelE.THIRD) {
+			if (dunningLevel != DunningLevelE.THIRD) {
+
+				setPublicationBean(publicationService
+						.findPublicationById(lendingProcessBean
+								.getPublication().getPublicationID()));
+
+				return "lostNotPossible";
+			}
+			lendingProcessService.endLendingProcess(lendingProcessBean
+					.getLendingProcessID());
 
 			setPublicationBean(publicationService
 					.findPublicationById(lendingProcessBean.getPublication()
 							.getPublicationID()));
 
-			return "lostNotPossible";
+			lendingProcessService
+					.deleteLendingProcessesWithGivenPublicationId(publicationBean
+							.getPublicationID());
+
+			publicationService.deletePublication(publicationBean
+					.getPublicationID());
+		} catch (NullPointerException e) {
+
+			return "error";
 		}
-		lendingProcessService.endLendingProcess(lendingProcessBean
-				.getLendingProcessID());
-
-		setPublicationBean(publicationService
-				.findPublicationById(lendingProcessBean.getPublication()
-						.getPublicationID()));
-
-		lendingProcessService
-				.deleteLendingProcessesWithGivenPublicationId(publicationBean
-						.getPublicationID());
-
-		publicationService
-				.deletePublication(publicationBean.getPublicationID());
 
 		return "lendingProcessSuccess";
 

@@ -137,9 +137,19 @@
       	<put-attribute name="main"   value="/successfullGiveBack.jsp"/>      
   	</definition>
   	
+  	<definition name="errorfullGiveBack" extends="baseLayout">
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+      	<put-attribute name="main"   value="/chooseData.jsp"/>      
+  	</definition>
+  	
   	  <definition name="successfullExtension" extends="baseLayout">
 		<put-attribute name="header" value="/header.jsp"></put-attribute>
       	<put-attribute name="main"   value="/successfullExtension.jsp"/>      
+  	</definition>
+  	
+  	 <definition name="errorExtension" extends="baseLayout">
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+      	<put-attribute name="main"   value="/chooseData.jsp"/>      
   	</definition>
   	
   	  <definition name="noMoreExtensionPossible" extends="baseLayout">
@@ -155,6 +165,11 @@
   	 <definition name="lostNotPossible" extends="baseLayout">
 		<put-attribute name="header" value="/header.jsp"></put-attribute>
       	<put-attribute name="main"   value="/lostNotPossible.jsp"/>      
+  	</definition>
+  	
+  	 <definition name="errorLostPublication" extends="baseLayout">
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+      	<put-attribute name="main"   value="/chooseData.jsp"/>      
   	</definition>
   
 <!--   Basic Data Layouts -->

@@ -96,16 +96,19 @@
 		
 		<action name="giveBackPublicationAction" class="de.nak.librarymgmt.actions.GiveBackPublicationAction" method="execute">
 			<result name="lendingProcessSuccess" type="tiles">successfullGiveBack</result>
+			<result name="error" type="tiles">errorfullGiveBack</result>
 		</action>
 		
 		<action name="extendLendingProcessAction" class="de.nak.librarymgmt.actions.ExtendLendingProcessAction" method="execute">
 			<result name="lendingProcessSuccess" type="tiles">successfullExtension</result>
 			<result name="noExtensionPossible" type="tiles">noMoreExtensionPossible</result>
+			<result name="error" type="tiles">errorExtension</result>
 		</action>
 		
 		<action name="lostPublicationAction" class="de.nak.librarymgmt.actions.LostPublicationAction" method="execute">
 			<result name="lendingProcessSuccess" type="tiles">lostPublication</result>
 			<result name="lostNotPossible" type="tiles">lostNotPossible</result>
+			<result name="error" type="tiles">errorLostPublication</result>
 		</action>
 		
 		

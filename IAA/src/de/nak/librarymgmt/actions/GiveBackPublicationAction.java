@@ -18,27 +18,33 @@ public class GiveBackPublicationAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
-		setLendingProcessBean(lendingProcessService
-				.findLendingProcessById(lendingProcessBean
-						.getLendingProcessID()));
-		lendingProcessService.endLendingProcess(lendingProcessBean
-				.getLendingProcessID());
+		try {
 
-		setPublicationBean(publicationService
-				.findPublicationById(lendingProcessBean.getPublication()
-						.getPublicationID()));
+			setLendingProcessBean(lendingProcessService
+					.findLendingProcessById(lendingProcessBean
+							.getLendingProcessID()));
+			lendingProcessService.endLendingProcess(lendingProcessBean
+					.getLendingProcessID());
 
-		publicationService.updatePublication(
-				publicationBean.getPublicationID(), publicationBean.getTitle(),
-				publicationBean.getAuthors(),
-				publicationBean.getPublicationDate(),
-				publicationBean.getCondition(),
-				publicationBean.getPublicationType(),
-				publicationBean.getKeywords(), publicationBean.getIsbn(),
-				publicationBean.getPublisher(), publicationBean.getIssue(),
-				publicationBean.getEdition(), false);
+			setPublicationBean(publicationService
+					.findPublicationById(lendingProcessBean.getPublication()
+							.getPublicationID()));
 
-		System.out.println("Startup LendingProcessGiveBack Ende");
+			publicationService.updatePublication(
+					publicationBean.getPublicationID(),
+					publicationBean.getTitle(), publicationBean.getAuthors(),
+					publicationBean.getPublicationDate(),
+					publicationBean.getCondition(),
+					publicationBean.getPublicationType(),
+					publicationBean.getKeywords(), publicationBean.getIsbn(),
+					publicationBean.getPublisher(), publicationBean.getIssue(),
+					publicationBean.getEdition(), false);
+
+			System.out.println("Startup LendingProcessGiveBack Ende");
+		} catch (NullPointerException e) {
+			return "error";
+		}
+
 		return "lendingProcessSuccess";
 
 	}

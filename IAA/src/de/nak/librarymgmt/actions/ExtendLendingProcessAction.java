@@ -16,18 +16,23 @@ public class ExtendLendingProcessAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
-		setLendingProcessBean(lendingProcessService
-				.findLendingProcessById(lendingProcessBean
-						.getLendingProcessID()));
+		try {
+			setLendingProcessBean(lendingProcessService
+					.findLendingProcessById(lendingProcessBean
+							.getLendingProcessID()));
 
-		setExtensionLevel(lendingProcessBean.getExtensionOfTimeLevel());
+			setExtensionLevel(lendingProcessBean.getExtensionOfTimeLevel());
 
-		if (extensionLevel == 2) {
-			return "noExtensionPossible";
+			if (extensionLevel == 2) {
+				return "noExtensionPossible";
+			}
+
+			lendingProcessService.extendLendingProcess(lendingProcessBean
+					.getLendingProcessID());
+
+		} catch (NullPointerException e) {
+			return "error";
 		}
-
-		lendingProcessService.extendLendingProcess(lendingProcessBean
-				.getLendingProcessID());
 
 		System.out.println("Startup LendingProcessExtension Ende");
 		return "lendingProcessSuccess";
