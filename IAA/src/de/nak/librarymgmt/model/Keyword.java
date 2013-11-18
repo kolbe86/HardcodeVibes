@@ -2,12 +2,16 @@ package de.nak.librarymgmt.model;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * the keyword POJO
+ */
 public class Keyword implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * the name of the keyword
+	 */
 	private String name;
 
 	public String getName() {
@@ -18,6 +22,9 @@ public class Keyword implements Serializable {
 		this.name = name;
 	}
 
+	/**
+	 * the hashcode for the keyword
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -26,6 +33,9 @@ public class Keyword implements Serializable {
 		return result;
 	}
 
+	/**
+	 * the equals for the keyword
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

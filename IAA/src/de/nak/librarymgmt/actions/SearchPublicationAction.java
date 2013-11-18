@@ -37,7 +37,6 @@ public class SearchPublicationAction extends ActionSupport {
 	private AuthorService authorService;
 	private PublicationTypeService publicationTypeService;
 
-
 	@Override
 	public String execute() throws Exception {
 
@@ -48,16 +47,18 @@ public class SearchPublicationAction extends ActionSupport {
 
 		Set<Author> authors = new HashSet<Author>();
 		for (String selectedAuthor : authorSelection) {
-			Author author = authorService.findAuthorByName(selectedAuthor);
+			Author author = authorService
+					.findOrCreateAuthorWithName(selectedAuthor);
 			if (author != null) {
 				authors.add(author);
 			}
 		}
-		
-		PublicationType publicationType = publicationTypeService.findPublicationTypeByName(publicationTypeSelection.get(0));
-		
+
+		PublicationType publicationType = publicationTypeService
+				.findPublicationTypeByName(publicationTypeSelection.get(0));
+
 		setPublications(publicationService.findPublicationByCriteria(
-				publicationBean.getTitle(), authors,publicationType,
+				publicationBean.getTitle(), authors, publicationType,
 				publicationBean.getKeywords(), condition,
 				publicationBean.getIsbn(), publicationBean.getPublisher(),
 				publicationBean.getEdition(), publicationBean.getIssue()));

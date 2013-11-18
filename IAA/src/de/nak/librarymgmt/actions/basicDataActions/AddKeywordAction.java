@@ -20,7 +20,7 @@ public class AddKeywordAction extends ActionSupport {
 		// Create Keyword and get new list for table in jsp
 		keywordService.createKeyword(keywordBean.getName());
 
-		keywords = keywordService.listAllKeywords();
+		keywords = keywordService.listKeywords();
 
 		System.out.println("Add BasicDataKeyword Ende");
 		return "basicDataSuccess";

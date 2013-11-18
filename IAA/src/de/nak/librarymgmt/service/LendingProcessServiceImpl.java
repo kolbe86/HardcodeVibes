@@ -13,22 +13,42 @@ import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.util.DunningLevelE;
 import de.nak.librarymgmt.util.StatusE;
 
+/**
+ * the implementation of the lending process service
+ */
 public class LendingProcessServiceImpl implements LendingProcessService {
 
+	/**
+	 * initialization of the lending process DAO
+	 */
 	private LendingProcessDAO lendingProcessDAO;
+	/**
+	 * the given loan period in days
+	 */
 	private static final int loanPeriodInDays = 28;
+	/**
+	 * the given days for the dunning levels of lending processes
+	 */
 	private static final int daysForFirstDunning = 1;
 	private static final int daysForSecondDunning = 8;
 	private static final int daysForThirdDunning = 15;
 
+	/**
+	 * initialization of a calender
+	 */
 	private Calendar calender = new GregorianCalendar();
 
+	/**
+	 * creates and stores a new lending process entity
+	 * 
+	 * @param borrower
+	 *            , publication, issueDate
+	 */
 	@Override
 	public void createLendingProcess(Borrower borrower,
 			Publication publication, Date issueDate)
 			throws PublicationNotFoundException,
-			PublicationAlreadyDistributedException,
-			PublicationAlreadyReservedException, BorrowerNotFoundException {
+			PublicationAlreadyDistributedException, BorrowerNotFoundException {
 
 		LendingProcess lendingProcess = new LendingProcess();
 		lendingProcess.setBorrower(borrower);
@@ -46,12 +66,17 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		} else if (lendingProcess.getBorrower() == null) {
 			throw new BorrowerNotFoundException();
 		} else {
-			lendingProcessDAO.save(lendingProcess);
+			lendingProcessDAO.createOrUpdate(lendingProcess);
 		}
 
-		lendingProcessDAO.save(lendingProcess);
+		lendingProcessDAO.createOrUpdate(lendingProcess);
 	}
 
+	/**
+	 * ends a lending process by given lending processID
+	 * 
+	 * @param lendingProcessID
+	 */
 	@Override
 	public void endLendingProcess(long lendingProcessID) {
 		LendingProcess lendingProcess = lendingProcessDAO
@@ -63,6 +88,11 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		}
 	}
 
+	/**
+	 * extends a lending process by given lendingProcessID
+	 * 
+	 * @param lendingProcessID
+	 */
 	@Override
 	public void extendLendingProcess(long lendingProcessID) {
 		LendingProcess lendingProcess = lendingProcessDAO
@@ -80,8 +110,11 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		}
 	}
 
-	// Brauchen wir lšschen?
-
+	/**
+	 * deletes a lending process by given lendingProcessID
+	 * 
+	 * @param lendingProcessID
+	 */
 	@Override
 	public void deleteLendingProcess(long lendingProcessID) {
 		LendingProcess lendingProcess = lendingProcessDAO
@@ -94,42 +127,16 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 
 	}
 
-	@Override
-	public void updateLendingProcess(long lendingProcessID, Borrower borrower,
-			Publication publication, Date issueDate, Date returnDate,
-			int extensionOfTimeLevel, StatusE status) {
-		LendingProcess lendingProcess = lendingProcessDAO
-				.findById(lendingProcessID);
-		try {
-			lendingProcess.setBorrower(borrower);
-			lendingProcess.setPublication(publication);
-			lendingProcess.setIssueDate(issueDate);
-			lendingProcess.setReturnDate(returnDate);
-			lendingProcess.setExtensionOfTimeLevel(extensionOfTimeLevel);
-			lendingProcess.setStatus(status);
-			;
-		} catch (Exception e) {
-			// TODO
-		}
-
-	}
-
-	public void updateDunningLevelForLendingProcess(long lendingProcessID,
-			DunningLevelE dunningLevel) {
-		LendingProcess lendingProcess = lendingProcessDAO
-				.findById(lendingProcessID);
-		try {
-			lendingProcess.setDunningLevel(dunningLevel);
-		} catch (Exception e) {
-			// TODO
-		}
-
-	}
+	/**
+	 * duns automatically all active lending processes by the given dunning
+	 * periods
+	 * 
+	 */
 
 	public void dunLendingProcesses() {
 		List<LendingProcess> activeLendingProcesses = lendingProcessDAO
 				.findActiveProcesses();
-		Iterator iterator = activeLendingProcesses.iterator();
+		Iterator<LendingProcess> iterator = activeLendingProcesses.iterator();
 		int i = 0;
 		while (iterator.hasNext() & i < activeLendingProcesses.size()) {
 			LendingProcess lendingProcess = activeLendingProcesses.get(i);
@@ -140,14 +147,14 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 				activeLendingProcesses.get(i).setDunningLevel(
 						DunningLevelE.THIRD);
 
-				lendingProcessDAO.save(lendingProcess);
+				lendingProcessDAO.createOrUpdate(lendingProcess);
 				iterator.next();
 				i = i + 1;
 			}
 			if (differenceInDate > daysForSecondDunning) {
 				activeLendingProcesses.get(i).setDunningLevel(
 						DunningLevelE.SECOND);
-				lendingProcessDAO.save(lendingProcess);
+				lendingProcessDAO.createOrUpdate(lendingProcess);
 
 				iterator.next();
 				i = i + 1;
@@ -155,7 +162,7 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 			if (differenceInDate > daysForFirstDunning) {
 				activeLendingProcesses.get(i).setDunningLevel(
 						DunningLevelE.FIRST);
-				lendingProcessDAO.save(lendingProcess);
+				lendingProcessDAO.createOrUpdate(lendingProcess);
 				iterator.next();
 				i = i + 1;
 			} else {
@@ -165,6 +172,12 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		}
 	}
 
+	/**
+	 * finds a lending process by given lending process id
+	 * 
+	 * @param lendingProcessID
+	 * @return LendingProcess
+	 */
 	@Override
 	public LendingProcess findLendingProcessById(long lendingProcessID) {
 		LendingProcess lendingProcess = lendingProcessDAO
@@ -176,38 +189,64 @@ public class LendingProcessServiceImpl implements LendingProcessService {
 		}
 	}
 
+	/**
+	 * finds lending process by given publicationID
+	 * 
+	 * @param publicationID
+	 * @return LendingProcess
+	 */
 	@Override
 	public LendingProcess findLendingProcessByPublicationId(long publicationID) {
 		LendingProcess lendingProcess = lendingProcessDAO
 				.findByPublication(publicationID);
-		try {
-			return lendingProcess;
-		} catch (Exception e) {
-			return null; // TODO
-		}
+		return lendingProcess;
 	}
 
+	/**
+	 * deletes lending process by given publicationID
+	 * 
+	 * @param publicationID
+	 */
 	@Override
 	public void deleteLendingProcessesWithGivenPublicationId(long publicationID) {
 		lendingProcessDAO
 				.deleteAllLendingProcessesWithLostPublication(publicationID);
 	}
 
+	/**
+	 * list all lending processes
+	 * 
+	 * @return list of Lending Processes
+	 */
 	@Override
-	public List<LendingProcess> listLendingProcess() {
+	public List<LendingProcess> listLendingProcesses() {
 		return lendingProcessDAO.findAll();
 	}
 
+	/**
+	 * list all dunned lending processes
+	 * 
+	 * @return list of Lending Processes
+	 */
 	@Override
 	public List<LendingProcess> findDunnedLendingProcesses() {
 		return lendingProcessDAO.findDunnedProcesses();
 	}
 
+	/**
+	 * finds all active lending processes @ list of Lending Processes
+	 */
 	@Override
 	public List<LendingProcess> findActiveLendingProcesses() {
 		return lendingProcessDAO.findActiveProcesses();
 	}
 
+	/**
+	 * calculates the return date automatically by given loan period
+	 * 
+	 * @param issueDate
+	 * @return Date
+	 */
 	private Date calculateReturnDate(Date issueDate) {
 		calender.setTime(issueDate);
 		calender.add(Calendar.DAY_OF_MONTH, loanPeriodInDays);

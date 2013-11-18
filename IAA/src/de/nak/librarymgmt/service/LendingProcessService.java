@@ -9,45 +9,93 @@ import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.util.DunningLevelE;
 import de.nak.librarymgmt.util.StatusE;
 
+/**
+ * the implementation of lending process service
+ */
 public interface LendingProcessService {
 
+	/**
+	 * creates and stores a new borrower entity or updates firstname and
+	 * lastname of an existing one
+	 * 
+	 * @param matriculationNumber
+	 *            , firstName, lastName
+	 */
 	void createLendingProcess(Borrower borrower, Publication publication,
 			Date issueDate) throws PublicationNotFoundException,
-			PublicationAlreadyDistributedException,
-			PublicationAlreadyReservedException, BorrowerNotFoundException;
+			PublicationAlreadyDistributedException, BorrowerNotFoundException;
 
-	void endLendingProcess(long lendingProcessID);
-
-	void extendLendingProcess(long lendingProcessID);
-
+	/**
+	 * deletes an given borrower entity
+	 * 
+	 * @param borrowerID
+	 */
 	void deleteLendingProcess(long lendingProcessID);
+
+	/**
+	 * deletes an given lending process with given publication id
+	 * 
+	 * @param publicationID
+	 */
 
 	void deleteLendingProcessesWithGivenPublicationId(long publicationID);
 
-	/*
-	 * void updateDunningLevel(long lendingProcessID);
+	/**
+	 * ends a given lending process
+	 * 
+	 * @param lendingProcessID
 	 */
-	/*
-	 * void deleteLendingProcess(long lendingProcessID);
+	void endLendingProcess(long lendingProcessID);
+
+	/**
+	 * extends a given lending process
+	 * 
+	 * @param lendingProcessID
 	 */
+	void extendLendingProcess(long lendingProcessID);
 
-	void updateLendingProcess(long lendingProcessID, Borrower borrower,
-			Publication publication, Date issueDate, Date returnDate,
-			int extensionOfTimeLevel, StatusE status);
-
+	/**
+	 * returns the lending process identified by the given lending process id
+	 * 
+	 * @param lendingProcessID
+	 * @return the found lending process entity
+	 */
 	LendingProcess findLendingProcessById(long lendingProcessID);
 
+	/**
+	 * returns the lending process identified by the given publication id
+	 * 
+	 * @param publicationID
+	 * @return the found lending process entity
+	 */
 	LendingProcess findLendingProcessByPublicationId(long publicationID);
 
-	List<LendingProcess> listLendingProcess();
+	/**
+	 * lists all lending processes currently stored in the database
+	 * 
+	 * @return a list of lending processes
+	 */
+	List<LendingProcess> listLendingProcesses();
 
+	/**
+	 * finds all dunned lending processes stored in database
+	 * 
+	 * @return a list of dunned lending processes
+	 */
 	List<LendingProcess> findDunnedLendingProcesses();
 
+	/**
+	 * finds all active lending processes stored in database
+	 * 
+	 * @return a list of active lending processes
+	 */
 	List<LendingProcess> findActiveLendingProcesses();
 
+	/**
+	 * duns all lending processes automatically
+	 * 
+	 * @return a list of active lending processes
+	 */
 	void dunLendingProcesses();
-
-	void updateDunningLevelForLendingProcess(long lendingProcessID,
-			DunningLevelE dunningLevel);
 
 }

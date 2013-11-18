@@ -27,7 +27,7 @@ public class SortBasicDataKeyword extends ActionSupport {
 		// they are filled by the radio buttons in the jsp
 		// then search for the right sorting method with switch and if
 		// statements
-		setKeywords(new LinkedList<Keyword>(keywordService.listAllKeywords()));
+		setKeywords(new LinkedList<Keyword>(keywordService.listKeywords()));
 
 		Comparator<Keyword> comp = new KeywordComparator();
 		Collections.sort(keywords, comp);

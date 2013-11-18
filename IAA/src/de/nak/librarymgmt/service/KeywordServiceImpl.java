@@ -2,26 +2,38 @@ package de.nak.librarymgmt.service;
 
 import java.util.Set;
 
-import org.springframework.dao.DataIntegrityViolationException;
-
 import de.nak.librarymgmt.dao.KeywordDAO;
 import de.nak.librarymgmt.model.Keyword;
 
+/**
+ * the implementation of the keyword service
+ */
+
 public class KeywordServiceImpl implements KeywordService {
 
+	/**
+	 * the initialization of the keyword DAO
+	 */
 	private KeywordDAO keywordDAO;
 
-	/** {@inheritDoc} */
+	/**
+	 * creates or updates a keyword
+	 * 
+	 * @param name
+	 */
 	@Override
 	public void createKeyword(String name) {
 		Keyword keyword = new Keyword();
 		keyword.setName(name);
-		try {
-			keywordDAO.save(keyword);
-		} catch (DataIntegrityViolationException ex) {
-		}
+		keywordDAO.createOrUpdate(keyword);
+
 	}
 
+	/**
+	 * deletes a keyword
+	 * 
+	 * @param name
+	 */
 	@Override
 	public void deleteKeyword(String name) {
 		keywordDAO.getSessionFactory().getCurrentSession().beginTransaction();
@@ -29,18 +41,22 @@ public class KeywordServiceImpl implements KeywordService {
 		keywordDAO.delete(keyword);
 	}
 
+	/**
+	 * list all keywords in the database
+	 * 
+	 * @return list of keywords
+	 */
 	@Override
-	public void updateKeyword(String name, String newName) {
-		Keyword keyword = keywordDAO.findByName(name);
-		keyword.setName(newName);
-
-	}
-
-	@Override
-	public Set<Keyword> listAllKeywords() {
+	public Set<Keyword> listKeywords() {
 		return keywordDAO.findAll();
 	}
 
+	/**
+	 * find the keyword by given name
+	 * 
+	 * @param name
+	 * @return keyword
+	 */
 	@Override
 	public Keyword findKeywordByName(String name) {
 		Keyword keyword = keywordDAO.findByName(name);

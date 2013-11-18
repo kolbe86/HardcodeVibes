@@ -19,12 +19,26 @@ import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.service.PublicationNotDeletableException;
 import de.nak.librarymgmt.util.ConditionE;
 
+/**
+ * the publication DAO
+ */
 public class PublicationDAO extends HibernateDaoSupport {
 
-	public void save(Publication publication) {
+	/**
+	 * persists the given publication entity
+	 * 
+	 * @param publication
+	 */
+	public void createOrUpdate(Publication publication) {
 		getHibernateTemplate().save(publication);
 	}
 
+	/**
+	 * deletes the given publication
+	 * 
+	 * @param publication
+	 * @throws PublicationNotDeletableException
+	 */
 	public void delete(Publication publication)
 			throws PublicationNotDeletableException {
 		try {
@@ -35,6 +49,11 @@ public class PublicationDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * finds and returns all publications
+	 * 
+	 * @return a list of publications
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Publication> findAll() {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
@@ -46,6 +65,12 @@ public class PublicationDAO extends HibernateDaoSupport {
 		return (List<Publication>) criteria.list();
 	}
 
+	/**
+	 * finds a publication with the given id.
+	 * 
+	 * @param publicationID
+	 * @return publication object or <code>null</code>.
+	 */
 	public Publication findById(Long publicationID) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Publication.class);
@@ -58,6 +83,14 @@ public class PublicationDAO extends HibernateDaoSupport {
 
 	}
 
+	/**
+	 * finds a publication with the given criterias
+	 * 
+	 * @param title
+	 *            , authors, publicationType, keywords, condition, isbn,
+	 *            publisher, edition, issue
+	 * @return list of publications
+	 */
 	@SuppressWarnings({ "unchecked" })
 	public List<Publication> findByCriteria(String title, Set<Author> authors,
 			PublicationType publicationType, Set<Keyword> keywords,
@@ -88,6 +121,13 @@ public class PublicationDAO extends HibernateDaoSupport {
 		return (List<Publication>) criteria.list();
 	}
 
+	/**
+	 * submethod to add criterias for keywords, if they are given
+	 * 
+	 * @param criteria
+	 *            , keywords
+	 * 
+	 */
 	private void addRestrictionsForKeywords(Criteria criteria,
 			Set<Keyword> keywords) {
 		Iterator<Keyword> iter = keywords.iterator();
@@ -101,6 +141,13 @@ public class PublicationDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * submethod to add criterias for authors, if they are given
+	 * 
+	 * @param criteria
+	 *            , authors
+	 * 
+	 */
 	private void addRestrictionsForAuthors(Criteria criteria,
 			Set<Author> authors) {
 		Iterator<Author> iter = authors.iterator();

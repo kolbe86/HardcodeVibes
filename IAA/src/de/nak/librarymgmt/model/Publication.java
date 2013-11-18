@@ -6,25 +6,65 @@ import java.util.Set;
 
 import de.nak.librarymgmt.util.ConditionE;
 
+/**
+ * 
+ * the publication POJO
+ */
 public class Publication implements Serializable {
 
-	/**
-	 *  
-	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * the id of the publication
+	 */
 	private long publicationID;
+	/**
+	 * the title of the publication
+	 */
 	private String title;
+	/**
+	 * the authors of the publication
+	 */
 	private Set<Author> authors;
+	/**
+	 * the keywords for the publication
+	 */
 	private Set<Keyword> keywords;
+	/**
+	 * the type of the publication
+	 */
 	private PublicationType publicationType;
+	/**
+	 * the publication date
+	 */
 	private Date publicationDate;
+	/**
+	 * the condition of the publication
+	 */
 	private ConditionE condition;
+	/**
+	 * the status about the distribution
+	 */
 	private boolean distributed;
+	/**
+	 * the isbn of the publication
+	 */
 	private String isbn;
+	/**
+	 * the publisher of the publication
+	 */
 	private String publisher;
+	/**
+	 * the issue of the publication
+	 */
 	private String issue;
+	/**
+	 * the edition of the publication
+	 */
 	private String edition;
 
+	/**
+	 * the initialize method
+	 */
 	public void initialize() {
 
 		this.setTitle("Initial Title");
@@ -36,6 +76,9 @@ public class Publication implements Serializable {
 		this.setEdition("Initial Edition");
 	}
 
+	/**
+	 * the to string method
+	 */
 	public String toString() {
 		String publicationString;
 		publicationString = "Titel: " + title + " :: " + "Datum: "

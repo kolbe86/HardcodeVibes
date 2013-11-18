@@ -53,7 +53,7 @@ public class PublicationStartup extends ActionSupport {
 		}
 
 		// Get Keywords
-		keywords = keywordService.listAllKeywords();
+		keywords = keywordService.listKeywords();
 		keywordSelection = new LinkedList<String>();
 		for (Keyword keyword : keywords) {
 			keywordSelection.add(keyword.getName());

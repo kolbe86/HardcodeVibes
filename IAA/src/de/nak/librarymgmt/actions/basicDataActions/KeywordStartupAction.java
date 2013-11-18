@@ -19,7 +19,7 @@ public class KeywordStartupAction extends ActionSupport {
 	public String execute() throws Exception {
 
 		// Get Keywords
-		keywords = keywordService.listAllKeywords();
+		keywords = keywordService.listKeywords();
 
 		if (!(paramKeyword == null)) {
 			keywordBean = new Keyword();

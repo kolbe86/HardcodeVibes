@@ -2,11 +2,20 @@ package de.nak.librarymgmt.model;
 
 import java.io.Serializable;
 
+/**
+ * the author POJO
+ */
 public class Author implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * id of the Author
+	 */
 	private long id;
+	/**
+	 * the name of the author
+	 */
 	private String name;
 
 	public long getId() {
@@ -17,30 +26,6 @@ public class Author implements Serializable {
 		this.id = id;
 	}
 
-	/*
-	 * public String getFirstName() { return firstName; }
-	 * 
-	 * public void setFirstName(String firstName) { this.firstName = firstName;
-	 * }
-	 * 
-	 * public String getLastName() { return lastName; }
-	 * 
-	 * public void setLastName(String lastName) { this.lastName = lastName; }
-	 * 
-	 * // ist glaub ich nicht eindeutig, aber techn. id soll nicht verwendet
-	 * werden public int hashCode() { final int prime = 31; int result = 1;
-	 * result = prime * result + ((firstName == null) ? 0 :
-	 * firstName.hashCode()); result = prime * result + ((lastName == null) ? 0
-	 * : lastName.hashCode()); return result; }
-	 * 
-	 * public boolean equals(Object obj) { if (this == obj) return true; if (obj
-	 * == null) return false; if (getClass() != obj.getClass()) return false;
-	 * final Author other = (Author) obj; if (firstName == null) { if
-	 * (other.firstName != null) return false; } else if
-	 * (!firstName.equals(other.firstName)) return false; if (lastName !=
-	 * other.lastName) return false; return true; }
-	 */
-
 	public String getName() {
 		return name;
 	}
@@ -49,10 +34,9 @@ public class Author implements Serializable {
 		this.name = name;
 	}
 
-	
-
-
-
+	/**
+	 * the hashcode for the author
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -61,6 +45,9 @@ public class Author implements Serializable {
 		return result;
 	}
 
+	/**
+	 * the equals method for the author
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

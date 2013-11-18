@@ -2,12 +2,16 @@ package de.nak.librarymgmt.service;
 
 import de.nak.librarymgmt.model.Author;
 
+/**
+ * Interface AuthorService
+ */
+
 public interface AuthorService {
 
-//	void createAuthor(String firstName, String lastName);
-
-	Author findAuthorById(long id);
-
-	Author findAuthorByName(String name);
+	/**
+	 * creates and stores a new author entity
+	 * @param name
+	 */
+	Author findOrCreateAuthorWithName(String name);
 
 }

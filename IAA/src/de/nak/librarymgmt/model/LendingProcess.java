@@ -9,19 +9,42 @@ import de.nak.librarymgmt.util.StatusE;
 /**
  * The Lending Process POJO
  * 
- * @author Kowk Bond Chu
  */
 
 public class LendingProcess implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * the id of the lending process
+	 */
 	private long lendingProcessID;
+	/**
+	 * the borrower of the lending process
+	 */
 	private Borrower borrower;
+	/**
+	 * the publication lended
+	 */
 	private Publication publication;
+	/**
+	 * the issue date of the lending
+	 */
 	private Date issueDate;
+	/**
+	 * the return date of the lending
+	 */
 	private Date returnDate;
+	/**
+	 * the level of the extension
+	 */
 	private int extensionOfTimeLevel;
+	/**
+	 * the status of the lending process
+	 */
 	private StatusE status;
+	/**
+	 * the dunning level of the lending process
+	 */
 	private DunningLevelE dunningLevel;
 
 	public long getLendingProcessID() {

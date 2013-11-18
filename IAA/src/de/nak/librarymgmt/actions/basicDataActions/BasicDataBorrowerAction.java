@@ -35,7 +35,7 @@ public class BasicDataBorrowerAction extends ActionSupport {
 
 	public String addBorrower() throws Exception {
 
-		borrowerService.createBorrower(borrowerBean.getMatriculationNumber(),
+		borrowerService.createOrUpdateBorrower(borrowerBean.getMatriculationNumber(),
 				borrowerBean.getLastName(), borrowerBean.getLastName());
 
 		borrowers = borrowerService.listBorrowers();

@@ -1,45 +1,34 @@
 package de.nak.librarymgmt.service;
 
-import org.springframework.dao.DataIntegrityViolationException;
-
 import de.nak.librarymgmt.dao.AuthorDAO;
 import de.nak.librarymgmt.model.Author;
 
+/**
+ * the implementation for the author service
+ */
+
 public class AuthorServiceImpl implements AuthorService {
 
+	/**
+	 * initialization of the author DAO
+	 */
 	private AuthorDAO authorDAO;
 
-	@Override
-	/*
-	 * public void createAuthor(String firstName, String lastName) { Author
-	 * author = new Author(); author.setFirstName(firstName);
-	 * author.setLastName(lastName);
-	 * 
-	 * if (author == authorDAO.findByName(firstName, lastName)) { } else {
-	 * authorDAO.save(author); }
-	 * 
-	 * }
+	/**
+	 * finds or creates an Author, depending on already existing name or not
+	 * @param name 
 	 */
-	public Author findAuthorByName(String name) {
+	public Author findOrCreateAuthorWithName(String name) {
 		Author author = new Author();
 		author.setName(name);
 		Author existingAuthor = authorDAO.findByName(name);
 		if (existingAuthor != null) {
 			return authorDAO.findByName(name);
 		} else {
-			authorDAO.save(author);
+			authorDAO.createOrUpdate(author);
 			return authorDAO.findByName(name);
 		}
 
-	}
-
-	public Author findAuthorById(long id) {
-		Author author = authorDAO.findById(id);
-		try {
-			return author;
-		} catch (Exception e) {
-			return null; // TODO
-		}
 	}
 
 	public AuthorDAO getAuthorDAO() {

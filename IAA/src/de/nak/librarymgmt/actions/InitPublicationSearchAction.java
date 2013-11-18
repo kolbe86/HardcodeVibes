@@ -50,7 +50,7 @@ public class InitPublicationSearchAction extends ActionSupport {
 		}
 
 		// Get Keywords
-		keywords = keywordService.listAllKeywords();
+		keywords = keywordService.listKeywords();
 		keywordSelectionList = new LinkedList<String>();
 		for (Keyword keyword : keywords) {
 			keywordSelectionList.add(keyword.getName());

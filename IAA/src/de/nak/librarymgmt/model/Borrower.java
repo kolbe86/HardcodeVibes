@@ -3,13 +3,19 @@ package de.nak.librarymgmt.model;
 import java.io.Serializable;
 
 /**
- * 
+ * the borrower POJO
  */
 
 public class Borrower implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * the matriculation number of the borrower
+	 */
 	private int matriculationNumber;
+	/**
+	 * names of the borrower
+	 */
 	private String firstName;
 	private String lastName;
 

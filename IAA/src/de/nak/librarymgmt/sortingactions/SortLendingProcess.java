@@ -32,7 +32,7 @@ public class SortLendingProcess extends ActionSupport {
 		// they are filled by the radio buttons in the jsp
 		// then search for the right sorting method with switch and if
 		// statements
-		setLendingProcesses(lendingProcessService.listLendingProcess());
+		setLendingProcesses(lendingProcessService.listLendingProcesses());
 
 		switch (whichColumn) {
 		case "borrower":

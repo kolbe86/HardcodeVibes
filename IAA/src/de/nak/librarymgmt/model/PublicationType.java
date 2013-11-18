@@ -3,12 +3,15 @@ package de.nak.librarymgmt.model;
 import java.io.Serializable;
 import java.util.Set;
 
+/**
+ * the publication type POJO
+ */
 public class PublicationType implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * the name of the publication type
+	 */
 	private String name;
 
 	public String getName() {
@@ -19,6 +22,9 @@ public class PublicationType implements Serializable {
 		this.name = name;
 	}
 
+	/**
+	 * the hash method
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -27,6 +33,9 @@ public class PublicationType implements Serializable {
 		return result;
 	}
 
+	/**
+	 * the equals method
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -44,6 +53,9 @@ public class PublicationType implements Serializable {
 		return true;
 	}
 
+	/**
+	 * the to string method
+	 */
 	public String toString() {
 		return this.name;
 	}

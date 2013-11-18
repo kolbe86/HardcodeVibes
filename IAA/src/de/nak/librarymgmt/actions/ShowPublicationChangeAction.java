@@ -64,7 +64,7 @@ public class ShowPublicationChangeAction extends ActionSupport {
 		for (Keyword keyword : publicationBean.getKeywords()) {
 			selectedKeywords.add(keyword.getName());
 		}
-		keywords = keywordService.listAllKeywords();
+		keywords = keywordService.listKeywords();
 		keywordSelection = new LinkedList<String>();
 		for (Keyword keyword : keywords) {
 			keywordSelection.add(keyword.getName());

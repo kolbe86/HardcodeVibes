@@ -18,7 +18,7 @@ public class AddBorrowerAction extends ActionSupport {
 	public String execute() throws Exception {
 
 		// Create borrower and get new list for table in jsp
-		borrowerService.createBorrower(borrowerBean.getMatriculationNumber(),
+		borrowerService.createOrUpdateBorrower(borrowerBean.getMatriculationNumber(),
 				borrowerBean.getFirstName(), borrowerBean.getLastName());
 
 		borrowers = borrowerService.listBorrowers();

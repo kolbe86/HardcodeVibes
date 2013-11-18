@@ -16,33 +16,35 @@ import de.nak.librarymgmt.util.StatusE;
 /**
  * The borrower data access object(DAO).
  * 
- * @author Kowk Bond Chu
  */
 
 public class LendingProcessDAO extends HibernateDaoSupport {
 
 	/**
-	 * Persists the given lending process object.
+	 * persists or updates the given lending process object, depending on
+	 * existing object or not
 	 * 
 	 * @param lendingProcess
-	 *            , object to persist.
 	 */
-	public void save(LendingProcess lendingProcess) {
+	public void createOrUpdate(LendingProcess lendingProcess) {
 		getHibernateTemplate().saveOrUpdate(lendingProcess);
-		System.out.println("saved!");
 	}
 
 	/**
-	 * Deletes an given lending process object.
+	 * deletes an given lending process object.
 	 * 
 	 * @param lendingProcess
 	 *            , object to be deleted
-	 * 
 	 */
 	public void delete(LendingProcess lendingProcess) {
 		getHibernateTemplate().delete(lendingProcess);
 	}
 
+	/**
+	 * deletes all lending processes which contains the publications
+	 * 
+	 * @param publicationID
+	 */
 	public void deleteAllLendingProcessesWithLostPublication(long publicationID) {
 		List<LendingProcess> lendingProcessesWithGivenPublication = findAllByPublicationID(publicationID);
 		for (LendingProcess lendingProcess : lendingProcessesWithGivenPublication) {
@@ -50,6 +52,12 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 		}
 	}
 
+	/**
+	 * finds all lending processes with the given publicationID
+	 * 
+	 * @param publicationID
+	 * @result list of lending processes
+	 */
 	@SuppressWarnings("unchecked")
 	private List<LendingProcess> findAllByPublicationID(long publicationID) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
@@ -62,10 +70,9 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 	}
 
 	/**
-	 * Finds a lending process with the given id.
+	 * finds a lending process with the given id.
 	 * 
 	 * @param lendingProcessID
-	 *            to be searched for
 	 * @return lendingProcess object or <code>null</code>.
 	 */
 	public LendingProcess findById(Long lendingProcessID) {
@@ -77,6 +84,12 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 		return (LendingProcess) criteria.uniqueResult();
 	}
 
+	/**
+	 * finds a lending processes with the given publicationID
+	 * 
+	 * @param publicationID
+	 * @result list of lending processes
+	 */
 	public LendingProcess findByPublication(long publicationID) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(LendingProcess.class);
@@ -89,7 +102,7 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 	}
 
 	/**
-	 * Finds and returns all lending processes.
+	 * finds and returns all lending processes.
 	 * 
 	 * @return a list of lending processes.
 	 */
@@ -98,6 +111,11 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 		return getHibernateTemplate().find("from LendingProcess");
 	}
 
+	/**
+	 * finds and returns all active lending processes
+	 * 
+	 * @return a list of active lending processes
+	 */
 	@SuppressWarnings("unchecked")
 	public List<LendingProcess> findActiveProcesses() {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
@@ -107,6 +125,11 @@ public class LendingProcessDAO extends HibernateDaoSupport {
 		return ((List<LendingProcess>) criteria.list());
 	}
 
+	/**
+	 * finds and returns all dunned and open lending processes
+	 * 
+	 * @return a list of dunned and open lending processes
+	 */
 	@SuppressWarnings({ "unchecked" })
 	public List<LendingProcess> findDunnedProcesses() {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()

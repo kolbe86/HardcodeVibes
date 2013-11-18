@@ -61,7 +61,7 @@ public class AddAuthorAction extends ActionSupport {
 		for (String keyword : keywordSelection) {
 			selectedKeywords.add(keyword);
 		}
-		keywords = keywordService.listAllKeywords();
+		keywords = keywordService.listKeywords();
 		keywordSelection = new LinkedList<String>();
 		for (Keyword keyword : keywords) {
 			keywordSelection.add(keyword.getName());

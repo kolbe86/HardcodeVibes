@@ -20,7 +20,7 @@ public class DeleteKeywordAction extends ActionSupport {
 		// Delete Keyword and get list for table in jsp
 		keywordService.deleteKeyword(keywordBean.getName());
 
-		setKeywords(keywordService.listAllKeywords());
+		setKeywords(keywordService.listKeywords());
 
 		System.out.println("Delete BasicDataType Ende");
 		return "basicDataSuccess";

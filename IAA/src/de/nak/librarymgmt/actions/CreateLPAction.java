@@ -11,7 +11,6 @@ import de.nak.librarymgmt.service.BorrowerNotFoundException;
 import de.nak.librarymgmt.service.BorrowerService;
 import de.nak.librarymgmt.service.LendingProcessService;
 import de.nak.librarymgmt.service.PublicationAlreadyDistributedException;
-import de.nak.librarymgmt.service.PublicationAlreadyReservedException;
 import de.nak.librarymgmt.service.PublicationNotFoundException;
 import de.nak.librarymgmt.service.PublicationService;
 
@@ -55,9 +54,6 @@ public class CreateLPAction extends ActionSupport {
 			return "error";
 		} catch (PublicationAlreadyDistributedException e) {
 			System.out.println("Publication ist bereits verliehen");
-			return "error";
-		} catch (PublicationAlreadyReservedException e) {
-			System.out.println("Publication ist bereits reserviert");
 			return "error";
 		} catch (BorrowerNotFoundException e) {
 			System.out.println("Der Ausleiher wurde nicht gefunden");

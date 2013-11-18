@@ -1,40 +1,43 @@
 package de.nak.librarymgmt.dao;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Author;
 
+/**
+ * the author DAO
+ */
+
 public class AuthorDAO extends HibernateDaoSupport {
 
-	public void save(Author author) {
+	/**
+	 * persists or updates given author object
+	 * 
+	 * @param author
+	 */
+	public void createOrUpdate(Author author) {
 		getHibernateTemplate().saveOrUpdate(author);
 
 	}
 
-	public void delete(Author publicationType) {
-		getHibernateTemplate().delete(publicationType);
+	/**
+	 * deletes an given author
+	 * 
+	 * @param author
+	 *            not implemented because of associations with Books
+	 */
+	public void delete(Author author) {
+		getHibernateTemplate().delete(author);
 	}
 
-	@SuppressWarnings("unchecked")
-	public Set<Author> findAll() {
-		Set<Author> authorSet = new HashSet<Author>(getHibernateTemplate()
-				.find("from Author"));
-		return authorSet;
-	}
-
-	public Author findById(long id) {
-		Criteria criteria = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createCriteria(Author.class);
-		criteria.add(Restrictions.eq("id", id));
-		return (Author) getHibernateTemplate().get(Author.class, id);
-
-	}
-
+	/**
+	 * finds an author with a given name
+	 * 
+	 * @param name
+	 * @return author
+	 */
 	public Author findByName(String name) {
 		Criteria criteria = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createCriteria(Author.class);

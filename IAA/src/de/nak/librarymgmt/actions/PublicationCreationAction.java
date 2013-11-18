@@ -53,7 +53,7 @@ public class PublicationCreationAction extends ActionSupport {
 		// TODO Set<String> im Service in List<String> Šndern - mšglich?
 		Set<Author> authors = new HashSet<Author>();
 		for (String author : authorSelection) {
-			authors.add(authorService.findAuthorByName(author));
+			authors.add(authorService.findOrCreateAuthorWithName(author));
 		}
 
 		PublicationType publicationType = publicationTypeService

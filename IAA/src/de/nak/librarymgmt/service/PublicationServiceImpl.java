@@ -11,10 +11,24 @@ import de.nak.librarymgmt.model.Publication;
 import de.nak.librarymgmt.model.PublicationType;
 import de.nak.librarymgmt.util.ConditionE;
 
+/**
+ * 
+ * the implementation of the publication service
+ */
 public class PublicationServiceImpl implements PublicationService {
 
+	/**
+	 * the initialization of the publication DAO
+	 */
 	private PublicationDAO publicationDAO;
 
+	/**
+	 * creates and stores a new publication entity
+	 * 
+	 * @param title
+	 *            , authors, publicationDate, condition, publicationType,
+	 *            keywords, isbn, publisher, issue, edition
+	 */
 	@Override
 	public void createPublication(String title, Set<Author> authors,
 			Date publicationDate, ConditionE condition,
@@ -34,12 +48,19 @@ public class PublicationServiceImpl implements PublicationService {
 		publication.setDistributed(false);
 		try {
 
-			publicationDAO.save(publication);
+			publicationDAO.createOrUpdate(publication);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
 
+	/**
+	 * finds publication by given publicationID
+	 * 
+	 * @param publicationID
+	 * @return publication
+	 * @throws PublicationNotFoundException
+	 */
 	@Override
 	public Publication findPublicationById(long publicationID)
 			throws PublicationNotFoundException {
@@ -49,22 +70,23 @@ public class PublicationServiceImpl implements PublicationService {
 		}
 
 		return publication;
-
 	}
 
-	public PublicationDAO getPublicationDAO() {
-		return publicationDAO;
-	}
-
-	public void setPublicationDAO(PublicationDAO publicationDAO) {
-		this.publicationDAO = publicationDAO;
-	}
-
+	/**
+	 * lists all publications currently stored in the database
+	 * 
+	 * @return a list of publications
+	 */
 	@Override
 	public List<Publication> listPublications() {
 		return publicationDAO.findAll();
 	}
 
+	/**
+	 * deletes an given publication entity
+	 * 
+	 * @param publicationID
+	 */
 	@Override
 	public void deletePublication(long publicationID)
 			throws PublicationNotDeletableException {
@@ -77,6 +99,13 @@ public class PublicationServiceImpl implements PublicationService {
 		}
 	}
 
+	/**
+	 * updates an given publication
+	 * 
+	 * @param publicationID
+	 *            , title, authors, publicationDate, condition, publicationType,
+	 *            keywords, isbn, publisher, issue, edition, distributed,
+	 */
 	@Override
 	public void updatePublication(long publicationID, String title,
 			Set<Author> authors, Date publicationDate, ConditionE condition,
@@ -102,12 +131,27 @@ public class PublicationServiceImpl implements PublicationService {
 		}
 	}
 
+	/**
+	 * lists all publications filtered by criteria
+	 * 
+	 * @param , title, authors, publicationType, keywords, condition, isbn,
+	 *        publisher, edition, issue
+	 * @return
+	 */
 	@Override
 	public List<Publication> findPublicationByCriteria(String title,
-	Set<Author> authors, PublicationType publicationType,
-	Set<Keyword> keywords, ConditionE condition, String isbn,
-	String publisher, String edition, String issue) {
-	return publicationDAO.findByCriteria(title, authors, publicationType,
-	keywords, condition, isbn, publisher, edition, issue);
+			Set<Author> authors, PublicationType publicationType,
+			Set<Keyword> keywords, ConditionE condition, String isbn,
+			String publisher, String edition, String issue) {
+		return publicationDAO.findByCriteria(title, authors, publicationType,
+				keywords, condition, isbn, publisher, edition, issue);
+	}
+
+	public PublicationDAO getPublicationDAO() {
+		return publicationDAO;
+	}
+
+	public void setPublicationDAO(PublicationDAO publicationDAO) {
+		this.publicationDAO = publicationDAO;
 	}
 }

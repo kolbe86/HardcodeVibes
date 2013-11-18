@@ -18,7 +18,7 @@ public class LendingProcessStartupAction extends ActionSupport {
 
 	public String execute() throws Exception {
 
-		lendingProcesses = lendingProcessService.listLendingProcess();
+		lendingProcesses = lendingProcessService.listLendingProcesses();
 
 		if (!(paramLendingProcess == null)) {
 

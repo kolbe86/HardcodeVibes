@@ -1,11 +1,6 @@
 package de.nak.librarymgmt.dao;
 
 import java.util.List;
-
-import org.hibernate.Criteria;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import de.nak.librarymgmt.model.Borrower;
@@ -13,12 +8,10 @@ import de.nak.librarymgmt.model.Borrower;
 /**
  * The borrower data access object(DAO).
  * 
- * @author Kowk Bond Chu
  */
 
 public class BorrowerDAO extends HibernateDaoSupport {
 
-	SessionFactory sessionFactory;
 
 	/**
 	 * Persists the given borrower object.
@@ -26,7 +19,7 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	 * @param borrower
 	 *            , object to persist.
 	 */
-	public void save(Borrower borrower) {
+	public void createOrUpdate(Borrower borrower) {
 		getHibernateTemplate().saveOrUpdate(borrower);
 	}
 
@@ -52,27 +45,6 @@ public class BorrowerDAO extends HibernateDaoSupport {
 				matriculationNumber);
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<Borrower> findByMatriculationNumberList(int matriculationNumber) {
-		Criteria criteria = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createCriteria(Borrower.class);
-		criteria.add(Restrictions
-				.eq("matriculationNumber", matriculationNumber));
-		return ((List<Borrower>) criteria.list());
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Borrower> findByNames(String firstName, String lastName) {
-		Criteria criteria = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createCriteria(Borrower.class);
-		criteria.add(Restrictions.like("firstName", "%" + firstName + "%")
-				.ignoreCase());
-		criteria.add(Restrictions.like("lastName", "%" + lastName + "%")
-				.ignoreCase());
-		criteria.addOrder(Order.asc("lastName"));
-		return ((List<Borrower>) criteria.list());
-	}
-
 	/**
 	 * Deletes an given Borrower object.
 	 * 
@@ -83,4 +55,27 @@ public class BorrowerDAO extends HibernateDaoSupport {
 	public void delete(Borrower borrower) {
 		getHibernateTemplate().delete(borrower);
 	}
+	
+//	@SuppressWarnings("unchecked")
+//	public List<Borrower> findByMatriculationNumberList(int matriculationNumber) {
+//		Criteria criteria = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createCriteria(Borrower.class);
+//		criteria.add(Restrictions
+//				.eq("matriculationNumber", matriculationNumber));
+//		return ((List<Borrower>) criteria.list());
+//	}
+//
+//	@SuppressWarnings("unchecked")
+//	public List<Borrower> findByNames(String firstName, String lastName) {
+//		Criteria criteria = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createCriteria(Borrower.class);
+//		criteria.add(Restrictions.like("firstName", "%" + firstName + "%")
+//				.ignoreCase());
+//		criteria.add(Restrictions.like("lastName", "%" + lastName + "%")
+//				.ignoreCase());
+//		criteria.addOrder(Order.asc("lastName"));
+//		return ((List<Borrower>) criteria.list());
+//	}
+
+
 }
